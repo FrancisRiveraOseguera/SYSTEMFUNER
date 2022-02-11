@@ -35,10 +35,10 @@
     <a class="btn btn-info" href="{{route('Servicio.nuevo')}}">
     <i class="bi bi-plus-circle"></i>Nuevo Servicio</a>
 
-    
+
     <br> <br>
     </div>
-    
+
     <!--Barra de búsqueda-->
     <div id="busqueda" class="d-md-flex justify-content-md-end ">
         <form class="busqueda" action="{{route('Servicio.lista')}}" method="GET">
@@ -48,13 +48,13 @@
              <i class="bi bi-search"></i></button>
              <button type="submit" class="btn btn-secondary"  href="{{route('Servicio.lista')}}">
              <i class="bi bi-backspace"></i></button>
-             
-             
+
+
 
             </div>
-       </form> 
+       </form>
     </div>
-    
+
      <!--Mensaje de alerta para validacón-->
     @if(session('mensaje'))
     <div class= "alert alert-success">
@@ -79,20 +79,20 @@
   </thead>
 
 
-  <tbody>     
+  <tbody>
     @forelse($servicios as $Servicio)
-    <tr class="table"> 
+    <tr class="table">
         <th scope="row">{{$Servicio-> id}}</th>
         <td>{{$Servicio->type}}</td>
         <td>{{$Servicio->price}}</td>
         <td>{{$Servicio->category}}</td>
         <td>{{$Servicio->cuota}}</td>
-        <td> 
-         <a class="btn btn-info" ><i class="bi bi-eye"></i>Detalles</a>  
-         <a class="btn btn-light" > <i class="bi bi-pencil-square"></i>Editar </a>  
+        <td>
+         <a class="btn btn-info" ><i class="bi bi-eye"></i>Detalles</a>
+         <a class="btn btn-light" href="{{route('Servicio.editar', ['id'=>$Servicio->id])}}"> <i class="bi bi-pencil-square"></i>Editar </a>
          <a class="btn btn-success" ><i class="bi bi-currency-dollar"></i>Vender </a>  </td>
     <!--formulario de borrado que se crea por cada elemnto borrado -->
-    
+
     </tr>
     @empty
     <tr>

@@ -36,7 +36,7 @@ class ServicioController extends Controller
 
         //creación de objeto del modelo
         $nuevoServicio = new Servicio();
-        //recuperación y asignación de los datos que vienen con la petición 
+        //recuperación y asignación de los datos que vienen con la petición
         $nuevoServicio -> type = $request->input('type');
         $nuevoServicio -> category= $request->input('category');
         $nuevoServicio -> price = $request->input('price');
@@ -49,12 +49,53 @@ class ServicioController extends Controller
        if ($creado){
          return redirect()->route('Servicio.lista')->with('mensaje', 'El servicio fue agregado con éxito.');
        }else{
-           
+
        }
 
-    }//fin funcion store 
+    }//fin funcion store
 
 
-    
+    //Función para encontrar los datos del cliente a editar
+    public function editar($id){
+        $Servicio = Servicio::findOrFail($id);
+        return view('editarServicio')
+            ->with('Servicio', $Servicio);
+    }
+
+    //Función para guardar los datos actualizados
+    public function update(Request $request, $id){
+        //Validar campos del formulario editar
+        $request->validate( [
+            'type' => 'required | string  ',
+            'category' => 'required | alpha',
+            'price' => 'required | numeric| max:60000| min:13000',
+            'description' => 'required | string | max:300 ',
+            'cuota' => 'required | numeric |min:200',
+            'prima' => 'required | numeric| max:1500| min:500'
+        ] );
+
+        $actualizarServicio = Servicio::findOrFail($id);
+
+        //Recuperación de los datos guardados
+        $actualizarServicio -> type = $request->input('type');
+        $actualizarServicio -> category= $request->input('category');
+        $actualizarServicio -> price = $request->input('price');
+        $actualizarServicio -> description = $request->input('description');
+        $actualizarServicio -> cuota = $request->input('cuota');
+        $actualizarServicio -> prima = $request->input('prima');
+
+        $actualizado = $actualizarServicio-> save();
+
+        //Comprobar si fue actualizado
+        if ($actualizado){
+            return redirect()->route('Servicio.lista')->with('mensaje',
+                'Los datos del servicio han sido actualizados exitosamente.');
+        }else{
+        }
+    }
+
+
+
+
 
 }

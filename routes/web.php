@@ -27,3 +27,10 @@ Route::get('/NuevoServicio',[ServicioController::class, 'create'])
 
 Route::post('/NuevoServicio',[ServicioController::class, 'store'])
 ->name('Servicio.guardar');
+
+//RUTAS PARA EDITAR SERVICIO
+Route::get('/servicio/{id}/editar', 'App\Http\Controllers\ServicioController@editar')
+    ->name('Servicio.editar')->where('id', '[0-9]+');
+
+Route::put('/servicio/{id}/editar', 'App\Http\Controllers\ServicioController@update')
+    ->name('Servicio.update')->where('id', '[0-9]+');
