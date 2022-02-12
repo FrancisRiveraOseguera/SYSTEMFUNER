@@ -34,3 +34,10 @@ Route::get('/servicio/{id}/editar', 'App\Http\Controllers\ServicioController@edi
 
 Route::put('/servicio/{id}/editar', 'App\Http\Controllers\ServicioController@update')
     ->name('Servicio.update')->where('id', '[0-9]+');
+
+//RUTAS DE EMPLEADO
+Route::get('empleado',[EmpleadoController::class, 'index'])->name('empleado.index');
+
+Route::get('/empleado/nuevo',[EmpleadoController::class, 'create'])->name('empleado.nuevo');
+
+Route::post('empleado/nuevo',[EmpleadoController::class, 'store']);
