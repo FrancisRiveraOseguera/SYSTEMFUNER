@@ -43,11 +43,11 @@
     <div id="busqueda" class="d-md-flex justify-content-md-end ">
         <form class="busqueda" action="{{route('Servicio.lista')}}" method="GET">
              <div class="btn-group">
-             <input class="form-control" type="text" name="busqueda"  placeholder="Buscar por tipo o categoría" >
+             <input class="form-control" type="text" name="busqueda"  placeholder="Buscar por tipo o categoría">
              <button type="submit" class="btn btn-primary"  href="{{route('Servicio.lista')}}">
              <i class="bi bi-search"></i></button>
              <button type="submit" class="btn btn-secondary"  href="{{route('Servicio.lista')}}">
-             <i class="bi bi-backspace"></i></button>
+             <i class="bi bi-arrow-left-circle"></i></button>
 
 
 

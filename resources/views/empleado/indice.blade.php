@@ -20,11 +20,11 @@
             <h3> Lista de Empleados</h3> 
         </div>
         
-        <div class="col-lg-2">
-            <a class="btn btn-primary btn block" href="{{route('empleado.nuevo')}}">Nuevo Empleado</a>
+        <div class="col-lg-2.5">
+            <a class="btn btn-primary btn block" href="{{route('empleado.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo Empleado</a>
         </div>
         <div class="col-lg-3">
-            <a class="btn btn-info btn block" href="">  Empleado Desactivado </a>
+            <a class="btn btn-info btn block" href="">Empleado Desactivado</a>
         </div>
     </div>
 
@@ -33,7 +33,7 @@
 <br>
 <form action="{{route('empleado.index')}}" method="GET">
     <div class="input-group input-group-sm">
-        <a type="button" href='empleado' class="btn btn-info btn-sm">X</a>
+        <a type="button" href='empleado' class="btn btn-info btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
         <input type="search" class="form-control" name="busqueda"
             placeholder="Ingrese el nombre o identidad del empleado, para realizar la busqueda" value="{{$busqueda}}">
@@ -74,16 +74,16 @@
 
         <td>
             <a class="btn btn-info" 
-            href="">Detalles</a>
+            href=""><i class="bi bi-eye"></i>Detalles</a>
         </td>
 
         <td>
             <a class="btn btn-success" 
-                href="">Editar</a>
+                href=""><i class="bi bi-pencil-square"></i>Editar</a>
         </td>
         <td>
             <a class="btn btn-danger" 
-                        href="">Desactivar</a>
+                        href=""><i class="bi bi-dash-circle"></i>Desactivar</a>
         </td>
     </tr>
     @empty

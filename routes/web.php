@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\EmpleadoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

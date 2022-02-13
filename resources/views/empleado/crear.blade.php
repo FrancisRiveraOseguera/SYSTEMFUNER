@@ -28,7 +28,7 @@
     <form method="post" action="" autocomplete="off">
         @csrf
         <div class="form-group row">
-                <label for="DNI_empleado" class="col-lg-2 control-label offset-md-1 requerido">Identidad</label>
+                <label for="DNI_empleado" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-credit-card-2-front"></i>Identidad</label>
             <div class="col-sm-8">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "number"
@@ -38,7 +38,7 @@
         </div>
         
         <div class="form-group row">
-                <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido">Nombres</label>
+                <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
             <div class="col-sm-8">
                 <input type="text" name="nombres" id="nombres" placeholder="Nombres del empleado" class="form-control" value="{{old('nombres', $empleado->nombres ?? '')}}" required/>
             </div>
@@ -46,14 +46,14 @@
         
         
         <div class="form-group row">
-                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido">Apellidos</label>
+                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
             <div class="col-sm-8">
                 <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos del apellido." class="form-control" value="{{old('apellidos', $empleado->apellidos ?? '')}}" required/>
             </div>
         </div>
 
         <div class="form-group row">
-                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido">Dirección</label>
+                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido"><i  id="IcNewEmp"class="bi bi-signpost"></i>Dirección</label>
             <div class="col-sm-8">
                 <input type="text" name="direccion" id="direccion" placeholder="Dirección de domicilio." class="form-control" value="{{old('direccion', $empleado->direccion ?? '')}}" required/>
             </div>
@@ -63,7 +63,7 @@
         <?php $fecha_actual = date("d-m-Y");?>
         
         <div class="form-group row">
-                <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido">Fecha de Ingreso</label>
+                <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido"><i  id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso</label>
             <div class="col-sm-8">
                 <input type="date" name="fecha_ingreso" id="fecha_ingreso" class="form-control" 
                 value="{{old('fecha_ingreso', $empleado->fecha_ingreso ?? '')}}" required
@@ -72,7 +72,7 @@
         </div>
         
         <div class="form-group row">
-            <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido">Fecha Nacimiento</label>
+            <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido"><i  id="IcNewEmp"class="bi bi-calendar-month"></i>Fecha Nacimiento</label>
             <div class="col-sm-8">
                 <input type="date" name="fecha_de_nacimiento" id="fecha_de_nacimiento" class="form-control" 
                 value="{{old('fecha_de_nacimiento', $empleado->fecha_de_nacimiento ?? '')}}" required
@@ -83,7 +83,7 @@
         
         
         <div class="form-group row">
-            <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido">Teléfono de Empleado</label>
+            <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel.Empleado</label>
             <div class="col-sm-8">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "number"
@@ -92,7 +92,7 @@
         </div>
         
         <div class="form-group row">
-                <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido">Contacto de emergencia</label>
+                <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Contacto de emergencia</label>
             <div class="col-sm-8">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "number"
@@ -103,12 +103,12 @@
         <br>
 
         <!--botones-->
-        <a class="btn btn-primary" href="/empleado">Regresar</a> 
+        <a class="btn btn-primary" href="/empleado"><i class="bi bi-box-arrow-left"></i>Regresar</a> 
     
             
-                <button type="submit" class="btn btn-success" >Guardar</button>
+                <button type="submit" class="btn btn-success" ><i class="bi bi-save"></i>Guardar</button>
 
-                <button type="reset" class="btn btn-info" >Limpiar</button>
+                <button type="reset" class="btn btn-info" ><i class="bi bi-stars"></i>Limpiar</button>
 
     </form>
 
@@ -128,6 +128,13 @@
             font-style: bold;
             font-family: 'Times New Roman', Times, serif;
         }
+
+
+        #IcNewEmp{
+        font-size:25px;
+        width: 1em;
+        height: 1em;
+    }
 
        
     </style>    
