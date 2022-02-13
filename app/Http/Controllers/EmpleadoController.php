@@ -105,9 +105,13 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empleado $empleado)
+
+    //FUNCIÓN EDITAR INFORMACIÓN DEL EMPLEADO
+    public function edit($id)
     {
-        //
+        $empleado = Empleado::findOrFail($id);
+        return view('empleado/empleadoEditar')
+            ->with('empleado', $empleado);
     }
 
     /**
@@ -117,9 +121,40 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empleado $empleado)
+    
+    //ACTUALIZAR/VALIDAR DATOS DEL EMPLEADO
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'DNI_empleado' => 'required|max:13|min:13',
+            'nombres' => 'required|max:35',
+            'apellidos' => 'required|max:35',
+            'direccion' => 'required',
+            'fecha_ingreso' => 'required',
+            'fecha_de_nacimiento' => 'required',
+            'telefono' => 'required|max:8|min:8',
+            'contacto_de_emergencia' => 'required|max:8|min:8'
+        ]);
+
+        $actualizar = Empleado::findOrFail($id);
+
+        $actualizar -> DNI_empleado = $request->input('DNI_empleado');
+        $actualizar -> nombres = $request->input('nombres');
+        $actualizar -> apellidos = $request->input('apellidos');
+        $actualizar -> direccion = $request->input('direccion');
+        $actualizar -> fecha_ingreso = $request->input('fecha_ingreso');
+        $actualizar -> fecha_de_nacimiento = $request->input('fecha_de_nacimiento');
+        $actualizar -> telefono = $request->input('telefono');
+        $actualizar -> contacto_de_emergencia = $request->input('contacto_de_emergencia');
+
+        $actualizado = $actualizar->save();
+
+        if ($actualizado){
+            return redirect()->route('empleado.index')
+                ->with('mensaje', 'Los datos del empleado han sido actualizados exitosamente');
+        }else{
+
+        }
     }
 
     /**

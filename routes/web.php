@@ -42,3 +42,15 @@ Route::get('empleado',[EmpleadoController::class, 'index'])->name('empleado.inde
 Route::get('/empleado/nuevo',[EmpleadoController::class, 'create'])->name('empleado.nuevo');
 
 Route::post('empleado/nuevo',[EmpleadoController::class, 'store']);
+
+//EDITAR EMPLEADO
+Route::get('/empleado/{id}/editar', 'App\Http\Controllers\EmpleadoController@edit')
+    ->name('empleado.edit')->where('id', '[0-9]+');
+
+Route::put('/empleado/{id}/editar', 'App\Http\Controllers\EmpleadoController@update')
+    ->name('empleado.update')->where('id', '[0-9]+');
+
+//VER INFORMACIÓN DEL EMPLEADO
+Route::get('/empleado/{id}', 'App\Http\Controllers\EmpleadoController@show')
+    ->name('empleado.ver')
+    ->where('id', '[0-9]+');
