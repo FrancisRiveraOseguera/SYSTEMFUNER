@@ -74,12 +74,12 @@
 
         <td>
             <a class="btn btn-info" 
-            href=""><i class="bi bi-eye"></i>Detalles</a>
+            href="{{route('empleado.ver', ['id'=>$emple->id])}}"><i class="bi bi-eye"></i>Detalles</a>
         </td>
 
         <td>
             <a class="btn btn-success" 
-                href=""><i class="bi bi-pencil-square"></i>Editar</a>
+                href="{{route('empleado.edit', ['id'=> $emple->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
         </td>
         <td>
             <a class="btn btn-danger" 
