@@ -91,9 +91,12 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function show(Empleado $empleado)
+
+     //FUNCIÓN PARA VER INFORMACIÓN DEL EMPLEADO
+    public function show($id)
     {
-        //
+        $empleado = Empleado::findOrFail($id);
+        return view('empleado/empleadoVer')->with('empleado', $empleado);
     }
 
     /**
