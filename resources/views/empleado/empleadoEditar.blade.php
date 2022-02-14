@@ -50,6 +50,17 @@
                 </div>
 
                 <div class="form-group row">
+                    <label for="genero" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-gender-ambiguous"></i>Género</label>
+                    <div class="col-sm-8">
+                        <select name="genero" id="genero"  class="form-control" value="{{old('genero', $empleado->genero ?? '')}}" required/>
+                            <option selected disabled value="">Seleccione -></option>
+                            <option value="Maculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>    
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">Dirección</label>
                     <div class="col-sm-8">
                         <input type="text" name="direccion" id="direccion" placeholder="Dirección de domicilio." class="form-control" value="{{old('direccion', $empleado->direccion ?? '')}}" required/>

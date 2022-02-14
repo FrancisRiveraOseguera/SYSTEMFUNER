@@ -29,6 +29,13 @@
                     {{$empleado->apellidos}}
                 </div>
             </div>
+        
+            <div class="form-group row">
+                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">Género:</label>
+                <div class="col-sm-8">
+                    {{$empleado->genero}}
+                </div>
+            </div>
 
             <div class="form-group row">
                 <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">Dirección:</label>
