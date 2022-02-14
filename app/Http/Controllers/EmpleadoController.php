@@ -55,7 +55,7 @@ class EmpleadoController extends Controller
         'direccion' => 'required|max:100',
         'fecha_ingreso' => 'required',
         'fecha_de_nacimiento' => 'required',
-        'telefono' => 'required|max:8|min:8|unique:empleados,contacto_de_emergencia',
+        'telefono' => 'required|max:8|min:8|unique:empleados,telefono',
         'contacto_de_emergencia' => 'required|max:8|min:8|unique:empleados,contacto_de_emergencia',
         
     ];
