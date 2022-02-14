@@ -50,10 +50,11 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="genero" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-gender-ambiguous"></i>Género</label>
+                    <label for="genero" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                        <i id="IcNewEmp" class="bi bi-gender-ambiguous"></i>Género</label>
                     <div class="col-sm-8">
-                        <select name="genero" id="genero"  class="form-control" value="{{old('genero', $empleado->genero ?? '')}}" required/>
-                            <option selected disabled value="">Seleccione -></option>
+                        <select name="genero" id="genero" class="form-control" required/>
+                            <option value="{{$empleado->genero}}">{{$empleado->genero}}</option>
                             <option value="Maculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
                         </select>    
@@ -109,7 +110,6 @@
                 <!--Botones-->
                 <a class="btn btn-primary" href="/empleado">Regresar</a>
                 <button type="submit" class="btn btn-success" >Guardar</button>
-                <button type="reset" class="btn btn-info" >Limpiar</button>
 
             </form>
 
