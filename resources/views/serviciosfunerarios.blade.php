@@ -88,7 +88,7 @@
         <td>{{$Servicio->category}}</td>
         <td>{{$Servicio->cuota}}</td>
         <td>
-         <a class="btn btn-info" ><i class="bi bi-eye"></i>Detalles</a>
+         <a class="btn btn-info" href="{{route('Servicio.ver', ['id'=>$Servicio->id])}}"><i class="bi bi-eye"></i>Detalles</a>
          <a class="btn btn-light" href="{{route('Servicio.editar', ['id'=>$Servicio->id])}}"> <i class="bi bi-pencil-square"></i>Editar </a>
          <a class="btn btn-success" ><i class="bi bi-currency-dollar"></i>Vender </a>  </td>
     <!--formulario de borrado que se crea por cada elemnto borrado -->

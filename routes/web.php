@@ -36,6 +36,10 @@ Route::get('/servicio/{id}/editar', 'App\Http\Controllers\ServicioController@edi
 Route::put('/servicio/{id}/editar', 'App\Http\Controllers\ServicioController@update')
     ->name('Servicio.update')->where('id', '[0-9]+');
 
+//RUTA PARA VER LOS DETALLES DE UN SERVICIO
+Route::get('/servicio/{id}', 'App\Http\Controllers\ServicioController@show')
+    ->name('Servicio.ver')->where('id', '[0-9]+');
+
 //RUTAS DE EMPLEADO
 Route::get('empleado',[EmpleadoController::class, 'index'])->name('empleado.index');
 
