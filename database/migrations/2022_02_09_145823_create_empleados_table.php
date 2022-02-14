@@ -19,6 +19,7 @@ class CreateEmpleadosTable extends Migration
             $table->char('DNI_empleado', 13);
             $table->string('nombres', 35);
             $table->string('apellidos', 35);
+            $table->string('genero');
             $table->date('fecha_ingreso');
             $table->date('fecha_de_nacimiento');
             $table->string('direccion', 100);

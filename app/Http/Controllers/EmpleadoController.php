@@ -51,7 +51,8 @@ class EmpleadoController extends Controller
         'DNI_empleado' => 'required|max:13|min:13|unique:empleados,DNI_empleado',
         'nombres' => 'required|max:35',
         'apellidos' => 'required|max:35',
-        'direccion' => 'required',
+        'genero' => 'required',
+        'direccion' => 'required|max:100',
         'fecha_ingreso' => 'required',
         'fecha_de_nacimiento' => 'required',
         'telefono' => 'required|max:8|min:8|unique:empleados,contacto_de_emergencia',
@@ -66,6 +67,7 @@ class EmpleadoController extends Controller
     $nuevoEmpleado->DNI_empleado = $request->input('DNI_empleado');
     $nuevoEmpleado->nombres = $request->input('nombres');
     $nuevoEmpleado->apellidos = $request->input('apellidos');
+    $nuevoEmpleado->genero = $request->input('genero');
     $nuevoEmpleado->direccion= $request->input('direccion'); 
     $nuevoEmpleado->fecha_ingreso = $request->input('fecha_ingreso');
     $nuevoEmpleado->fecha_de_nacimiento = $request->input('fecha_de_nacimiento');

@@ -1,4 +1,4 @@
-@extends("madre")
+@extends('madre')
 
 @section ('title' , 'Nuevo Empleado');
 
@@ -38,24 +38,42 @@
         </div>
         
         <div class="form-group row">
-                <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
+            <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
             <div class="col-sm-8">
-                <input type="text" name="nombres" id="nombres" placeholder="Nombres del empleado" class="form-control" value="{{old('nombres', $empleado->nombres ?? '')}}" required/>
+                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type = "text"
+                maxlength = "35" name="nombres" id="nombres" maxlength="35" placeholder="Nombres del empleado" class="form-control" value="{{old('nombres', $empleado->nombres ?? '')}}" required/>  
             </div>
+
         </div>
-        
-        
+
         <div class="form-group row">
-                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
+            <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
             <div class="col-sm-8">
-                <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos del empleado." class="form-control" value="{{old('apellidos', $empleado->apellidos ?? '')}}" required/>
+                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type = "text"
+                maxlength = "35" name="apellidos" id="apellidos" maxlength="35" placeholder="Apellidos del empleado" class="form-control" value="{{old('apellidos', $empleado->apellidos ?? '')}}" required/>  
             </div>
         </div>
 
         <div class="form-group row">
-                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido"><i  id="IcNewEmp"class="bi bi-signpost"></i>Dirección</label>
+            <label for="genero" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-gender-ambiguous"></i>Género</label>
             <div class="col-sm-8">
-                <input type="text" name="direccion" id="direccion" placeholder="Dirección de domicilio." class="form-control" value="{{old('direccion', $empleado->direccion ?? '')}}" required/>
+                <select name="genero" id="genero"  class="form-control" value="{{old('genero', $empleado->genero ?? '')}}" required/>
+                    <option selected disabled value="">Seleccione -></option>
+                    <option value="Maculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>    
+            </div>
+        </div>
+
+    
+        <div class="form-group row">
+            <label for="direccion" class="col-lg-2 control-label offset-md-1 requerido"><i  id="IcNewEmp"class="bi bi-signpost"></i>Dirección</label>
+            <div class="col-sm-8">
+                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type = "text"
+                maxlength = "100" name="direccion" id="direccion" maxlength="100" placeholder="Dirección de domicilio." class="form-control" value="{{old('direccion', $empleado->direccion ?? '')}}" required/>  
             </div>
         </div>
 
