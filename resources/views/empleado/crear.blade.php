@@ -28,11 +28,11 @@
     <form method="post" action="" autocomplete="off">
         @csrf
         <div class="form-group row">
-                <label for="DNI_empleado" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-credit-card-2-front"></i>Identidad</label>
+                <label for="identidad" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-credit-card-2-front"></i>Identidad</label>
             <div class="col-sm-8">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "number"
-                maxlength = "13" name="DNI_empleado" id="DNI_empleado" maxlength="13" placeholder="Escriba el número de identidad del empleado, sin guiones." class="form-control" value="{{old('DNI_empleado', $empleado->DNI_empleado ?? '')}}" required/>  
+                maxlength = "13" name="identidad" id="identidad" maxlength="13" placeholder="Escriba el número de identidad del empleado, sin guiones." class="form-control" value="{{old('identidad', $empleado->identidad ?? '')}}" required/>  
         </div>
 
         </div>
@@ -61,7 +61,7 @@
             <div class="col-sm-8">
                 <select name="genero" id="genero"  class="form-control" value="{{old('genero', $empleado->genero ?? '')}}" required/>
                     <option selected disabled value="">Seleccione -></option>
-                    <option value="Maculino">Masculino</option>
+                    <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                 </select>    
             </div>
@@ -99,22 +99,29 @@
             </div>
         </div>
         
-        
+            
         <div class="form-group row">
             <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Empleado</label>
             <div class="col-sm-8">
-                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type = "number"
-                maxlength = "8" name="telefono" maxlength="8" placeholder="Número de teléfono del empleado." id="telefono" class="form-control" value="{{old('telefono', $empleado->telefono ?? '')}}" required/>
+            <input type="tel" require placeholder="Número de teléfono del empleado." maxlength="8"
+                id="telefono" name="telefono" class="form-control" 
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                pattern="^[9|8|7|3|2]\d{7}$"
+                title="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 o 9. "
+                value="{{old('telefono', $empleado->telefono ?? '')}}" required/>
             </div>
         </div>
         
+
         <div class="form-group row">
-                <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Contacto de emergencia</label>
+            <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Contacto de emergencia</label>
             <div class="col-sm-8">
-                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type = "number"
-                maxlength = "8" name="contacto_de_emergencia" maxlength="8" placeholder="Número de emergencia del empleado." id="contacto_de_emergencia" class="form-control" value="{{old('contacto_de_emergencia', $empleado->contacto_de_emergencia ?? '')}}" required/>
+            <input type="tel" require placeholder="Número de emergencia del empleado." maxlength="8"
+                id="contacto_de_emergencia" name="contacto_de_emergencia" class="form-control"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                pattern="^[9|8|7|3|2]\d{7}$"
+                title="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 o 9."
+                value="{{old('contacto_de_emergencia', $empleado->contacto_de_emergencia ?? '')}}" required/>
             </div>
         </div>
 

@@ -16,13 +16,13 @@ class CreateEmpleadosTable extends Migration
         Schema::create('empleados', function (Blueprint $table) {
          
             $table->increments('id');
-            $table->char('DNI_empleado', 13);
+            $table->char('identidad', 13);
             $table->string('nombres', 35);
             $table->string('apellidos', 35);
             $table->string('genero');
+            $table->string('direccion', 100);
             $table->date('fecha_ingreso');
             $table->date('fecha_de_nacimiento');
-            $table->string('direccion', 100);
             $table->char('telefono', 8)->nullable();
             $table->char('contacto_de_emergencia', 8)->nullable();
             $table->timestamps();

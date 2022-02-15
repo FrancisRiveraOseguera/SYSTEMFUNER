@@ -19,7 +19,7 @@ class EmpleadoController extends Controller
 
         $empleado = DB::table('empleados')
 
-            ->where('DNI_empleado', 'LIKE', '%'.$busqueda.'%')
+            ->where('identidad', 'LIKE', '%'.$busqueda.'%')
             ->orwhere('nombres', 'LIKE', '%'.$busqueda.'%')
             ->paginate(5);
 
@@ -48,9 +48,9 @@ class EmpleadoController extends Controller
     public function store(Request $request)
     {
         $rules=[
-        'DNI_empleado' => 'required|max:13|min:13|unique:empleados,DNI_empleado',
-        'nombres' => 'required|max:35',
-        'apellidos' => 'required|max:35',
+        'identidad' => 'required|max:13|min:13|unique:empleados,identidad',
+        'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
+        'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
         'genero' => 'required',
         'direccion' => 'required|max:100',
         'fecha_ingreso' => 'required',
@@ -64,7 +64,7 @@ class EmpleadoController extends Controller
     $this->validate($request,$rules);
 
     $nuevoEmpleado= new Empleado();
-    $nuevoEmpleado->DNI_empleado = $request->input('DNI_empleado');
+    $nuevoEmpleado->identidad = $request->input('identidad');
     $nuevoEmpleado->nombres = $request->input('nombres');
     $nuevoEmpleado->apellidos = $request->input('apellidos');
     $nuevoEmpleado->genero = $request->input('genero');

@@ -65,7 +65,7 @@
     <tbody>
     @forelse($empleado as $emple)
     <tr>    
-        <td>{{$emple->DNI_empleado}}</td>
+        <td>{{$emple->identidad}}</td>
         <td>{{$emple->nombres}}</td>
         <td>{{$emple->apellidos}}</td>
         <td>{{$emple->direccion}}</td>
