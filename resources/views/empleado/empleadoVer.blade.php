@@ -13,7 +13,7 @@
                 <label for="DNI_empleado" class="col-lg-2 control-label offset-md-1 requerido hijo">
                     <i id="IcNewEmp" class="bi bi-credit-card-2-front"></i>Identidad:</label>
                 <div class="col-sm-8">
-                  {{$empleado->DNI_empleado}}
+                  {{$empleado->identidad}}
                 </div>
             </div>
 

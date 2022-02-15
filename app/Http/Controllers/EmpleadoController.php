@@ -128,9 +128,9 @@ class EmpleadoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'DNI_empleado' => 'required|max:13|min:13',
-            'nombres' => 'required|max:35',
-            'apellidos' => 'required|max:35',
+            'identidad' => 'required|max:13|min:13|unique:empleados,identidad',
+            'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
+            'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'genero' => 'required',
             'direccion' => 'required',
             'fecha_ingreso' => 'required',
@@ -141,7 +141,7 @@ class EmpleadoController extends Controller
 
         $actualizar = Empleado::findOrFail($id);
 
-        $actualizar -> DNI_empleado = $request->input('DNI_empleado');
+        $actualizar -> identidad = $request->input('identidad');
         $actualizar -> nombres = $request->input('nombres');
         $actualizar -> apellidos = $request->input('apellidos');
         $actualizar -> genero = $request->input('genero');
