@@ -26,9 +26,9 @@ class ServicioController extends Controller
     public function store(Request $request){
         //VALIDACION de campos del formulario
         $request->validate( [
-            'tipo' => 'required |string|unique:servicios,tipo',
+            'tipo' => 'required |regex:/^[\pL\s\-]+$/u|unique:servicios,tipo|min:5',
             'categoria' => 'required | alpha',
-            'precio' => 'required | numeric| max:60000| min:13000',
+            'precio' => 'required | numeric| max:150000| min:13000',
             'detalles' => 'required | string | max:300 ',
             'cuota' => 'required | numeric |min:200',
             'prima' => 'required | numeric| max:1500| min:500'
@@ -66,9 +66,9 @@ class ServicioController extends Controller
     public function update(Request $request, $id){
         //Validar campos del formulario editar
         $request->validate( [
-            'tipo' => 'required | string  ',
+            'tipo' => 'required |regex:/^[\pL\s\-]+$/u|unique:servicios,tipo|min:5 ',
             'categoria' => 'required | alpha',
-            'precio' => 'required | numeric| max:60000| min:13000',
+            'precio' => 'required | numeric| max:150000| min:13000',
             'detalles' => 'required | string | max:300 ',
             'cuota' => 'required | numeric |min:200',
             'prima' => 'required | numeric| max:1500| min:500'

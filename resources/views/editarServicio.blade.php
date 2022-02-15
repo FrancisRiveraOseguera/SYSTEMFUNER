@@ -31,7 +31,9 @@
         <hr>
 
         @if ($errors->any())
-            <div class="alert alert-danger" >
+            <div class="alert alert-danger" data-auto-dismiss="3000">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-ban"></i>El Formulario Contiene Errores</h5>
                 <ul>
                     @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -51,7 +53,8 @@
     <div class="col">
       <div class="form-outline">
         <label class="form-label" for="tipo"><i id="IcNewServ" class="bi bi-archive"></i>Tipo de servicio</label>
-        <input type="text" id="tipo" class="form-control"  name="tipo"
+        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+        type="text"  maxlength = "50" id="tipo" class="form-control"  name="tipo"
         placeholder= "Ingresa el tipo de servicio"  value="{{$Servicio->tipo}}"/>
       </div>
     </div>
@@ -59,7 +62,8 @@
     <div class="col">
       <div class="form-outline">
           <label class=" form-label" for="precio"><i id="IcNewServ" class="bi bi-cash-coin"></i>Precio del servicio</label>
-        <input type="text" id="precio" class="form-control"  name="precio"
+        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+        type="text" maxlength = "6" id="precio" class="form-control"  name="precio"
         placeholder= "Ingresa el Precio de servicio" value="{{$Servicio->precio}}"/>
       </div>
     </div>
@@ -69,7 +73,8 @@
     <div class="col">
       <div class="form-outline">
         <label class="form-label" for="cuota"><i id="IcNewServ" class="bi bi-currency-dollar"></i>Cuota</label>
-        <input type="text" id="cuota" class="form-control"  name="cuota"
+        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+        type="text" maxlength = "5" id="cuota" class="form-control"  name="cuota"
         placeholder= "Ingresa la cuota"  value="{{$Servicio->cuota}}"/>
       </div>
     </div>
@@ -77,7 +82,8 @@
     <div class="col">
       <div class="form-outline">
           <label class=" form-label" for="prima"><i id="IcNewServ" class="bi bi-coin"></i>Prima del servicio</label>
-        <input type="text" id="prima" class="form-control"  name="prima"
+        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+        type="text" maxlength = "4" id="prima" class="form-control"  name="prima"
         placeholder= "Ingresa la prima del servicio" value="{{$Servicio->prima}}"/>
       </div>
     </div>

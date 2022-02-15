@@ -55,7 +55,8 @@
     <div class="col">
       <div class="form-outline">
         <label class="form-label" for="tipo"><i id="IcNewServ" class="bi bi-archive"></i>Tipo de servicio</label>
-        <input type="text" id="tipo" class="form-control"  name="tipo" 
+        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+        type="text" maxlength = "50" id="tipo" class="form-control"  name="tipo" 
         placeholder= "Ingresa el tipo de servicio"  value="{{old('type')}}"/>
       </div>
     </div>
