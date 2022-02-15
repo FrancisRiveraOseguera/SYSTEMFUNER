@@ -89,8 +89,7 @@
         <label class="form-label" for="description"><i id="IcNewServ" class="bi bi-pencil-square"></i>Descripción</label>
         <br>
         <textarea  name="description"  id="description"
-                   value="{{$Servicio->description}}" cols="52" rows="1" >
-            {{$Servicio->description}}
+                   value="{{$Servicio->description}}" cols="52" rows="1" >{{$Servicio->description}}
         </textarea>
 
       </div>

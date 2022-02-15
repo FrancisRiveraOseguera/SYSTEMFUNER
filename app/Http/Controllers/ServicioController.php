@@ -29,7 +29,7 @@ class ServicioController extends Controller
             'type' => 'required | string  ',
             'category' => 'required | alpha',
             'price' => 'required | numeric| max:60000| min:13000',
-            'description' => 'required | alpha | max:300 ',
+            'description' => 'required | string | max:300 ',
             'cuota' => 'required | numeric |min:200',
             'prima' => 'required | numeric| max:1500| min:500'
         ] );
@@ -69,7 +69,7 @@ class ServicioController extends Controller
             'type' => 'required | string  ',
             'category' => 'required | alpha',
             'price' => 'required | numeric| max:60000| min:13000',
-            'description' => 'required | alpha | max:300 ',
+            'description' => 'required | string | max:300 ',
             'cuota' => 'required | numeric |min:200',
             'prima' => 'required | numeric| max:1500| min:500'
         ] );
@@ -99,6 +99,6 @@ class ServicioController extends Controller
         $Servicio = Servicio::findOrFail($id);
         return view('detallesServicio')->with('Servicio', $Servicio);
     }
-    
+
 
 }
