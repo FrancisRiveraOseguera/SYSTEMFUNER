@@ -10,35 +10,40 @@
         <form method="post" action="">
             @csrf
             <div class="form-group row">
-                <label for="DNI_empleado" class="col-lg-2 control-label offset-md-1 requerido hijo">Identidad:</label>
+                <label for="DNI_empleado" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                    <i id="IcNewEmp" class="bi bi-credit-card-2-front"></i>Identidad:</label>
                 <div class="col-sm-8">
                   {{$empleado->DNI_empleado}}
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido hijo">Nombres:</label>
+                <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres:</label>
                 <div class="col-sm-8">
                  {{$empleado->nombres }}
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">Apellidos:</label>
+            <div class="form-group row" >
+                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos:</label>
                 <div class="col-sm-8">
                     {{$empleado->apellidos}}
                 </div>
             </div>
         
             <div class="form-group row">
-                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">Género:</label>
+                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="bi bi-gender-ambiguous"></i>Género:</label>
                 <div class="col-sm-8">
                     {{$empleado->genero}}
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">Dirección:</label>
+                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                <i  id="IcNewEmp"class="bi bi-signpost"></i>Dirección:</label>
                 <div class="col-sm-8">
                    {{$empleado->direccion}}
                 </div>
@@ -47,28 +52,32 @@
             <?php $fecha_actual = date("d-m-Y");?>
 
             <div class="form-group row">
-                <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido hijo">Fecha de Ingreso:</label>
+                <label for="fecha_ingreso"  class="col-lg-2 control-label offset-md-1 requerido hijo">
+                <i  id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso:</label>
                 <div class="col-sm-8">
                    {{$empleado->fecha_ingreso}}
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido hijo">Fecha Nacimiento:</label>
+                <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                <i  id="IcNewEmp"class="bi bi-calendar-month"></i>Fecha Nacimiento:</label>
                 <div class="col-sm-8">
                    {{$empleado->fecha_de_nacimiento}}
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido hijo">Teléfono de Empleado:</label>
+                <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Empleado:</label>
                 <div class="col-sm-8">
                     {{$empleado->telefono}}
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido hijo">Contacto de emergencia:</label>
+                <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="bi bi-telephone-forward"></i>Contacto de emergencia:</label>
                 <div class="col-sm-8">
                    {{$empleado->contacto_de_emergencia }}
                 </div>

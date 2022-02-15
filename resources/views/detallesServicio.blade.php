@@ -34,21 +34,21 @@
     <form class="form-outline w-100">
         <div class="form-group">
             <div class="form-inline">
-                <label class="form-label col-lg-3 offset-md-1" for="type">
+                <label class="form-label col-lg-3 offset-md-1" for="tipo">
                     <i id="IcNewServ" class="bi bi-archive"></i> Tipo de servicio
                 </label>
-                <input type="text" id="type" class="form-control col-sm-6" name="type"
-                       value="{{$Servicio->type}}" readonly/>
+                <input type="text" id="tipo" class="form-control col-sm-6" name="tipo"
+                       value="{{$Servicio->tipo}}" readonly/>
             </div>
         </div>
 
         <div class="form-group">
             <div class="form-inline">
-                <label class=" form-label col-lg-3 offset-md-1" for="price">
+                <label class=" form-label col-lg-3 offset-md-1" for="precio">
                     <i id="IcNewServ" class="bi bi-cash-coin"></i>Precio del servicio
                 </label>
-                <input type="text" id="price" class="form-control col-sm-6"  name="price"
-                       value="{{$Servicio->price}}" readonly/>
+                <input type="text" id="precio" class="form-control col-sm-6"  name="precio"
+                       value="{{$Servicio->precio}}" readonly/>
             </div>
         </div>
 
@@ -73,29 +73,31 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <div class="form-inline">
+                <label class="form-label col-lg-3 offset-md-1 text" for="categoria">
+                    <i  id="IcNewServ" class="bi bi-list-stars"></i>Categoría
+                </label>
+                <input type="text" id="categoria" class="form-control col-sm-6"  name="categoria"
+                       value="{{$Servicio->categoria}}" readonly/>
+            </div>
+        </div>
+
 
         <div class="form-group">
             <div class="form-inline">
-                <label class="form-label col-lg-3 offset-md-1" for="description">
-                    <i id="IcNewServ" class="bi bi-pencil-square"></i>Descripción
+                <label class="form-label col-lg-3 offset-md-1" for="detalles">
+                    <i id="IcNewServ" class="bi bi-pencil-square"></i>Detalles
                 </label>
                 <div class="col-sm-6">
-                        <textarea  name="description"  id="description"  cols="67" rows="3"
-                                   readonly>{{$Servicio->description}}
+                        <textarea  name="detalles"  id="detalles"  cols="52" rows="3"
+                                   readonly>{{$Servicio->detalles}}
                     </textarea>
                 </div>
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="form-inline">
-                <label class="form-label col-lg-3 offset-md-1 text" for="category">
-                    <i  id="IcNewServ" class="bi bi-list-stars"></i>Categoría
-                </label>
-                <input type="text" id="category" class="form-control col-sm-6"  name="category"
-                       value="{{$Servicio->category}}" readonly/>
-            </div>
-        </div>
+        
         <br>
 
         <!--Contenedor para los botones-->

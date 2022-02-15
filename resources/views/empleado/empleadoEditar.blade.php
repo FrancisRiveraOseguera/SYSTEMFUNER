@@ -26,7 +26,7 @@
                 @csrf
                 @method('put')
                 <div class="form-group row">
-                    <label for="DNI_empleado" class="col-lg-2 control-label offset-md-1 requerido hijo">Identidad</label>
+                    <label for="DNI_empleado" class="col-lg-2 control-label offset-md-1 requerido hijo"> <i id="IcNewEmp" class="bi bi-credit-card-2-front"></i> Identidad</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                type = "number"
@@ -36,14 +36,14 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido hijo">Nombres</label>
+                    <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
                     <div class="col-sm-8">
                         <input type="text" name="nombres" id="nombres" placeholder="Nombres del empleado" class="form-control" value="{{old('nombres', $empleado->nombres ?? '')}}" required/>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">Apellidos</label>
+                    <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
                     <div class="col-sm-8">
                         <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos del apellido." class="form-control" value="{{old('apellidos', $empleado->apellidos ?? '')}}" required/>
                     </div>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">Dirección</label>
+                    <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo"><i  id="IcNewEmp"class="bi bi-signpost"></i>Dirección</label>
                     <div class="col-sm-8">
                         <input type="text" name="direccion" id="direccion" placeholder="Dirección de domicilio." class="form-control" value="{{old('direccion', $empleado->direccion ?? '')}}" required/>
                     </div>
@@ -71,7 +71,7 @@
                 <?php $fecha_actual = date("d-m-Y");?>
 
                 <div class="form-group row">
-                    <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido hijo">Fecha de Ingreso</label>
+                    <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido hijo"><i  id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso</label>
                     <div class="col-sm-8">
                         <input type="date" name="fecha_ingreso" id="fecha_ingreso" class="form-control"
                                value="{{old('fecha_ingreso', $empleado->fecha_ingreso ?? '')}}" required
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido hijo">Fecha Nacimiento</label>
+                    <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido hijo"><i  id="IcNewEmp"class="bi bi-calendar-month"></i>Fecha Nacimiento</label>
                     <div class="col-sm-8">
                         <input type="date" name="fecha_de_nacimiento" id="fecha_de_nacimiento" class="form-control"
                                value="{{old('fecha_de_nacimiento', $empleado->fecha_de_nacimiento ?? '')}}" required
@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido hijo">Teléfono de Empleado</label>
+                    <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Empleado</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                type = "number"
@@ -99,7 +99,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido hijo">Contacto de emergencia</label>
+                    <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Contacto de emergencia</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                type = "number"
@@ -132,6 +132,10 @@
                 .hijo{
                     font-weight: bold;
                 }
+                #IcNewEmp{
+                     font-size:25px;
+                    width: 1em;
+                     height: 1em;}
 
             </style>
 

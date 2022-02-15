@@ -15,12 +15,12 @@ class CreateTableServicios extends Migration
     {
         Schema::create('servicios', function (Blueprint $table) {
             $table->id();
-            $table->string('type')->unique();
-            $table->string('category');
-            $table->float('price');
+            $table->string('tipo', 50);
+            $table->string('categoria');
+            $table->float('precio');
             $table->float('cuota');
-            $table->float('prima');
-            $table->string('description');
+            $table->float('prima', );
+            $table->string('detalles', 300);
             $table->timestamps();
         });
     }

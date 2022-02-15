@@ -10,8 +10,8 @@ class ServicioController extends Controller
     //función para mostrar la lista de servicios y hacer las búsquedas
     public function ListaServicios(Request $request){
         $busqueda = $request->busqueda;
-        $servicios = Servicio::where('type', 'like', '%'.$busqueda.'%')
-                                ->orWhere('category', 'like', '%'.$busqueda.'%')
+        $servicios = Servicio::where('tipo', 'like', '%'.$busqueda.'%')
+                                ->orWhere('categoria', 'like', '%'.$busqueda.'%')
                                 ->paginate(7);
         return view('serviciosfunerarios')-> with('servicios', $servicios);
     }//fin de la función
@@ -26,10 +26,10 @@ class ServicioController extends Controller
     public function store(Request $request){
         //VALIDACION de campos del formulario
         $request->validate( [
-            'type' => 'required | string  ',
-            'category' => 'required | alpha',
-            'price' => 'required | numeric| max:60000| min:13000',
-            'description' => 'required | string | max:300 ',
+            'tipo' => 'required |string|unique:servicios,tipo',
+            'categoria' => 'required | alpha',
+            'precio' => 'required | numeric| max:60000| min:13000',
+            'detalles' => 'required | string | max:300 ',
             'cuota' => 'required | numeric |min:200',
             'prima' => 'required | numeric| max:1500| min:500'
         ] );
@@ -37,10 +37,10 @@ class ServicioController extends Controller
         //creación de objeto del modelo
         $nuevoServicio = new Servicio();
         //recuperación y asignación de los datos que vienen con la petición
-        $nuevoServicio -> type = $request->input('type');
-        $nuevoServicio -> category= $request->input('category');
-        $nuevoServicio -> price = $request->input('price');
-        $nuevoServicio -> description = $request->input('description');
+        $nuevoServicio -> tipo = $request->input('tipo');
+        $nuevoServicio -> categoria= $request->input('categoria');
+        $nuevoServicio -> precio = $request->input('precio');
+        $nuevoServicio -> detalles = $request->input('detalles');
         $nuevoServicio -> cuota = $request->input('cuota');
         $nuevoServicio -> prima = $request->input('prima');
 
@@ -66,10 +66,10 @@ class ServicioController extends Controller
     public function update(Request $request, $id){
         //Validar campos del formulario editar
         $request->validate( [
-            'type' => 'required | string  ',
-            'category' => 'required | alpha',
-            'price' => 'required | numeric| max:60000| min:13000',
-            'description' => 'required | string | max:300 ',
+            'tipo' => 'required | string  ',
+            'categoria' => 'required | alpha',
+            'precio' => 'required | numeric| max:60000| min:13000',
+            'detalles' => 'required | string | max:300 ',
             'cuota' => 'required | numeric |min:200',
             'prima' => 'required | numeric| max:1500| min:500'
         ] );
@@ -77,10 +77,10 @@ class ServicioController extends Controller
         $actualizarServicio = Servicio::findOrFail($id);
 
         //Recuperación de los datos guardados
-        $actualizarServicio -> type = $request->input('type');
-        $actualizarServicio -> category= $request->input('category');
-        $actualizarServicio -> price = $request->input('price');
-        $actualizarServicio -> description = $request->input('description');
+        $actualizarServicio -> tipo = $request->input('tipo');
+        $actualizarServicio -> categoria= $request->input('categoria');
+        $actualizarServicio -> precio = $request->input('precio');
+        $actualizarServicio -> detalles = $request->input('detalles');
         $actualizarServicio -> cuota = $request->input('cuota');
         $actualizarServicio -> prima = $request->input('prima');
 

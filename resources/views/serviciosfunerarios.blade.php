@@ -83,9 +83,9 @@
     @forelse($servicios as $Servicio)
     <tr class="table">
         <th scope="row">{{$Servicio-> id}}</th>
-        <td>{{$Servicio->type}}</td>
-        <td>{{$Servicio->price}}</td>
-        <td>{{$Servicio->category}}</td>
+        <td>{{$Servicio->tipo}}</td>
+        <td>{{$Servicio->precio}}</td>
+        <td>{{$Servicio->categoria}}</td>
         <td>{{$Servicio->cuota}}</td>
         <td>
          <a class="btn btn-info" href="{{route('Servicio.ver', ['id'=>$Servicio->id])}}"><i class="bi bi-eye"></i>Detalles</a>

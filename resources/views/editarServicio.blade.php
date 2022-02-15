@@ -50,17 +50,17 @@
   <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
-        <label class="form-label" for="type"><i id="IcNewServ" class="bi bi-archive"></i>Tipo de servicio</label>
-        <input type="text" id="type" class="form-control"  name="type"
-        placeholder= "Ingresa el tipo de servicio"  value="{{$Servicio->type}}"/>
+        <label class="form-label" for="tipo"><i id="IcNewServ" class="bi bi-archive"></i>Tipo de servicio</label>
+        <input type="text" id="tipo" class="form-control"  name="tipo"
+        placeholder= "Ingresa el tipo de servicio"  value="{{$Servicio->tipo}}"/>
       </div>
     </div>
 
     <div class="col">
       <div class="form-outline">
-          <label class=" form-label" for="price"><i id="IcNewServ" class="bi bi-cash-coin"></i>Precio del servicio</label>
-        <input type="text" id="price" class="form-control"  name="price"
-        placeholder= "Ingresa el Precio de servicio" value="{{$Servicio->price}}"/>
+          <label class=" form-label" for="precio"><i id="IcNewServ" class="bi bi-cash-coin"></i>Precio del servicio</label>
+        <input type="text" id="precio" class="form-control"  name="precio"
+        placeholder= "Ingresa el Precio de servicio" value="{{$Servicio->precio}}"/>
       </div>
     </div>
     </div>
@@ -84,29 +84,30 @@
     </div>
 
   <div class="row mb-4">
-    <div class="col">
+ <div class="col">
       <div class="form-outline">
-        <label class="form-label" for="description"><i id="IcNewServ" class="bi bi-pencil-square"></i>Descripción</label>
+        <label class="form-label" for="detalles"><i id="IcNewServ" class="bi bi-pencil-square"></i>Descripción</label>
         <br>
-        <textarea  name="description"  id="description"
-                   value="{{$Servicio->description}}" cols="52" rows="1" >{{$Servicio->description}}
+        <textarea  name="detalles"  id="detalles"
+                   value="{{$Servicio->detalles}}" cols="52" rows="1" >{{$Servicio->detalles}}
         </textarea>
 
       </div>
     </div>
-
   <div class="col">
       <div class="form-outline">
-        <label class="form-label" for="category"><i  id="IcNewServ" class="bi bi-list-stars"></i>Categoría</label>
+        <label class="form-label" for="categoria"><i  id="IcNewServ" class="bi bi-list-stars"></i>Categoría</label>
         <br>
-        <select name="category" id="category" style=background:white  >
-       <option selected value="{{$Servicio->category}}">{{$Servicio->category}}</option>
+        <select name="categoria" id="categoria" style=background:white  >
+       <option selected value="{{$Servicio->categoria}}">{{$Servicio->categoria}}</option>
        <option value="Adultos">Adultos</option>
        <option value="Juvenil">Juvenil</option>
        <option value="Infantil">Infantil</option>
        </select>
       </div>
       </div>
+
+  
   </div>
 
     <!--Contenedor para los botones-->
