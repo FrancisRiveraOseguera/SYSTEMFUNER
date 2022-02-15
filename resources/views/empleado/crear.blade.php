@@ -107,7 +107,7 @@
                 id="telefono" name="telefono" class="form-control" 
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 pattern="^[9|8|7|3|2]\d{7}$"
-                title="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 o 9. "
+                title="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 ó 9. "
                 value="{{old('telefono', $empleado->telefono ?? '')}}" required/>
             </div>
         </div>
@@ -120,7 +120,7 @@
                 id="contacto_de_emergencia" name="contacto_de_emergencia" class="form-control"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 pattern="^[9|8|7|3|2]\d{7}$"
-                title="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 o 9."
+                title="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 ó 9."
                 value="{{old('contacto_de_emergencia', $empleado->contacto_de_emergencia ?? '')}}" required/>
             </div>
         </div>
