@@ -66,10 +66,10 @@ class ServicioController extends Controller
     public function update(Request $request, $id){
         //Validar campos del formulario editar
         $request->validate( [
-            'tipo' => 'required |regex:/^[\pL\s\-]+$/u|unique:servicios,tipo|min:5 ',
+            'tipo' => 'required |regex:/^[\pL\s\-]+$/u|min:5 ',
             'categoria' => 'required | alpha',
             'precio' => 'required | numeric| max:150000| min:13000',
-            'detalles' => 'required | string | max:300 ',
+            'detalles' => 'required | string | max:300',
             'cuota' => 'required | numeric |min:200',
             'prima' => 'required | numeric| max:1500| min:500'
         ] );
