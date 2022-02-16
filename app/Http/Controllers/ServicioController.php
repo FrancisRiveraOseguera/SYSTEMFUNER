@@ -4,16 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Servicio;
+use Illuminate\Support\Facades\DB;
 class ServicioController extends Controller
 {
 
     //función para mostrar la lista de servicios y hacer las búsquedas
     public function ListaServicios(Request $request){
-        $busqueda = $request->busqueda;
-        $servicios = Servicio::where('tipo', 'like', '%'.$busqueda.'%')
-                                ->orWhere('categoria', 'like', '%'.$busqueda.'%')
-                                ->paginate(7);
-        return view('serviciosfunerarios')-> with('servicios', $servicios);
+        $busqueda = trim($request->get('busqueda'));
+
+        $servicio = DB::table('servicios')
+
+            ->where('tipo', 'LIKE', '%'.$busqueda.'%')
+            ->orwhere('categoria', 'LIKE', '%'.$busqueda.'%')
+            ->paginate(5);
+
+            return view('serviciosfunerarios')
+            ->with('servicio', $servicio)
+            ->with('busqueda', $busqueda);
+
     }//fin de la función
 
     //función para crear un nuevo servicio
@@ -33,7 +41,8 @@ class ServicioController extends Controller
             'cuota' => 'required | numeric |min:200',
             'prima' => 'required | numeric| max:1500| min:500'
         ] );
-
+        
+        $this->validate($request,$request);
         //creación de objeto del modelo
         $nuevoServicio = new Servicio();
         //recuperación y asignación de los datos que vienen con la petición
