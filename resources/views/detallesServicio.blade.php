@@ -5,7 +5,7 @@
 
     <!--Contenedor para ver la información del tipo de servicio-->
     <div class="emple">
-        <h3> Detalles del tipo de Servicio</h3>
+        <h3> Detalles del tipo de servicio</h3>
         <hr>
         <div class="emple">
             <form class="form-outline">
@@ -60,7 +60,9 @@
                         <i id="IcNewServ" class="bi bi-pencil-square"></i>Detalles:
                     </label>
                     <div class="col-sm-8">
-                        {{$Servicio->detalles}}
+                        <textarea  name="detalles"  id="detalles" disabled
+                                   cols="52" rows="2" >{{$Servicio->detalles}}
+                        </textarea>
                     </div>
                 </div>
                 <br>
