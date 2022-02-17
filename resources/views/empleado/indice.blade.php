@@ -52,11 +52,11 @@
 
 <br>
 <!--Creación de tabla-->
-
-<table class="table table-bordered table-hover table-striped" id="tabla-data">
+<div class="emple !important">
+<table class="table">
     <thead>
     <tr>
-        
+        <tr class="table-info ">
         <th scope="col">Identidad</th>
         <th scope="col">Nombres</th>
         <th scope="col">Apellidos</th>
