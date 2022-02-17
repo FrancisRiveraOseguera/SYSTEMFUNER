@@ -31,14 +31,14 @@
             <label for="identidad" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-credit-card-2-front"></i>Identidad</label>
             <div class="col-sm-8">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type = "number"
+                type = "text"
                 maxlength = "13" name="identidad" id="identidad" maxlength = "13" placeholder="Escriba el número de identidad del empleado, sin guiones." 
                 class="form-control" value="{{old('identidad', $empleado->identidad ?? '')}}"/>  
             </div>
         </div>
 
 
-        
+
         <div class="form-group row">
                 <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
             <div class="col-sm-8">
@@ -49,6 +49,7 @@
             </div>
 
         </div>
+
 
         <div class="form-group row">
             <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
@@ -108,7 +109,7 @@
         <div class="form-group row">
             <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Empleado</label>
             <div class="col-sm-8">
-            <input type="number" placeholder="Número de teléfono del empleado." maxlength="8"
+            <input type="text" placeholder="Número de teléfono del empleado." maxlength="8"
                 id="telefono" name="telefono" maxlength="8" class="form-control" 
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 value="{{old('telefono', $empleado->telefono ?? '')}}"/>
@@ -119,7 +120,7 @@
         <div class="form-group row">
             <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Contacto de emergencia</label>
             <div class="col-sm-8">
-            <input type="number" placeholder="Número de emergencia del empleado." maxlength="8"
+            <input type="text" placeholder="Número de emergencia del empleado." maxlength="8"
                 id="contacto_de_emergencia" name="contacto_de_emergencia" maxlength="8" class="form-control" 
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
 

@@ -31,12 +31,12 @@
 
 <!--Barra de búsqueda-->
 <br>
-<form action="{{route('empleado.index')}}" method="GET">
-    <div class="input-group input-group-sm">
+<form  action="{{route('empleado.index')}}" method="GET" autocomplete="off">
+    <div   class="input-group input-group-sm">
         <a type="button" href='empleado' class="btn btn-info btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
-        <input type="search" class="form-control" name="busqueda"
-            placeholder="Ingrese el nombre o identidad del empleado, para realizar la busqueda" value="{{$busqueda}}">
+        <input type="search" class="col-sm-6" name="busqueda"
+            placeholder="Ingrese el nombre o identidad del empleado, para realizar la búsqueda" value="{{$busqueda}}">
 
         <div class="input-group-append">
             <button type="submit" class="btn btn-primary">
@@ -45,6 +45,7 @@
         </div>
     </div>
 </form>
+
 <br>
 <!--Creación de tabla-->
 
