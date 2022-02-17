@@ -162,17 +162,54 @@ class EmpleadoController extends Controller
     //ACTUALIZAR/VALIDAR DATOS DEL EMPLEADO
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'identidad' => 'required|max:13|min:13|unique:empleados,identidad',
+        $rules=[
+            'identidad' => 'required|regex:([0,1]{1}[0-9]{12})|numeric',
             'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'genero' => 'required',
-            'direccion' => 'required',
+            'direccion' => 'required|max:100',
             'fecha_ingreso' => 'required',
             'fecha_de_nacimiento' => 'required',
-            'telefono' => 'required|max:8|min:8',
-            'contacto_de_emergencia' => 'required|max:8|min:8'
-        ]);
+            'telefono' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
+            'contacto_de_emergencia' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
+        ];
+    
+        $mensaje=[
+            'identidad.required' => 'El campo :attribute no puede estar vacío.',
+            'identidad.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 0 o 1 y contener 13 números.',
+            'identidad.numeric' => 'El campo :attribute solo acepta números.',
+            'identidad.unique' => 'El campo :attribute debe de ser único.',
+
+            'nombres.required' => 'El campo :attribute no puede estar vacío.',
+            'nombres.regex' => 'El campo :attribute solo debe contener letras.',
+            'nombres.max' => 'El campo :attribute debe contener 35 letras como máximo.',
+
+            'apellidos.required' => 'El campo :attribute no puede estar vacío.',
+            'apellidos.regex' => 'El campo :attribute solo debe contener letras.',
+            'apellidos.max' => 'El campo :attribute debe contener 35 letras como máximo.',
+            
+            'genero.required' => 'El campo género no puede estar vacío.',
+
+            'direccion.required' => 'El campo dirección  no puede estar vacío.',
+            'direccion.max' => 'El campo dirección debe contener 100 letras como máximo.',
+
+            'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
+
+            'fecha_de_nacimiento.required' => 'El campo :attribute no puede estar vacío.',
+        
+            'telefono.required' => 'El campo teléfono no puede estar vacío.',
+            'telefono.unique' => 'El campo teléfono debe de ser único.',
+            'telefono.regex' => 'El campo teléfono no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
+            'telefono.numeric' => 'El campo teléfono solo acepta números.',
+            'telefono.unique' => 'El campo teléfono debe de ser único.',
+
+            'contacto_de_emergencia.required' => 'El campo :attribute no puede estar vacío.',
+            'contacto_de_emergencia.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
+            'contacto_de_emergencia.numeric' => 'El campo :attribute solo acepta números.',
+            'contacto_de_emergencia.unique' => 'El campo :attribute debe de ser único.',
+        ];
+
+    $this->validate($request,$rules,$mensaje);
 
         $actualizar = Empleado::findOrFail($id);
 

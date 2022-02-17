@@ -56,7 +56,6 @@
         <th scope="col">Identidad</th>
         <th scope="col">Nombres</th>
         <th scope="col">Apellidos</th>
-        <th scope="col">Dirección</th>
         <th scope="col">Teléfono</th>
         <th scope="col">Detalles</th>
         <th scope="col">Editar</th>
@@ -69,7 +68,6 @@
         <td>{{$emple->identidad}}</td>
         <td>{{$emple->nombres}}</td>
         <td>{{$emple->apellidos}}</td>
-        <td>{{$emple->direccion}}</td>
         <td>{{$emple->telefono}}</td>
 
 
