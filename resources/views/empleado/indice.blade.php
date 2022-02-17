@@ -17,34 +17,38 @@
 
     <div class="row">
         <div class="col-lg-7">
-            <h3> Lista de Empleados</h3> 
+            <h3> Lista de empleados</h3> 
         </div>
         
         <div class="col-lg-2.5">
-            <a class="btn btn-primary btn block" href="{{route('empleado.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo Empleado</a>
+            <a class="btn btn-primary btn block" href="{{route('empleado.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo empleado</a>
         </div>
         <div class="col-lg-3">
-            <a class="btn btn-info btn block" href="">Empleado Desactivado</a>
+            <a class="btn btn-info btn block" href="">Empleados desactivados</a>
         </div>
     </div>
 
 
 <!--Barra de búsqueda-->
+<div>
 <br>
-<form  action="{{route('empleado.index')}}" method="GET" autocomplete="off">
-    <div   class="input-group input-group-sm">
-        <a type="button" href='empleado' class="btn btn-info btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
+    <form  action="{{route('empleado.index')}}" method="GET" autocomplete="off">
+        <div   class="input-group input-group-sm">
+            <a type="button" href='empleado' class="btn btn-info btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
-        <input type="search" class="col-sm-6" name="busqueda"
-            placeholder="Ingrese el nombre o identidad del empleado, para realizar la búsqueda" value="{{$busqueda}}">
+            <input type="search" class="col-sm-6" name="busqueda"
+                placeholder="Ingrese el nombre o identidad del empleado, para realizar la búsqueda" value="{{$busqueda}}">
 
-        <div class="input-group-append">
-            <button type="submit" class="btn btn-primary">
-                Buscar
-            </button>
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">
+                    Buscar
+                </button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>
+
+</div><br>
 
 <br>
 <!--Creación de tabla-->

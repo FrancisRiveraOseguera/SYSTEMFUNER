@@ -60,38 +60,38 @@ class EmpleadoController extends Controller
         ];
     
     $mensaje=[
-        'identidad.required' => 'El campo :attribute no puede ser vacío',
-        'identidad.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 0 o 1 y contener 13 números',
-        'identidad.numeric' => 'El campo :attribute solo acepta números',
-        'identidad.unique' => 'El campo :attribute debe de ser único',
+        'identidad.required' => 'El campo :attribute no puede estar vacío.',
+        'identidad.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 0 o 1 y contener 13 números.',
+        'identidad.numeric' => 'El campo :attribute solo acepta números.',
+        'identidad.unique' => 'El campo :attribute debe de ser único.',
 
-        'nombres.required' => 'El campo :attribute no puede ser vacío',
-        'nombres.regex' => 'El campo :attribute solo debe contener letras ',
-        'nombres.max' => 'El campo :attribute debe contener 35 letras',
+        'nombres.required' => 'El campo :attribute no puede estar vacío.',
+        'nombres.regex' => 'El campo :attribute solo debe contener letras. ',
+        'nombres.max' => 'El campo :attribute debe contener 35 letras como máximo.',
 
-        'apellidos.required' => 'El campo :attribute no puede ser vacío',
-        'apellidos.regex' => 'El campo :attribute solo debe contener letras ',
-        'apellidos.max' => 'El campo :attribute debe contener 35 letras',
+        'apellidos.required' => 'El campo :attribute no puede estar vacío.',
+        'apellidos.regex' => 'El campo :attribute solo debe contener letras. ',
+        'apellidos.max' => 'El campo :attribute debe contener 35 letras como máximo.',
         
-        'genero.required' => 'El campo género no puede ser vacío',
+        'genero.required' => 'El campo género no puede estar vacío.',
 
-        'direccion.required' => 'El campo dirección  no puede ser vacío',
-        'direccion.max' => 'El campo dirección debe contener 100 letras',
+        'direccion.required' => 'El campo dirección  no puede estar vacío.',
+        'direccion.max' => 'El campo dirección debe contener 100 letras como máximo.',
 
-        'fecha_ingreso.required' => 'El campo :attribute no puede ser vacío',
+        'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
 
-        'fecha_de_nacimiento.required' => 'El campo :attribute no puede ser vacío',
+        'fecha_de_nacimiento.required' => 'El campo :attribute no puede estar vacío.',
     
-        'telefono.required' => 'El campo teléfono no puede ser vacío',
-        'telefono.unique' => 'El campo teléfono debe de ser único',
-        'telefono.regex' => 'El campo teléfono no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números',
-        'telefono.numeric' => 'El campo teléfono solo acepta números',
-        'telefono.unique' => 'El campo teléfono debe de ser único',
+        'telefono.required' => 'El campo teléfono no puede estar vacío.',
+        'telefono.unique' => 'El campo teléfono debe de ser único.',
+        'telefono.regex' => 'El campo teléfono no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
+        'telefono.numeric' => 'El campo teléfono solo acepta números.',
+        'telefono.unique' => 'El campo teléfono debe de ser único.',
 
-        'contacto_de_emergencia.required' => 'El campo :attribute no puede ser vacío',
-        'contacto_de_emergencia.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números',
-        'contacto_de_emergencia.numeric' => 'El campo :attribute solo acepta números',
-        'contacto_de_emergencia.unique' => 'El campo :attribute debe de ser único',
+        'contacto_de_emergencia.required' => 'El campo :attribute no puede estar vacío.',
+        'contacto_de_emergencia.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
+        'contacto_de_emergencia.numeric' => 'El campo :attribute solo acepta números.',
+        'contacto_de_emergencia.unique' => 'El campo :attribute debe de ser único.',
 
 
     ];
