@@ -86,7 +86,7 @@
             <br>
 
             <!--REGRESAR A PANTALLA PRINCIPAL EMPLEADO-->
-            <a class="btn btn-primary" href="/empleado">Regresar</a>
+            <a class="btn btn-warning" href="{{route('empleado.index')}}">Regresar</a>
 
         </form>
 

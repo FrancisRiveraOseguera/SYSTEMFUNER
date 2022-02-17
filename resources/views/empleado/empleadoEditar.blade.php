@@ -7,7 +7,7 @@
     @if ($errors->any())
         <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h5><i class="icon fas fa-ban"></i>El Formulario Contiene Errores</h5>
+            <h5><i class="icon fas fa-ban"></i>El formulario contiene errores</h5>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{$error}}</li>
@@ -63,14 +63,6 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
-                    <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo"><i  id="IcNewEmp"class="bi bi-signpost"></i>Dirección</label>
-                    <div class="col-sm-8">
-                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                        type="text" maxlength = "100" name="direccion" id="direccion" placeholder="Dirección de domicilio." class="form-control" value="{{old('direccion', $empleado->direccion ?? '')}}" required/>
-                    </div>
-                </div>
-
                 <?php $fecha_actual = date("d-m-Y");?>
 
                 <div class="form-group row">
@@ -108,13 +100,26 @@
                                type = "number"
                                maxlength = "8" name="contacto_de_emergencia" maxlength="8" placeholder="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 o 9." id="contacto_de_emergencia" class="form-control" value="{{old('contacto_de_emergencia', $empleado->contacto_de_emergencia ?? '')}}" required/>
                     </div>
-                </div><br>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-2 control-label offset-md-1 requerido hijo" for="direccion"><i id="IcNewServ" class="bi bi-pencil-square"></i>Direccion</label>
+                    <div class="col-sm-8">                        
+                        <textarea  
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                type="text" maxlength = "100" name="direccion" id="direccion" placeholder="Dirección de domicilio." 
+                                class="form-control" cols="52" rows="2" value="{{old('direccion', $empleado->direccion ?? '')}}" required>{{$empleado->direccion}}
+                        </textarea>
+                    </div>
+                </div>
+                <br>
 
                 <!--Botones-->
-                <a class="btn btn-primary" href="/empleado">Regresar</a>
-                <button type="submit" class="btn btn-success" >Guardar</button>
+                <a class="btn btn-warning" href="{{route('empleado.index')}}">Regresar</a>
+                <button type="submit" class="btn btn-success" >Actualizar</button>
+                <a class="btn btn-danger" href="{{route('empleado.index')}}">Cancelar</a>
 
-            </form>
+          </form>
 
             <style>
                 .emple {
