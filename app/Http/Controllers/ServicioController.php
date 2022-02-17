@@ -41,7 +41,7 @@ class ServicioController extends Controller
             'cuota' => 'required | numeric |min:200|max:1500',
             'prima' => 'required | numeric| max:10000| min:500'
         ] ;
-        
+
         $mensaje=[
             'tipo.required'  => 'El campo :attribute no puede estar vacío.',
             'tipo.regex'  =>'El campo :attribute no puede contener números.',
@@ -69,8 +69,8 @@ class ServicioController extends Controller
             'prima.required'  =>'El campo :attribute no puede estar vacío.',
             'prima.numeric'  =>'El campo :attribute no puede contener letras.',
             'prima.min'  =>'El campo :attribute no puede ser menor a L.500',
-            'prima.max'  =>'El campo :attribute no puede ser mayor a L.10,000',
-            
+            'prima.max'  =>'El campo :attribute no puede ser mayor a L.10000',
+
         ];
 
         $this->validate($request,$rules, $mensaje);
@@ -105,14 +105,46 @@ class ServicioController extends Controller
     //Función para guardar los datos actualizados
     public function update(Request $request, $id){
         //Validar campos del formulario editar
-        $request->validate( [
-            'tipo' => 'required |regex:/^[\pL\s\-]+$/u|min:5 ',
+        //Validar campos del formulario editar
+        $rules= [
+            'tipo' => 'required |regex:/^[\pL\s\-]+$/u|min:5',
             'categoria' => 'required | alpha',
-            'precio' => 'required | numeric| max:150000| min:13000',
-            'detalles' => 'required | string | max:300',
-            'cuota' => 'required | numeric |min:200',
-            'prima' => 'required | numeric| max:1500| min:500'
-        ] );
+            'precio' => 'required | numeric| max:200000| min:13000',
+            'detalles' => 'required | string | max:300 ',
+            'cuota' => 'required | numeric |min:200|max:1500',
+            'prima' => 'required | numeric| max:2000| min:500'
+        ] ;
+
+        $mensaje=[
+            'tipo.required'  => 'El campo :attribute no puede estar vacío',
+            'tipo.regex'  =>'El campo :attribute no puede contener números',
+            'tipo.min'  =>'El campo :attribute debe tener al menos de 5 letras',
+
+            'categoria.required' =>'El campo :attribute no puede estar vacío',
+            'categoria.alpha'  =>'El campo :attribute debe ser: Adultos, Juvenil o Infantil',
+
+            'precio.required'  =>'El campo :attribute no puede estar vacío',
+            'precio.numeric'  =>'El campo :attribute debe contener únicamente números',
+            'precio.max'  =>'El campo :attribute no debe exceder los L.200000',
+            'precio.min'  =>'El campo :attribute debe ser mayor a  L.13000',
+
+
+            'detalles.required'  =>'El campo :attribute del servicio no puede estar vacío',
+            'detalles.max'  =>'El campo :attribute no puede contener mas de 300 letras',
+
+            'cuota.required'  =>'El campo :attribute no puede estar vacío',
+            'cuota.numeric'  =>'El campo :attribute no puede contener letras',
+            'cuota.min'  =>'El campo :attribute no puede ser menor a L.200',
+            'cuota.max'  =>'El campo :attribute no puede ser mayor a L.1000',
+
+            'prima.required'  =>'El campo :attribute no puede estar vacío',
+            'prima.numeric'  =>'El campo :attribute no puede contener letras',
+            'prima.min'  =>'El campo :attribute no puede ser menor a L.500',
+            'prima.max'  =>'El campo :attribute no puede ser mayor a L.2000',
+
+        ];
+
+        $this->validate($request,$rules, $mensaje);
 
         $actualizarServicio = Servicio::findOrFail($id);
 
@@ -130,7 +162,6 @@ class ServicioController extends Controller
         if ($actualizado){
             return redirect()->route('Servicio.lista')->with('mensaje',
                 'Los datos del servicio han sido actualizados exitosamente.');
-        }else{
         }
     }
 
