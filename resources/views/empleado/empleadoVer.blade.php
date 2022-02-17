@@ -78,8 +78,7 @@
             <div class="form-group row">
                 <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp" class="bi bi-signpost"></i>Dirección:</label>
-                <textarea disabled cols="52" rows="2"> 
-                    {{$empleado->direccion}}
+                <textarea disabled cols="52" rows="2">{{$empleado->direccion}}
                 </textarea>
             </div>
             <br> 
