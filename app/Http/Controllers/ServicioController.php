@@ -33,16 +33,46 @@ class ServicioController extends Controller
     //función para guardar los datos del formulario
     public function store(Request $request){
         //VALIDACION de campos del formulario
-        $request->validate( [
+        $rules= [
             'tipo' => 'required |regex:/^[\pL\s\-]+$/u|unique:servicios,tipo|min:5',
             'categoria' => 'required | alpha',
-            'precio' => 'required | numeric| max:150000| min:13000',
+            'precio' => 'required | numeric| max:200000| min:13000',
             'detalles' => 'required | string | max:300 ',
-            'cuota' => 'required | numeric |min:200',
-            'prima' => 'required | numeric| max:1500| min:500'
-        ] );
+            'cuota' => 'required | numeric |min:200|max:1500',
+            'prima' => 'required | numeric| max:10000| min:500'
+        ] ;
         
-        $this->validate($request,$request);
+        $mensaje=[
+            'tipo.required'  => 'El campo :attribute no puede estar vacío',
+            'tipo.regex'  =>'El campo :attribute no puede contener números',
+            'tipo.unique'  =>'El campo :attribute debe ser único',
+            'tipo.min'  =>'El campo :attribute debe tener al menos de 5 letras',
+
+            'categoria.required' =>'El campo :attribute no puede estar vacío',
+            'categoria.alpha'  =>'El campo :attribute debe ser: Adultos, Juvenil o Infantil',
+
+            'precio.required'  =>'El campo :attribute no puede estar vacío',
+            'precio.numeric'  =>'El campo :attribute debe contener únicamente números',
+            'precio.max'  =>'El campo :attribute no debe exceder los L.200000',
+            'precio.min'  =>'El campo :attribute debe ser mayor a  L.13000',
+
+
+            'detalles.required'  =>'El campo :attribute del servicio no puede estar vacío',
+            'detalles.max'  =>'El campo :attribute no puede contener mas de 300 letras',
+
+            'cuota.required'  =>'El campo :attribute no puede estar vacío',
+            'cuota.numeric'  =>'El campo :attribute no puede contener letras',
+            'cuota.min'  =>'El campo :attribute no puede ser menor a L.200',
+            'cuota.max'  =>'El campo :attribute no puede ser mayor a L.1000',
+
+            'prima.required'  =>'El campo :attribute no puede estar vacío',
+            'prima.numeric'  =>'El campo :attribute no puede contener letras',
+            'prima.min'  =>'El campo :attribute no puede ser menor a L.500',
+            'prima.max'  =>'El campo :attribute no puede ser mayor a L.2000',
+            
+        ];
+
+        $this->validate($request,$rules, $mensaje);
         //creación de objeto del modelo
         $nuevoServicio = new Servicio();
         //recuperación y asignación de los datos que vienen con la petición

@@ -2,47 +2,58 @@
 @section ('title' , 'Servicios Funerarios');
 
 @section('content')
-<div class="servfun">
 
-    <div> <h1 class="servfu"> Servicios funerarios </h1> <hr>
-    <a class="btn btn-info" href="{{route('Servicio.nuevo')}}">
-    <i class="bi bi-plus-circle"></i>Nuevo Servicio</a>
-    <br> <br>
+<div class="serv">
+
+  <div class="xd">
+    <h2> Lista de Servicios Funerarios</h2> 
+    
+    <div>
+      <br>
+    <a class="btn btn-info btn block  "  href="{{route('Servicio.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo servicio</a>
     </div>
+  </div>
 
-    <!--Barra de búsqueda-->
-    <div id="busqueda" class="d-md-flex justify-content-md-end ">
-        <form class="busqueda" action="{{route('Servicio.lista')}}" method="GET">
-             <div class="btn-group">
-             <input class="form-control" type="search" name="busqueda"  placeholder="Buscar por tipo o categoría" >
-             <button type="submit" class="btn btn-primary"  href="{{route('Servicio.lista')}}">
-             <i class="bi bi-search"></i></button>
-             <button type="submit" class="btn btn-secondary"  href='servicio' >
-             <i class="bi bi-arrow-left-circle"></i></button>
-            </div>
-       </form>
-    </div>
+  
+              <hr>
+               <form action="{{route('Servicio.lista')}}" method="GET" class="x" >
+                 <div class="input-group input-group-sm">
+                      <a type="button" href="{{route('Servicio.lista')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
+                      <input type="search" class="col-sm-9" name="busqueda"
+                       placeholder="Buscar servicio por categoría o por tipo." value="{{$busqueda}}">
 
+                          <div class="input-group-append">
+                             <button type="submit" class="btn btn-primary">Buscar</button>    
+                          </div>
+                          
+                   </div>
+               </form> 
+
+               
+                
+
+
+    
      <!--Mensaje de alerta para validacón-->
     @if(session('mensaje'))
     <div class= "alert alert-success">
         {{session('mensaje')}}
     </div>
     @endif
-
-    </div><br>
+</div>
+<br>
 
     <!--Creación de tabla de servicios funerarios-->
 <div class="servfun !important">
   <table class="table ">
   <thead>
      <tr class="table-info ">
-      <th scope="col">N°Servicio</th>
-      <th scope="col">Tipo</th>
-      <th scope="col">Precio</th>
+      <th scope="col">N° Servicio</th>
+      <th scope="col">Tipo de servicio</th>
       <th scope="col">Categoría</th>
       <th scope="col">Cuota</th>
-      <th scope="col">Opciones</th>
+      <th scope="col" >Precio</th>
+      <th scope="col" style="text-align: center;">Opciones</th>
     </tr>
   </thead>
 
@@ -52,10 +63,10 @@
     <tr class="table">
         <th scope="row">{{$Servicio-> id}}</th>
         <td>{{$Servicio->tipo}}</td>
-        <td>{{$Servicio->precio}}</td>
         <td>{{$Servicio->categoria}}</td>
         <td>{{$Servicio->cuota}}</td>
-        <td>
+        <td>{{$Servicio->precio}}</td>
+        <td style="text-align: center;">
          <a class="btn btn-info" href="{{route('Servicio.ver', ['id'=>$Servicio->id])}}"><i class="bi bi-eye"></i>Detalles</a>
          <a class="btn btn-success" href="{{route('Servicio.editar', ['id'=>$Servicio->id])}}"> <i class="bi bi-pencil-square"></i>Editar </a>
          <a class="btn btn-warning" ><i class="bi bi-currency-dollar"></i>Vender </a>  </td>
@@ -65,7 +76,7 @@
     @empty
     <tr>
       <td colspan="3">
-          No hay servicios
+          No hay servicios agregados
       </td>
     </tr>
 
@@ -80,7 +91,21 @@
 <!--estilos-->
 <style>
 
-    .servfun {
+  .xd{
+    width:50%;
+  }
+  .x{
+    width:50%;
+    float:right
+    padding: 20px;
+    position: absolute;
+    top: 20%;
+    right: 20px;
+    
+  }
+
+    .serv {
+  
   border-top: 1px solid #E6E6E6 ;
   border-left: 1px solid #E6E6E6 ;
   border-right: 1px solid #E6E6E6;
@@ -90,15 +115,10 @@
   position:relative;
    }
 
-   .servfu{
+   .serv{
        font-style: bold;
        font-family: 'Times New Roman', Times, serif;
    }
 
-   .busqueda{
-    position: absolute;
-    top: 18%;
-    right: 20px;
-   }
 </style>
 @endsection

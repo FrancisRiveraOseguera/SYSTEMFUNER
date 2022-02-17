@@ -30,7 +30,7 @@
         <label class="form-label" for="tipo"><i id="IcNewServ" class="bi bi-archive"></i>Tipo de servicio</label>
         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
         type="text" maxlength = "50" id="tipo" class="form-control"  name="tipo" 
-        placeholder= "Ingresa el tipo de servicio"  value="{{old('type')}}"/>
+        placeholder= "Ingresa el tipo de servicio"  value="{{old('tipo', $servicio->tipo ?? '')}}"/>
       </div>
     </div>
 
@@ -39,7 +39,7 @@
           <label class=" form-label" for="precio"><i id="IcNewServ" class="bi bi-cash-coin"></i>Precio del servicio</label>
         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
         type="float" maxlength = "6" id="precio" class="form-control"  name="precio" 
-        placeholder= "Ingresa el Precio del servicio" value="{{old('precio')}}" />
+        placeholder= "Ingresa el Precio del servicio" value="{{old('precio', $servicio->precio?? '')}}" />
       </div>
     </div>
     </div>
@@ -50,7 +50,7 @@
         <label class="form-label" for="cuota"><i id="IcNewServ" class="bi bi-currency-dollar"></i>Cuota</label>
         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
         type="float" maxlength = "5" id="cuota" class="form-control"  name="cuota" 
-        placeholder= "Ingresa la cuota"  value="{{old('cuota')}}"/>
+        placeholder= "Ingresa la cuota"  value="{{old('cuota', $servicio->cuota?? '')}}"/>
       </div>
     </div>
 
@@ -59,7 +59,7 @@
           <label class=" form-label" for="prima"><i id="IcNewServ" class="bi bi-coin"></i>Prima del servicio</label>
         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
         type="float" maxlength = "4" id="prima" class="form-control"  name="prima" 
-        placeholder= "Ingresa la prima del servicio" value="{{old('prima')}}"/>
+        placeholder= "Ingresa la prima del servicio" value="{{old('prima', $servicio->prima ?? '')}}"/>
       </div>
     </div>
     </div>
@@ -80,7 +80,7 @@
         <label class="form-label" for="categoria"><i  id="IcNewServ" class="bi bi-list-stars"></i>Categoría</label>  
         <br>
         <select name="categoria" id="categoria"style=background:white  >
-       <option selected value="0"> Elige la categoría del nuevo servicio </option>
+       <option selected value="0" > Elige la categoría del nuevo servicio </option>
        <option value="Adultos">Adultos</option> 
        <option value="Juvenil">Juvenil</option> 
        <option value="Infantil">Infantil</option> 
