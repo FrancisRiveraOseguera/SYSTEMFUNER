@@ -8,7 +8,7 @@
     @if ($errors->any())
         <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h5><i class="icon fas fa-ban"></i>El Formulario Contiene Errores</h5>
+            <h5><i class="icon fas fa-ban"></i>El formulario contiene errores</h5>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{$error}}</li>
@@ -44,7 +44,7 @@
             <div class="col-sm-8">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "text"
-                maxlength = "35" name="nombres" id="nombres"  maxlength = "35" placeholder="Nombres del empleado" class="form-control" 
+                maxlength = "35" name="nombres" id="nombres"  maxlength = "35" placeholder="Nombres del empleado." class="form-control" 
                 value="{{old('nombres', $empleado->nombres ?? '')}}"/>  
             </div>
 
@@ -56,7 +56,7 @@
             <div class="col-sm-8">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "text"
-                maxlength = "35" name="apellidos" id="apellidos" maxlength = "35"  placeholder="Apellidos del empleado" class="form-control" 
+                maxlength = "35" name="apellidos" id="apellidos" maxlength = "35"  placeholder="Apellidos del empleado." class="form-control" 
                 value="{{old('apellidos', $empleado->apellidos ?? '')}}"/>  
             </div>
         </div>
@@ -69,17 +69,6 @@
                     <option value="Maculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                 </select>    
-            </div>
-        </div>
-
-    
-        <div class="form-group row">
-            <label for="direccion" class="col-lg-2 control-label offset-md-1 requerido"><i  id="IcNewEmp"class="bi bi-signpost"></i>Dirección</label>
-            <div class="col-sm-8">
-                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type = "text"
-                maxlength = "100" name="direccion" id="direccion" maxlength="100" placeholder="Dirección de domicilio." 
-                class="form-control" value="{{old('direccion', $empleado->direccion ?? '')}}"/>  
             </div>
         </div>
 
@@ -125,6 +114,19 @@
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
 
                 value="{{old('contacto_de_emergencia', $empleado->contacto_de_emergencia ?? '')}}"/>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="direccion" class="col-lg-2 control-label offset-md-1 requerido"><i  id="IcNewEmp"class="bi bi-signpost"></i>Dirección</label>
+            <div class="col-sm-8">
+                <textarea  
+                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type = "text"
+                maxlength = "100" name="direccion" id="direccion" maxlength="100" placeholder="Dirección de domicilio." 
+                class="form-control" value="{{old('direccion', $empleado->direccion ?? '')}}"/>  
+            </textarea>
             </div>
         </div>
 
