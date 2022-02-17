@@ -96,7 +96,7 @@
         <br>
         <textarea  name="detalles"  id="detalles" maxlength="300"
                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                   value="{{$Servicio->detalles}}" cols="52" rows="1" >{{$Servicio->detalles}}
+                   cols="52" rows="1" >{{$Servicio->detalles}}
         </textarea>
 
       </div>
