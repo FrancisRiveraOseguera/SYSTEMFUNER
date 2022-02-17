@@ -6,7 +6,7 @@
 <div class="serv">
 
   <div class="xd">
-    <h2> Lista de Servicios Funerarios</h2> 
+    <h2> Lista de servicios funerarios</h2> 
     
     <div>
       <br>
@@ -16,7 +16,7 @@
 
   
               <hr>
-               <form action="{{route('Servicio.lista')}}" method="GET" class="x" >
+               <form action="{{route('Servicio.lista')}}" method="GET" class="x"  autocomplete="off" >
                  <div class="input-group input-group-sm">
                       <a type="button" href="{{route('Servicio.lista')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
                       <input type="search" class="col-sm-9" name="busqueda"
@@ -53,7 +53,9 @@
       <th scope="col">Categoría</th>
       <th scope="col">Cuota</th>
       <th scope="col" >Precio</th>
-      <th scope="col" style="text-align: center;">Opciones</th>
+      <th scope="col" style="text-align: center;">Detalles</th>
+      <th scope="col" style="text-align: center;">Editar</th>
+      <th scope="col" style="text-align: center;">Vender</th>
     </tr>
   </thead>
 
@@ -68,8 +70,10 @@
         <td>{{$Servicio->precio}}</td>
         <td style="text-align: center;">
          <a class="btn btn-info" href="{{route('Servicio.ver', ['id'=>$Servicio->id])}}"><i class="bi bi-eye"></i>Detalles</a>
-         <a class="btn btn-success" href="{{route('Servicio.editar', ['id'=>$Servicio->id])}}"> <i class="bi bi-pencil-square"></i>Editar </a>
-         <a class="btn btn-warning" ><i class="bi bi-currency-dollar"></i>Vender </a>  </td>
+        <td style="text-align: center;">
+          <a class="btn btn-success" href="{{route('Servicio.editar', ['id'=>$Servicio->id])}}"> <i class="bi bi-pencil-square"></i>Editar </a></td> 
+        <td style="text-align: center;">
+          <a class="btn btn-warning" ><i class="bi bi-currency-dollar"></i>Vender </a>  </td></td>
     <!--formulario de borrado que se crea por cada elemnto borrado -->
 
     </tr>
