@@ -41,14 +41,6 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">
-                <i  id="IcNewEmp"class="bi bi-signpost"></i>Dirección:</label>
-                <div class="col-sm-8">
-                   {{$empleado->direccion}}
-                </div>
-            </div>
-
             <?php $fecha_actual = date("d-m-Y");?>
 
             <div class="form-group row">
@@ -83,7 +75,14 @@
                 </div>
             </div>
 
-            <br>
+            <div class="form-group row">
+                <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                <i  id="IcNewEmp" class="bi bi-signpost"></i>Dirección:</label>
+                <textarea disabled cols="52" rows="2"> 
+                    {{$empleado->direccion}}
+                </textarea>
+            </div>
+            <br> 
 
             <!--REGRESAR A PANTALLA PRINCIPAL EMPLEADO-->
             <a class="btn btn-warning" href="{{route('empleado.index')}}">Regresar</a>
