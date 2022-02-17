@@ -123,7 +123,7 @@
             <div class="col-sm-8">
                 <textarea  
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type = "text"
+                type = "text" placeholder="Dirección de domicilio ."
                 maxlength = "100" name="direccion" id="direccion" maxlength="100" placeholder="Dirección de domicilio." 
                 class="form-control" value="{{old('direccion', $empleado->direccion ?? '')}}"/>  
             </textarea>
