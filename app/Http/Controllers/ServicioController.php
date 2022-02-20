@@ -16,7 +16,7 @@ class ServicioController extends Controller
 
             ->where('tipo', 'LIKE', '%'.$busqueda.'%')
             ->orwhere('categoria', 'LIKE', '%'.$busqueda.'%')
-            ->paginate(5);
+            ->paginate(5)-> withQueryString();
 
             return view('serviciosfunerarios')
             ->with('servicio', $servicio)

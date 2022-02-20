@@ -92,10 +92,10 @@
   
     <!--Contenedor para los botones de la vista agregar servicio-->
       <div  >
-
-       <button type="submit" class="btn btn-success"  href="{{route('Servicio.lista')}}" ><i class="bi bi-save"></i>Agregar Servicio</button>
-       <a class="btn btn-danger " href="{{route('Servicio.lista')}}" > <i class="bi bi-x-octagon"></i> Cancelar</a>
-     </div>
+      <a class="btn btn-primary " href="{{route('Servicio.lista')}}" > <i class="bi bi-box-arrow-left"></i> Regresar</a>
+     
+       <button type="submit" class="btn btn-success"  href="{{route('Servicio.lista')}}" ><i class="bi bi-save"></i>Guardar</button>
+       </div>
   
     <br>
   </div>

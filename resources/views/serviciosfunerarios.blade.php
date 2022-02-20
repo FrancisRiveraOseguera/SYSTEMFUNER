@@ -6,7 +6,7 @@
 <div class="serv">
 
   <div class="xd">
-    <h2> Lista de servicios funerarios</h2> 
+    <h2> Listado de servicios funerarios</h2> 
     
     <div>
       <br>
@@ -88,6 +88,7 @@
 
    </tbody>
    </table>
+   
    <!--paginación de la tabla-->
    {{  $servicio->links() }}
 </div>
