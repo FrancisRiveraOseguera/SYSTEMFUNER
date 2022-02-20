@@ -74,7 +74,7 @@
           <div class="form-outline">
             <label class="form-label" for="cuota"><i id="IcNewServ" class="bi bi-currency-dollar"></i>Cuota</label>
             <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            type="float" maxlength = "5" id="cuota" class="form-control"  name="cuota"
+            type="float" maxlength = "4" id="cuota" class="form-control"  name="cuota"
             placeholder= "Ingresa la cuota"  value="{{$Servicio->cuota}}"/>
           </div>
         </div>
@@ -117,10 +117,10 @@
       </div>
 
         <!--Contenedor para los botones-->
-          <div>
-           <button type="submit" class="btn btn-success">Guardar Cambios</button>
-           <a class="btn btn-danger " href="{{route('Servicio.lista')}}" > <i class="bi bi-x-octagon"></i>Cancelar</a>
-         </div><br>
+        <div>
+            <a class="btn btn-primary" href="{{route('Servicio.lista')}}" > <i class="bi bi-box-arrow-left"></i>Regresar</a>
+            <button type="submit" class="btn btn-success"><i class="bi bi-save"></i>Guardar Cambios</button>
+        </div><br>
     </form>
 </div>
 @endsection
