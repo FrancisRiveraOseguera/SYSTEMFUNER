@@ -29,7 +29,7 @@
                     <label for="identidad" class="col-lg-2 control-label offset-md-1 requerido hijo"> <i id="IcNewEmp" class="bi bi-credit-card-2-front"></i> Identidad</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                               type = "number"
+                               type = "text"
                                maxlength = "13" name="identidad" id="DNI_empleado" maxlength="13" placeholder="Escriba el número de identidad del empleado, sin guiones."
                                class="form-control" value="{{$empleado->identidad}}"/>
                     </div>
@@ -88,7 +88,7 @@
                     <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Empleado</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                               type = "number"
+                               type = "text"
                                maxlength = "8" name="telefono" maxlength="8" placeholder="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 o 9." id="telefono" class="form-control" value="{{old('telefono', $empleado->telefono ?? '')}}"/>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                     <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Emergencia</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                               type = "number"
+                               type = "text"
                                maxlength = "8" name="contacto_de_emergencia" maxlength="8" placeholder="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 o 9." id="contacto_de_emergencia" class="form-control" value="{{old('contacto_de_emergencia', $empleado->contacto_de_emergencia ?? '')}}"/>
                     </div>
                 </div>
