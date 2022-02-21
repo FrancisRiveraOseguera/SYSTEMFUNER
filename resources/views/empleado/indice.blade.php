@@ -4,37 +4,29 @@
 
 @section('content')
 
-<!--Mensajes de alerta -->
-@if(session('mensaje'))
-<div class="alert alert-success">
-    {{session('mensaje')}}
-</div>
-@endif
-
-
 
 <div class="emple">
 
     <div class="row">
         <div class="col-lg-7">
-            <h3> Lista de empleados</h3> 
+            <h3> Listado de empleados</h3> 
         </div>
         
         <div class="col-lg-2.5">
-            <a class="btn btn-primary btn block" href="{{route('empleado.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo empleado</a>
+            <a class="btn btn-info btn block" href="{{route('empleado.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo empleado</a>
         </div>
         <div class="col-lg-3">
-            <a class="btn btn-info btn block" href="">Empleados desactivados</a>
+            <a class="btn btn-secondary btn block" href=""><i class="bi bi-dash-circle"></i>Empleados desactivados</a>
         </div>
     </div>
 
 
 <!--Barra de búsqueda-->
 <div>
-<br>
+    <br>
     <form  action="{{route('empleado.index')}}" method="GET" autocomplete="off">
         <div   class="input-group input-group-sm">
-            <a type="button" href='empleado' class="btn btn-info btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
+            <a type="button" href="{{route('empleado.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
             <input type="search" class="col-sm-6" name="busqueda"
                 placeholder="Ingrese el nombre o identidad del empleado, para realizar la búsqueda" value="{{$busqueda}}">
@@ -47,10 +39,17 @@
         </div>
     </form>
 </div>
+<hr>
 
+<!--Mensajes de alerta -->
+@if(session('mensaje'))
+<div class="alert alert-success">
+    {{session('mensaje')}}
+</div>
+@endif
 </div><br>
 
-<br>
+
 <!--Creación de tabla-->
 <div class="emple !important">
 <table class="table">

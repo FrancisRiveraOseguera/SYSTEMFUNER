@@ -21,7 +21,7 @@ class EmpleadoController extends Controller
 
             ->where('identidad', 'LIKE', '%'.$busqueda.'%')
             ->orwhere('nombres', 'LIKE', '%'.$busqueda.'%')
-            ->paginate(5);
+            ->paginate(5)-> withQueryString();
 
             return view('empleado/indice')
             ->with('empleado', $empleado)
@@ -52,11 +52,11 @@ class EmpleadoController extends Controller
             'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'genero' => 'required',
-            'direccion' => 'required|max:100',
             'fecha_ingreso' => 'required',
             'fecha_de_nacimiento' => 'required',
             'telefono' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric||unique:empleados,telefono',
             'contacto_de_emergencia' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:empleados,contacto_de_emergencia',
+            'direccion' => 'required|max:100',
         ];
     
     $mensaje=[
@@ -75,9 +75,6 @@ class EmpleadoController extends Controller
         
         'genero.required' => 'El campo género no puede estar vacío.',
 
-        'direccion.required' => 'El campo dirección  no puede estar vacío.',
-        'direccion.max' => 'El campo dirección debe contener 100 letras como máximo.',
-
         'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
 
         'fecha_de_nacimiento.required' => 'El campo :attribute no puede estar vacío.',
@@ -92,6 +89,9 @@ class EmpleadoController extends Controller
         'contacto_de_emergencia.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
         'contacto_de_emergencia.numeric' => 'El campo :attribute solo acepta números.',
         'contacto_de_emergencia.unique' => 'El campo :attribute debe de ser único.',
+
+        'direccion.required' => 'El campo dirección  no puede estar vacío.',
+        'direccion.max' => 'El campo dirección debe contener 100 letras como máximo.',
 
 
     ];
