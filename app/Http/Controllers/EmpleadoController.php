@@ -85,10 +85,10 @@ class EmpleadoController extends Controller
         'telefono.numeric' => 'El campo teléfono solo acepta números.',
         'telefono.unique' => 'El campo teléfono debe de ser único.',
 
-        'contacto_de_emergencia.required' => 'El campo :attribute no puede estar vacío.',
-        'contacto_de_emergencia.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
-        'contacto_de_emergencia.numeric' => 'El campo :attribute solo acepta números.',
-        'contacto_de_emergencia.unique' => 'El campo :attribute debe de ser único.',
+        'contacto_de_emergencia.required' => 'El campo teléfono de emergencia no puede estar vacío.',
+        'contacto_de_emergencia.regex' => 'El campo teléfono de emergencia no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
+        'contacto_de_emergencia.numeric' => 'El campo teléfono de emergencia solo acepta números.',
+        'contacto_de_emergencia.unique' => 'El campo teléfono de emergencia debe de ser único.',
 
         'direccion.required' => 'El campo dirección  no puede estar vacío.',
         'direccion.max' => 'El campo dirección debe contener 100 letras como máximo.',
