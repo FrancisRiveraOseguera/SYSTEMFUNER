@@ -39,7 +39,7 @@
                     <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                        type="text"  maxlength = "35"name="nombres" id="nombres" placeholder="Nombres del empleado" class="form-control" value="{{old('nombres', $empleado->nombres ?? '')}}" required/>
+                        type="text"  maxlength = "35"name="nombres" id="nombres" placeholder="Nombres del empleado" class="form-control" value="{{old('nombres', $empleado->nombres ?? '')}}"/>
                     </div>
                 </div>
 
@@ -47,7 +47,7 @@
                     <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                        type="text" maxlength = "35" name="apellidos" id="apellidos" placeholder="Apellidos del apellido." class="form-control" value="{{old('apellidos', $empleado->apellidos ?? '')}}" required/>
+                        type="text" maxlength = "35" name="apellidos" id="apellidos" placeholder="Apellidos del apellido." class="form-control" value="{{old('apellidos', $empleado->apellidos ?? '')}}"/>
                     </div>
                 </div>
 
@@ -55,9 +55,9 @@
                     <label for="genero" class="col-lg-2 control-label offset-md-1 requerido hijo">
                         <i id="IcNewEmp" class="bi bi-gender-ambiguous"></i>Género</label>
                     <div class="col-sm-8">
-                        <select name="genero" id="genero" class="form-control" required/>
+                        <select name="genero" id="genero" class="form-control"/>
                             <option value="{{$empleado->genero}}">{{$empleado->genero}}</option>
-                            <option value="Maculino">Masculino</option>
+                            <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
                         </select>    
                     </div>
@@ -69,7 +69,7 @@
                     <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido hijo"><i  id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso</label>
                     <div class="col-sm-8">
                         <input type="date" name="fecha_ingreso" id="fecha_ingreso" class="form-control"
-                               value="{{old('fecha_ingreso', $empleado->fecha_ingreso ?? '')}}" required
+                               value="{{old('fecha_ingreso', $empleado->fecha_ingreso ?? '')}}"
                                max="<?php echo date('Y-m-d',strtotime($fecha_actual));?>"/>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                     <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido hijo"><i  id="IcNewEmp"class="bi bi-calendar-month"></i>Fecha Nacimiento</label>
                     <div class="col-sm-8">
                         <input type="date" name="fecha_de_nacimiento" id="fecha_de_nacimiento" class="form-control"
-                               value="{{old('fecha_de_nacimiento', $empleado->fecha_de_nacimiento ?? '')}}" required
+                               value="{{old('fecha_de_nacimiento', $empleado->fecha_de_nacimiento ?? '')}}"
                                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 60 year"));?>"
                                max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 18 year"));?>"/>
                     </div>
@@ -89,7 +89,7 @@
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                type = "number"
-                               maxlength = "8" name="telefono" maxlength="8" placeholder="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 o 9." id="telefono" class="form-control" value="{{old('telefono', $empleado->telefono ?? '')}}" required/>
+                               maxlength = "8" name="telefono" maxlength="8" placeholder="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 o 9." id="telefono" class="form-control" value="{{old('telefono', $empleado->telefono ?? '')}}"/>
                     </div>
                 </div>
 
@@ -98,18 +98,15 @@
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                type = "number"
-                               maxlength = "8" name="contacto_de_emergencia" maxlength="8" placeholder="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 o 9." id="contacto_de_emergencia" class="form-control" value="{{old('contacto_de_emergencia', $empleado->contacto_de_emergencia ?? '')}}" required/>
+                               maxlength = "8" name="contacto_de_emergencia" maxlength="8" placeholder="Ingrese un número de teléfono válido que contenga 8 números e inicie con 2, 3, 7, 8 o 9." id="contacto_de_emergencia" class="form-control" value="{{old('contacto_de_emergencia', $empleado->contacto_de_emergencia ?? '')}}"/>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-lg-2 control-label offset-md-1 requerido hijo" for="direccion"><i id="IcNewServ" class="bi bi-pencil-square"></i>Direccion</label>
-                    <div class="col-sm-8">                        
-                        <textarea  
-                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                type="text" maxlength = "100" name="direccion" id="direccion" placeholder="Dirección de domicilio." 
-                                class="form-control" cols="52" rows="2" value="{{old('direccion', $empleado->direccion ?? '')}}" required>{{$empleado->direccion}}
-                        </textarea>
+                    
+                    <div class="col-sm-8">
+                        <textarea oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="text" maxlength = "100" name="direccion" id="direccion" placeholder="Dirección de domicilio." class="form-control" cols="52" rows="1" value="{{old('direccion', $empleado->direccion ?? '')}}">{{$empleado->direccion}}</textarea>
                     </div>
                 </div>
                 <br>
