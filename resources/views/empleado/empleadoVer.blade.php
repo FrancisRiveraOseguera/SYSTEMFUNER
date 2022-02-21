@@ -69,7 +69,7 @@
 
             <div class="form-group row">
                 <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido hijo">
-                <i id="IcNewEmp" class="bi bi-telephone-forward"></i>Contacto de emergencia:</label>
+                <i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. emergencia:</label>
                 <div class="col-sm-8">
                    {{$empleado->contacto_de_emergencia }}
                 </div>
@@ -84,7 +84,7 @@
             <br> 
 
             <!--REGRESAR A PANTALLA PRINCIPAL EMPLEADO-->
-            <a class="btn btn-warning" href="{{route('empleado.index')}}">Regresar</a>
+            <a class="btn btn-primary" href="{{route('empleado.index')}}" > <i class="bi bi-box-arrow-left"></i>Regresar</a>
 
         </form>
 

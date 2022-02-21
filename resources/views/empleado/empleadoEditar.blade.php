@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Contacto de emergencia</label>
+                    <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Emergencia</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                type = "number"
@@ -103,7 +103,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-lg-2 control-label offset-md-1 requerido hijo" for="direccion"><i id="IcNewServ" class="bi bi-pencil-square"></i>Direccion</label>
+                    <label class="col-lg-2 control-label offset-md-1 requerido hijo" for="direccion"><i id="IcNewServ" class="bi bi-pencil-square"></i>Dirección</label>
                     
                     <div class="col-sm-8">
                         <textarea oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="text" maxlength = "100" name="direccion" id="direccion" placeholder="Dirección de domicilio." class="form-control" cols="52" rows="1" value="{{old('direccion', $empleado->direccion ?? '')}}">{{$empleado->direccion}}</textarea>
@@ -112,10 +112,11 @@
                 <br>
 
                 <!--Botones-->
-                <a class="btn btn-warning" href="{{route('empleado.index')}}">Regresar</a>
-                <button type="submit" class="btn btn-success" >Actualizar</button>
-                <a class="btn btn-danger" href="{{route('empleado.index')}}">Cancelar</a>
-
+                <div>
+                    <a class="btn btn-primary" href="{{route('empleado.index')}}" > <i class="bi bi-box-arrow-left"></i>Regresar</a>
+                    <button type="submit" class="btn btn-success"><i class="bi bi-save"></i>Guardar Cambios</button>
+                </div><br>
+                    
           </form>
 
             <style>
