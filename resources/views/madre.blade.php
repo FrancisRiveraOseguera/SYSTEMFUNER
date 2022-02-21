@@ -61,10 +61,10 @@
                 <a href=""><i class="fas fa-clipboard" style="font-size: 14px"></i>Clientes</a>
             </li>
             <li>
-                <a href=""><i class="fas fa-user-cog" style="font-size: 14px"></i>Empleados</a>
+                <a href="{{route('empleado.index')}}"><i class="fas fa-user-cog" style="font-size: 14px"></i>Empleados</a>
             </li>
             <li>
-                <a href=""><i class="fas fa-hands-helping" style="font-size: 14px"></i>Servicios</a>
+                <a href="{{route('Servicio.lista')}}"><i class="fas fa-hands-helping" style="font-size: 14px"></i>Servicios</a>
             </li>
             <li>
                 <a href=""><i class="fas fa-shopping-cart" style="font-size: 14px"></i>Productos</a>

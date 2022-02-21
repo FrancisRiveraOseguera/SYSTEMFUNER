@@ -167,11 +167,11 @@ class EmpleadoController extends Controller
             'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'genero' => 'required',
-            'direccion' => 'required|max:100',
             'fecha_ingreso' => 'required',
             'fecha_de_nacimiento' => 'required',
             'telefono' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
             'contacto_de_emergencia' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
+            'direccion' => 'required|max:100'
         ];
     
         $mensaje=[
@@ -190,9 +190,6 @@ class EmpleadoController extends Controller
             
             'genero.required' => 'El campo género no puede estar vacío.',
 
-            'direccion.required' => 'El campo dirección  no puede estar vacío.',
-            'direccion.max' => 'El campo dirección debe contener 100 letras como máximo.',
-
             'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
 
             'fecha_de_nacimiento.required' => 'El campo :attribute no puede estar vacío.',
@@ -203,10 +200,14 @@ class EmpleadoController extends Controller
             'telefono.numeric' => 'El campo teléfono solo acepta números.',
             'telefono.unique' => 'El campo teléfono debe de ser único.',
 
-            'contacto_de_emergencia.required' => 'El campo :attribute no puede estar vacío.',
-            'contacto_de_emergencia.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
-            'contacto_de_emergencia.numeric' => 'El campo :attribute solo acepta números.',
-            'contacto_de_emergencia.unique' => 'El campo :attribute debe de ser único.',
+            'contacto_de_emergencia.required' => 'El campo teléfono de emergencia no puede estar vacío.',
+            'contacto_de_emergencia.regex' => 'El campo teléfono de emergencia no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
+            'contacto_de_emergencia.numeric' => 'El campo teléfono de emergencia solo acepta números.',
+            'contacto_de_emergencia.unique' => 'El campo teléfono de emergencia debe de ser único.',
+
+            'direccion.required' => 'El campo dirección  no puede estar vacío.',
+            'direccion.max' => 'El campo dirección debe contener 100 letras como máximo.',
+
         ];
 
     $this->validate($request,$rules,$mensaje);
@@ -217,11 +218,11 @@ class EmpleadoController extends Controller
         $actualizar -> nombres = $request->input('nombres');
         $actualizar -> apellidos = $request->input('apellidos');
         $actualizar -> genero = $request->input('genero');
-        $actualizar -> direccion = $request->input('direccion');
         $actualizar -> fecha_ingreso = $request->input('fecha_ingreso');
         $actualizar -> fecha_de_nacimiento = $request->input('fecha_de_nacimiento');
         $actualizar -> telefono = $request->input('telefono');
         $actualizar -> contacto_de_emergencia = $request->input('contacto_de_emergencia');
+        $actualizar -> direccion = $request->input('direccion');
 
         $actualizado = $actualizar->save();
 

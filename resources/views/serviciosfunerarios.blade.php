@@ -6,7 +6,7 @@
 <div class="serv">
 
   <div class="xd">
-    <h2> Listado de servicios funerarios</h2> 
+    <h3> Listado de servicios funerarios</h3> 
     
     <div>
       <br>
