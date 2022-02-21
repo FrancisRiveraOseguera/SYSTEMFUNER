@@ -4,7 +4,7 @@
 @section('content')
 <!--Contenedor para el título de la vista y los mensajes de error-->
 <div class="servfun">
-        <h1 class="servfu" > Agregar nuevo servicio</h1>
+        <h3 class="servfu" > Agregar nuevo servicio</h3>
         <hr>
 
         @if ($errors->any())
