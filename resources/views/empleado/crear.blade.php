@@ -64,7 +64,7 @@
             <div class="col-sm-8">
                 <select name="genero" id="genero"  class="form-control" value="{{old('genero', $empleado->genero ?? '')}}"/>
                     <option selected disabled value="">Seleccione el género del empleado</option>
-                    <option value="Maculino">Masculino</option>
+                    <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                 </select>    
             </div>
