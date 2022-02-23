@@ -54,7 +54,7 @@
 <div class="wrapper fixed-left">
     <nav id="sidebar">
         <ul class="list-unstyled components" style="font-size: 14px">
-            <li>
+            <li><br>
                 <a href=""><i class="fas fa-home" style="font-size: 14px"></i>Inicio</a>
             </li>
             <li>
@@ -70,7 +70,7 @@
                 <a href=""><i class="fas fa-shopping-cart" style="font-size: 14px"></i>Productos</a>
             </li>
             <li>
-                <a href=""><i class="fas fa-boxes" style="font-size: 14px"></i>Inventario</a>
+                <a href="{{route('inventario.index')}}"><i class="fas fa-boxes" style="font-size: 14px"></i>Inventario</a>
             </li>
         </ul>
     </nav>

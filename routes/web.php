@@ -70,3 +70,15 @@ Route::get('/cliente/nuevo', 'App\Http\Controllers\ClienteController@create')
 Route::post('/cliente/nuevo', 'App\Http\Controllers\ClienteController@store')
     ->name('cliente.guardar');
 
+//RUTAS DE INVENTARIO
+Route::get('inventario', 'App\Http\Controllers\InventarioController@home')
+->name('inventario.home');
+
+Route::get('productosInventario', 'App\Http\Controllers\InventarioController@index')
+->name('inventario.index');
+
+Route::get('productosInventario/nuevo/', 'App\Http\Controllers\InventarioController@create')
+->name('inventario.create');
+
+Route::post('productosInventario/nuevo/', 'App\Http\Controllers\InventarioController@store')
+->name('inventario.store');

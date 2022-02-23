@@ -1,6 +1,6 @@
 @extends('madre')
 
-@section ('title' , 'Lista de Empleados');
+@section ('title' , 'Lista de Empleados')
 
 @section('content')
 

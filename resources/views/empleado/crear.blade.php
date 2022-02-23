@@ -121,7 +121,7 @@
             <div class="col-sm-8">
                 <textarea   maxlength = "100" name="direccion" id="direccion" maxlength="100" 
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                placeholder="Dirección de domicilio ."  rows="1" cols="52"
+                placeholder="Dirección de domicilio."  rows="1" cols="52"
                 class="form-control" value="{{old('direccion', $empleado->direccion ?? '')}}" ></textarea>
             </div>
         </div>
