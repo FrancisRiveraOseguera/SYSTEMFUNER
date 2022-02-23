@@ -70,6 +70,20 @@ Route::get('/cliente/nuevo', 'App\Http\Controllers\ClienteController@create')
 Route::post('/cliente/nuevo', 'App\Http\Controllers\ClienteController@store')
     ->name('cliente.guardar');
 
+
+// RUTAS EDITAR CLIENTE
+Route::get('/cliente/{id}/editar', 'App\Http\Controllers\ClienteController@edit')
+    ->name('cliente.edit')->where('id', '[0-9]+');
+
+Route::put('/cliente/{id}/editar', 'App\Http\Controllers\ClienteController@update')
+    ->name('cliente.update')->where('id', '[0-9]+');
+
+//RUTAS DETALLES DEL CLIENTE
+Route::get('/cliente/{id}', 'App\Http\Controllers\ClienteController@show')
+    ->name('cliente.ver')
+    ->where('id', '[0-9]+');
+
+
 //RUTAS DE INVENTARIO
 Route::get('inventario', 'App\Http\Controllers\InventarioController@home')
 ->name('inventario.home');

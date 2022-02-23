@@ -1,6 +1,5 @@
 @extends('madre')
-
-@section ('title' , 'Nuevo Empleado');
+@section ('title' , 'Nuevo Empleado')
 
 @section('content')
 

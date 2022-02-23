@@ -77,12 +77,12 @@
 
         <td>
             <a class="btn btn-info"
-            href=""><i class="bi bi-eye"></i>Detalles</a>
+            href="{{route('cliente.ver', ['id'=>$client->id])}}"><i class="bi bi-eye"></i>Detalles</a>
         </td>
 
         <td>
             <a class="btn btn-success"
-                href=""><i class="bi bi-pencil-square"></i>Editar</a>
+                href="{{route('cliente.edit', ['id'=> $client->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
         </td>
         <td>
             <a class="btn btn-danger"
