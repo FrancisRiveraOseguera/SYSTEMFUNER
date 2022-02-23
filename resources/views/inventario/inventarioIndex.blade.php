@@ -32,7 +32,7 @@
 
         <div class="text-center hijo">
             <h5 class="section-heading text-uppercase">Servicios</h5>
-            <p class="section-subheading text-muted">Ingresa a los servicios de la funeraria.</p>
+            <p class="section-subheading text-muted">Ingresa al listado de servicios de la funeraria.</p>
         </div>
     </div>
 
@@ -43,7 +43,7 @@
     <div class="container">
             <div class="container">
                 <div class="padre">
-                    <a href=""> 
+                    <a href="{{route('inventario.index')}}"> 
                         <img src="/assets/inventario.png" class="rounded-circle" width="120" height="120">
                     </a>
             </div>
@@ -51,7 +51,7 @@
 
     <div class="text-center hijo">
         <h5 class="section-heading text-uppercase">Productos en inventario</h5>
-        <p class="section-subheading text-muted">Ingresa a los productos en inventario de la funeraria.</p>
+        <p class="section-subheading text-muted">Ingresa al listado de productos en inventario de la funeraria.</p>
     </div>
 </div>
 

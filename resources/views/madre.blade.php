@@ -70,7 +70,7 @@
                 <a href=""><i class="fas fa-shopping-cart" style="font-size: 14px"></i>Productos</a>
             </li>
             <li>
-                <a href="{{route('inventario.index')}}"><i class="fas fa-boxes" style="font-size: 14px"></i>Inventario</a>
+                <a href="{{route('inventario.home')}}"><i class="fas fa-boxes" style="font-size: 14px"></i>Inventario</a>
             </li>
         </ul>
     </nav>

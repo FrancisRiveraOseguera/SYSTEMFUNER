@@ -15,7 +15,7 @@
             <a class="btn btn-info btn block" href="{{route('inventario.create')}}"><i class="bi bi-plus-circle"></i>Agregar a inventario</a>
         </div>
     <div class="col-lg-2.5 hijo">
-            <a class="btn btn-secondary btn block" href="{{route('inventario.create')}}"><i class="bi bi-card-checklist"></i>Ver todos los registros</a>
+            <a class="btn btn-secondary btn block" href=""><i class="bi bi-card-checklist"></i>Ver todos los registros</a>
         </div>
     </div>
 
@@ -28,7 +28,7 @@
             <a type="button" href="{{route('inventario.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
             <input type="search" class="col-sm-6" name="busqueda"
-                placeholder="Ingrese el nombre o categoria del producto para realizar la búsqueda" value="{{$busqueda}}">
+                placeholder="Ingrese el tipo o categoria del producto para realizar la búsqueda" value="{{$busqueda}}">
 
             <div class="input-group-append">
                 <button type="submit" class="btn btn-primary">
