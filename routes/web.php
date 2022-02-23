@@ -58,3 +58,15 @@ Route::put('/empleado/{id}/editar', 'App\Http\Controllers\EmpleadoController@upd
 Route::get('/empleado/{id}', 'App\Http\Controllers\EmpleadoController@show')
     ->name('empleado.ver')
     ->where('id', '[0-9]+');
+
+
+//RUTAS DEL CONTROLADOR CLIENTE
+Route::get('/listadoClientes', 'App\Http\Controllers\ClienteController@index')
+    ->name('listado.clientes');
+
+Route::get('/cliente/nuevo', 'App\Http\Controllers\ClienteController@create')
+    ->name('cliente.nuevo');
+
+Route::post('/cliente/nuevo', 'App\Http\Controllers\ClienteController@store')
+    ->name('cliente.guardar');
+
