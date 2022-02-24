@@ -84,12 +84,23 @@
         </div>
             
         <div class="form-group row">
-            <label for="cantidad" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-clipboard-check"></i>Cantidad a ingresar</label>
+            <label for="cantidad_anterior" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-clipboard-check"></i>Cantidad anterior</label>
             <div class="col-sm-8">
-            <input type="text" placeholder="Cantidad de producto que se va ingresar al inventario." maxlength="3"
-                id="cantidad" name="cantidad" class="form-control" 
+            <input type="text" placeholder="Cantidad anterior de  inventario." maxlength="3"
+                id="cantidad_anterior" name="cantidad_anterior" class="form-control" 
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                value="{{old('cantidad', $inventario->cantidad ?? '')}}"/>
+                value="{{old('cantidad_anterior', $inventario->cantidad_anterior ?? '')}}"/>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="cantidad_actual" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-clipboard-check"></i>Nueva cantidad</label>
+            <div class="col-sm-8">
+            <input type="text" placeholder="Nueva cantidad del inventario." maxlength="3"
+                id="cantidad_actual" name="cantidad_actual" class="form-control" 
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                value="{{old('cantidad_actual', $inventario->cantidad_actual ?? '')}}"/>
             </div>
         </div>
 

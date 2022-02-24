@@ -58,7 +58,7 @@
                 <a href=""><i class="fas fa-home" style="font-size: 14px"></i>Inicio</a>
             </li>
             <li>
-                <a href=""><i class="fas fa-clipboard" style="font-size: 14px"></i>Clientes</a>
+                <a href="{{route('listado.clientes')}}"><i class="fas fa-clipboard" style="font-size: 14px"></i>Clientes</a>
             </li>
             <li>
                 <a href="{{route('empleado.index')}}"><i class="fas fa-user-cog" style="font-size: 14px"></i>Empleados</a>

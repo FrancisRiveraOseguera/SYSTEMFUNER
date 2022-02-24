@@ -56,8 +56,8 @@
         <tr class="table-info">
         <th scope="col">Tipo</th>
         <th scope="col">Categoría</th>
-        <th scope="col">Cantidad</th>
         <th scope="col">Responsable</th>
+        <th scope="col">Cantidad Actual</th>
         <th scope="col">Detalles del producto</th>
         <th scope="col">Agregar más productos</th>
     </tr>
@@ -67,8 +67,8 @@
     <tr>    
         <td>{{$prod->tipo}}</td>
         <td>{{$prod->categoria}}</td>
-        <td>{{$prod->cantidad}}</td>
         <td>{{$prod->responsable}}</td>
+        <td>{{$prod->cantidad_actual}}</td>
 
         <td>
             <a class="btn btn-info" 

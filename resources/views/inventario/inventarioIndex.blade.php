@@ -25,7 +25,7 @@
         <div class="container">
             <div class="padre">
                 <a href="{{route('Servicio.lista')}}"> 
-                    <img src="/assets/producto.png" class="rounded-circle" width="120" height="120">
+                    <img src="/assets/producto.png" class="rounded-circle bs" width="120" height="120">
                 </a>
             </div>
         </div><br>
@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="padre">
                     <a href="{{route('inventario.index')}}"> 
-                        <img src="/assets/inventario.png" class="rounded-circle" width="120" height="120">
+                        <img src="/assets/inventario.png" class="rounded-circle bs" width="120" height="120">
                     </a>
             </div>
     </div><br>
@@ -73,11 +73,22 @@
     }
 
     .padre{
-        padding-left: 470px
+        padding-left: 470px;
+        -moz-user-select: none;
+        user-select: none;
     }
     
     .hijo{
         font-size: 18px;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    .bs:active{
+        box-shadow: 0px 8px 0px #99d6ff;
+        position:relative;
+        top:10px;
+        cursor: pointer;
     }
 
     </style>

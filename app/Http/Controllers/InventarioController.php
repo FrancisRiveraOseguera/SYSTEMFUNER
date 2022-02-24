@@ -33,6 +33,8 @@ class InventarioController extends Controller
     }
 
     public function store(Request $request)
+
+ 
     {
         $rules=[
             'tipo' => 'required|regex:/^[\pL\s\-]+$/u|max:25|unique:inventario,tipo',
@@ -40,8 +42,9 @@ class InventarioController extends Controller
             'descripcion' => 'required|regex:/^[\pL\s\-]+$/u|max:65',
             'responsable' => 'required|regex:/^[\pL\s\-]+$/u|max:35|min:10',
             'fecha_ingreso' => 'required',
-            'cantidad' => 'required|numeric|min:1|max:500'
-
+            'cantidad_anterior' => 'numeric|min:0|max:100',
+            'cantidad_actual' => 'required|numeric|gte:cantidad_anterior'
+            
         ];
 
     $mensaje=[
@@ -61,29 +64,37 @@ class InventarioController extends Controller
             'responsable.min' => 'El campo :attribute debe contener 10 letras como mínimo.',
 
             'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
+    
+            
+            'cantidad_anterior.numeric'  =>'El campo :attribute no puede contener letras.',
+            'cantidad_anterior.min'  =>'El campo :attribute no puede ser menor a cero',
+            'cantidad_anterior.max'  =>'El campo :attribute no puede ser mayor a 100 ',
+                    
+            'cantidad_actual.required'  =>'El campo :attribute no puede estar vacío.',
+            'cantidad_actual.numeric'  =>'El campo :attribute no puede contener letras.',
+            'cantidad_actual.min'  =>'El campo :attribute no puede ser menor a 0 unidad',
+            
+            
+            'cantidad_actual.gte'  =>'El campo :attribute no debe ser menor a la cantidad anterior',
 
-            'cantidad.required'  =>'El campo :attribute no puede estar vacío.',
-            'cantidad.numeric'  =>'El campo :attribute no puede contener letras.',
-            'cantidad.min'  =>'El campo :attribute no puede ser menor a 1 unidad',
-            'cantidad.max'  =>'El campo :attribute no puede ser mayor a 500 unidades',
 
-
-
+           
         ];
-
+        
         $this->validate($request,$rules, $mensaje);
-
+        
         $nuevoInventario = new Inventario();
-
+        
         $nuevoInventario -> tipo = $request->input('tipo');
         $nuevoInventario -> descripcion = $request->input('descripcion');
-        $nuevoInventario -> cantidad = $request->input('cantidad');
+        $nuevoInventario -> cantidad_anterior= $request->input('cantidad_anterior');
+        $nuevoInventario -> cantidad_actual= $request->input('cantidad_actual');
         $nuevoInventario -> responsable = $request->input('responsable');
         $nuevoInventario -> categoria = $request->input('categoria');
         $nuevoInventario -> fecha_ingreso = $request->input('fecha_ingreso');
 
         $creado = $nuevoInventario-> save();
-
+       
         if ($creado){
           return redirect()->route('inventario.index')->with('mensaje', 'El producto fue agregado al inventario con éxito.');
         }else{
@@ -114,7 +125,6 @@ class InventarioController extends Controller
          
             'responsable' => 'required|regex:/^[\pL\s\-]+$/u|max:35|min:10',
             'fecha_ingreso' => 'required',
-            //francis
             'cantidad_actual' => 'required|numeric|gte:cantidad_anterior'
         ] ;
         $mensaje=[
@@ -127,8 +137,6 @@ class InventarioController extends Controller
 
             'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
           
-
-            //francis
             'cantidad_actual.required'  =>'El campo :attribute no puede estar vacío.',
             'cantidad_actual.numeric'  =>'El campo :attribute no puede contener letras.',
             'cantidad_actual.gte'  =>'El campo :attribute no debe ser menor a la cantidad anterior',
@@ -143,7 +151,6 @@ class InventarioController extends Controller
         $actualizarInventario -> fecha_ingreso = $request->input('fecha_ingreso');
         $actualizarInventario -> cantidad_anterior= $request->input('cantidad_actual');
         $actualizarInventario -> cantidad_actual= $request->input('cantidad_actual');
-
         $actualizado = $actualizarInventario-> save();
 
         //Comprobar si fue actualizado
