@@ -16,10 +16,11 @@ class CreateInventarioTable extends Migration
         Schema::create('inventario', function (Blueprint $table) {
             $table->id();
             $table->string('tipo', 25);
-            $table->string('descripcion', 65);
+            $table->string('descripcion', 100);
             $table->string('responsable', 35);
             $table->string('categoria');
-            $table->float('cantidad');
+            $table->float('cantidad_anterior', 100);
+            $table->float('cantidad_actual', 100);
             $table->date('fecha_ingreso');
             $table->timestamps();
             $table->charset = 'utf8mb4';

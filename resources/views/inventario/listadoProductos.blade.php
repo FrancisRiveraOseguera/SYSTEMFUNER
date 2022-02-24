@@ -77,7 +77,7 @@
 
         <td>
             <a class="btn btn-success" 
-            href=""><i class="bi bi-plus-circle"></i>Agregar productos</a>
+            href="{{route('producto.edit', ['id'=>$prod->id])}} "><i class="bi bi-plus-circle"></i>Agregar productos</a>
         </td>
 
     @empty

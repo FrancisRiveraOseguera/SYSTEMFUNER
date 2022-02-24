@@ -41,7 +41,7 @@ class InventarioController extends Controller
             'responsable' => 'required|regex:/^[\pL\s\-]+$/u|max:35|min:10',
             'fecha_ingreso' => 'required',
             'cantidad' => 'required|numeric|min:1|max:500'
-            
+
         ];
 
     $mensaje=[
@@ -61,20 +61,20 @@ class InventarioController extends Controller
             'responsable.min' => 'El campo :attribute debe contener 10 letras como mínimo.',
 
             'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
-    
+
             'cantidad.required'  =>'El campo :attribute no puede estar vacío.',
             'cantidad.numeric'  =>'El campo :attribute no puede contener letras.',
             'cantidad.min'  =>'El campo :attribute no puede ser menor a 1 unidad',
             'cantidad.max'  =>'El campo :attribute no puede ser mayor a 500 unidades',
 
 
-           
+
         ];
-        
+
         $this->validate($request,$rules, $mensaje);
-        
+
         $nuevoInventario = new Inventario();
-        
+
         $nuevoInventario -> tipo = $request->input('tipo');
         $nuevoInventario -> descripcion = $request->input('descripcion');
         $nuevoInventario -> cantidad = $request->input('cantidad');
@@ -83,7 +83,7 @@ class InventarioController extends Controller
         $nuevoInventario -> fecha_ingreso = $request->input('fecha_ingreso');
 
         $creado = $nuevoInventario-> save();
-       
+
         if ($creado){
           return redirect()->route('inventario.index')->with('mensaje', 'El producto fue agregado al inventario con éxito.');
         }else{
@@ -96,6 +96,61 @@ class InventarioController extends Controller
     public function show($id){
         $Inventario = Inventario::findOrFail($id);
         return view('inventario/detallesInventario')->with('Inventario', $Inventario);
+    }
+
+    //función para actualizar productos
+    public function edit($id)
+    {
+        $producto = Inventario::findOrFail($id);
+        return view('inventario/productoEditar')
+            ->with('producto', $producto);
+    }
+
+    //función actualizar 
+    public function update(Request $request, $id){
+        //Validar campos del formulario editar
+        //Validar campos del formulario editar
+        $rules= [
+         
+            'responsable' => 'required|regex:/^[\pL\s\-]+$/u|max:35|min:10',
+            'fecha_ingreso' => 'required',
+            //francis
+            'cantidad_actual' => 'required|numeric|gte:cantidad_anterior'
+        ] ;
+        $mensaje=[
+
+
+            'responsable.required' => 'El campo :attribute no puede estar vacío.',
+            'responsable.regex' => 'El campo :attribute solo debe contener letras. ',
+            'responsable.max' => 'El campo :attribute debe contener 35 letras como máximo.',
+            'responsable.min' => 'El campo :attribute debe contener 10 letras como mínimo.',
+
+            'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
+          
+
+            //francis
+            'cantidad_actual.required'  =>'El campo :attribute no puede estar vacío.',
+            'cantidad_actual.numeric'  =>'El campo :attribute no puede contener letras.',
+            'cantidad_actual.gte'  =>'El campo :attribute no debe ser menor a la cantidad anterior',
+        ];
+
+        $this->validate($request,$rules, $mensaje);
+
+        $actualizarInventario = Inventario::findOrFail($id);
+
+        //Recuperación de los datos guardados
+        $actualizarInventario -> responsable = $request->input('responsable');
+        $actualizarInventario -> fecha_ingreso = $request->input('fecha_ingreso');
+        $actualizarInventario -> cantidad_anterior= $request->input('cantidad_actual');
+        $actualizarInventario -> cantidad_actual= $request->input('cantidad_actual');
+
+        $actualizado = $actualizarInventario-> save();
+
+        //Comprobar si fue actualizado
+        if ($actualizado){
+            return redirect()->route('inventario.index')->with('mensaje',
+                'La cantidad en inventario del producto ha sido actualizado exitosamente.');
+        }
     }
 
 }

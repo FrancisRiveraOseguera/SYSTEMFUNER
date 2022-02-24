@@ -102,3 +102,11 @@ Route::post('productosInventario/nuevo/', 'App\Http\Controllers\InventarioContro
 Route::get('/producto/{id}', 'App\Http\Controllers\InventarioController@show')
     ->name('producto.ver')
     ->where('id', '[0-9]+');
+
+Route::get('/producto/{id}/actualizar', 'App\Http\Controllers\InventarioController@edit')
+    ->name('producto.edit')->where('id', '[0-9]+');
+
+Route::put('/producto/{id}/actualizar', 'App\Http\Controllers\InventarioController@update')
+    ->name('producto.update')->where('id', '[0-9]+');
+
+

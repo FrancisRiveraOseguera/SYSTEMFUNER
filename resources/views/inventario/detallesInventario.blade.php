@@ -46,10 +46,10 @@
             </div>
 
             <div class="form-group row">
-                <label for="cantidad" class="col-lg-2 control-label offset-md-1 requerido hijo">
-                <i  id="IcDV" class="bi bi-clipboard-check"></i>Cantidad:</label>
+                <label for="cantidad_actual" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                <i  id="IcDV" class="bi bi-clipboard-check"></i>Cantidad Actual:</label>
                 <div class="col-sm-8">
-                   {{$Inventario->cantidad}}
+                   {{$Inventario->cantidad_actual}}
                 </div>
             </div>
 
