@@ -92,4 +92,10 @@ class InventarioController extends Controller
 
     }
 
+    //función para mostrar los detalles de productos en inventario
+    public function show($id){
+        $Inventario = Inventario::findOrFail($id);
+        return view('inventario/detallesInventario')->with('Inventario', $Inventario);
+    }
+
 }

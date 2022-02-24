@@ -82,3 +82,9 @@ Route::get('productosInventario/nuevo/', 'App\Http\Controllers\InventarioControl
 
 Route::post('productosInventario/nuevo/', 'App\Http\Controllers\InventarioController@store')
 ->name('inventario.store');
+
+//RUTAS DE INVENTARIO PARA ACTUALIZACIÓN, REGISTRO Y DETALLES
+
+Route::get('/producto/{id}', 'App\Http\Controllers\InventarioController@show')
+    ->name('producto.ver')
+    ->where('id', '[0-9]+');
