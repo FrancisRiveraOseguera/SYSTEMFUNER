@@ -149,7 +149,7 @@ class ClienteController extends Controller
 
         if ($creado) {
             return redirect()->route('listado.clientes')
-                ->with('mensaje', '¡El cliente fue registrado exitosamente!');
+                ->with('mensaje', 'El cliente fue registrado exitosamente.');
         }
     }
 
@@ -166,14 +166,14 @@ class ClienteController extends Controller
          $cliente = Cliente::findOrFail($id);
          return view('cliente.detallesCliente')->with('cliente', $cliente);
      }
- 
+
      /**
       * Show the form for editing the specified resource.
       *
       * @param  \App\Models\Cliente  $cliente
       * @return \Illuminate\Http\Response
       */
- 
+
      //FUNCIÓN EDITAR INFORMACIÓN DEL CLIENTE
      public function edit($id)
      {
@@ -181,7 +181,7 @@ class ClienteController extends Controller
          return view('cliente.editarClientes')
              ->with('cliente', $cliente);
      }
- 
+
      /**
       * Update the specified resource in storage.
       *
@@ -189,7 +189,7 @@ class ClienteController extends Controller
       * @param  \App\Models\Cliente  $cliente
       * @return \Illuminate\Http\Response
       */
-     
+
      //ACTUALIZAR/VALIDAR DATOS DEL CLIENTE
     public function update(Request $request, $id)
     {
@@ -216,7 +216,7 @@ class ClienteController extends Controller
             'identidad.required' => 'El campo :attribute no puede estar vacío.',
             'identidad.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 0 o 1 y contener 13 números.',
             'identidad.numeric' => 'El campo :attribute solo acepta números.',
-            
+
 
             'nombres.required' => 'El campo :attribute no puede estar vacío.',
             'nombres.regex' => 'El campo :attribute solo debe contener letras. ',
@@ -280,7 +280,7 @@ class ClienteController extends Controller
         $actualizar = Cliente::findOrFail($id);
 
 
-        
+
         $actualizar->nombres = $request->input('nombres');
         $actualizar->identidad = $request->input('identidad');
         $actualizar->apellidos = $request->input('apellidos');
