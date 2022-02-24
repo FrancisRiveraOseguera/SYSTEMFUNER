@@ -16,7 +16,9 @@
             <a class="btn btn-info btn block" href="{{route('cliente.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo cliente</a>
         </div>
         <div class="col-lg-3">
-            <a class="btn btn-secondary btn block" href=""><i class="bi bi-dash-circle"></i>Clientes desactivados</a>
+            <a class="btn btn-secondary btn block" href="">
+                <i class="bi bi-dash-circle"></i>Ver clientes que han utilizado el servicio
+            </a>
         </div>
     </div>
 
@@ -63,7 +65,7 @@
         <th scope="col">Tipo de servicio</th>
         <th scope="col">Detalles</th>
         <th scope="col">Editar</th>
-        <th scope="col">Desactivar</th>
+        <th scope="col">Marcar servicio</th>
     </tr>
     </thead>
     <tbody>
@@ -77,16 +79,16 @@
 
         <td>
             <a class="btn btn-info"
-            href=""><i class="bi bi-eye"></i>Detalles</a>
+            href="{{route('cliente.ver', ['id'=>$client->id])}}"><i class="bi bi-eye"></i>Detalles</a>
         </td>
 
         <td>
             <a class="btn btn-success"
-                href=""><i class="bi bi-pencil-square"></i>Editar</a>
+                href="{{route('cliente.edit', ['id'=> $client->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
         </td>
         <td>
             <a class="btn btn-danger"
-               href=""><i class="bi bi-dash-circle"></i>Desactivar</a>
+               href=""><i class="bi bi-dash-circle"></i>Servicio usado</a>
         </td>
     </tr>
     @empty
