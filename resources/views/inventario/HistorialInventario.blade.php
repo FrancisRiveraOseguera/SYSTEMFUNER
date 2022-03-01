@@ -28,7 +28,7 @@
             <a type="button" href="{{route('historialinventario.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
             <input type="search" class="col-sm-6" name="busqueda"
-                placeholder="Ingrese el tipo o categoria del producto para realizar la búsqueda" value="{{$busqueda}}">
+                placeholder="Ingrese el número de servicio o el nombre responsable para buscar" value="{{$busqueda}}">
 
             <div class="input-group-append">
                 <button type="submit" class="btn btn-primary">
