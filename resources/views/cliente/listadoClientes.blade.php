@@ -13,11 +13,11 @@
         </div>
 
         <div class="col-lg-2.5">
-            <a class="btn btn-info btn block" href="{{route('cliente.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo cliente</a>
+            <a class="btn btn-info btn block p-3" href="{{route('cliente.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo cliente</a>
         </div>
         <div class="col-lg-3">
             <a class="btn btn-secondary btn block" href="">
-                <i class="bi bi-dash-circle"></i>Ver clientes que han utilizado el servicio
+                <i class="bi bi-dash-circle"></i>Ver clientes que han utilizado los servicios
             </a>
         </div>
     </div>
@@ -62,10 +62,9 @@
         <th scope="col">Nombres</th>
         <th scope="col">Apellidos</th>
         <th scope="col">Teléfono</th>
-        <th scope="col">Tipo de servicio</th>
         <th scope="col">Detalles</th>
         <th scope="col">Editar</th>
-        <th scope="col">Marcar servicio</th>
+        <th scope="col">Marcar contrato</th>
     </tr>
     </thead>
     <tbody>
@@ -75,7 +74,6 @@
         <td>{{$client->nombres}}</td>
         <td>{{$client->apellidos}}</td>
         <td>{{$client->telefono}}</td>
-        <td>{{$client->tipo_de_servicio}}</td>
 
         <td>
             <a class="btn btn-info"
