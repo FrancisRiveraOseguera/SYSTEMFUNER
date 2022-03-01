@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="emple">
-    <h3>Nuevo producto en inventario</h3>
+    <h3>Agregar entrada a inventario</h3>
     <hr>
     @if ($errors->any())
     <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000">
@@ -27,37 +27,16 @@
         @csrf
 
         <div class="form-group row">
-                <label for="tipo" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-card-list"></i>Tipo de servicio</label>
+                <label for="servicio_id" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-card-list"></i>Tipo de servicio</label>
             <div class="col-sm-8">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type = "text"
-                name="tipo" id="tipo"  maxlength = "25" placeholder="Nombre del servicio." class="form-control" 
-                value="{{old('tipo', $inventario->tipo ?? '')}}"/>  
+                type = "number"
+                name="servicio_id" id="id_servicio"  maxlength = "25" placeholder="Numero de servicio" class="form-control" 
+                value="{{old('servicio_id', $inventario->servicio_id ?? '')}}"/>  
             </div>
 
         </div>
         
-        <div class="form-group row">
-            <label for="categoria" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-view-stacked"></i>Categoría</label>
-            <div class="col-sm-8">
-                <select name="categoria" id="categoria"  class="form-control" value="{{old('categoria', $inventario->categoria ?? '')}}"/>
-                    <option selected disabled value="">Seleccione la categoría del producto</option>
-                    <option value="Adulto">Adulto</option>
-                    <option value="Juvenil">Juvenil</option>
-                    <option value="Infantil">Infantil</option>
-                </select>    
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="descripcion" class="col-lg-2 control-label offset-md-1 requerido"><i  id="IcNewEmp"class="bi bi-signpost"></i>Descripción</label>
-            <div class="col-sm-8">
-                <textarea name="descripcion" id="descripcion" maxlength="65" 
-                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                placeholder="Breve descripción del producto."  rows="1" cols="52"
-                class="form-control" value="{{old('descripcion', $inventario->descripcion ?? '')}}" ></textarea>
-            </div>
-        </div>
 
         <div class="form-group row">
                 <label for="responsable" class="col-lg-2 control-label offset-md-1 requerido">
@@ -83,31 +62,21 @@
             </div>
         </div>
             
-        <div class="form-group row">
-            <label for="cantidad_anterior" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-clipboard-check"></i>Cantidad anterior</label>
-            <div class="col-sm-8">
-            <input type="text" placeholder="Cantidad anterior de  inventario." maxlength="3"
-                id="cantidad_anterior" name="cantidad_anterior" class="form-control" 
-                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                value="{{old('cantidad_anterior', $inventario->cantidad_anterior ?? '')}}"/>
-            </div>
-        </div>
-
 
         <div class="form-group row">
-            <label for="cantidad_actual" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-clipboard-check"></i>Nueva cantidad</label>
+            <label for="cantidad_aIngresar" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-clipboard-check"></i>Cantidad </label>
             <div class="col-sm-8">
-            <input type="text" placeholder="Nueva cantidad del inventario." maxlength="3"
-                id="cantidad_actual" name="cantidad_actual" class="form-control" 
+            <input type="text" placeholder="Cantidad a agregar al inventario." maxlength="3"
+                id="cantidad_aIngresar" name="cantidad_aIngresar" class="form-control" 
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                value="{{old('cantidad_actual', $inventario->cantidad_actual ?? '')}}"/>
+                value="{{old('cantidad_aIngresar', $inventario->cantidad_aIngresar ?? '')}}"/>
             </div>
         </div>
 
         <br>
 
         <!--botones-->
-        <a class="btn btn-primary" href="{{route('inventario.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a> 
+        <a class="btn btn-primary" href="{{route('historialinventario.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a> 
         <button type="submit" class="btn btn-success" ><i class="bi bi-save"></i>Guardar</button>
 
                 

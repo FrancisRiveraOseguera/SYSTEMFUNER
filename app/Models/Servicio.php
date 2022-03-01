@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Servicio extends Model
 {
+    public function inventarios(){
+        return $this->BelongsToMany(Inventario::class)->withTimestamps();}    
     use HasFactory;
 }

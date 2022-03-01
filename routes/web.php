@@ -91,22 +91,20 @@ Route::get('inventario', 'App\Http\Controllers\InventarioController@home')
 Route::get('productosInventario', 'App\Http\Controllers\InventarioController@index')
 ->name('inventario.index');
 
+//ruta de historial
+Route::get('historialInventario', 'App\Http\Controllers\inventarioController@index')
+->name('historialinventario.index');
+
+
 Route::get('productosInventario/nuevo/', 'App\Http\Controllers\InventarioController@create')
 ->name('inventario.create');
 
 Route::post('productosInventario/nuevo/', 'App\Http\Controllers\InventarioController@store')
 ->name('inventario.store');
 
-//RUTAS DE INVENTARIO PARA ACTUALIZACIÓN, REGISTRO Y DETALLES
 
-Route::get('/producto/{id}', 'App\Http\Controllers\InventarioController@show')
-    ->name('producto.ver')
-    ->where('id', '[0-9]+');
+Route::get('ListadoProductosenInventario', 'App\Http\Controllers\InventarioController@verProductosEnInventario')
+    ->name('inventario.verProductos');
 
-Route::get('/producto/{id}/actualizar', 'App\Http\Controllers\InventarioController@edit')
-    ->name('producto.edit')->where('id', '[0-9]+');
-
-Route::put('/producto/{id}/actualizar', 'App\Http\Controllers\InventarioController@update')
-    ->name('producto.update')->where('id', '[0-9]+');
 
 

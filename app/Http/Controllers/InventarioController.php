@@ -6,6 +6,7 @@ use App\Models\Inventario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class InventarioController extends Controller
 {
     public function home(Request $request){
@@ -18,11 +19,11 @@ class InventarioController extends Controller
 
         $producto = DB::table('inventario')
 
-            ->where('tipo', 'LIKE', '%'.$busqueda.'%')
-            ->orwhere('categoria', 'LIKE', '%'.$busqueda.'%')
+            ->where('servicio_id', 'LIKE', '%'.$busqueda.'%')
+            ->orwhere('responsable', 'LIKE', '%'.$busqueda.'%')
             ->paginate(5)-> withQueryString();
 
-        return view('inventario/listadoProductos')
+        return view('inventario/HistorialInventario')
         ->with('producto', $producto)
         ->with('busqueda', $busqueda);
     }
@@ -37,26 +38,18 @@ class InventarioController extends Controller
  
     {
         $rules=[
-            'tipo' => 'required|regex:/^[\pL\s\-]+$/u|max:25|unique:inventario,tipo',
-            'categoria' => 'required',
-            'descripcion' => 'required|regex:/^[\pL\s\-]+$/u|max:65',
+            'servicio_id' => 'required|numeric|exists:App\Models\Servicio,id',
             'responsable' => 'required|regex:/^[\pL\s\-]+$/u|max:35|min:10',
             'fecha_ingreso' => 'required',
-            'cantidad_anterior' => 'numeric|min:0|max:100',
-            'cantidad_actual' => 'required|numeric|gte:cantidad_anterior'
+            'cantidad_aIngresar' => 'required|numeric|min:1|max:100'
             
         ];
 
     $mensaje=[
-
-            'tipo.required' => 'El campo tipo de servicio no puede estar vacío.',
-            'tipo.regex' => 'El campo tipo de servicio solo debe contener letras. ',
-            'tipo.max' => 'El campo tipo de servicio debe contener 25 letras como máximo.',
-
-            'categoria.required' => 'El campo categoría no puede estar vacío.',
-
-            'descripcion.required'  =>'El campo :attribute no puede estar vacío.',
-            'descripcion.max'  =>'El campo :attribute no puede contener mas de 65 letras.',
+           'servicio_id.exists' => 'El  servicio debe ser un servicio válido',
+            'servicio_id.required' => 'El campo tipo de servicio no puede estar vacío.',
+            'servicio_id.numeric' => 'El campo tipo de servicio solo debe contener números. ',
+           
 
             'responsable.required' => 'El campo :attribute no puede estar vacío.',
             'responsable.regex' => 'El campo :attribute solo debe contener letras. ',
@@ -65,17 +58,11 @@ class InventarioController extends Controller
 
             'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
     
-            
-            'cantidad_anterior.numeric'  =>'El campo :attribute no puede contener letras.',
-            'cantidad_anterior.min'  =>'El campo :attribute no puede ser menor a cero',
-            'cantidad_anterior.max'  =>'El campo :attribute no puede ser mayor a 100 ',
                     
-            'cantidad_actual.required'  =>'El campo :attribute no puede estar vacío.',
-            'cantidad_actual.numeric'  =>'El campo :attribute no puede contener letras.',
-            'cantidad_actual.min'  =>'El campo :attribute no puede ser menor a 0 unidad',
+            'cantidad_aIngresar.required'  =>'El campo :attribute no puede estar vacío.',
+            'cantidad_aIngresar.numeric'  =>'El campo :attribute no puede contener letras.',
+            'cantidad_aIngresarl.min'  =>'El campo :attribute no puede ser menor a 0 unidad',
             
-            
-            'cantidad_actual.gte'  =>'El campo :attribute no debe ser menor a la cantidad anterior',
 
 
            
@@ -85,79 +72,34 @@ class InventarioController extends Controller
         
         $nuevoInventario = new Inventario();
         
-        $nuevoInventario -> tipo = $request->input('tipo');
-        $nuevoInventario -> descripcion = $request->input('descripcion');
-        $nuevoInventario -> cantidad_anterior= $request->input('cantidad_anterior');
-        $nuevoInventario -> cantidad_actual= $request->input('cantidad_actual');
+        $nuevoInventario -> servicio_id = $request->input('servicio_id');
+        $nuevoInventario -> cantidad_aIngresar= $request->input('cantidad_aIngresar');
         $nuevoInventario -> responsable = $request->input('responsable');
-        $nuevoInventario -> categoria = $request->input('categoria');
         $nuevoInventario -> fecha_ingreso = $request->input('fecha_ingreso');
 
         $creado = $nuevoInventario-> save();
        
         if ($creado){
-          return redirect()->route('inventario.index')->with('mensaje', 'El producto fue agregado al inventario con éxito.');
+          return redirect()->route('historialinventario.index')->with('mensaje', 'El producto fue agregado al inventario con éxito.');
         }else{
 
        }
 
     }
 
-    //función para mostrar los detalles de productos en inventario
-    public function show($id){
-        $Inventario = Inventario::findOrFail($id);
-        return view('inventario/detallesInventario')->with('Inventario', $Inventario);
-    }
+
 
     //función para actualizar productos
-    public function edit($id)
-    {
-        $producto = Inventario::findOrFail($id);
-        return view('inventario/productoEditar')
-            ->with('producto', $producto);
+
+   
+    public function  verProductosEnInventario() {
+        //mandarlo  a buscar 
+        $inventario  = Inventario::select('servicio_id','categoria','precio', 'tipo',DB::raw('sum(cantidad_aIngresar) as cantidad'))
+        ->join('servicios','servicios.id', '=', 'servicio_id')->groupby('servicio_id')->get();
+        return view ('inventario/listadoProductos')->with('inventario', $inventario );
     }
 
-    //función actualizar 
-    public function update(Request $request, $id){
-        //Validar campos del formulario editar
-        //Validar campos del formulario editar
-        $rules= [
-         
-            'responsable' => 'required|regex:/^[\pL\s\-]+$/u|max:35|min:10',
-            'fecha_ingreso' => 'required',
-            'cantidad_actual' => 'required|numeric|gte:cantidad_anterior'
-        ] ;
-        $mensaje=[
-
-
-            'responsable.required' => 'El campo :attribute no puede estar vacío.',
-            'responsable.regex' => 'El campo :attribute solo debe contener letras. ',
-            'responsable.max' => 'El campo :attribute debe contener 35 letras como máximo.',
-            'responsable.min' => 'El campo :attribute debe contener 10 letras como mínimo.',
-
-            'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
-          
-            'cantidad_actual.required'  =>'El campo :attribute no puede estar vacío.',
-            'cantidad_actual.numeric'  =>'El campo :attribute no puede contener letras.',
-            'cantidad_actual.gte'  =>'El campo :attribute no debe ser menor a la cantidad anterior',
-        ];
-
-        $this->validate($request,$rules, $mensaje);
-
-        $actualizarInventario = Inventario::findOrFail($id);
-
-        //Recuperación de los datos guardados
-        $actualizarInventario -> responsable = $request->input('responsable');
-        $actualizarInventario -> fecha_ingreso = $request->input('fecha_ingreso');
-        $actualizarInventario -> cantidad_anterior= $request->input('cantidad_actual');
-        $actualizarInventario -> cantidad_actual= $request->input('cantidad_actual');
-        $actualizado = $actualizarInventario-> save();
-
-        //Comprobar si fue actualizado
-        if ($actualizado){
-            return redirect()->route('inventario.index')->with('mensaje',
-                'La cantidad en inventario del producto ha sido actualizado exitosamente.');
-        }
-    }
+    
+    
 
 }

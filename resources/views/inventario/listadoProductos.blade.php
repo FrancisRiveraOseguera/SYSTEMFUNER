@@ -8,27 +8,25 @@
 <div class="invent">
     <div class="row">
         <div class="col-lg-7">
-            <h3>Listado de productos de inventario</h3>
+            <h3>Listado de productos en inventario</h3>
+
+            <div class="col-lg-3 hijo">
+            <a class="btn btn-primary btn block" href="{{route('historialinventario.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
+        </div>
         </div>
 
-        <div class="col-lg-2.5 hijo">
-            <a class="btn btn-info btn block" href="{{route('inventario.create')}}"><i class="bi bi-plus-circle"></i>Agregar a inventario</a>
-        </div>
-    <div class="col-lg-2.5 hijo">
-            <a class="btn btn-secondary btn block" href=""><i class="bi bi-card-checklist"></i>Ver todos los registros</a>
-        </div>
+         
     </div>
-
 
 <!--Barra de búsqueda-->
 <div>
     <br>
-    <form  action="{{route('inventario.index')}}" method="GET" autocomplete="off">
+    <form  action="" method="GET" autocomplete="off">
         <div   class="input-group input-group-sm">
-            <a type="button" href="{{route('inventario.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
+            <a type="button" href="" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
             <input type="search" class="col-sm-6" name="busqueda"
-                placeholder="Ingrese el tipo o categoria del producto para realizar la búsqueda" value="{{$busqueda}}">
+                placeholder="Ingrese el tipo o categoria del producto para realizar la búsqueda" value="">
 
             <div class="input-group-append">
                 <button type="submit" class="btn btn-primary">
@@ -39,57 +37,38 @@
     </form>
 </div>
 <hr>    
-
-<!--Mensajes de alerta -->
-@if(session('mensaje'))
-<div class="alert alert-success">
-    {{session('mensaje')}}
-</div>
-@endif
-</div><br>
-
 <!--Creación de tabla-->
-<div class="invent !important">
-<table class="table">
-    <thead>
-    <tr>
-        <tr class="table-info">
-        <th scope="col">Tipo</th>
-        <th scope="col">Categoría</th>
-        <th scope="col">Responsable</th>
-        <th scope="col">Cantidad Actual</th>
-        <th scope="col">Detalles del producto</th>
-        <th scope="col">Agregar más productos</th>
+
+ <br>
+ <table class="table ">
+  <thead>
+    <tr class="table-info">
+      <th scope="col">Código</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Categoría</th>
+      <th scope="col" >Precio</th>
+      <th scope="col">Cantidad </th>
+      <th scope="col">Costo Total</th>
+      
+      
     </tr>
-    </thead>
-    <tbody>
-    @forelse($producto as $prod)
-    <tr>    
-        <td>{{$prod->tipo}}</td>
-        <td>{{$prod->categoria}}</td>
-        <td>{{$prod->responsable}}</td>
-        <td>{{$prod->cantidad_actual}}</td>
-
-        <td>
-            <a class="btn btn-info" 
-            href="{{route('producto.ver', ['id'=>$prod->id])}}"><i class="bi bi-eye"></i>Detalles</a>
-        </td>
-
-        <td>
-            <a class="btn btn-success" 
-            href="{{route('producto.edit', ['id'=>$prod->id])}} "><i class="bi bi-plus-circle"></i>Agregar productos</a>
-        </td>
-
-    @empty
-    <tr>
-    <th scope="row" colspan="5"> No hay productos</th>
-    </tr>
-    @endforelse
-    </tbody>
-    </table>
-    {{ $producto->links()}}
-
-
+  </thead>
+  <tbody>     
+  @foreach($inventario as $producto)
+    
+    <tr class="table-primary"> 
+      <td>{{$producto->servicio_id}}</td>
+      <td>{{$producto->tipo}}</td>
+      <td>{{$producto->categoria}}</td>
+      <td>{{$producto->precio}}</td>
+      <td>{{$producto->cantidad}}</td>
+      <td>{{$producto->precio*$producto->cantidad}}</td>
+      
+ @endforeach 
+      
+  </tbody>
+</table>
+ 
 
     <style>
 
