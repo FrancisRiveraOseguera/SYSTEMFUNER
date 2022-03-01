@@ -108,5 +108,3 @@ Route::get('/producto/{id}/actualizar', 'App\Http\Controllers\InventarioControll
 
 Route::put('/producto/{id}/actualizar', 'App\Http\Controllers\InventarioController@update')
     ->name('producto.update')->where('id', '[0-9]+');
-
-

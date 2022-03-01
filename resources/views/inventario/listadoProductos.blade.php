@@ -4,7 +4,6 @@
 
 @section('content')
 
-
 <div class="invent">
     <div class="row">
         <div class="col-lg-7">
@@ -18,7 +17,6 @@
             <a class="btn btn-secondary btn block" href=""><i class="bi bi-card-checklist"></i>Ver todos los registros</a>
         </div>
     </div>
-
 
 <!--Barra de búsqueda-->
 <div>
