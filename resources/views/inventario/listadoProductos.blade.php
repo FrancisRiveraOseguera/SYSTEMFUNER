@@ -4,7 +4,6 @@
 
 @section('content')
 
-
 <div class="invent">
     <div class="row">
         <div class="col-lg-7">
@@ -15,9 +14,12 @@
         </div>
         </div>
 
+<<<<<<< HEAD
          
     </div>
 
+=======
+>>>>>>> 52aa7cea7f06f390433cd1643cefff418deae5b1
 <!--Barra de búsqueda-->
 <div>
     <br>

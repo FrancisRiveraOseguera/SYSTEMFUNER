@@ -21,15 +21,6 @@ class CreateTableClientes extends Migration
             $table->date('fecha_de_nacimiento');
             $table->string('direccion', 100);
             $table->char('telefono', 8);
-            $table->string('tipo_de_servicio', 20);
-            $table->string('nombre_beneficiario_1', 60);
-            $table->char('telefono_beneficiario_1', 8);
-            $table->string('nombre_beneficiario_2', 60);
-            $table->char('telefono_beneficiario_2', 8);
-            $table->string('nombre_beneficiario_3', 60)->nullable();
-            $table->char('telefono_beneficiario_3', 8)->nullable();
-            $table->string('nombre_beneficiario_4', 60)->nullable();
-            $table->char('telefono_beneficiario_4', 8)->nullable();
             $table->string('ocupacion', 50);
             $table->timestamps();
             $table->charset = 'utf8mb4';

@@ -13,4 +13,8 @@ class Inventario extends Model
 
     use HasFactory;
     protected $table = 'inventario';
+
+    public function servicios(){
+        return $this->hasMany(Servicio::class);
+    }
 }

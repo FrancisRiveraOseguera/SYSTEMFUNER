@@ -106,5 +106,10 @@ Route::post('productosInventario/nuevo/', 'App\Http\Controllers\InventarioContro
 Route::get('ListadoProductosenInventario', 'App\Http\Controllers\InventarioController@verProductosEnInventario')
     ->name('inventario.verProductos');
 
+<<<<<<< HEAD
 
 
+=======
+Route::put('/producto/{id}/actualizar', 'App\Http\Controllers\InventarioController@update')
+    ->name('producto.update')->where('id', '[0-9]+');
+>>>>>>> 52aa7cea7f06f390433cd1643cefff418deae5b1
