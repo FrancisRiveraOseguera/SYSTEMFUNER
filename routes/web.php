@@ -59,7 +59,6 @@ Route::get('/empleado/{id}', 'App\Http\Controllers\EmpleadoController@show')
     ->name('empleado.ver')
     ->where('id', '[0-9]+');
 
-
 //RUTAS DEL CONTROLADOR CLIENTE
 Route::get('/listadoClientes', 'App\Http\Controllers\ClienteController@index')
     ->name('listado.clientes');
@@ -69,7 +68,6 @@ Route::get('/cliente/nuevo', 'App\Http\Controllers\ClienteController@create')
 
 Route::post('/cliente/nuevo', 'App\Http\Controllers\ClienteController@store')
     ->name('cliente.guardar');
-
 
 // RUTAS EDITAR CLIENTE
 Route::get('/cliente/{id}/editar', 'App\Http\Controllers\ClienteController@edit')
@@ -83,18 +81,13 @@ Route::get('/cliente/{id}', 'App\Http\Controllers\ClienteController@show')
     ->name('cliente.ver')
     ->where('id', '[0-9]+');
 
-
 //RUTAS DE INVENTARIO
 Route::get('inventario', 'App\Http\Controllers\InventarioController@home')
 ->name('inventario.home');
 
-Route::get('productosInventario', 'App\Http\Controllers\InventarioController@index')
-->name('inventario.index');
-
 //ruta de historial
 Route::get('historialInventario', 'App\Http\Controllers\InventarioController@index')
 ->name('historialinventario.index');
-
 
 Route::get('productosInventario/nuevo/', 'App\Http\Controllers\InventarioController@create')
 ->name('inventario.create');

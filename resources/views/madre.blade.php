@@ -67,7 +67,7 @@
                 <a href="{{route('Servicio.lista')}}"><i class="fas fa-hands-helping" style="font-size: 14px"></i>Servicios</a>
             </li>
             <li>
-                <a href=""><i class="fas fa-shopping-cart" style="font-size: 14px"></i>Productos</a>
+                <a href="{{route('historialinventario.index')}}"><i class="fas fa-shopping-cart" style="font-size: 14px"></i>Productos</a>
             </li>
             <li>
                 <a href="{{route('inventario.home')}}"><i class="fas fa-boxes" style="font-size: 14px"></i>Inventario</a>

@@ -39,16 +39,16 @@ class InventarioController extends Controller
     {
         $rules=[
             'servicio_id' => 'required|numeric|exists:App\Models\Servicio,id',
-            'responsable' => 'required|regex:/^[\pL\s\-]+$/u|max:35|min:10',
+            'responsable' => 'required|regex:/^[\pL\s\-]+$/u|max:35|min:2',
             'fecha_ingreso' => 'required',
             'cantidad_aIngresar' => 'required|numeric|min:1|max:100'
             
         ];
 
     $mensaje=[
-           'servicio_id.exists' => 'El  servicio debe ser un servicio válido',
-            'servicio_id.required' => 'El campo tipo de servicio no puede estar vacío.',
-            'servicio_id.numeric' => 'El campo tipo de servicio solo debe contener números. ',
+           'servicio_id.exists' => 'El campo número de producto no existe.',
+            'servicio_id.required' => 'El campo número de producto no puede estar vacío.',
+            'servicio_id.numeric' => 'El campo número de producto solo debe contener números. ',
            
 
             'responsable.required' => 'El campo :attribute no puede estar vacío.',

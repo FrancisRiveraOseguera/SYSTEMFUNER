@@ -27,11 +27,11 @@
         @csrf
 
         <div class="form-group row">
-                <label for="servicio_id" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-card-list"></i>Tipo de servicio</label>
+                <label for="servicio_id" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-card-list"></i>Número de producto</label>
             <div class="col-sm-8">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "number"
-                name="servicio_id" id="id_servicio"  maxlength = "25" placeholder="Numero de servicio" class="form-control" 
+                name="servicio_id" id="id_servicio"  maxlength = "25" placeholder="Número de producto" class="form-control" 
                 value="{{old('servicio_id', $inventario->servicio_id ?? '')}}"/>  
             </div>
 
