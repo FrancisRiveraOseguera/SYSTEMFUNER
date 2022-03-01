@@ -14,12 +14,8 @@
         </div>
         </div>
 
-<<<<<<< HEAD
-         
     </div>
 
-=======
->>>>>>> 52aa7cea7f06f390433cd1643cefff418deae5b1
 <!--Barra de búsqueda-->
 <div>
     <br>

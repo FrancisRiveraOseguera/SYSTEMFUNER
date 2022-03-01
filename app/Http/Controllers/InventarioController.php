@@ -87,15 +87,7 @@ class InventarioController extends Controller
 
     }
 
-<<<<<<< HEAD
-
-
-=======
-
-
->>>>>>> 52aa7cea7f06f390433cd1643cefff418deae5b1
     //función para actualizar productos
-
    
     public function  verProductosEnInventario() {
         //mandarlo  a buscar 
