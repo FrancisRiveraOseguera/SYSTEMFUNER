@@ -43,7 +43,7 @@
     <div class="container">
             <div class="container">
                 <div class="padre">
-                    <a href="{{route('inventario.index')}}"> 
+                    <a href="{{route('historialinventario.index')}}"> 
                         <img src="/assets/inventario.png" class="rounded-circle bs" width="120" height="120">
                     </a>
             </div>

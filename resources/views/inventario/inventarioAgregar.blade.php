@@ -31,22 +31,22 @@
             <div class="col-sm-8">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "number"
-                name="servicio_id" id="id_servicio"  maxlength = "25" placeholder="Número de producto" class="form-control" 
+                name="servicio_id" id="id_servicio"  maxlength = "25" placeholder="Ingresa el número de producto" class="form-control" 
                 value="{{old('servicio_id', $inventario->servicio_id ?? '')}}"/>  
             </div>
 
         </div>
         
-
-        <div class="form-group row">
-                <label for="responsable" class="col-lg-2 control-label offset-md-1 requerido">
-                    <i id="IcNewEmp" class="bi bi-person-fill"></i>Responsable</label>
+         <div class="form-group row">
+            <label for="responsable" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-credit-card"></i>Responsable</label>
             <div class="col-sm-8">
-                <input type = "text"
-                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                       maxlength = "35" name="responsable" id="responsable"
-                       placeholder="Nombre y apellido del responsable." class="form-control"
-                value="{{old('responsable', $inventario->responsable ?? '')}}"/>
+                <select name="responsable" id="responsable"  class="form-control" value="{{old('responsable', $inventario->responsable ?? '')}}">
+                    <option selected disabled value="">Elige el responsable</option>
+                    <option value="Carlos Rodriguez">Carlos Rodriguez</option> 
+                    <option value="Francis Rivos">Francis Rivos</option> 
+                    <option value="Eleana Cano">Eleana Cano</option> 
+                    <option value="Cindy Salgado">Cindy Salgado</option>
+                </select>    
             </div>
         </div>
 
@@ -62,11 +62,10 @@
             </div>
         </div>
             
-
         <div class="form-group row">
             <label for="cantidad_aIngresar" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-clipboard-check"></i>Cantidad </label>
             <div class="col-sm-8">
-            <input type="text" placeholder="Cantidad a agregar al inventario." maxlength="3"
+            <input type="text" placeholder="Ingresa la cantidad a agregar al inventario." maxlength="3"
                 id="cantidad_aIngresar" name="cantidad_aIngresar" class="form-control" 
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 value="{{old('cantidad_aIngresar', $inventario->cantidad_aIngresar ?? '')}}"/>
