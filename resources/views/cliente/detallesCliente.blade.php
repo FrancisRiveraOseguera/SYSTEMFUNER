@@ -11,8 +11,8 @@
     <div class="emple">
     <form method="post" action="" autocomplete="off">
         @csrf
-        <div class="col row mb-3">
-            <label for="identidad" class="col-lg-3 control-label offset-md-0.5 requerido hijo">
+        <div class="form-group row">
+            <label for="identidad" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i id="IcNewEmp" class="bi bi-credit-card-2-front"></i>Identidad:</label>
             <div class="col-sm-8 mt-2 ml-6">
                 {{$cliente->identidad}}
@@ -20,8 +20,8 @@
         </div>
         
 
-        <div class="col row mb-3">
-                <label for="nombres" class="col-lg-3 control-label offset-md-0.5 requerido hijo">
+        <div class="form-group row">
+                <label for="nombres" class="col-lg-3 control-label offset-md-1 requerido hijo">
                     <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres:</label>
             <div class="col-sm-8 mt-2 ml-6">
                 {{$cliente->nombres}}
@@ -29,8 +29,8 @@
         </div>
         
 
-        <div class="col row mb-3">
-            <label for="apellidos" class="col-lg-3 control-label offset-md-0.5 requerido hijo">
+        <div class="form-group row">
+            <label for="apellidos" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos:</label>
             <div class="col-sm-8 mt-2 ml-6">
             {{$cliente->apellidos}}
@@ -39,8 +39,8 @@
         
 
         <?php $fecha_actual = date("d-m-Y");?>
-        <div class="col row mb-3 ">
-            <label for="fecha_de_nacimiento" class="col-lg-3 control-label offset-md-0.5 requerido hijo">
+        <div class="form-group row ">
+            <label for="fecha_de_nacimiento" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp" class="bi bi-calendar-month"></i>Fecha Nacimiento:</label>
             <div class="col-sm-7 mt-2 ml-6">
                 {{ $cliente->fecha_de_nacimiento}}
@@ -48,8 +48,8 @@
         </div>
         
 
-        <div class="col row mb-3">
-            <label for="telefono" class="col-lg-3 control-label offset-md-0.5 requerido hijo">
+        <div class="form-group row">
+            <label for="telefono" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. del Cliente:</label>
             <div class="col-sm-8 mt-2 ml-6">
                 {{$cliente->telefono}}
@@ -57,15 +57,15 @@
         </div>
         
 
-        <div class="col row mb-3">
-            <label for="direccion" class="col-lg-3 control-label offset-md-0.5 requerido hijo">
+        <div class="form-group row">
+            <label for="direccion" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp" class="bi bi-signpost"></i>Dirección:</label>
             <textarea disabled cols="52" rows="2" style= "border: none">  {{$cliente->direccion}}</textarea>
         </div>
         
 
-        <div class="col row mb-3">
-            <label for="ocupacion" class="col-lg-3 control-label offset-md-0.5 requerido hijo">
+        <div class="form-group row">
+            <label for="ocupacion" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i id="IcNewEmp" class="fas fa-user-tie"></i>Ocupación:</label>
             <div class="col-sm-8 mt-2 ml-6">
             {{$cliente->ocupacion}}
