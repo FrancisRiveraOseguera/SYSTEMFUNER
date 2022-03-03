@@ -60,7 +60,7 @@ class InventarioController extends Controller
                     
             'cantidad_aIngresar.required'  =>'El campo :attribute no puede estar vacío.',
             'cantidad_aIngresar.numeric'  =>'El campo :attribute no puede contener letras.',
-            'cantidad_aIngresar.min'  =>'El campo :attribute no puede ser menor al menos 1',
+            'cantidad_aIngresar.min'  =>'El campo :attribute no puede ser menor a 1 unidad',
             'cantidad_aIngresar.max'  =>'El campo :attribute no puede ser mayor a 25 unidades',
 
 

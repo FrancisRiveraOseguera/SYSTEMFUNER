@@ -40,10 +40,13 @@
         <div class="form-group row">
             <label for="responsable" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-lines-fill"></i>Responsable</label>
             <div class="col-sm-8">
-            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type = "float"
-                name="responsable" id="responsable"  maxlength = "35" placeholder="Ingresa el nombre del responsable" class="form-control" 
-                value="{{old('responsable', $inventario->responsable ?? '')}}"/>  
+            <select name="responsable" id="responsable"  class="form-control" value="{{old('responsable', $inventario->responsable ?? '')}}">
+                    <option selected disabled value="">Elige el responsable</option>
+                    <option value="Carlos Rodriguez">Carlos Rodriguez</option> 
+                    <option value="Francis Rivos">Francis Rivos</option> 
+                    <option value="Eleana Cano">Eleana Cano</option> 
+                    <option value="Cindy Salgado">Cindy Salgado</option>
+                </select>     
             </div>
         </div>
 
