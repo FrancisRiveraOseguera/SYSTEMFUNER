@@ -38,7 +38,7 @@
       <div class="form-outline">
           <label class=" form-label" for="precio"><i id="IcNewServ" class="bi bi-cash-coin"></i>Precio del servicio</label>
         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-        type="float" maxlength = "6" id="precio" class="form-control"  name="precio" 
+        type="float" maxlength = "8" id="precio" class="form-control"  name="precio" 
         placeholder= "Ingresa el precio del servicio" value="{{old('precio', $servicio->precio?? '')}}" />
       </div>
     </div>

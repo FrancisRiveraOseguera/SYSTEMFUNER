@@ -17,6 +17,8 @@ class InventarioController extends Controller
 
         $busqueda = trim($request->get('busqueda'));
 
+       // $results = Inventario::orderBy("id")->get();
+
         $producto = DB::table('inventario')
 
             ->where('servicio_id', 'LIKE', '%'.$busqueda.'%')

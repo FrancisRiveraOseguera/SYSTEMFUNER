@@ -7,46 +7,30 @@
 <div class="invent">
     <div class="row">
         <div class="col-lg-7">
-            <h3>Listado de productos en inventario</h3>
-
+            <h3>Listado de productos en inventario.</h3>
+            <br>
             <div class="col-lg-3 hijo">
-            <a class="btn btn-primary btn block" href="{{route('historialinventario.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
-        </div>
-        </div>
-
+                 <a class="btn btn-primary btn block" href="{{route('historialinventario.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
+            </div>
     </div>
 
 <!--Barra de búsqueda-->
-<div>
-    <br>
-    <form  action="" method="GET" autocomplete="off">
-        <div   class="input-group input-group-sm">
-            <a type="button" href="" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
-            <input type="search" class="col-sm-6" name="busqueda"
-                placeholder="Ingrese el tipo o categoria del producto para realizar la búsqueda" value="">
-
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-primary">
-                    Buscar
-                </button>
-            </div>
-        </div>
-    </form>
+<hr>
 </div>
-<hr>    
+     
 <!--Creación de tabla-->
 
  <br>
  <table class="table ">
   <thead>
-    <tr class="table-info">
+    <tr class="table-success"  style="width: 1020px;">
       <th scope="col">Código</th>
-      <th scope="col">Tipo</th>
-      <th scope="col">Categoría</th>
-      <th scope="col" >Precio</th>
-      <th scope="col">Cantidad </th>
-      <th scope="col">Costo Total</th>
+      <th scope="col"style=" width: 175px;">Tipo</th>
+      <th scope="col"style="text-align: center;  width: 300px;">Categoría</th>
+      <th scope="col" style="text-align: right; width: 120px;">Precio</th>
+      <th scope="col" style="text-align: right; width: 120px;">Cantidad </th>
+      <th scope="col" style="text-align: right; width: 160px;">Costo Total</th>
       
       
     </tr>
@@ -54,19 +38,19 @@
   <tbody>     
   @foreach($inventario as $producto)
     
-    <tr class="table-primary"> 
+    <tr class="table-info"> 
       <td>{{$producto->servicio_id}}</td>
-      <td>{{$producto->tipo}}</td>
-      <td>{{$producto->categoria}}</td>
-      <td>{{$producto->precio}}</td>
-      <td>{{$producto->cantidad}}</td>
-      <td>{{$producto->precio*$producto->cantidad}}</td>
+      <td style="">{{$producto->tipo}}</td>
+      <td style="text-align: center">{{$producto->categoria}}</td>
+      <td style="text-align: right">{{$producto->precio}}</td>
+      <td style="color:#d94d2f; text-align: right">{{$producto->cantidad}}</td>
+      <td style="color:#2d812f; text-align: right">{{$producto->precio*$producto->cantidad}}</td>
       
  @endforeach 
       
   </tbody>
 </table>
- 
+
 
     <style>
 
@@ -92,6 +76,15 @@
     .hijo{
         padding-left: 20px;
     }
+
+    .x{
+    width:50%;
+    float:right
+    padding: 20px;
+    position: absolute;
+    top: 9%;
+    right: 20px;}
+    
 
     </style>
     

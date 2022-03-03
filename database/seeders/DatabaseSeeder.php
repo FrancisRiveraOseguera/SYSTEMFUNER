@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Servicio;
 use App\Models\Empleado;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ClienteSeeder::class,
             EmpleadoSeeder::class,
+            ServicioSeeder::class,
             
         ]);
     }

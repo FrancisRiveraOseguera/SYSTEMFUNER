@@ -85,6 +85,8 @@ Route::get('/cliente/{id}', 'App\Http\Controllers\ClienteController@show')
 Route::get('inventario', 'App\Http\Controllers\InventarioController@home')
 ->name('inventario.home');
 
+Route::get('productosInventario', 'App\Http\Controllers\InventarioController@index')
+->name('inventario.index');
 //ruta de historial
 Route::get('historialInventario', 'App\Http\Controllers\InventarioController@index')
 ->name('historialinventario.index');

@@ -14,7 +14,7 @@
         <div class="col-lg-2.5 hijo">
             <a class="btn btn-info btn block" href="{{route('inventario.create')}}"><i class="bi bi-plus-circle"></i>Agregar a inventario</a>
         </div>
-    <div class="col-lg-2.5 hijo">
+        <div class="col-lg-2.5 hijo">
             <a class="btn btn-success btn block" href="{{route('inventario.verProductos')}}"><i class="bi bi-clipboard-check"></i>Cantidades en inventario</a>
         </div>
     </div>
@@ -27,8 +27,8 @@
         <div   class="input-group input-group-sm">
             <a type="button" href="{{route('historialinventario.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
-            <input type="search" class="col-sm-6" name="busqueda"
-                placeholder="Ingrese el número de servicio o el nombre responsable para buscar" value="{{$busqueda}}">
+            <input type="search" class="col-sm-7" name="busqueda"
+                placeholder="Ingrese el número de producto o nombre del responsable para realizar la búsqueda." value="{{$busqueda}}">
 
             <div class="input-group-append">
                 <button type="submit" class="btn btn-primary">
@@ -50,23 +50,25 @@
 
 <!--Creación de tabla-->
 <div class="invent !important">
-<table class="table">
+<table class="table" style="width: 1020px;">
     <thead>
     <tr>
-        <tr class="table-info">
+        <tr class="table-success">
         <th scope="col">N° Servicio</th>
         <th scope="col">Responsable</th>
         <th scope="col">Fecha de ingreso</th>
-        <th scope="col" >Cantidad ingresada</th>
+        <th scope="col" style="width: 50px;">Cantidad </th>
+        <th scope="col" style="width: 120px;"> </th>
     </tr>
     </thead>
     <tbody>
     @forelse($producto as $prod)
-    <tr>    
+    <tr class="table-info">    
         <td >{{$prod->servicio_id}}</td>
         <td>{{$prod->responsable}}</td>
-        <td>{{$prod->fecha_ingreso}}</td>
-        <td >{{$prod->cantidad_aIngresar}}</td>
+        <td >{{$prod->fecha_ingreso}}</td>
+        <td style="text-align:right">{{$prod->cantidad_aIngresar}}</td>
+        <td></td>
         
      @empty
     <tr>
