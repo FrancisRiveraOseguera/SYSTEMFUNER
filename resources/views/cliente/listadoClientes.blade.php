@@ -8,18 +8,14 @@
 <div class="emple">
 
     <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-9">
             <h3>Listado de clientes</h3>
         </div>
 
-        <div class="col-lg-2.5">
-            <a class="btn btn-info btn block p-3" href="{{route('cliente.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo cliente</a>
-        </div>
         <div class="col-lg-3">
-            <a class="btn btn-secondary btn block" href="">
-                <i class="bi bi-dash-circle"></i>Ver clientes que han utilizado los servicios
-            </a>
+            <a class="btn btn-info btn block" href="{{route('cliente.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo cliente</a>
         </div>
+
     </div>
 
 
@@ -31,7 +27,7 @@
             <a type="button" href="{{route('listado.clientes')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
             <input type="search" class="col-sm-6" name="busqueda"
-                placeholder="Ingrese el nombre, identidad o dirección del cliente para buscar" value="{{$busqueda}}">
+                placeholder="Ingrese el nombre o la identidad del cliente para realizar la búsqueda." value="{{$busqueda}}">
 
             <div class="input-group-append">
                 <button type="submit" class="btn btn-primary">
@@ -64,7 +60,6 @@
         <th scope="col">Teléfono</th>
         <th scope="col">Detalles</th>
         <th scope="col">Editar</th>
-        <th scope="col">Marcar contrato</th>
     </tr>
     </thead>
     <tbody>
@@ -84,10 +79,7 @@
             <a class="btn btn-success"
                 href="{{route('cliente.edit', ['id'=> $client->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
         </td>
-        <td>
-            <a class="btn btn-danger"
-               href=""><i class="bi bi-dash-circle"></i>Servicio usado</a>
-        </td>
+
     </tr>
     @empty
     <tr>

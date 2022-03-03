@@ -17,8 +17,7 @@ class ClienteController extends Controller
 
             ->where('identidad', 'LIKE', '%'.$busqueda.'%')
             ->orwhere('nombres', 'LIKE', '%'.$busqueda.'%')
-            ->orwhere('direccion', 'LIKE', '%'.$busqueda.'%')
-            ->paginate(5)-> withQueryString();
+            ->paginate(15)-> withQueryString();
 
         return view('cliente.listadoClientes')
             ->with('cliente', $cliente)
