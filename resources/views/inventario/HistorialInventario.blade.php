@@ -53,7 +53,7 @@
 <table class="table" style="width: 1020px;">
     <thead>
     <tr>
-        <tr class="table-success">
+        <tr class="table-info">
         <th scope="col">N° Servicio</th>
         <th scope="col">Responsable</th>
         <th scope="col">Fecha de ingreso</th>
@@ -63,7 +63,7 @@
     </thead>
     <tbody>
     @forelse($producto as $prod)
-    <tr class="table-info">    
+    <tr class="table">    
         <td >{{$prod->servicio_id}}</td>
         <td>{{$prod->responsable}}</td>
         <td >{{$prod->fecha_ingreso}}</td>

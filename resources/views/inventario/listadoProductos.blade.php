@@ -7,50 +7,46 @@
 <div class="invent">
     <div class="row">
         <div class="col-lg-7">
-            <h3>Listado de productos en inventario.</h3>
+            <h3>Listado de cantidades en inventario</h3>
             <br>
-            <div class="col-lg-3 hijo">
-                 <a class="btn btn-primary btn block" href="{{route('historialinventario.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
-            </div>
-    </div>
-
-<!--Barra de búsqueda-->
-
+             <a class="btn btn-primary btn block" href="{{route('historialinventario.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
+            
+        </div>
 <hr>
 </div>
-     
+</div>    
 <!--Creación de tabla-->
 
  <br>
+ <div class="invent">
  <table class="table ">
   <thead>
-    <tr class="table-success"  style="width: 1020px;">
-      <th scope="col">Código</th>
+    <tr class="table-info"  style="width: 1020px;">
+      <th scope="col">N° Servicio</th>
       <th scope="col"style=" width: 175px;">Tipo</th>
       <th scope="col"style="text-align: center;  width: 300px;">Categoría</th>
       <th scope="col" style="text-align: right; width: 120px;">Precio</th>
       <th scope="col" style="text-align: right; width: 120px;">Cantidad </th>
-      <th scope="col" style="text-align: right; width: 160px;">Costo Total</th>
+      <th scope="col" style="text-align: right; width: 140px;">Costo Total</th>
       
       
     </tr>
   </thead>
   <tbody>     
-  @foreach($inventario as $producto)
-    
-    <tr class="table-info"> 
+  @foreach($inventario as $producto) 
+    <tr class="table"> 
       <td>{{$producto->servicio_id}}</td>
       <td style="">{{$producto->tipo}}</td>
       <td style="text-align: center">{{$producto->categoria}}</td>
       <td style="text-align: right">{{$producto->precio}}</td>
-      <td style="color:#d94d2f; text-align: right">{{$producto->cantidad}}</td>
-      <td style="color:#2d812f; text-align: right">{{$producto->precio*$producto->cantidad}}</td>
+      <td style="color:#0489B1; text-align: right;">{{$producto->cantidad}}</td>
+      <td style="color:#2d812f; text-align: right"> {{$producto->precio*$producto->cantidad}}</td>
       
  @endforeach 
       
   </tbody>
 </table>
-
+</div>
 
     <style>
 

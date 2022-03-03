@@ -61,7 +61,7 @@
                     </label>
                     <div class="col-sm-8">
                         <textarea  name="detalles"  id="detalles" disabled
-                                   cols="52" rows="2" >{{$Servicio->detalles}}
+                                   cols="52" rows="2" style="border: none;">{{$Servicio->detalles}}
                         </textarea>
                     </div>
                 </div>

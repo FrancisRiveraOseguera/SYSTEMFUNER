@@ -17,19 +17,16 @@ class InventarioController extends Controller
 
         $busqueda = trim($request->get('busqueda'));
 
-       // $results = Inventario::orderBy("id")->get();
-
         $producto = DB::table('inventario')
 
             ->where('servicio_id', 'LIKE', '%'.$busqueda.'%')
             ->orwhere('responsable', 'LIKE', '%'.$busqueda.'%')
-            ->paginate(5)-> withQueryString();
+            ->paginate(15)-> withQueryString();
 
         return view('inventario/HistorialInventario')
         ->with('producto', $producto)
         ->with('busqueda', $busqueda);
     }
-
     public function create()
     {
         return view('/inventario/inventarioAgregar');
@@ -41,9 +38,9 @@ class InventarioController extends Controller
     {
         $rules=[
             'servicio_id' => 'required|numeric|exists:App\Models\Servicio,id',
-            'responsable' => 'required|regex:/^[\pL\s\-]+$/u|max:35|min:2',
+            'responsable' => 'required|regex:/^[\pL\s\-]+$/u|max:35|min:5',
             'fecha_ingreso' => 'required',
-            'cantidad_aIngresar' => 'required|numeric|min:1|max:100'
+            'cantidad_aIngresar' => 'required|numeric|min:1|max:25'
             
         ];
 
@@ -52,19 +49,19 @@ class InventarioController extends Controller
             'servicio_id.required' => 'El campo número de producto no puede estar vacío.',
             'servicio_id.numeric' => 'El campo número de producto solo debe contener números. ',
            
-
+            
             'responsable.required' => 'El campo :attribute no puede estar vacío.',
             'responsable.regex' => 'El campo :attribute solo debe contener letras. ',
             'responsable.max' => 'El campo :attribute debe contener 35 letras como máximo.',
-            'responsable.min' => 'El campo :attribute debe contener 10 letras como mínimo.',
+            'responsable.min' => 'El campo :attribute debe contener 5 letras como mínimo.',
 
             'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
     
                     
             'cantidad_aIngresar.required'  =>'El campo :attribute no puede estar vacío.',
             'cantidad_aIngresar.numeric'  =>'El campo :attribute no puede contener letras.',
-            'cantidad_aIngresarl.min'  =>'El campo :attribute no puede ser menor a 0 unidad',
-            
+            'cantidad_aIngresar.min'  =>'El campo :attribute no puede ser menor al menos 1',
+            'cantidad_aIngresar.max'  =>'El campo :attribute no puede ser mayor a 25 unidades',
 
 
            
