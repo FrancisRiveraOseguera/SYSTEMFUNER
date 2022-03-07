@@ -43,7 +43,7 @@
             <select name="responsable" id="responsable"  class="form-control" value="{{old('responsable', $inventario->responsable ?? '')}}">
                     <option selected disabled value="">Elige el responsable</option>
                     <option value="Carlos Rodriguez">Carlos Rodriguez</option> 
-                    <option value="Francis Rivos">Francis Rivera</option> 
+                    <option value="Francis Rivera">Francis Rivera</option> 
                     <option value="Eleana Cano">Eleana Cano</option> 
                     <option value="Cindy Salgado">Cindy Salgado</option>
                 </select>     
@@ -56,7 +56,7 @@
             <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso</label>
             <div class="col-sm-8">
                     <input type="text" readonly name="fecha_ingreso" id="fecha_ingreso" class="form-control hijo" 
-                    value="<?php echo date($fecha_actual)?>{{old('fecha_ingreso', $inventario->fecha_ingreso ?? '')}}"/>
+                    value="<?php echo date($fecha_actual)?>{{($inventario->fecha_ingreso ?? '')}}"/>
             </div>
         </div>
             
