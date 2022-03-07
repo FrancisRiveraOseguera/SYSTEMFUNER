@@ -18,7 +18,7 @@ class CreateInventarioTable extends Migration
             $table->integer('servicio_id');
             $table->string('responsable', 35);
             $table->integer('cantidad_aIngresar');
-            $table->date('fecha_ingreso');
+            $table->text('fecha_ingreso');
             $table->timestamps();
         });
     }
