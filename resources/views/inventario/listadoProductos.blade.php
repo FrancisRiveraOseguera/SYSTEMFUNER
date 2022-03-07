@@ -18,11 +18,12 @@
 <!--Creación de tabla-->
 
  <br>
+ 
  <div class="invent">
  <table class="table ">
   <thead>
     <tr class="table-info"  style="width: 1020px;">
-      <th scope="col">N° Servicio</th>
+      <th scope="col">N° Producto</th>
       <th scope="col"style=" width: 175px;">Tipo</th>
       <th scope="col"style="text-align: center;  width: 300px;">Categoría</th>
       <th scope="col" style="text-align: right; width: 120px;">Precio</th>
@@ -40,10 +41,8 @@
       <td style="text-align: center">{{$producto->categoria}}</td>
       <td style="text-align: right">{{$producto->precio}}</td>
       <td style="color:#0489B1; text-align: right;">{{$producto->cantidad}}</td>
-      <td style="color:#2d812f; text-align: right"> {{$producto->precio*$producto->cantidad}}</td>
-      
- @endforeach 
-      
+      <td style="color:#2d812f; text-align: right"> {{$producto->precio*$producto->cantidad }}</td>
+@endforeach
   </tbody>
 </table>
 </div>

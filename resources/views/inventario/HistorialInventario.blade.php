@@ -54,7 +54,7 @@
     <thead>
     <tr>
         <tr class="table-info">
-        <th scope="col">N° Servicio</th>
+        <th scope="col">N° Producto</th>
         <th scope="col">Responsable</th>
         <th scope="col">Fecha de ingreso</th>
         <th scope="col" style="width: 50px;">Cantidad </th>

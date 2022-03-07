@@ -17,7 +17,7 @@ class InventarioController extends Controller
 
         $busqueda = trim($request->get('busqueda'));
 
-        $producto = DB::table('inventario')
+        $producto = DB::table('inventario')->orderby('id','DESC' )
 
             ->where('servicio_id', 'LIKE', '%'.$busqueda.'%')
             ->orwhere('responsable', 'LIKE', '%'.$busqueda.'%')
@@ -91,8 +91,9 @@ class InventarioController extends Controller
     public function  verProductosEnInventario() {
         //mandarlo  a buscar 
         $inventario  = Inventario::select('servicio_id','categoria','precio', 'tipo',DB::raw('sum(cantidad_aIngresar) as cantidad'))
-        ->join('servicios','servicios.id', '=', 'servicio_id')->groupby('servicio_id')->get();
+        ->join('servicios','servicios.id', '=', 'servicio_id')->groupby('servicio_id')->orderby('servicio_id','ASC' )->get();
         return view ('inventario/listadoProductos')->with('inventario', $inventario );
+
     }
 
     
