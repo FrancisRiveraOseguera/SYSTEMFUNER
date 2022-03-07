@@ -41,13 +41,9 @@
             <label for="responsable" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-lines-fill"></i>Responsable</label>
             <div class="col-sm-8"> 
             <select name="responsable" id="responsable"  class="form-control" value="{{old('responsable', $inventario->responsable ?? '')}}">
-                    <option selected disabled value="">Elige el responsable</option>
+                    <option selected disabled value="none">Elige el responsable</option>
                     <option value="Carlos Rodriguez">Carlos Rodriguez</option> 
-<<<<<<< HEAD
-                    <option value="Francis Rivos">Francis Rivera</option> 
-=======
                     <option value="Francis Rivera">Francis Rivera</option> 
->>>>>>> eabf5351b1e21e76696f4114e90aa2cb2e1dc4fe
                     <option value="Eleana Cano">Eleana Cano</option> 
                     <option value="Cindy Salgado">Cindy Salgado</option>
                 </select>     
