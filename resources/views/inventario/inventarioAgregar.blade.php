@@ -43,7 +43,7 @@
             <select name="responsable" id="responsable"  class="form-control" value="{{old('responsable', $inventario->responsable ?? '')}}">
                     <option selected disabled value="">Elige el responsable</option>
                     <option value="Carlos Rodriguez">Carlos Rodriguez</option> 
-                    <option value="Francis Rivos">Francis Rivos</option> 
+                    <option value="Francis Rivos">Francis Rivera</option> 
                     <option value="Eleana Cano">Eleana Cano</option> 
                     <option value="Cindy Salgado">Cindy Salgado</option>
                 </select>     
@@ -53,12 +53,10 @@
         <?php $fecha_actual = date("d-m-Y");?>
         
         <div class="form-group row">
-                <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso</label>
+            <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso</label>
             <div class="col-sm-8">
-                <input type="date" name="fecha_ingreso" id="fecha_ingreso" class="form-control" 
-                value="{{old('fecha_ingreso', $inventario->fecha_ingreso ?? '')}}"
-                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
-                max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
+                    <input type="text" readonly name="fecha_ingreso" id="fecha_ingreso" class="form-control hijo" 
+                    value="<?php echo date($fecha_actual)?>{{old('fecha_ingreso', $inventario->fecha_ingreso ?? '')}}"/>
             </div>
         </div>
             
@@ -97,6 +95,11 @@
         .emple{
             font-style: bold;
             font-family: 'Times New Roman', Times, serif;
+        }
+
+        .hijo{
+            -moz-user-select: none;
+            user-select: none;
         }
 
 
