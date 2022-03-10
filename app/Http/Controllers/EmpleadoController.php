@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\empleados_desactivados;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -58,7 +59,7 @@ class EmpleadoController extends Controller
             'contacto_de_emergencia' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:empleados,contacto_de_emergencia',
             'direccion' => 'required|max:100',
         ];
-    
+
     $mensaje=[
         'identidad.required' => 'El campo :attribute no puede estar vacío.',
         'identidad.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 0 o 1 y contener 13 números.',
@@ -72,13 +73,13 @@ class EmpleadoController extends Controller
         'apellidos.required' => 'El campo :attribute no puede estar vacío.',
         'apellidos.regex' => 'El campo :attribute solo debe contener letras. ',
         'apellidos.max' => 'El campo :attribute debe contener 35 letras como máximo.',
-        
+
         'genero.required' => 'El campo género no puede estar vacío.',
 
         'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
 
         'fecha_de_nacimiento.required' => 'El campo :attribute no puede estar vacío.',
-    
+
         'telefono.required' => 'El campo teléfono no puede estar vacío.',
         'telefono.unique' => 'El campo teléfono debe de ser único.',
         'telefono.regex' => 'El campo teléfono no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
@@ -103,13 +104,13 @@ class EmpleadoController extends Controller
     $nuevoEmpleado->nombres = $request->input('nombres');
     $nuevoEmpleado->apellidos = $request->input('apellidos');
     $nuevoEmpleado->genero = $request->input('genero');
-    $nuevoEmpleado->direccion= $request->input('direccion'); 
+    $nuevoEmpleado->direccion= $request->input('direccion');
     $nuevoEmpleado->fecha_ingreso = $request->input('fecha_ingreso');
     $nuevoEmpleado->fecha_de_nacimiento = $request->input('fecha_de_nacimiento');
     $nuevoEmpleado->telefono= $request->input('telefono');
     $nuevoEmpleado->contacto_de_emergencia= $request->input('contacto_de_emergencia');
-    
-    
+
+
 
         $creado = $nuevoEmpleado->save();
 
@@ -158,7 +159,7 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    
+
     //ACTUALIZAR/VALIDAR DATOS DEL EMPLEADO
     public function update(Request $request, $id)
     {
@@ -173,7 +174,7 @@ class EmpleadoController extends Controller
             'contacto_de_emergencia' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
             'direccion' => 'required|max:100'
         ];
-    
+
         $mensaje=[
             'identidad.required' => 'El campo :attribute no puede estar vacío.',
             'identidad.regex' => 'El campo :attribute no cumple el formato correcto, debe de iniciar con 0 o 1 y contener 13 números.',
@@ -187,13 +188,13 @@ class EmpleadoController extends Controller
             'apellidos.required' => 'El campo :attribute no puede estar vacío.',
             'apellidos.regex' => 'El campo :attribute solo debe contener letras.',
             'apellidos.max' => 'El campo :attribute debe contener 35 letras como máximo.',
-            
+
             'genero.required' => 'El campo género no puede estar vacío.',
 
             'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
 
             'fecha_de_nacimiento.required' => 'El campo :attribute no puede estar vacío.',
-        
+
             'telefono.required' => 'El campo teléfono no puede estar vacío.',
             'telefono.unique' => 'El campo teléfono debe de ser único.',
             'telefono.regex' => 'El campo teléfono no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
@@ -234,14 +235,47 @@ class EmpleadoController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Empleado  $empleado
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy (Empleado $empleado)
+
+    //FUNCIÓN PARA DESACTIVAR A UN EMPLEADO
+    public function destroy ($id)
     {
-        //
+        Empleado::destroy($id);
+
+        return redirect()->route('empleado.index')
+            ->with('mensaje', 'El empleado fue desactivado exitosamente.');
     }
+
+    //FUNCION PARA VER EL LISTADO DE LOS CLIENTES DESACTIVADOS
+    public function listadoEmpleadosDesactivados(Request $request)
+    {
+        $busqueda = trim($request->get('busqueda'));
+
+        $empleados = DB::table('empleados_desactivados')
+
+            ->where('fecha_desactivacion', 'LIKE', '%'.$busqueda.'%')
+            ->orwhere('identidad', 'LIKE', '%'.$busqueda.'%')
+            ->orwhere('nombres', 'LIKE', '%'.$busqueda.'%')
+            ->paginate(15)-> withQueryString();
+
+        return view('empleado.listadoEmpleadosDesactivados')
+            ->with('empleados', $empleados)
+            ->with('busqueda', $busqueda);
+
+    }
+
+    //FUNCIÓN PARA VER LA INFORMACIÓN DEL EMPLEADO DESACTIVADO
+    public function verEmpleadoDesactivado($id){
+        $empleado = empleados_desactivados::findOrFail($id);
+        return view('empleado.verEmpleadoDesactivado')->with('empleado', $empleado);
+    }
+
+    //FUNCIÓN PARA HABILITAR UN EMPLEADO DESACTIVADO
+    public function habilitarEmpleadoDesactivado($id)
+    {
+        empleados_desactivados::destroy($id);
+
+        return redirect()->route('listado.empleados.desactivados')
+            ->with('mensaje', 'El empleado fue habilitado exitosamente.');
+    }
+
 }

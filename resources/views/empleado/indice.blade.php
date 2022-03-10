@@ -8,14 +8,14 @@
 
     <div class="row">
         <div class="col-lg-7">
-            <h3> Listado de empleados</h3> 
+            <h3> Listado de empleados</h3>
         </div>
-        
+
         <div class="col-lg-2.5">
             <a class="btn btn-info btn block" href="{{route('empleado.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo empleado</a>
         </div>
         <div class="col-lg-3">
-            <a class="btn btn-secondary btn block" href=""><i class="bi bi-dash-circle"></i>Empleados desactivados</a>
+            <a class="btn btn-secondary btn block" href="{{route('listado.empleados.desactivados')}}"><i class="bi bi-dash-circle"></i>Empleados desactivados</a>
         </div>
     </div>
 
@@ -66,7 +66,7 @@
     </thead>
     <tbody>
     @forelse($empleado as $emple)
-    <tr>    
+    <tr>
         <td>{{$emple->identidad}}</td>
         <td>{{$emple->nombres}}</td>
         <td>{{$emple->apellidos}}</td>
@@ -74,17 +74,21 @@
 
 
         <td>
-            <a class="btn btn-info" 
+            <a class="btn btn-info"
             href="{{route('empleado.ver', ['id'=>$emple->id])}}"><i class="bi bi-eye"></i>Detalles</a>
         </td>
 
         <td>
-            <a class="btn btn-success" 
+            <a class="btn btn-success"
                 href="{{route('empleado.edit', ['id'=> $emple->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
         </td>
         <td>
-            <a class="btn btn-danger" 
-                        href=""><i class="bi bi-dash-circle"></i>Desactivar</a>
+            <form method="post" action="{{route('empleado.desactivar', ['id'=>$emple->id])}}"
+                  onclick="return confirm('¿Seguro que deseas desactivar a este empleado?')">
+                @csrf
+                @method('delete')
+                <input type="submit" value="Desactivar" class="btn btn-danger">
+            </form>
         </td>
     </tr>
     @empty
@@ -108,11 +112,11 @@
     background-color: #E0F8F7;
     position:relative;
     }
-    
+
     .emple{
         font-style: bold;
         font-family: 'Times New Roman', Times, serif;
     }
     </style>
-    
+
 @endsection

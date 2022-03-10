@@ -59,6 +59,29 @@ Route::get('/empleado/{id}', 'App\Http\Controllers\EmpleadoController@show')
     ->name('empleado.ver')
     ->where('id', '[0-9]+');
 
+//DESACTIVAR EMPLEADO
+Route::delete('empleado/{id}/desactivar', 'App\Http\Controllers\EmpleadoController@destroy')
+    ->name('empleado.desactivar')
+    ->where('id', '[0-9]+');
+
+//VER INFORMACIÓN DE LOS EMPLEADOS DESACTIVADOS
+Route::get('/listadoEmpleadosDesactivados',
+    'App\Http\Controllers\EmpleadoController@listadoEmpleadosDesactivados')
+    ->name('listado.empleados.desactivados');
+
+//VER INFORMACIÓN DEL EMPLEADO DESACTIVADO
+Route::get('/empleadoDesactivado/{id}',
+    'App\Http\Controllers\EmpleadoController@verEmpleadoDesactivado')
+    ->name('empleado.desactivado')
+    ->where('id', '[0-9]+');
+
+//HABILITAR EMPLEADO DESACTIVADO
+Route::delete('/empleadoDesactivado/{id}/Habilitar',
+    'App\Http\Controllers\EmpleadoController@habilitarEmpleadoDesactivado')
+    ->name('empleado.habilitar')
+    ->where('id', '[0-9]+');
+
+
 //RUTAS DEL CONTROLADOR CLIENTE
 Route::get('/listadoClientes', 'App\Http\Controllers\ClienteController@index')
     ->name('listado.clientes');
