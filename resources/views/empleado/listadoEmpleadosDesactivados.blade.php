@@ -58,7 +58,7 @@
                 <th scope="col">Nombres</th>
                 <th scope="col">Apellidos</th>
                 <th scope="col">Teléfono</th>
-                <th scope="col">Detalles</th>
+                <th scope="col" class="text-center">Detalles</th>
                 <th scope="col">Habilitar</th>
             </tr>
             </thead>
@@ -71,7 +71,7 @@
                     <td>{{$empleado->nombres}}</td>
                     <td>{{$empleado->apellidos}}</td>
                     <td>{{$empleado->telefono}}</td>
-                    <td>
+                    <td class="text-center">
                         <a class="btn btn-info"
                         href="{{route('empleado.desactivado', ['id'=>$empleado->id])}}"><i class="bi bi-eye"></i>Detalles</a>
                     </td>
