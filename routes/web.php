@@ -123,7 +123,6 @@ Route::post('productosInventario/nuevo/', 'App\Http\Controllers\InventarioContro
 
 Route::get('ListadoProductosenInventario', 'App\Http\Controllers\InventarioController@verProductosEnInventario')
     ->name('inventario.verProductos');
-<<<<<<< HEAD
 
 //RUTAS DE VENTAS
 //Rutas de creación y validación de ventas
@@ -132,5 +131,3 @@ Route::get('/NuevaVentaDeContado',[contadoVentaController::class, 'create'])
 
 Route::post('/NuevaVentaDeContado',[contadoVentaController::class, 'store'])
 ->name('VentaContado.guardar');
-=======
->>>>>>> 27f98ece55e7d1cf61a306ff2066be15d604bc40
