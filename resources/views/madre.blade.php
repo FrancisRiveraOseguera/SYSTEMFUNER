@@ -11,9 +11,19 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    
     <link rel="icon" type="image/x-icon" href="/assets/page-logo.png"/>
     <script src="/icons.js"></script>
+
+    <!-- jQuery -->
+    <script src="../../js/jquery.min.js"></script>
+
+    <!-- select2 css -->
+    <link href='../../css/select2.min.css' rel='stylesheet' type='text/css'>
+
+    <!-- select2 script -->
+    <script src='../../js/select2.min.js'></script>
+    <!-- Libreria español -->
+    <script src="../../js/i18n/es.js"></script>
 
     <!--Titulo de la página-->
     <title>@yield('title')</title>

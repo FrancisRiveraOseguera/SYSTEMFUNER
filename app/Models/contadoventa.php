@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
-{
-    public function contadoVentas(){
-        return $this->hasMany(contadoVentas::class);}
+class contadoVenta extends Model
+{   
+    public function clientes(){
+        return $this->BelongsToMany(Cliente::class)->withTimestamps();} 
     use HasFactory;
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\contadoVentaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -97,6 +98,13 @@ Route::get('productosInventario/nuevo/', 'App\Http\Controllers\InventarioControl
 Route::post('productosInventario/nuevo/', 'App\Http\Controllers\InventarioController@store')
 ->name('inventario.store');
 
-
 Route::get('ListadoProductosenInventario', 'App\Http\Controllers\InventarioController@verProductosEnInventario')
     ->name('inventario.verProductos');
+
+//RUTAS DE VENTAS
+//Rutas de creación y validación de ventas
+Route::get('/NuevaVentaDeContado',[contadoVentaController::class, 'create'])
+->name('VentaContado.nueva');
+
+Route::post('/NuevaVentaDeContado',[contadoVentaController::class, 'store'])
+->name('VentaContado.guardar');
