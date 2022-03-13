@@ -3,9 +3,25 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\contadoventa;
+use Illuminate\Support\Facades\DB;
 
 class contadoVentaController extends Controller
 {
+    //función para mostrar la listado de ventas al contado y hacer las búsquedas
+    public function index(Request $request){
+        $busqueda = trim($request->get('busqueda'));
+
+        $venta = contadoventa::orderby('id','DESC')
+
+            ->where('cliente_id', 'LIKE', '%'.$busqueda.'%')
+            ->orwhere('empleado_id', 'LIKE', '%'.$busqueda.'%')
+            ->paginate(15)-> withQueryString();
+
+            return view('VentasContado/listadoVentasContado')
+            ->with('venta', $venta)
+            ->with('busqueda', $busqueda);
+
+    }//fin de la función
 
     //FUNCIÓN CREACIÓN DE VENTA AL CONTADO
     public function create(){
@@ -46,7 +62,7 @@ class contadoVentaController extends Controller
         $creado = $nuevaVentaContado->save();
 
         if ($creado) {
-            return redirect()->route('ListadoVentasContado.VentasContado')
+            return redirect()->route('listadoVentas.index')
                 ->with('mensaje', 'La venta se realizó correctamente.');
         }//fin if
 

@@ -143,11 +143,12 @@
   
     <!--Contenedor para los botones de la vista agregar servicio-->
       <div  >
-      <a class="btn btn-primary " href="" > <i class="bi bi-box-arrow-left"></i> Regresar</a>
+      <a class="btn btn-primary " href="{{route('listadoVentas.index')}}" > <i class="bi bi-box-arrow-left"></i> Regresar</a>
      
-       <button type="submit" class="btn btn-success"  href="" ><i class="bi bi-save"></i>Guardar Venta</button>
+       <button type="submit" class="btn btn-success"  href="{{route('listadoVentas.index')}}" ><i class="bi bi-save"></i>Guardar Venta</button>
        </div>
   
+    <br>
     <br>
   </div>
   <style>

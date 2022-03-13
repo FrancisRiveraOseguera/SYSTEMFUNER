@@ -126,6 +126,9 @@ Route::get('ListadoProductosenInventario', 'App\Http\Controllers\InventarioContr
 
 //RUTAS DE VENTAS
 //Rutas de creación y validación de ventas
+Route::get('listadoVentasContado',[contadoVentaController::class, 'index'])
+->name('listadoVentas.index');
+
 Route::get('/NuevaVentaDeContado',[contadoVentaController::class, 'create'])
 ->name('VentaContado.nueva');
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    public function contadoVentas(){
-        return $this->hasMany(contadoVentas::class);}
+    public function contadoventas(){
+        return $this->hasMany(contadoventas::class);}
     use HasFactory;
 }

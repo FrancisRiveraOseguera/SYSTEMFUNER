@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Servicio extends Model
 {
     public function inventarios(){
-        return $this->BelongsToMany(Inventario::class)->withTimestamps();}    
+        return $this->BelongsToMany(Inventario::class)->withTimestamps();}   
+        
+    public function contadoventas(){
+        return $this->hasMany(contadoventas::class);}
     use HasFactory;
 }
