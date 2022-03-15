@@ -58,7 +58,7 @@ class contadoVentaController extends Controller
         $nuevaVentaContado-> empleado_id = $request->input('empleado_id');
         $nuevaVentaContado-> servicio_id = $request->input('servicio_id');
         $nuevaVentaContado-> fecha = $request->input('fecha');
-       
+
         $creado = $nuevaVentaContado->save();
 
         if ($creado) {
@@ -67,4 +67,9 @@ class contadoVentaController extends Controller
         }//fin if
 
     }//fin función store
+
+    //función home para ver la pantalla principal de ventas
+    public function home(Request $request){
+        return view('VentasContado.pantallaPrincipalVentas');
+    }
 }

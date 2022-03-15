@@ -59,9 +59,9 @@
         <th scope="col">Nombres</th>
         <th scope="col">Apellidos</th>
         <th scope="col">Teléfono</th>
-        <th scope="col">Detalles</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Desactivar</th>
+        <th scope="col" class="text-center">Detalles</th>
+        <th scope="col" class="text-center">Editar</th>
+        <th scope="col" class="text-center">Desactivar</th>
     </tr>
     </thead>
     <tbody>
@@ -73,21 +73,23 @@
         <td>{{$emple->telefono}}</td>
 
 
-        <td>
+        <td class="text-center">
             <a class="btn btn-info"
             href="{{route('empleado.ver', ['id'=>$emple->id])}}"><i class="bi bi-eye"></i>Detalles</a>
         </td>
 
-        <td>
+        <td class="text-center">
             <a class="btn btn-success"
                 href="{{route('empleado.edit', ['id'=> $emple->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
         </td>
-        <td>
+        <td class="text-center">
             <form method="post" action="{{route('empleado.desactivar', ['id'=>$emple->id])}}"
                   onclick="return confirm('¿Seguro que deseas desactivar a este empleado?')">
                 @csrf
                 @method('delete')
-                <input type="submit" value="Desactivar" class="btn btn-danger">
+                <button type="submit" class="redondo btn btn-danger">
+                    <i class="fas fa-minus-circle"></i> Desactivar
+                </button>
             </form>
         </td>
     </tr>
