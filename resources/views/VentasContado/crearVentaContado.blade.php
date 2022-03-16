@@ -86,7 +86,7 @@
     <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
-        <label  class="form-label" for="servicio_id">Póliza de servicio funerario tipo:</label>
+        <label  class="form-label" for="servicio_id">Tipo de póliza de servicio funerario:</label>
         <div>
         <select  name="servicio_id" style="width: 500px;" class="  form-control " charset="utf8_decode" >
                      
@@ -110,8 +110,8 @@
       </div>
     </div>
 
-      <div class="col">
-            <label for="cantidad_v" class="form-label"> Cantidad </label>
+    <div class="col">
+            <label for="cantidad_v" class="form-label"> Cantidad comprada: </label>
             <div class="col-sm-15">
             <input type="text" placeholder="Ingresa la cantidad a comprar" maxlength="2"
                 id="cantidad_v" name="cantidad_v" class="form-control" style="float:left;"
@@ -120,8 +120,6 @@
             </div>
         </div>
 </div>
-
-
 
 <div class="collapse" id="collapseform">
 
@@ -136,15 +134,14 @@
             <div class="col-sm-6">
                 <input type="date" name="fecha" id="fecha" class="form-control"
                 value="{{old('fecha', $contadoVenta->fecha ?? '')}}"
-                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 2 day"));?>"
+                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
                 max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
             </div>
         </div>
 
     </div>  
     </div>
-    
-  
+
     <!--Contenedor para los botones de la vista agregar servicio-->
       <div  >
       <a class="btn btn-primary " href="{{route('listadoVentas.index')}}" > <i class="bi bi-box-arrow-left"></i> Regresar</a>

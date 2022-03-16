@@ -1,5 +1,5 @@
-@extends('madre');
-@section('title','Detalles del servicio');
+@extends('madre')
+@section('title','Detalles del servicio')
 
 @section('content')
 
