@@ -11,11 +11,12 @@ class contadoVentaController extends Controller
     public function index(Request $request){
         $busqueda = trim($request->get('busqueda'));
 
-        $venta = contadoventa::orderby('id','DESC')
+        $venta = contadoventa::orderby('contado_ventas.id','DESC')
 
-            ->where('cliente_id', 'LIKE', '%'.$busqueda.'%')
-            ->orwhere('responsable', 'LIKE', '%'.$busqueda.'%')
-            ->paginate(15)-> withQueryString();
+        ->join("clientes","cliente_id","=","clientes.id")
+        ->where("clientes.nombres","like","%".$busqueda."%")
+        ->orwhere("clientes.apellidos","like","%".$busqueda."%")
+        ->paginate(15)-> withQueryString();
 
             return view('VentasContado/listadoVentasContado')
             ->with('venta', $venta)
