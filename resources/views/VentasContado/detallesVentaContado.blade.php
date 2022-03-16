@@ -45,8 +45,6 @@
             </div>
         </div>
 
-        
-
         <?php $fecha_actual = date("d-m-Y");?>
         <div class="form-group row ">
             <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
