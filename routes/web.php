@@ -135,15 +135,5 @@ Route::get('/NuevaVentaDeContado',[contadoVentaController::class, 'create'])
 Route::post('/NuevaVentaDeContado',[contadoVentaController::class, 'store'])
 ->name('VentaContado.guardar');
 
-<<<<<<< HEAD
 Route::get('ListadoProductosenInventario', 'App\Http\Controllers\contadoVentaController@verProductosEnInventario')
     ->name('inventario.verProductos');
-=======
-Route::get('/ventaContado/detalles/{id}',  'App\Http\Controllers\contadoVentaController@show')
-    ->name('contadoVenta.ver')
-    ->where('id', '[0-9]+');
-
-Route::get('/ventasContado/crearPDF/{id}', 'App\Http\Controllers\contadoVentaController@pdf')
-    ->name('contadoVenta.pdf')
-    ->where('id', '[0-9]+');
->>>>>>> eebcbe67d4f2cd468c4958b789d4c920e97113d1
