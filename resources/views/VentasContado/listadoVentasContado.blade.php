@@ -73,7 +73,7 @@
 
                 <td class="text-center">
                     <a class="btn btn-info"
-                    href=""><i class="bi bi-eye"></i>Detalles</a>
+                    href="{{route('contadoVenta.ver', ['id'=>$vent->id])}}""><i class="bi bi-eye"></i>Detalles</a>
                 </td>
 
                

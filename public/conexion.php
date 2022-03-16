@@ -1,4 +1,4 @@
 
 <?php
-    $mysqli=mysqli_connect("localhost","root","123456789","sistemaFuneraria");
+    $mysqli=mysqli_connect("localhost","root","password","code");
 ?>

@@ -23,6 +23,18 @@ class contadoVentaController extends Controller
 
     }//fin de la función
 
+    public function show($id)
+     {
+        $venta = contadoventa::findOrFail($id);
+        return view('VentasContado.detallesVentaContado')->with('contadoventa', $venta);
+     }
+    
+    public function pdf($id){
+        $venta = contadoventa::findOrFail($id);
+        return view('VentasContado.crearPDF')->with('contadoventa', $venta);
+    }
+
+
     //FUNCIÓN CREACIÓN DE VENTA AL CONTADO
     public function create(){
         
@@ -67,8 +79,12 @@ class contadoVentaController extends Controller
         $nuevaVentaContado-> responsable = $request->input('responsable');
         $nuevaVentaContado-> servicio_id = $request->input('servicio_id');
         $nuevaVentaContado-> fecha = $request->input('fecha');
+<<<<<<< HEAD
         $nuevaVentaContado-> cantidad_v= $request->input('cantidad_v');
         
+=======
+
+>>>>>>> eebcbe67d4f2cd468c4958b789d4c920e97113d1
         $creado = $nuevaVentaContado->save();
 
         if ($creado) {
@@ -77,4 +93,9 @@ class contadoVentaController extends Controller
         }//fin if
 
     }//fin función store
+
+    //función home para ver la pantalla principal de ventas
+    public function home(Request $request){
+        return view('VentasContado.pantallaPrincipalVentas');
+    }
 }

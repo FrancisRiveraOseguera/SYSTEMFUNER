@@ -59,13 +59,12 @@
                 <th scope="col">Apellidos</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col" class="text-center">Detalles</th>
-                <th scope="col">Habilitar</th>
+                <th scope="col" class="text-center">Habilitar</th>
             </tr>
             </thead>
             <tbody>
                 @forelse($empleados as $empleado)
                 <tr>
-                    <?php $fecha_actual = date("d-m-Y");?>
                     <td>{{$empleado->fecha_desactivacion}}</td>
                     <td>{{$empleado->identidad}}</td>
                     <td>{{$empleado->nombres}}</td>
@@ -75,12 +74,14 @@
                         <a class="btn btn-info"
                         href="{{route('empleado.desactivado', ['id'=>$empleado->id])}}"><i class="bi bi-eye"></i>Detalles</a>
                     </td>
-                    <td>
+                    <td class="text-center">
                         <form method="post" action="{{route('empleado.habilitar', ['id'=>$empleado->id])}}"
                               onclick="return confirm('¿Seguro que deseas habilitar a este empleado?')">
                             @csrf
                             @method('delete')
-                            <input type="submit" value="Habilitar" class="btn btn-danger">
+                            <button type="submit" class="redondo btn btn-danger">
+                                <i class="fas fa-plus-circle"></i> Habilitar
+                            </button>
                         </form>
                     </td>
                 </tr>
