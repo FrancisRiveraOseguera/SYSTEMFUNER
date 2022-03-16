@@ -16,9 +16,10 @@ class CreateTableContadoVentas extends Migration
         Schema::create('contado_ventas', function (Blueprint $table) {
             $table->id();
             $table->integer('cliente_id');
+            $table->string('responsable');
             $table->integer('servicio_id');
-            $table->integer('empleado_id');
-            $table->text('fecha')->notnull();
+            $table->integer('cantidad_v');
+            $table->date('fecha')->notnull();
             $table->timestamps();
         });
     }

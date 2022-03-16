@@ -134,3 +134,6 @@ Route::get('/NuevaVentaDeContado',[contadoVentaController::class, 'create'])
 
 Route::post('/NuevaVentaDeContado',[contadoVentaController::class, 'store'])
 ->name('VentaContado.guardar');
+
+Route::get('ListadoProductosenInventario', 'App\Http\Controllers\contadoVentaController@verProductosEnInventario')
+    ->name('inventario.verProductos');

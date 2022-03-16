@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empleado extends Model
 {
-    public function contadoventas(){
-        return $this->hasMany(contadoventas::class);}
+    
     use HasFactory;
 }
