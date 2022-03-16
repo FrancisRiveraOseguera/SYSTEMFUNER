@@ -23,6 +23,17 @@ class contadoVentaController extends Controller
 
     }//fin de la función
 
+    public function show($id)
+    {
+       $venta = contadoventa::findOrFail($id);
+       return view('VentasContado.detallesVentaContado')->with('contadoventa', $venta);
+    }
+
+    public function pdf($id){
+       $venta = contadoventa::findOrFail($id);
+       return view('VentasContado.crearPDF')->with('contadoventa', $venta);
+    }
+
     //FUNCIÓN CREACIÓN DE VENTA AL CONTADO
     public function create(){
 

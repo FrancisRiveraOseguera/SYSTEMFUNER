@@ -138,6 +138,14 @@ Route::post('/NuevaVentaDeContado',[contadoVentaController::class, 'store'])
 Route::get('ListadoProductosenInventario', 'App\Http\Controllers\contadoVentaController@verProductosEnInventario')
     ->name('inventario.verProductos');
 
+Route::get('/ventaContado/detalles/{id}',  'App\Http\Controllers\contadoVentaController@show')
+    ->name('contadoVenta.ver')
+    ->where('id', '[0-9]+');
+
+Route::get('/ventasContado/crearPDF/{id}', 'App\Http\Controllers\contadoVentaController@pdf')
+    ->name('contadoVenta.pdf')
+    ->where('id', '[0-9]+');
+
 //Ruta para ver la página principal de ventas
 Route::get('/ventas', 'App\Http\Controllers\contadoVentaController@home')
     ->name('ventas.index');

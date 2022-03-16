@@ -24,7 +24,7 @@
                 <label for="nombres" class="col-lg-3 control-label offset-md-1 requerido hijo">
                     <i id="IcNewEmp" class="bi bi-person-fill"></i>Empleado responsable:</label>
             <div class="col-sm-8 mt-2 ml-6">
-                {{$contadoventa->empleados->nombres}} {{$contadoventa->empleados->apellidos}}
+                {{$contadoventa->responsable}}
             </div>
         </div>
         
@@ -36,6 +36,16 @@
             {{$contadoventa->servicios->tipo}}
             </div>
         </div>
+
+        <div class="form-group row">
+            <label for="cantidad_v" class="col-lg-3 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="bi bi-sort-numeric-down"></i>Cantidad comprada:</label>
+            <div class="col-sm-8 mt-2 ml-6">
+            {{$contadoventa->cantidad_v}}
+            </div>
+        </div>
+
+        
 
         <?php $fecha_actual = date("d-m-Y");?>
         <div class="form-group row ">

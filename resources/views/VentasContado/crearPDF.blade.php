@@ -25,8 +25,7 @@
         <div class="contrato">
             Señores de Seguros Funerarios <a class="title"><b>FUNERALES LA BENDICIÓN</b></a><br><br>
             Yo: <a class="hh"><b>{{$contadoventa->clientes->nombres}} {{$contadoventa->clientes->apellidos}}</b></a> de _____ de edad con cédula de identidad personal No. <b>{{$contadoventa->clientes->identidad}}</b> de profesión u oficio <a class="hh"><b>{{$contadoventa->clientes->ocupacion}}</b></a> con domicilio en <a class="hh"><b>{{$contadoventa->clientes->direccion}}</b></a> y
-            teléfono <b>{{$contadoventa->clientes->telefono}}</b>. Solicito a ustedes atentamente una póliza de seguro funerario de tipo <a class="hh"><b>{{$contadoventa->servicios->tipo}}</b></a> cuyo valor es de L. <b>{{$contadoventa->servicios->precio}}</b>
-            dando de prima L. <b>{{$contadoventa->servicios->prima}}</b> y lo restante pagadero en ________ cuotas de L. <b>{{$contadoventa->servicios->cuota}}</b> mensuales.
+            teléfono <b>{{$contadoventa->clientes->telefono}}</b>. Solicito a ustedes atentamente una póliza de seguro funerario de tipo <a class="hh"><b>{{$contadoventa->servicios->tipo}}</b></a> cuyo valor es de L. <b>{{$contadoventa->servicios->precio}}.</b>
         
             <br><br>Otorgo los beneficios de esta póliza a las personas que también responderán por el saldo en caso de mi defunción, ellos son:<BR><br>
                 1. __________________________________________________________________________________ <a class="bfc">2. ______________________________________________________________________________</a><br>
@@ -138,7 +137,7 @@
             /*border-width:3px;
             border-color: black;
             border-style: solid;*/
-            margin-top:20px;
+            margin-top:40px;
             margin-left:30px;
             margin-right:30px;
             border-radius: 20px;
