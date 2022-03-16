@@ -61,7 +61,7 @@
 
             <div class="form-group row">
                 <label for="fecha_ingreso"  class="col-lg-3 control-label offset-md-1 requerido hijo">
-                    <i  id="IcNewEmp" class="bi bi-calendar-date"></i>Fecha de Desactivación:</label>
+                    <i  id="IcNewEmp" class="fas fa-calendar-check"></i>Fecha de Desactivación:</label>
                 <div class="col-sm-8">
                     {{$empleado->fecha_desactivacion}}
                 </div>

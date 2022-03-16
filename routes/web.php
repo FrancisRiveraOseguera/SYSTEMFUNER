@@ -137,3 +137,7 @@ Route::post('/NuevaVentaDeContado',[contadoVentaController::class, 'store'])
 
 Route::get('ListadoProductosenInventario', 'App\Http\Controllers\contadoVentaController@verProductosEnInventario')
     ->name('inventario.verProductos');
+
+//Ruta para ver la página principal de ventas
+Route::get('/ventas', 'App\Http\Controllers\contadoVentaController@home')
+    ->name('ventas.index');

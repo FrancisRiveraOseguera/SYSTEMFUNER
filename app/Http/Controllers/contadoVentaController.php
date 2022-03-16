@@ -25,7 +25,7 @@ class contadoVentaController extends Controller
 
     //FUNCIÓN CREACIÓN DE VENTA AL CONTADO
     public function create(){
-        
+
         return view('VentasContado.crearVentaContado');
     }//fin función create
 
@@ -37,7 +37,7 @@ class contadoVentaController extends Controller
             'servicio_id' => 'required|exists:App\Models\Servicio,id',
             'cantidad_v' => 'required|numeric|min:1|max:10',
             'fecha' => 'required',
-            
+
         ];
 
         $mensaje=[
@@ -68,7 +68,7 @@ class contadoVentaController extends Controller
         $nuevaVentaContado-> servicio_id = $request->input('servicio_id');
         $nuevaVentaContado-> fecha = $request->input('fecha');
         $nuevaVentaContado-> cantidad_v= $request->input('cantidad_v');
-        
+
         $creado = $nuevaVentaContado->save();
 
         if ($creado) {
@@ -77,4 +77,9 @@ class contadoVentaController extends Controller
         }//fin if
 
     }//fin función store
+
+    //función home para ver la pantalla principal de ventas
+    public function home(Request $request){
+        return view('VentasContado.pantallaPrincipalVentas');
+    }//fin función home
 }
