@@ -39,9 +39,6 @@
     @endif
 </div>
 <br>
-
-
-
 <!--Creación de tabla-->
 <div class="vent !important">
     <table class="table" >
@@ -59,8 +56,13 @@
         </thead>
         <tbody>
             @forelse($venta as $vent)
+<<<<<<< HEAD
             <tr class="table">  
                 <td>{{date_format($vent->created_at,"d-m-Y")}}</td>
+=======
+            <tr class="table">
+                <td>{{date_format($vent->created_at,"d/m/Y")}}</td>
+>>>>>>> 342640b (commit Actualización en Detalles de venta al contado, crear PDF contrato de venta al contado v4)
                 <td>{{$vent->clientes->nombres}} {{$vent->clientes->apellidos}}</td>
                 <td>{{$vent->responsable}}</td>
                 <td>{{$vent->servicios->tipo}}</td>
