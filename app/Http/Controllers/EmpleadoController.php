@@ -242,7 +242,7 @@ class EmpleadoController extends Controller
         Empleado::destroy($id);
 
         return redirect()->route('empleado.index')
-            ->with('mensaje', 'El empleado fue desactivado exitosamente.');
+            ->with('mensaje', 'El empleado ha sido desactivado exitosamente.');
     }
 
     //FUNCION PARA VER EL LISTADO DE LOS CLIENTES DESACTIVADOS
@@ -275,7 +275,7 @@ class EmpleadoController extends Controller
         empleados_desactivados::destroy($id);
 
         return redirect()->route('listado.empleados.desactivados')
-            ->with('mensaje', 'El empleado fue habilitado exitosamente.');
+            ->with('mensaje', 'El empleado ha sido habilitado exitosamente.');
     }
 
 }
