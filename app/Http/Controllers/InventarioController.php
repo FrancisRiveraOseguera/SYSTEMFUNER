@@ -90,8 +90,7 @@ class InventarioController extends Controller
    
     public function  verProductosEnInventario() {
         //mandarlo  a buscar 
-        $inventario  = Inventario::select('servicio_id','categoria','precio', 'tipo',DB::raw('sum(cantidad_aIngresar) as cantidad'))
-        ->join('servicios','servicios.id', '=', 'servicio_id')->groupby('servicio_id')->orderby('servicio_id','ASC' )->get();
+        $inventario  = DB::table('cantidad_inventario')->get();
         return view ('inventario/listadoProductos')->with('inventario', $inventario );
 
     }

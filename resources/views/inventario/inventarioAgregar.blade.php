@@ -1,3 +1,17 @@
+<?php
+    include 'conexion.php';
+    $query=mysqli_query($mysqli,"SELECT id, tipo FROM servicios");
+    
+
+    if(isset($_POST['servicio_id']))
+    {
+        $servicio_id=$_POST['servicio_id'];
+        echo $servicio_id;
+    }
+
+
+?>
+
 @extends('madre')
 
 @section ('title' , 'Agregar a inventario')
@@ -29,12 +43,21 @@
         <div class="form-group row">
                 <label for="servicio_id" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-card-list"></i>Número de producto</label>
             <div class="col-sm-8">
-                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type = "float"
-                name="servicio_id" id="id_servicio"  maxlength = "2" placeholder="Ingresa el número de producto" class="form-control" 
-                value="{{old('servicio_id', $inventario->servicio_id ?? '')}}"/>  
+            <select name="servicio_id" style="width: 675px;" class=" form-control">
+                      <option value="0">Selecciona el servicio a agregar a inventario. </option>
+                        <?php 
+                          while($datos = mysqli_fetch_array($query))
+                        {?>     
+                      <option value="<?php echo $datos['id']?>"> <?php echo $datos['tipo' ] ?> </option>
+                        <?php
+                        }?> 
+           </select>
             </div>
-
+            <script type="text/javascript">
+             $(document).ready(function(){
+             $('servicio_id').select2();
+               });
+           </script>
         </div>
         
         <div class="form-group row">

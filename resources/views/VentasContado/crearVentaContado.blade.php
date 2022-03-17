@@ -2,7 +2,7 @@
 <?php
     include 'conexion.php';
     $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM clientes");
-    $query2=mysqli_query($mysqli,"SELECT id, tipo FROM servicios");
+    $query2=mysqli_query($mysqli,"SELECT servicio_id, tipo FROM cantidad_inventario");
     
    
     if(isset($_POST['cliente_id']))
@@ -86,7 +86,7 @@
     <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
-        <label  class="form-label" for="servicio_id">Póliza de servicio funerario tipo:</label>
+        <label  class="form-label" for="servicio_id">Tipo de póliza de servicio funerario:</label>
         <div>
         <select  name="servicio_id" style="width: 500px;" class="  form-control " charset="utf8_decode" >
                      
@@ -95,7 +95,7 @@
                     
                         while($datos = mysqli_fetch_array($query2))
                         {?>      
-                            <option value="<?php echo $datos['id']?>"> <?php echo $datos['tipo' ]?> </option>
+                            <option value="<?php echo $datos['servicio_id']?>"> <?php echo $datos['tipo' ]?> </option>
                     <?php
                         }
                     ?> 
@@ -111,7 +111,7 @@
     </div>
 
       <div class="col">
-            <label for="cantidad_v" class="form-label"> Cantidad </label>
+            <label for="cantidad_v" class="form-label"> Cantidad de productos por póliza:</label>
             <div class="col-sm-15">
             <input type="text" placeholder="Ingresa la cantidad a comprar" maxlength="2"
                 id="cantidad_v" name="cantidad_v" class="form-control" style="float:left;"
@@ -132,11 +132,11 @@
     <?php $fecha_actual = date("d-m-Y");?>
         <div class="form-outline">
             <label for="fecha" class="form-label">
-                Fecha </label>
+                Fecha de la compra: </label>
             <div class="col-sm-6">
                 <input type="date" name="fecha" id="fecha" class="form-control"
                 value="{{old('fecha', $contadoVenta->fecha ?? '')}}"
-                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 2 day"));?>"
+                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
                 max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
             </div>
         </div>
