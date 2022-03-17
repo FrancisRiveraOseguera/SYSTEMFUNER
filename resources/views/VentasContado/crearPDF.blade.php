@@ -26,7 +26,7 @@
         <div class="contrato">
             Señores de Seguros Funerarios <a class="title"><b>FUNERALES LA BENDICIÓN</b></a><br><br>
             Yo: <a class="hh"><b>{{$contadoventa->clientes->nombres}} {{$contadoventa->clientes->apellidos}}</b></a> con cédula de identidad personal No. <b>{{$contadoventa->clientes->identidad}}</b> de profesión u oficio <a class="hh"><b>{{$contadoventa->clientes->ocupacion}}</b></a> con domicilio en <a class="hh"><b>{{$contadoventa->clientes->direccion}}</b></a> y
-            teléfono <b>{{$contadoventa->clientes->telefono}}</b>. Solicito a ustedes atentamente una póliza de seguro funerario de tipo <a class="hh"><b>{{$contadoventa->servicios->tipo}}</b></a> con un precio total de L. <b>{{$contadoventa->cantidad_v * $contadoventa->servicios->precio}}</b>, con la siguiente descripción: <br><br><b>{{$contadoventa->servicios->detalles}}</b> </b>
+            teléfono <b>{{$contadoventa->clientes->telefono}}</b>. Solicito a ustedes atentamente <a class="hh"><b>{{$contadoventa->cantidad_v}}</b></a> póliza(s) de seguro funerario de tipo <a class="hh"><b>{{$contadoventa->servicios->tipo}}</b></a> con un precio total de L. <b>{{$contadoventa->cantidad_v * $contadoventa->servicios->precio}}</b>, con la siguiente descripción: <br><br><b>{{$contadoventa->servicios->detalles}}</b> </b>
         </div>
      
         </div>

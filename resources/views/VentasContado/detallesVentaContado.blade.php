@@ -14,7 +14,7 @@
         <div class="form-group row">
             <label for="nombre" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i id="IcNewEmp" class="bi bi-credit-card-2-front"></i>Nombre del cliente:</label>
-            <div class="col-sm-8 mt-2 ml-6">
+            <div class="col-sm-8 mt-2 ml-6 detalle">
                 {{$contadoventa->clientes->nombres}} {{$contadoventa->clientes->apellidos}}
             </div>
         </div>
@@ -72,6 +72,9 @@
             background-color: #E0F8F7;
             position:relative;
         }
+        .requerido{
+            margin-top:-5px;
+        }
 
         .emple{
             font-style: bold;
@@ -80,6 +83,7 @@
         .hijo{
             font-weight: bold;
         }
+        
 
         #IcNewEmp{
         font-size:25px;

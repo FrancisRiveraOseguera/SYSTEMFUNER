@@ -55,7 +55,7 @@
   <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
-        <label class="form-label" for="cliente_id">Nombre del Cliente que adquirirá la póliza de servicio funerario:</label>
+        <label class="form-label" for="cliente_id">Nombre del cliente que adquirirá la póliza de servicio funerario:</label>
         <div>
          <select name="cliente_id" style="width: 500px;" class=" form-control">
                       <option disabled selected value="0">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
@@ -92,7 +92,7 @@
     <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
-        <label  class="form-label" for="servicio_id">Póliza de servicio funerario tipo:</label>
+        <label  class="form-label" for="servicio_id">Tipo de póliza de servicio funerario:</label>
         <div>
         <select  name="servicio_id" style="width: 500px;" class="  form-control " charset="utf8_decode" >
 
@@ -117,7 +117,7 @@
     </div>
 
       <div class="col">
-            <label for="cantidad_v" class="form-label"> Cantidad </label>
+            <label for="cantidad_v" class="form-label">Cantidad comprada:</label>
             <div class="col-sm-15">
             <input type="text" placeholder="Ingresa la cantidad a comprar" maxlength="2"
                 id="cantidad_v" name="cantidad_v" class="form-control" style="float:left;"
