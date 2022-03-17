@@ -12,7 +12,7 @@
         </div>
 
         <div class="col-lg-2">
-            <a class="btn btn-success" href="{{route('empleado.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
+            <a class="btn btn-primary" href="{{route('empleado.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
         </div>
     </div>
 
