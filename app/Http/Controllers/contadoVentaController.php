@@ -18,6 +18,7 @@ class contadoVentaController extends Controller
         ->join("clientes","cliente_id","=","clientes.id")
         ->where("clientes.nombres","like","%".$busqueda."%")
         ->orwhere("clientes.apellidos","like","%".$busqueda."%")
+        ->orwhere("contado_ventas.responsable","like","%".$busqueda."%")
         ->paginate(15)-> withQueryString();
 
             return view('VentasContado/listadoVentasContado')
