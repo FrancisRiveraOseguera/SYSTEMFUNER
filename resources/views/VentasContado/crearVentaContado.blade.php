@@ -25,11 +25,15 @@
 <!--Contenedor para el título de la vista y los mensajes de error-->
 <div class="servfun">
         <h3 class="servfu" >Nueva Venta al Contado</h3>
-        
-        <a class="btn btn-info btn block" href="{{route('cliente.nuevo',['cliente'=>0])}}">
-            <i class="bi bi-plus-circle"></i>Nuevo cliente</a>
         <hr>
-
+        <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; " href="{{route('cliente.nuevo',['cliente'=>0])}}">
+            <i class="bi bi-plus-circle"></i>Nuevo cliente</a>   
+        
+        <a class="btn btn-link " href="{{route('ventas.index')}}" > 
+                <i class="bi bi-box-arrow-left"></i>Ir al inicio de Ventas </a> 
+                <br>
+                <div> 
+                <br> </div>
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000" >
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -42,6 +46,7 @@
             </div> 
         @endif
 </div><br>
+   
 <!--Formulario-->
 <div class="servfun"> 
 <form method="post"  autocomplete="off">
@@ -94,7 +99,7 @@
         <div>
         <select  name="servicio_id" style="width: 500px;" class="  form-control " charset="utf8_decode" >
                      
-        <option value="0">Selecciona el tipo de servicio:</option>
+        <option disabled selected value="0">Selecciona el tipo de servicio:</option>
                     <?php 
                     
                         while($datos = mysqli_fetch_array($query2))
@@ -115,7 +120,7 @@
     </div>
 
     <div class="col">
-            <label for="cantidad_v" class="form-label"> Cantidad comprada: </label>
+            <label for="cantidad_v" class="form-label"> Cantidad a comprar: </label>
             <div class="col-sm-15">
             <input type="text" placeholder="Ingresa la cantidad a comprar" maxlength="2"
                 id="cantidad_v" name="cantidad_v" class="form-control" style="float:left;"
@@ -135,7 +140,7 @@
         <div class="form-outline">
             <label for="fecha" class="form-label">
                 Fecha de la compra: </label>
-            <div class="col-sm-6">
+            <div class="col-mb-1">
                 <input type="date" name="fecha" id="fecha" class="form-control"
                 value="{{old('fecha', $contadoVenta->fecha ?? '')}}"
                 min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
@@ -144,11 +149,15 @@
         </div>
 
     </div>  
+
+    <div class="col">
+
+    </div>
     </div>
 
     <!--Contenedor para los botones de la vista agregar servicio-->
       <div  >
-      <a class="btn btn-primary " href="{{route('listadoVentas.index')}}" > <i class="bi bi-box-arrow-left"></i> Regresar</a>
+      <a class="btn btn-primary " href="{{route('listadoVentas.index')}}" > <i class="bi bi-box-arrow-left"></i>Ir al listado de ventas al contado</a>
      
        <button type="submit" class="btn btn-success"  href="{{route('listadoVentas.index')}}" ><i class="bi bi-save"></i>Guardar Venta</button>
        </div>
@@ -171,7 +180,7 @@
   position:relative;
    }
 
-   .servfu{
+   .servfun{
        font-style: bold;
        font-family: 'Times New Roman', Times, serif;
    }

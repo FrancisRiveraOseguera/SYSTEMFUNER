@@ -45,7 +45,7 @@ class InventarioController extends Controller
         ];
 
     $mensaje=[
-           'servicio_id.exists' => 'El campo número de producto no existe.',
+           'servicio_id.exists' => 'El producto no ha sido seleccionado.',
             'servicio_id.required' => 'El campo número de producto no puede estar vacío.',
             'servicio_id.numeric' => 'El campo número de producto solo debe contener números. ',
            

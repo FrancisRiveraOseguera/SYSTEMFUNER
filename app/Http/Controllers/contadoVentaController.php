@@ -53,32 +53,37 @@ class contadoVentaController extends Controller
         $cantidad_inventario = DB::table('cantidad_inventario')
         ->where('servicio_id', $request->input('servicio_id'))->select('cantidad')->first();
 
+        $maximo = 0;
+
+      if($request->input('servicio_id') != ""){
+      $maximo = $cantidad_inventario->cantidad;
+      }
 
         $rules=[
             'cliente_id' =>'required|exists:App\Models\Cliente,id',
             'responsable' =>'required|regex:/^[\pL\s\-]+$/u|max:50',
             'servicio_id' => 'required|exists:App\Models\Inventario,servicio_id',
-            'cantidad_v' => 'required|numeric|min:1|max: '.$cantidad_inventario->cantidad,
+            'cantidad_v' => 'required|numeric|min:1|max: '.$maximo,
             'fecha' => 'required',
 
         ];
 
         $mensaje=[
-            'cliente_id.exists' => 'El campo "Nombre del cliente que adquirirá la póliza de servicio funerario:" no ha sido seleccionado.',
-            'cliente_id.required' => 'El Nombre del comprador de la póliza  no puede estar vacío.',
+            'cliente_id.exists' => 'El nombre del cliente no ha sido seleccionado.',
+            'cliente_id.required' => 'El Nombre del cliente  no puede estar vacío.',
 
-            'responsable.required' => 'El campo "Empleado responsable de la venta de la póliza: " no puede estar vacío.',
-            'responsable.regex' => 'El campo "Empleado responsable de la venta de la póliza" solo puede contener letras.',
-            'responsable.max' => 'El campo "Empleado responsable de la venta de la póliza" debe contener 50 letras como máximo.',
+            'responsable.required' => 'El campo "Empleado responsable de la venta" no puede estar vacío.',
+            'responsable.regex' => 'El campo "Empleado responsable de la venta" solo puede contener letras.',
+            'responsable.max' => 'El campo "Empleado responsable de la venta" debe contener 50 letras como máximo.',
 
             'servicio_id.exists' => 'El campo "Póliza de servicio funerario tipo: " no existe en inventario.',
-            'servicio_id.required' => 'El campo Póliza de servicio funerario  no puede estar vacío.',
+            'servicio_id.required' => 'El tipo de póliza de servicio funerario no ha sido seleccionado.',
 
             'fecha.required' => 'El campo "Fecha" no puede estar vacío.',
 
             'cantidad_v.required'=> 'El campo "Cantidad" no puede estar vacío.',
-            'cantidad_v.numeric'=> 'El campo "Cantidad debe ser un número."',
-            'cantidad_v.max'=>'La cantidad que introdujo excede la cantidad disponible en inventario.',
+            'cantidad_v.numeric'=> 'El campo "Cantidad" debe ser un número.',
+            'cantidad_v.max'=>'La cantidad a comprar excede la cantidad disponible en inventario.',
             'cantidad_v.min'=> 'La cantidad a comprar debe ser 1 como mínimo.'
         ];
 
