@@ -58,13 +58,18 @@
         <label class="form-label" for="cliente_id">Nombre del cliente que adquirirá la póliza de servicio funerario:</label>
         <div>
          <select name="cliente_id" style="width: 500px;" class=" form-control">
-                      <option disabled selected value="0">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
-                        <?php 
-                          while($datos = mysqli_fetch_array($query))
-                        {?>     
-                      <option value="<?php echo $datos['id']?>"> <?php echo $datos['nombres' ].' '.$datos['apellidos' ]?> </option>
-                        <?php
-                        }?> 
+            @if (isset($ident))
+                <option style="display: none" value="{{$ident->id}}">{{$ident->nombres}} {{$ident->apellidos}}</option>
+            @else
+                <option value="0">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
+            @endif
+            <?php 
+            while($datos = mysqli_fetch_array($query))
+          {?>     
+        <option value="<?php echo $datos['id']?>"> <?php echo $datos['nombres' ].' '.$datos['apellidos' ]?> </option>
+          <?php
+          }?>
+  
            </select>
       </div>
           <script src='../../js/select2.min.js'></script>
