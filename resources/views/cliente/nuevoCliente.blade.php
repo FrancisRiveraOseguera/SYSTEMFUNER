@@ -115,7 +115,11 @@
         <br>
 
         <!--botones-->
-        <a class="btn btn-primary" href="{{route('listado.clientes')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
+        @if ($cliente==0)
+            <a class="btn btn-primary" href="{{route('VentaContado.nueva')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
+        @else
+            <a class="btn btn-primary" href="{{route('listado.clientes')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
+        @endif
         <button type="submit" class="btn btn-success" ><i class="bi bi-save"></i>Guardar</button>
     </form>
 </div>

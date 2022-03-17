@@ -87,10 +87,10 @@ Route::delete('/empleadoDesactivado/{id}/Habilitar',
 Route::get('/listadoClientes', 'App\Http\Controllers\ClienteController@index')
     ->name('listado.clientes');
 
-Route::get('/cliente/nuevo', 'App\Http\Controllers\ClienteController@create')
+Route::get('/cliente/nuevo/{cliente?}', 'App\Http\Controllers\ClienteController@create')
     ->name('cliente.nuevo');
 
-Route::post('/cliente/nuevo', 'App\Http\Controllers\ClienteController@store')
+Route::post('/cliente/nuevo/{cliente?}', 'App\Http\Controllers\ClienteController@store')
     ->name('cliente.guardar');
 
 // RUTAS EDITAR CLIENTE
@@ -129,10 +129,10 @@ Route::get('ListadoProductosenInventario', 'App\Http\Controllers\InventarioContr
 Route::get('listadoVentasContado',[contadoVentaController::class, 'index'])
 ->name('listadoVentas.index');
 
-Route::get('/NuevaVentaDeContado',[contadoVentaController::class, 'create'])
+Route::get('/NuevaVentaDeContado{ident?}',[contadoVentaController::class, 'create'])
 ->name('VentaContado.nueva');
 
-Route::post('/NuevaVentaDeContado',[contadoVentaController::class, 'store'])
+Route::post('/NuevaVentaDeContado{ident?}',[contadoVentaController::class, 'store'])
 ->name('VentaContado.guardar');
 
 

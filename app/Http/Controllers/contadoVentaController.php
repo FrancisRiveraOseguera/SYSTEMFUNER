@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\contadoventa;
 use App\Models\cantidad_inventario;
+use App\Models\Cliente;
 use Illuminate\Support\Facades\DB;
 
 class contadoVentaController extends Controller
@@ -37,9 +38,9 @@ class contadoVentaController extends Controller
     }
 
     //FUNCIÓN CREACIÓN DE VENTA AL CONTADO
-    public function create(){
-
-        return view('VentasContado.crearVentaContado');
+    public function create($ident = null){
+        $clientes = Cliente::where('id',$ident)->first();
+        return view('VentasContado.crearVentaContado')->with('ident',$clientes);
     }//fin función create
 
 

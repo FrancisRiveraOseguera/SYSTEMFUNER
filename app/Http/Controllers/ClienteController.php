@@ -26,13 +26,13 @@ class ClienteController extends Controller
     }
 
     //Función para abrir el formulario de nuevo cliente
-    public function create()
+    public function create($cliente=null)
     {
-        return view('cliente.nuevoCliente');
+        return view('cliente.nuevoCliente')->with('cliente',$cliente);
     }
 
     //Función para guardar los datos de un nuevo cliente
-    public function store(Request $request)
+    public function store(Request $request,$cliente=null)
     {
         //Validación de los datos
         $rules=[
@@ -91,9 +91,14 @@ class ClienteController extends Controller
         $creado = $nuevoCliente->save();
 
         if ($creado) {
-            return redirect()->route('listado.clientes')
+            if($cliente == 0){
+                return redirect()->route('VentaContado.nueva',['ident'=>$nuevoCliente->id])
                 ->with('mensaje', 'El cliente fue registrado exitosamente.');
-        }
+            }else{
+                return redirect()->route('listado.clientes')
+                ->with('mensaje', 'El cliente fue registrado exitosamente.');
+            }
+            }
     }
 
     /**
