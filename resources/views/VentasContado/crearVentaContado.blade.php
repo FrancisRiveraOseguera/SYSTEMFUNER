@@ -26,17 +26,15 @@
 <div class="servfun">
         <h3 class="servfu" >Nueva Venta al Contado</h3>
         
-            <a class="btn btn-info btn block" href="{{route('cliente.nuevo')}}">
-            <i class="bi bi-plus-circle"></i>Nuevo cliente</a>
-        <hr>
+            <hr>
         <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; " href="{{route('cliente.nuevo',['cliente'=>0])}}">
             <i class="bi bi-plus-circle"></i>Nuevo cliente</a>   
         
         <a class="btn btn-link " href="{{route('ventas.index')}}" > 
                 <i class="bi bi-box-arrow-left"></i>Ir al inicio de Ventas </a> 
-                <br>
+                
                 <div> 
-                <br> </div>
+                 </div>
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000" >
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -118,13 +116,8 @@
       </div>
     </div>
 
-<<<<<<< HEAD
-    <div class="col">
-            <label for="cantidad_v" class="form-label"> Cantidad a comprar: </label>
-=======
       <div class="col">
             <label for="cantidad_v" class="form-label"> Cantidad </label>
->>>>>>> e6d965595a00ddf5e1e6d84076251a52b2480c12
             <div class="col-sm-15">
             <input type="text" placeholder="Ingresa la cantidad a comprar" maxlength="2"
                 id="cantidad_v" name="cantidad_v" class="form-control" style="float:left;"
@@ -145,16 +138,11 @@
     <?php $fecha_actual = date("d-m-Y");?>
         <div class="form-outline">
             <label for="fecha" class="form-label">
-<<<<<<< HEAD
-                Fecha de la compra: </label>
-            <div class="col-mb-1">
-=======
                 Fecha </label>
-            <div class="col-sm-6">
->>>>>>> e6d965595a00ddf5e1e6d84076251a52b2480c12
+            <div class="col-sm-13">
                 <input type="date" name="fecha" id="fecha" class="form-control"
                 value="{{old('fecha', $contadoVenta->fecha ?? '')}}"
-                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 2 day"));?>"
+                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
                 max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
             </div>
         </div>
