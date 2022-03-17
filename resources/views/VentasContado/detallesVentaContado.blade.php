@@ -45,6 +45,14 @@
             </div>
         </div>
 
+        <div class="form-group row">
+            <label for="cantidad_v" class="col-lg-3 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="bi bi-tags"></i>Precio:</label>
+            <div class="col-sm-8 mt-2 ml-6">
+            {{$contadoventa->servicios->precio}}
+            </div>
+        </div>
+
         <?php $fecha_actual = date("d-m-Y");?>
         <div class="form-group row ">
             <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
@@ -58,7 +66,6 @@
         </div><br>
         <!--botones-->
         <a class="btn btn-primary" href="{{route('listadoVentas.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
-        <a class="btn btn-danger" href="{{route('contadoVenta.pdf', ['id'=>$contadoventa->id])}}"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
         
     </form>
     </div>

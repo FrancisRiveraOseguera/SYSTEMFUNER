@@ -26,7 +26,7 @@
         <div class="contrato">
             Señores de Seguros Funerarios <a class="title"><b>FUNERALES LA BENDICIÓN</b></a><br><br>
             Yo: <a class="hh"><b>{{$contadoventa->clientes->nombres}} {{$contadoventa->clientes->apellidos}}</b></a> con cédula de identidad personal No. <b>{{$contadoventa->clientes->identidad}}</b> de profesión u oficio <a class="hh"><b>{{$contadoventa->clientes->ocupacion}}</b></a> con domicilio en <a class="hh"><b>{{$contadoventa->clientes->direccion}}</b></a> y
-            teléfono <b>{{$contadoventa->clientes->telefono}}</b>. Solicito a ustedes atentamente una póliza de seguro funerario de tipo <a class="hh"><b>{{$contadoventa->servicios->tipo}}</b></a> con valor de L. <b>{{$contadoventa->servicios->precio}}</b>, con la siguiente descripción: <br><br><b>{{$contadoventa->servicios->detalles}}</b> </b>
+            teléfono <b>{{$contadoventa->clientes->telefono}}</b>. Solicito a ustedes atentamente una póliza de seguro funerario de tipo <a class="hh"><b>{{$contadoventa->servicios->tipo}}</b></a> con precio total a pagar de L. <b>{{$contadoventa->cantidad_v * $contadoventa->servicios->precio}}</b>, con la siguiente descripción: <br><br><b>{{$contadoventa->servicios->detalles}}</b> </b>
     
         </div>
      
@@ -54,7 +54,7 @@
         </div>
 
         <div>
-            <a class="date1"><b>Fecha de venta:</b></a> <a class="date2">{{$contadoventa->created_at->format('d-m-Y h:i A')}}</a>
+            <a class="date1"><b>Hora y fecha de venta:</b></a> <a class="date2">{{$contadoventa->created_at->format('h:iA d-m-Y')}}</a>
         </div><br><br>
 
         <div>
@@ -118,10 +118,12 @@
             /*border-width:3px;
             border-color: black;
             border-style: solid;*/
-            margin-top:50px;
+            margin-top:70px;
             margin-left:30px;
             margin-right:30px;
             border-radius: 20px;
+            -moz-user-select: none;
+            user-select: none;
         }
         .line1{
             margin-left: 100px;

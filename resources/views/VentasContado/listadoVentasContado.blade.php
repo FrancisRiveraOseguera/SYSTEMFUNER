@@ -57,6 +57,7 @@
             <th scope="col">Empleado</th>
             <th scope="col">Tipo de servicio</th>
             <th scope="col" class="text-center">Detalles</th>
+            <th scope="col" class="text-center">Contratos</th>
             
         </tr>
         </thead>
@@ -67,16 +68,15 @@
                 <td>{{$vent->clientes->nombres}} {{$vent->clientes->apellidos}}</td>
                 <td>{{$vent->responsable}}</td>
                 <td>{{$vent->servicios->tipo}}</td>
-            
-
-                
-
+        
                 <td class="text-center">
                     <a class="btn btn-info"
                     href="{{route('contadoVenta.ver', ['id'=>$vent->id])}}"><i class="bi bi-eye"></i>Detalles</a>
                 </td>
 
-               
+                <td class="text-center">
+                    <a class="btn btn-danger" href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
+                </td>            
 
             </tr>
             @empty
@@ -88,13 +88,6 @@
     </table>
     {{ $venta->links()}}
 
-    <!--Contenedor para los botones de la vista -->
-    <div  >
-    <a class="btn btn-primary " href="" > <i class="bi bi-box-arrow-left"></i> Regresar</a>
-   
-     </div>
-
-  <br>
 </div>
 
 

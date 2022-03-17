@@ -110,8 +110,8 @@
       </div>
     </div>
 
-      <div class="col">
-            <label for="cantidad_v" class="form-label"> Cantidad de productos por póliza:</label>
+    <div class="col">
+            <label for="cantidad_v" class="form-label"> Cantidad comprada: </label>
             <div class="col-sm-15">
             <input type="text" placeholder="Ingresa la cantidad a comprar" maxlength="2"
                 id="cantidad_v" name="cantidad_v" class="form-control" style="float:left;"
@@ -120,8 +120,6 @@
             </div>
         </div>
 </div>
-
-
 
 <div class="collapse" id="collapseform">
 
@@ -143,8 +141,7 @@
 
     </div>  
     </div>
-    
-  
+
     <!--Contenedor para los botones de la vista agregar servicio-->
       <div  >
       <a class="btn btn-primary " href="{{route('listadoVentas.index')}}" > <i class="bi bi-box-arrow-left"></i> Regresar</a>
