@@ -40,16 +40,8 @@
         <div class="form-group row">
             <label for="cantidad_v" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i id="IcNewEmp" class="bi bi-sort-numeric-down"></i>Cantidad comprada:</label>
-            <div class="col-sm-8 mt-2 ml-6">
+            <div class="col-sm-7 mt-2 ml-6">
             {{$contadoventa->cantidad_v}}
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="cantidad_v" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                <i id="IcNewEmp" class="bi bi-tags"></i>Precio:</label>
-            <div class="col-sm-8 mt-2 ml-6">
-            {{$contadoventa->servicios->precio}}
             </div>
         </div>
 
@@ -57,7 +49,7 @@
         <div class="form-group row ">
             <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp" class="bi bi-calendar-month"></i>Fecha de venta:</label>
-            <div class="col-sm-7 mt-2 ml-6">
+            <div class="col-sm-8 mt-2 ml-6">
                 {{date_format($contadoventa->created_at,"d/m/Y")}}
             </div>
         </div>

@@ -2,7 +2,7 @@
 <?php
     include 'conexion.php';
     $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM clientes");
-    $query2=mysqli_query($mysqli,"SELECT servicio_id, tipo FROM cantidad_inventario");
+    $query2=mysqli_query($mysqli,"SELECT id, tipo FROM servicios");
     
    
     if(isset($_POST['cliente_id']))
@@ -25,6 +25,9 @@
 <!--Contenedor para el título de la vista y los mensajes de error-->
 <div class="servfun">
         <h3 class="servfu" >Nueva Venta al Contado</h3>
+        
+            <a class="btn btn-info btn block" href="{{route('cliente.nuevo')}}">
+            <i class="bi bi-plus-circle"></i>Nuevo cliente</a>
         <hr>
         <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; " href="{{route('cliente.nuevo',['cliente'=>0])}}">
             <i class="bi bi-plus-circle"></i>Nuevo cliente</a>   
@@ -57,17 +60,13 @@
         <label class="form-label" for="cliente_id">Nombre del Cliente que adquirirá la póliza de servicio funerario:</label>
         <div>
          <select name="cliente_id" style="width: 500px;" class=" form-control">
-            @if (isset($ident))
-                <option style="display: none" value="{{$ident->id}}">{{$ident->nombres}} {{$ident->apellidos}}</option>
-            @else
-                <option value="0">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
-            @endif
-            <?php 
-            while($datos = mysqli_fetch_array($query))
-          {?>     
-        <option value="<?php echo $datos['id']?>"> <?php echo $datos['nombres' ].' '.$datos['apellidos' ]?> </option>
-          <?php
-          }?>
+                      <option value="0">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
+                        <?php 
+                          while($datos = mysqli_fetch_array($query))
+                        {?>     
+                      <option value="<?php echo $datos['id']?>"> <?php echo $datos['nombres' ].' '.$datos['apellidos' ]?> </option>
+                        <?php
+                        }?> 
            </select>
       </div>
           <script src='../../js/select2.min.js'></script>
@@ -95,7 +94,7 @@
     <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
-        <label  class="form-label" for="servicio_id">Tipo de póliza de servicio funerario:</label>
+        <label  class="form-label" for="servicio_id">Póliza de servicio funerario tipo:</label>
         <div>
         <select  name="servicio_id" style="width: 500px;" class="  form-control " charset="utf8_decode" >
                      
@@ -104,7 +103,7 @@
                     
                         while($datos = mysqli_fetch_array($query2))
                         {?>      
-                            <option value="<?php echo $datos['servicio_id']?>"> <?php echo $datos['tipo' ]?> </option>
+                            <option value="<?php echo $datos['id']?>"> <?php echo $datos['tipo' ]?> </option>
                     <?php
                         }
                     ?> 
@@ -119,8 +118,13 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="col">
             <label for="cantidad_v" class="form-label"> Cantidad a comprar: </label>
+=======
+      <div class="col">
+            <label for="cantidad_v" class="form-label"> Cantidad </label>
+>>>>>>> e6d965595a00ddf5e1e6d84076251a52b2480c12
             <div class="col-sm-15">
             <input type="text" placeholder="Ingresa la cantidad a comprar" maxlength="2"
                 id="cantidad_v" name="cantidad_v" class="form-control" style="float:left;"
@@ -129,6 +133,8 @@
             </div>
         </div>
 </div>
+
+
 
 <div class="collapse" id="collapseform">
 
@@ -139,11 +145,16 @@
     <?php $fecha_actual = date("d-m-Y");?>
         <div class="form-outline">
             <label for="fecha" class="form-label">
+<<<<<<< HEAD
                 Fecha de la compra: </label>
             <div class="col-mb-1">
+=======
+                Fecha </label>
+            <div class="col-sm-6">
+>>>>>>> e6d965595a00ddf5e1e6d84076251a52b2480c12
                 <input type="date" name="fecha" id="fecha" class="form-control"
                 value="{{old('fecha', $contadoVenta->fecha ?? '')}}"
-                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
+                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 2 day"));?>"
                 max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
             </div>
         </div>
@@ -154,7 +165,8 @@
 
     </div>
     </div>
-
+    
+  
     <!--Contenedor para los botones de la vista agregar servicio-->
       <div  >
       <a class="btn btn-primary " href="{{route('listadoVentas.index')}}" > <i class="bi bi-box-arrow-left"></i>Ir al listado de ventas al contado</a>

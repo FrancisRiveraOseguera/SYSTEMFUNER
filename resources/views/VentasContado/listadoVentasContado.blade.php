@@ -13,24 +13,26 @@
 <div>
     <br>
     <a class="btn btn-info btn block" href="{{route('VentaContado.nueva')}}">
-        <i class="bi bi-plus-circle"></i>Nueva venta al contado</a>
-    </div>
+        <i class="bi bi-plus-circle"></i>Nueva venta al contado
+    </a>
+</div>
 </div>
 
+
 <!--Barra de búsqueda-->
-<hr>
 <form  action="{{route('listadoVentas.index')}}" method="GET" autocomplete="off" class="x">
 <div  class="input-group input-group-sm">
     <a type="button" href="{{route('listadoVentas.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
-    <input type="search" class="col-sm-9" name="busqueda"
-        placeholder="Ingrese el nombre del cliente o empleado para realizar la búsqueda." value="{{$busqueda}}">
+
+    <input type="search" class="col-sm-10" name="busqueda"
+           placeholder="Ingrese el nombre del empleado que realizó la venta para realizar la búsqueda." value="{{$busqueda}}">
 
     <div class="input-group-append">
-        <button type="submit" class="btn btn-primary">Buscar</button>
+        <button type="submit" class="btn btn-primary"> Buscar</button>
     </div>
 </div>
 </form>
-
+<hr>
     <!--Mensajes de alerta -->
     @if(session('mensaje'))
     <div class="alert alert-success">
@@ -39,9 +41,6 @@
     @endif
 </div>
 <br>
-
-
-
 <!--Creación de tabla-->
 <div class="vent !important">
     <table class="table" >
@@ -59,7 +58,7 @@
         </thead>
         <tbody>
             @forelse($venta as $vent)
-            <tr class="table">  
+            <tr class="table">
                 <td>{{date_format($vent->created_at,"d-m-Y")}}</td>
                 <td>{{$vent->clientes->nombres}} {{$vent->clientes->apellidos}}</td>
                 <td>{{$vent->responsable}}</td>
@@ -82,25 +81,23 @@
             @endforelse
         </tbody>
     </table>
-    <!--paginación de la tabla-->
     {{ $venta->links()}}
 
 </div>
 
-<!--estilos-->
 
     <style>
         .xd{
-            width:50%;
+            width:40%;
         }
 
         .x{
-            width:63.5%;
+            width:66%;
             float:right;
             padding: 20px;
             position: absolute;
-            top: 8%;
-            right: 0px;
+            top: 25%;
+            right: 20px;
 
         }
 
