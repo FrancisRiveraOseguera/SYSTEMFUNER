@@ -25,12 +25,10 @@
     <a type="button" href="{{route('listadoVentas.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
     <input type="search" class="col-sm-10" name="busqueda"
-           placeholder="Ingrese el nombre del empleado que realizó la venta" value="{{$busqueda}}">
+           placeholder="Ingrese el nombre del empleado que realizó la venta para realizar la búsqueda." value="{{$busqueda}}">
 
     <div class="input-group-append">
-        <button type="submit" class="btn btn-primary">
-            Buscar
-        </button>
+        <button type="submit" class="btn btn-primary"> Buscar</button>
     </div>
 </div>
 </form>
@@ -61,7 +59,7 @@
         <tbody>
             @forelse($venta as $vent)
             <tr class="table">
-                <td>{{date_format($vent->created_at,"d/m/Y")}}</td>
+                <td>{{date_format($vent->created_at,"d-m-Y")}}</td>
                 <td>{{$vent->clientes->nombres}} {{$vent->clientes->apellidos}}</td>
                 <td>{{$vent->responsable}}</td>
                 <td>{{$vent->servicios->tipo}}</td>
@@ -78,7 +76,7 @@
             </tr>
             @empty
             <tr>
-                <th scope="row" colspan="5"> No hay ventas</th>
+                <th scope="row" colspan="5"> No hay resultados</th>
             </tr>
             @endforelse
         </tbody>
@@ -94,11 +92,11 @@
         }
 
         .x{
-            width:60%;
+            width:66%;
             float:right;
             padding: 20px;
             position: absolute;
-            top: 20%;
+            top: 25%;
             right: 20px;
 
         }
