@@ -69,7 +69,7 @@ class contadoVentaController extends Controller
 
         $mensaje=[
             'cliente_id.exists' => 'El nombre del cliente no ha sido seleccionado.',
-            'cliente_id.required' => 'El Nombre del cliente  no puede estar vacío.',
+            'cliente_id.required' => 'El Nombre del cliente no ha sido seleccionado.',
 
             'responsable.required' => 'El campo "Empleado responsable de la venta" no puede estar vacío.',
             'responsable.regex' => 'El campo "Empleado responsable de la venta" solo puede contener letras.',

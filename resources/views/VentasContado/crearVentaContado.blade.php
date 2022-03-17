@@ -2,7 +2,7 @@
 <?php
     include 'conexion.php';
     $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM clientes");
-    $query2=mysqli_query($mysqli,"SELECT id, tipo FROM servicios");
+    $query2=mysqli_query($mysqli,"SELECT servicio_id, tipo FROM cantidad_inventario");
     
    
     if(isset($_POST['cliente_id']))
@@ -58,7 +58,7 @@
         <label class="form-label" for="cliente_id">Nombre del Cliente que adquirirá la póliza de servicio funerario:</label>
         <div>
          <select name="cliente_id" style="width: 500px;" class=" form-control">
-                      <option value="0">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
+                      <option disabled selected value="0">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
                         <?php 
                           while($datos = mysqli_fetch_array($query))
                         {?>     
@@ -95,13 +95,13 @@
         <label  class="form-label" for="servicio_id">Póliza de servicio funerario tipo:</label>
         <div>
         <select  name="servicio_id" style="width: 500px;" class="  form-control " charset="utf8_decode" >
-                     
-        <option disabled selected value="0">Selecciona el tipo de servicio:</option>
+
+        <option disabled selected value="0">Selecciona el tipo de servicio</option>
                     <?php 
                     
                         while($datos = mysqli_fetch_array($query2))
                         {?>      
-                            <option value="<?php echo $datos['id']?>"> <?php echo $datos['tipo' ]?> </option>
+                            <option value="<?php echo $datos['servicio_id']?>"> <?php echo $datos['tipo' ]?> </option>
                     <?php
                         }
                     ?> 
