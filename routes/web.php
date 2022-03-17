@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\contadoVentaController;
+use App\Http\Controllers\DetalleServicioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,10 @@ Route::get('/NuevoServicio',[ServicioController::class, 'create'])
 
 Route::post('/NuevoServicio',[ServicioController::class, 'store'])
 ->name('Servicio.guardar');
+
+//ruta de botón de ventas de tipo de servicio en SERVICIOS
+Route::get('listadoVentaTipoServicio/{id}',[DetalleServicioController::class, 'index'])
+->name('tipoServicio.index')->where('id', '[0-9]+');
 
 //RUTAS PARA EDITAR SERVICIO
 Route::get('/servicio/{id}/editar', 'App\Http\Controllers\ServicioController@editar')

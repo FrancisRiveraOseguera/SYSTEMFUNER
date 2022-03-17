@@ -11,6 +11,6 @@ class Servicio extends Model
         return $this->BelongsToMany(Inventario::class)->withTimestamps();}   
         
     public function contadoventas(){
-        return $this->hasMany(contadoventas::class);}
+        return $this->hasMany(contadoventa::class);}
     use HasFactory;
 }

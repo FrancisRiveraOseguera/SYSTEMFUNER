@@ -1,5 +1,5 @@
-@extends('madre');
-@section ('title' , 'Nuevo servicio');
+@extends('madre')
+@section ('title' , 'Nuevo servicio')
 
 @section('content')
 <!--Contenedor para el título de la vista y los mensajes de error-->

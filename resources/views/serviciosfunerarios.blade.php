@@ -55,7 +55,7 @@
       <th scope="col" >Precio</th>
       <th scope="col" style="text-align: center;">Detalles</th>
       <th scope="col" style="text-align: center;">Editar</th>
-      <th scope="col" style="text-align: center;">Vender</th>
+      <th scope="col" style="text-align: center;">Ventas</th>
     </tr>
   </thead>
 
@@ -73,7 +73,7 @@
         <td style="text-align: center;">
           <a class="btn btn-success" href="{{route('Servicio.editar', ['id'=>$Servicio->id])}}"> <i class="bi bi-pencil-square"></i>Editar </a></td> 
         <td style="text-align: center;">
-          <a class="btn btn-warning" ><i class="bi bi-currency-dollar"></i>Vender </a>  </td></td>
+          <a class="btn btn-warning " href="{{route('tipoServicio.index', ['id'=>$Servicio->id])}}"> <i class="fas fa-donate"></i>Ventas del servicio</a>
     <!--formulario de borrado que se crea por cada elemnto borrado -->
 
     </tr>
