@@ -43,7 +43,7 @@
         <div class="form-group row">
                 <label for="servicio_id" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-card-list"></i>Nombre del producto</label>
             <div class="col-sm-8">
-            <select name="servicio_id" style="width: 675px;" class=" form-control">
+            <select name="servicio_id" style="width: 635px;" class=" form-control">
                       <option value="0">Selecciona el nombre del producto a agregar a inventario. </option>
                         <?php 
                           while($datos = mysqli_fetch_array($query))

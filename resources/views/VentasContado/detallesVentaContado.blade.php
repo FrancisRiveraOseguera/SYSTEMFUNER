@@ -45,6 +45,14 @@
             </div>
         </div>
 
+        <div class="form-group row">
+            <label for="cantidad_v" class="col-lg-3 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="bi bi-wallet2"></i>Total a pagar:</label>
+            <div class="col-sm-7 mt-2 ml-6">
+            {{$contadoventa->cantidad_v * $contadoventa->servicios->precio}}
+            </div>
+        </div>
+
         <?php $fecha_actual = date("d-m-Y");?>
         <div class="form-group row ">
             <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
@@ -73,7 +81,7 @@
             position:relative;
         }
         .requerido{
-            margin-top:-5px;
+            margin-top:-6px;
         }
 
         .emple{

@@ -145,7 +145,7 @@
             <label for="fecha" class="form-label">
                 Fecha </label>
             <div class="col-sm-13">
-                <input type="date" name="fecha" id="fecha" class="form-control"
+                <input type="date" style="width: 500px;" name="fecha" id="fecha" class="form-control"
                 value="{{old('fecha', $contadoVenta->fecha ?? '')}}"
                 min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
                 max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>

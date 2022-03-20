@@ -73,7 +73,7 @@
     }
 
     .padre{
-        padding-left: 470px;
+        padding-left: 395px;
         -moz-user-select: none;
         user-select: none;
     }
