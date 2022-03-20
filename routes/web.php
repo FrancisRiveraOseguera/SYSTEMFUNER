@@ -140,7 +140,6 @@ Route::get('/NuevaVentaDeContado{ident?}',[contadoVentaController::class, 'creat
 Route::post('/NuevaVentaDeContado{ident?}',[contadoVentaController::class, 'store'])
 ->name('VentaContado.guardar');
 
-
 Route::get('/ventaContado/detalles/{id}',  'App\Http\Controllers\contadoVentaController@show')
     ->name('contadoVenta.ver')
     ->where('id', '[0-9]+');

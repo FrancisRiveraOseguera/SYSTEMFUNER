@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         html2pdf()
             .set({
                 margin: 0,
-                filename:'prueba.pdf',
+                filename:'contrato-cliente.pdf',
                 image: {
                     type:'jpeg',
                     quality: 1

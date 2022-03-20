@@ -6,11 +6,12 @@
 
 <!DOCTYPE html>
 <html>
-    <script language="javascript">alert("Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria.")</script>
+   <!-- <script language="javascript">alert("Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria.")</script>-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Previsualización del Contrato</title>
-
+    
     <body>
+
         <img src="/assets/logo_contrato.png" title="Exportar a PDF e imprimir" class="rounded-circle logo" id="btn" width="120" height="100">
         <div class="sh">
             <h3><b>PÓLIZA DE SEGUROS FUNERARIOS</h3></b>
@@ -125,18 +126,24 @@
             user-select: none;
         }
         .line1{
-            margin-left: 100px;
+            margin-left: 7%;
         }
         .line2{
-            margin-left: 120px;
+            margin-left: 9%;
         }
         .frm1{
-            margin-left: 190px;
+            margin-left: 15%;
             font-size: 12px;
         }
         .frm2{
-            margin-left: 300px;
+            margin-left: 34%;
             font-size: 12px;
+        }
+        .modal{
+            width: 100%;
+            height: 100vh;
+            background rgba(0,0,0,0, 0.6);
+            position: absolute;
         }
         .sh, .claus1{
             text-align: center;

@@ -4,7 +4,6 @@
 
 @section('content')
 
-
 <div class="vent">
 
     <div class="xd">
@@ -69,9 +68,42 @@
                     href="{{route('contadoVenta.ver', ['id'=>$vent->id])}}"><i class="bi bi-eye"></i>Detalles</a>
                 </td>
 
-                <td class="text-center">
+                <td>
+                    <!-- Button trigger modal-->
+                    <a class="btn btn-danger" href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}" data-toggle="modal" data-target="#modalPush"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
+               
+                    <!--Modal: modalPush-->
+                    <div class="modal fade" tabindex="1" id="modalPush"role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-notify modal-info" role="document">
+                        <!--Content-->
+                        <div class="modal-content text-center">
+                        <!--Header-->
+                        <div class="modal-header d-flex justify-content-center">
+                            <p class="heading">Un momento...</p>
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+                            <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
+                            <p>Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
+                        </div>
+
+                        <!--Footer-->
+                        <div class="modal-footer flex-center">
+                            <a href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}" class="modal-footer btn-info">¡Entendido!</a>
+                        </div>
+                        </div>
+                       
+                    </div>
+                    </div>
+                
+                </td>
+                
+                <!--<td class="text-center">
                     <a class="btn btn-danger" href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
-                </td>            
+                </td>-->
+            
+                </td>
 
             </tr>
             @empty
@@ -112,9 +144,21 @@
         }
 
         .vent{
-        font-style: bold;
-        font-family: 'Times New Roman', Times, serif;
+            font-style: bold;
+            font-family: 'Times New Roman', Times, serif;
         }
+        .modal-header{
+            font-size: 20px;
+            background-color: #1CB6E9;
+            color: #FFFFFF;
+        }
+        .modal-body{
+            font-size: 15px;
+        }
+        .modal-footer{
+            font-size: 15px;
+        }
+        
     </style>
 
 @endsection
