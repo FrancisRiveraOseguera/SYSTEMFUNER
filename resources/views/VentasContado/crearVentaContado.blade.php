@@ -17,8 +17,8 @@
         echo $servicio_id;
     }
 
-
 ?>
+
 @section ('title' , ' Venta al Contado')
 
 @section('content')
@@ -159,15 +159,40 @@
     </div>
     </div>
     
-  
     <!--Contenedor para los botones de la vista agregar servicio-->
-      <div  >
-      <a class="btn btn-primary " href="{{route('listadoVentas.index')}}" > <i class="bi bi-box-arrow-left"></i>Ir al listado de ventas al contado</a>
-     
-       <button type="submit" class="btn btn-success"  href="{{route('listadoVentas.index')}}" ><i class="bi bi-save"></i>Guardar Venta</button>
-       </div>
+    <div>
+        <a class="btn btn-primary " href="{{route('listadoVentas.index')}}"> <i class="bi bi-box-arrow-left"></i>Ir al listado de ventas al contado</a>
 
+        <td>          
+            <!--Modal: modalPush-->
+            <a class="btn btn-success" style="color: white;" data-toggle="modal" data-target="#modalPush"><i class="bi bi-save"></i>Guardar Venta</a>
+            <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-notify modal-info" role="document">
+                    <!--Content-->
+                    <div class="modal-content text-center">
+                    <!--Header-->
+                    <div class="modal-header d-flex justify-content-center">
+                        <p class="heading">Un momento...</p>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
+                            <p>Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
+                    </div>
+                    <!--Footer-->
+                        <div class="modal-footer flex-center">
+                            <button type="close" class="modal-footer btn-info">¡Entendido!</button>
+                        </div>
+                    </div> 
+            </div>
+            </div>
+        </td>
+
+    </div>
+    
   </div>
+
+   
   
   <style>
     #IcNewServ{
@@ -189,5 +214,16 @@
        font-style: bold;
        font-family: 'Times New Roman', Times, serif;
    }
+   .modal-header{
+        font-size: 20px;
+        background-color: #1CB6E9;
+        color: #FFFFFF;
+    }
+    .modal-body{
+        font-size: 15px;
+    }
+    .modal-footer{
+        font-size: 15px;
+    }
    </style>
 @endsection

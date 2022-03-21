@@ -112,7 +112,7 @@
         }
         .logo{
             position: absolute;
-            margin-left: 150px;
+            margin-left: 100px;
         }
         body{
             /*border-width:3px;

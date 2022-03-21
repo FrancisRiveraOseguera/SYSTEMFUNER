@@ -74,27 +74,27 @@
                
                     <!--Modal: modalPush-->
                     <div class="modal fade" tabindex="1" id="modalPush{{$vent->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-notify modal-info" role="document">
-                        <!--Content-->
-                        <div class="modal-content text-center">
-                        <!--Header-->
-                        <div class="modal-header d-flex justify-content-center">
-                            <p class="heading">Un momento...</p>
-                        </div>
 
-                        <!--Body-->
-                        <div class="modal-body">
-                            <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
-                            <p>Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
-                        </div>
+                        <div class="modal-dialog modal-notify modal-info" role="document">
+                            <!--Content-->
+                            <div class="modal-content text-center">
+                            <!--Header-->
+                            <div class="modal-header d-flex justify-content-center">
+                                <p class="heading">Un momento...</p>
+                            </div>
 
-                        <!--Footer-->
-                        <div class="modal-footer flex-center">
-                            <a href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}" class="modal-footer btn-info">¡Entendido!</a>
+                            <!--Body-->
+                            <div class="modal-body">
+                                <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
+                                <p>Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
+                            </div>
+
+                            <!--Footer-->
+                            <div class="modal-footer flex-center">
+                                <a href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}" class="modal-footer btn-info">¡Entendido!</a>
+                            </div>
                         </div>
                         </div>
-                       
-                    </div>
                     </div>
                 
                 </td>

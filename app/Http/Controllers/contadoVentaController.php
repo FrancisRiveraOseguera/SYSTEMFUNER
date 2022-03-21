@@ -44,11 +44,8 @@ class contadoVentaController extends Controller
     public function create($ident = null){
         $clientes = Cliente::where('id',$ident)->first();
         return view('VentasContado.crearVentaContado')->with('ident',$clientes);
+
     }//fin función create
-
-
-    
-
 
     //FUNCIÓN DE GUARDADO Y VALIDACIÓN DE DATOS DE CREACIÓN NUEVA VENTA AL CONTADO
     public function store(Request $request){
@@ -100,11 +97,9 @@ class contadoVentaController extends Controller
         $nuevaVentaContado-> cantidad_v= $request->input('cantidad_v');
 
         $creado = $nuevaVentaContado->save();
+        return redirect()->route('contadoVenta.pdf', $nuevaVentaContado->id);
 
-        if ($creado) {
-            return redirect()->route('listadoVentas.index')
-                ->with('mensaje', 'La venta se realizó correctamente.');
-        }//fin if
+
 
     }//fin función store
 
