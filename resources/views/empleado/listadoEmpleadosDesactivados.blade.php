@@ -75,13 +75,37 @@
                         href="{{route('empleado.desactivado', ['id'=>$empleado->id])}}"><i class="bi bi-eye"></i>Detalles</a>
                     </td>
                     <td class="text-center">
-                        <form method="post" action="{{route('empleado.habilitar', ['id'=>$empleado->id])}}"
-                              onclick="return confirm('¿Seguro que deseas habilitar a este empleado?')">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="redondo btn btn-danger">
+                        <form method="post" action="{{route('empleado.habilitar', ['id'=>$empleado->id])}}">
+                            <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush">
                                 <i class="fas fa-plus-circle"></i> Habilitar
-                            </button>
+                            </a>
+
+                            <!--Modal: modalPush-->
+                            <div class="modal fade" tabindex="1" id="modalPush"role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-notify modal-info" role="document">
+                                    <!--Content-->
+                                    <div class="modal-content text-center">
+                                        <!--Header-->
+                                        <div class="modal-header d-flex justify-content-center">
+                                            <p class="heading">Habilitar empleado</p>
+                                        </div>
+
+                                        <!--Body-->
+                                        <div class="modal-body">
+                                            <p>¿Seguro que deseas habilitar a este empleado?</p>
+                                        </div>
+
+                                        <!--Footer-->
+                                        @csrf
+                                        @method('delete')
+
+                                        <div class="modal-footer flex-center">
+                                            <button type="submit" class="modal-footer btn btn-info">Aceptar</button>
+                                            <a class="modal-footer btn btn-danger" href="{{route('listado.empleados.desactivados')}}">Cancelar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </td>
                 </tr>
@@ -109,6 +133,18 @@
     .emple{
         font-style: bold;
         font-family: 'Times New Roman', Times, serif;
+    }
+
+    .modal-header{
+        font-size: 20px;
+        background-color: #1CB6E9;
+        color: #FFFFFF;
+    }
+    .modal-body{
+        font-size: 15px;
+    }
+    .modal-footer{
+        font-size: 15px;
     }
 </style>
 
