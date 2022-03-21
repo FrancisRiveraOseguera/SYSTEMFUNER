@@ -9,15 +9,18 @@ use Illuminate\Support\Facades\DB;
 
 class contadoVentaController extends Controller
 {
-    //función para mostrar la listado de ventas al contado y hacer las búsquedas
+    //función para mostrar  listado de ventas al contado y hacer las búsquedas
     public function index(Request $request){
         $busqueda = trim($request->get('busqueda'));
 
-        $venta = contadoventa::orderby('id','DESC')
+        $venta = contadoventa::orderby('contado_ventas.id','DESC')
 
-            ->where('cliente_id', 'LIKE', '%'.$busqueda.'%')
-            ->orwhere('responsable', 'LIKE', '%'.$busqueda.'%')
-            ->paginate(15)-> withQueryString();
+        ->select("contado_ventas.id", "contado_ventas.created_at","cliente_id","servicio_id","responsable")
+        ->join("clientes","cliente_id","=","clientes.id")
+        ->where("clientes.nombres","like","%".$busqueda."%")
+        ->orwhere("clientes.apellidos","like","%".$busqueda."%")
+        ->orwhere("contado_ventas.responsable","like","%".$busqueda."%")
+        ->paginate(15)-> withQueryString();
 
             return view('VentasContado/listadoVentasContado')
             ->with('venta', $venta)

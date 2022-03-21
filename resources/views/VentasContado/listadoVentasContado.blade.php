@@ -70,10 +70,10 @@
 
                 <td>
                     <!-- Button trigger modal-->
-                    <a class="btn btn-danger" href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}" data-toggle="modal" data-target="#modalPush"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
+                    <a class="btn btn-danger" href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}" data-toggle="modal" data-target="#modalPush{{$vent->id}}"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
                
                     <!--Modal: modalPush-->
-                    <div class="modal fade" tabindex="1" id="modalPush"role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" tabindex="1" id="modalPush{{$vent->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-notify modal-info" role="document">
                         <!--Content-->
                         <div class="modal-content text-center">
@@ -100,7 +100,8 @@
                 </td>
                 
                 <!--<td class="text-center">
-                    <a class="btn btn-danger" href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
+                    <a class="btn btn-danger" href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}">
+                        <i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
                 </td>-->
             
                 </td>
