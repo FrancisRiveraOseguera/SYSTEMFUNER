@@ -24,7 +24,7 @@
     <a type="button" href="{{route('listadoVentas.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
 
     <input type="search" class="col-sm-10" name="busqueda"
-           placeholder="Ingrese el nombre del empleado que realizó la venta para realizar la búsqueda." value="{{$busqueda}}">
+           placeholder="Ingrese el nombre del cliente o empleado para realizar la búsqueda." value="{{$busqueda}}">
 
     <div class="input-group-append">
         <button type="submit" class="btn btn-primary"> Buscar</button>
@@ -125,7 +125,7 @@
         }
 
         .x{
-            width:66%;
+            width:60%;
             float:right;
             padding: 20px;
             position: absolute;
