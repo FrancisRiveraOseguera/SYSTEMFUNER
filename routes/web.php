@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\contadoVentaController;
+use App\Http\Controllers\creditoventaController;
 use App\Http\Controllers\DetalleServicioController;
 /*
 |--------------------------------------------------------------------------
@@ -151,3 +152,10 @@ Route::get('/ventasContado/crearPDF/{id}', 'App\Http\Controllers\contadoVentaCon
 //Ruta para ver la página principal de ventas
 Route::get('/ventas', 'App\Http\Controllers\contadoVentaController@home')
     ->name('ventas.index');
+
+//RUTAS DE VENTAS AL CREDITO
+Route::get('/NuevaVentaAlCredito', 'App\Http\Controllers\creditoventaController@create')
+    ->name('ventaCredito.nueva');
+
+Route::post('/NuevaVentaAlCredito', 'App\Http\Controllers\creditoventaController@store')
+    ->name('ventaCredito.guardar');
