@@ -22,10 +22,10 @@ class CreateTableCreditoVentas extends Migration
             $table->char('telefono1', 8);
             $table->string('beneficiario2');
             $table->char('telefono2', 8);
-            $table->string('beneficiario3');
-            $table->char('telefono3', 8);
-            $table->string('beneficiario4');
-            $table->char('telefono4', 8);
+            $table->string('beneficiario3')->nullable();
+            $table->char('telefono3', 8)->nullable();
+            $table->string('beneficiario4')->nullable();
+            $table->char('telefono4', 8)->nullable();
             $table->date('fecha')->notnull();
             $table->date('fechaCobro')->notnull();
             $table->timestamps();

@@ -27,8 +27,10 @@
         <h3 class="servfu" >Nueva Venta al Crédito</h3>
         
             <hr>
-        <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; " href="{{route('cliente.nuevo',['cliente'=>0])}}">
-            <i class="bi bi-plus-circle"></i>Nuevo cliente</a>   
+            <acronym title="Haz click para agregar un cliente nuevo desde aquí.">
+            <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; " href="{{route('cliente.nuevo',['cliente'=>0])}}">
+            <i class="bi bi-plus-circle"></i>Nuevo cliente</a>  
+            </acronym>
         
         <a class="btn btn-link " href="{{route('ventas.index')}}" > 
                 <i class="bi bi-box-arrow-left"></i>Ir al inicio de Ventas </a> 
@@ -58,8 +60,8 @@
         <label class="form-label" for="cliente_id">Nombre del cliente que adquirirá la póliza de servicio funerario:</label>
         <div>
          <select name="cliente_id" style="width: 500px;" class=" form-control">
-            @if (isset($ident))
-                <option style="display: none" value="{{$ident->id}}">{{$ident->nombres}} {{$ident->apellidos}}</option>
+            @if (isset($newcl))
+                <option style="display: none" value="{{$ident->id}}">{{$newcl->nombres}} {{$newcl->apellidos}}</option>
             @else
                 <option value="0">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
             @endif
@@ -123,15 +125,20 @@
         <div class="form-outline">
             <label for="fecha" class="form-label">
                 Fecha de venta:</label>
-            <div class="col-sm-13">
-                <input type="date" style="width: 500px;" name="fecha" id="fecha" class="form-control"
+            
+                <input type="date" style="width: 495px;" name="fecha" id="fecha" class="form-control"
                 value="{{old('fecha', $contadoVenta->fecha ?? '')}}"
                 min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
                 max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
-            </div>
+            
         </div>
     </div>
 </div>
+<br>
+<p><i style="color: #bda914 ;" class="bi bi-exclamation-triangle"></i>Se otorga los beneficios de la póliza a las personas que también <b>responderán con el pago</b>  en caso de la 
+    defunción del contratante, ellos son: 
+</p>
+<br>
 
 <div class="row mb-4">
     <div class="col">
@@ -150,29 +157,33 @@
                 value="{{old('telefono1', $creditoVenta->telefono1 ?? '')}}"/> 
     </div>
 </div>    
-
-
 <div class="row mb-4">
-    <div class="col">
+      <div class="col">
            <label class=" form-label" for="beneficiario2">Beneficiario N°2:</label>
            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "text"
                 name="beneficiario2" id="beneficiario2"  maxlength = "50" placeholder="Nombre y apellido del segundo beneficiario." class="form-control" 
                 value="{{old('beneficiario2', $creditoVenta->beneficiario2 ?? '')}}"/> 
-    </div>  
+       </div>  
 
-<div class="col">
+       <div class="col">
            <label class=" form-label" for="telefono2">Teléfono:</label>
            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "text"
                 name="telefono2" id="telefono2"  maxlength = "8" placeholder="Teléfono del beneficiario." class="form-control" 
                 value="{{old('telefono2', $creditoVenta->telefono2 ?? '')}}"/> 
-</div>
+        </div>
+  </div>   
 
-</div>   
-
+  <acronym title="Para agregar haz click, para ocultar haz click nuevamente." >
+  <a class="checkbox" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+  <i class="bi bi-person-plus"></i> Agregar más beneficiarios.
+  </a>
+  </acronym>
+<div class="collapse" id="collapseExample">
 <div class="row mb-4">
     <div class="col">
+        <br>
            <label class=" form-label" for="beneficiario3">Beneficiario N°3:</label>
            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "text"
@@ -181,13 +192,13 @@
     </div>  
 
     <div class="col">
+        <br>
           <label class=" form-label" for="telefono3">Teléfono:</label>
            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "text"
                 name="telefono3" id="telefono3"  maxlength = "8" placeholder="Teléfono del beneficiario." class="form-control" 
                 value="{{old('telefono3', $creditoVenta->telefono3 ?? '')}}"/> 
     </div>
-
 </div>    
 
 
@@ -199,37 +210,37 @@
                 name="beneficiario4" id="beneficiario4"  maxlength = "50" placeholder="Nombre y apellido del cuarto beneficiario." class="form-control" 
                 value="{{old('beneficiario4', $creditoVenta->beneficiario4 ?? '')}}"/> 
     </div>  
-
     <div class="col">
+       <div class="form-outline">
            <label class=" form-label" for="telefono4">Teléfono:</label>
            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 type = "text"
                 name="telefono4" id="telefono4"  maxlength = "8" placeholder="Teléfono del beneficiario." class="form-control" 
                 value="{{old('telefono4', $creditoVenta->telefono4 ?? '')}}"/> 
-     </div>
+         </div>
+     </div>  
 </div>   
-
+</div>
 
 <div class="row mb-4">
   <div class="col">
     <div class="form-outline">
         <?php $fecha_actual = date("d-m-Y");?>
+        <br>
             <label for="fechaCobro" class="form-label">
                 Fecha de cobro:</label>
             <div class="col-sm-13">
                 <input type="date" style="width: 500px;" name="fechaCobro" id="fechaCobro" class="form-control"
                 value="{{old('fechaCobro', $contadoVenta->fechaCobro ?? '')}}"
                 min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
-                max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
+                max="<?php echo date('Y-m-d',strtotime($fecha_actual." 10 year"));?>"/>
             </div>
         </div>
-
     </div>  
 
     <div class="col">
         
     </div>
-</div>
 </div> 
     <!--Contenedor para los botones de la vista agregar servicio-->
     
@@ -240,7 +251,7 @@
        </div>
 
     <br>
-  </div>
+</div>
 
    
   

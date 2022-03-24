@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\DB;
 class creditoventaController extends Controller
 {
      //FUNCIÓN CREACIÓN DE VENTA AL CRÉDITO
-     public function create(){
-        return view('VentasCredito.crearVentaCredito');
+     public function create($newcl = null){
+        $clientes = Cliente::where('id',$newcl)->first();
+        return view('VentasCredito.crearVentaCredito')->with('newcl',$clientes);;
 
     }//fin función create
 
@@ -27,10 +28,10 @@ class creditoventaController extends Controller
             'telefono1' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
             'beneficiario2' =>'required|regex:/^[\pL\s\-]+$/u|max:50',
             'telefono2' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
-            'beneficiario3' =>'regex:/^[\pL\s\-]+$/u|max:50',
-            'telefono3' => 'regex:([2,3,8,9]{1}[0-9]{7})|numeric',
-            'beneficiario4' =>'regex:/^[\pL\s\-]+$/u|max:50',
-            'telefono4' => 'regex:([2,3,8,9]{1}[0-9]{7})|numeric',
+            'beneficiario3' =>'nullable|regex:/^[\pL\s\-]+$/u|max:50',
+            'telefono3' => 'nullable|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
+            'beneficiario4' =>'nullable|regex:/^[\pL\s\-]+$/u|max:50',
+            'telefono4' => 'nullable|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
             'fecha' => 'required',
             'fechaCobro' => 'required',
 
