@@ -15,7 +15,7 @@
                </a>
            </div>
            <div class="col-lg-3">
-               <a class="btn btn-info btn block" href="#">
+               <a class="btn btn-info btn block" href="{{route('ventaCredito.nueva')}}">
                    <i class="fas fa-file-invoice-dollar"></i>Nueva venta al crédito
                </a>
            </div>
@@ -48,7 +48,7 @@
                        <img src="/assets/ventasCredito.png" alt="Ventas al crédito" width="100%">
                        <h4 class="card-title">Ventas al crédito</h4>
                        <p class="card-text">En esta sección puede ver el listado de las ventas al crédito.</p>
-                       <a href="#" class="btn btn-primary">Ver</a>
+                       <a href="{{route('ventasCredito.index')}}" class="btn btn-primary">Ver</a>
                    </div>
                </div>
            </div>

@@ -159,3 +159,6 @@ Route::get('/NuevaVentaAlCredito{newcl?}', 'App\Http\Controllers\creditoventaCon
 
 Route::post('/NuevaVentaAlCredito{newcl?}', 'App\Http\Controllers\creditoventaController@store')
     ->name('ventaCredito.guardar');
+
+Route::get('/listadoVentasCredito', 'App\Http\Controllers\creditoventaController@index')
+    ->name('ventasCredito.index');
