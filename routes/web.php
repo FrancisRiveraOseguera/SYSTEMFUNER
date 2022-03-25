@@ -162,11 +162,6 @@ Route::get('/NuevaVentaAlCredito{newcl?}', 'App\Http\Controllers\creditoventaCon
 Route::post('/NuevaVentaAlCredito{newcl?}', 'App\Http\Controllers\creditoventaController@store')
     ->name('ventaCredito.guardar');
 
-
-Route::get('/ventaCredito/detalles/{id}',  'App\Http\Controllers\creditoventaController@show')
-    ->name('ventaCredito.ver')
-    ->where('id', '[0-9]+');
-
 Route::get('/listadoVentasCredito', 'App\Http\Controllers\creditoventaController@index')
     ->name('ventasCredito.index');
 
