@@ -68,7 +68,7 @@
                 <td>{{$venta->servicios->tipo}}</td>
 
                 <td class="text-center">
-                    <a class="btn btn-info" href="">
+                    <a class="btn btn-info" href="{{route('ventaCredito.ver', ['id'=>$venta->id])}}">
                         <i class="bi bi-eye"></i>Detalles
                     </a>
                 </td>
