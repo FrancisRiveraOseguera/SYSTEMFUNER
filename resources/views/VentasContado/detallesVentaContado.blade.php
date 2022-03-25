@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="emple">
-    <h3> Detalles de venta </h3>
+    <h3> Detalles de venta al contado</h3>
     <hr>
 
     <!--Formulario para ver  los datos del cliente-->
