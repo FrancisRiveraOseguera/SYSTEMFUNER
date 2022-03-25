@@ -29,15 +29,8 @@ class creditoventaController extends Controller
 
     }//FIN DE LA FUNCIÓN
 
-    public function show($id)
-    {
-       $ventas = creditoventa::findOrFail($id);
-       return view('VentasCredito.detallesVentaCredito')->with('creditoventa', $ventas);
-    }
-
-
-    //FUNCIÓN CREACIÓN DE VENTA AL CRÉDITO
-    public function create($newcl = null){
+     //FUNCIÓN CREACIÓN DE VENTA AL CRÉDITO
+     public function create($newcl = null){
         $clientes = Cliente::where('id',$newcl)->first();
         return view('VentasCredito.crearVentaCredito')->with('newcl',$clientes);;
 
