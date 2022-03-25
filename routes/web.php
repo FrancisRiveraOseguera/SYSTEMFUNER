@@ -162,3 +162,7 @@ Route::post('/NuevaVentaAlCredito{newcl?}', 'App\Http\Controllers\creditoventaCo
 
 Route::get('/listadoVentasCredito', 'App\Http\Controllers\creditoventaController@index')
     ->name('ventasCredito.index');
+
+Route::get('/ventaCredito/detalles/{id}', 'App\Http\Controllers\creditoventaController@show')
+    ->name('ventaCredito.ver')
+    ->where('id', '[0-9]+');
