@@ -6,6 +6,8 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\contadoVentaController;
 use App\Http\Controllers\creditoventaController;
 use App\Http\Controllers\DetalleServicioController;
+use App\Http\Controllers\PagosController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -162,3 +164,8 @@ Route::post('/NuevaVentaAlCredito{newcl?}', 'App\Http\Controllers\creditoventaCo
 
 Route::get('/listadoVentasCredito', 'App\Http\Controllers\creditoventaController@index')
     ->name('ventasCredito.index');
+
+//RUTAS DE NUEVO PAGO
+Route::get('/nuevoPago/{id}',[PagosController::class, 'create'])->name('nuevoPagos.nuevo');
+
+Route::post('/nuevoPago/{id}',[PagosController::class, 'store'])->name('nuevoPagos.guardar');

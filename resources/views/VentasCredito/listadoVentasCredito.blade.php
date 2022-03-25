@@ -74,7 +74,7 @@
                 </td>
 
                 <td>
-                    <a class="btn btn-success" href=""><i class="fas fa-hand-holding-usd"></i>Nuevo Pago</a>
+                    <a class="btn btn-success" href="{{route('nuevoPagos.nuevo',['id'=>$venta->id])}}"><i class="fas fa-hand-holding-usd"></i>Nuevo Pago</a>
                 </td>
                 <td>
                     <a class="btn btn-danger" href=""><i class="fas fa-file-pdf"></i>PDF del estado de venta</a>
