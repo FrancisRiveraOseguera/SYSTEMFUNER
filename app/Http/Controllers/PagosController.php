@@ -32,7 +32,7 @@ class PagosController extends Controller
         ->groupby("creditoventas.id")
         ->findOrFail($id);
         
-        return view('pagos/nuevopago')->with('venta',$venta);
+        return view('pagos.nuevoPago')->with('venta',$venta);
     }
 
     /**
