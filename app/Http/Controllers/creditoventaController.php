@@ -9,6 +9,33 @@ use Illuminate\Support\Facades\DB;
 
 class creditoventaController extends Controller
 {
+
+    //FUNCIÓN PARA VER EL LISTADO DE LAS VENTAS AL CRÉDITO
+    public function index(Request $request){
+        $busqueda = trim($request->get('busqueda'));
+
+        $ventas = creditoventa::orderby('creditoventas.id','DESC')
+
+            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","responsable")
+            ->join("clientes","cliente_id","=","clientes.id")
+            ->where("clientes.nombres","like","%".$busqueda."%")
+            ->orwhere("clientes.apellidos","like","%".$busqueda."%")
+            ->orwhere("creditoventas.responsable","like","%".$busqueda."%")
+            ->paginate(15)-> withQueryString();
+
+        return view('VentasCredito.listadoVentasCredito')
+            ->with('ventas', $ventas)
+            ->with('busqueda', $busqueda);
+
+    }//FIN DE LA FUNCIÓN
+
+    //FUNCIÓN PARA VER LOS DETALLES DE LA VENTA AL CRÉDITO
+    public function show($id)
+    {
+        $venta = creditoventa::findOrFail($id);
+        return view('VentasCredito.detallesVentaCredito')->with('venta', $venta);
+    }//FIN DE LA FUNCIÓN
+
      //FUNCIÓN CREACIÓN DE VENTA AL CRÉDITO
      public function create($newcl = null){
         $clientes = Cliente::where('id',$newcl)->first();
@@ -18,7 +45,7 @@ class creditoventaController extends Controller
 
     //FUNCIÓN DE GUARDADO Y VALIDACIÓN DE DATOS DE CREACIÓN NUEVA VENTA AL CRÉDITO
     public function store(Request $request){
-        
+
 
         $rules=[
             'cliente_id' =>'required|exists:App\Models\Cliente,id',
@@ -45,7 +72,7 @@ class creditoventaController extends Controller
             'responsable.regex' => 'El campo "Empleado responsable de la venta" solo puede contener letras.',
             'responsable.max' => 'El campo "Empleado responsable de la venta" debe contener 50 letras como máximo.',
 
-            
+
             'servicio_id.required' => 'El tipo de póliza de servicio funerario no ha sido seleccionado.',
 
             'beneficiario1.required' => 'El campo :attribute no puede estar vacío.',
@@ -101,9 +128,9 @@ class creditoventaController extends Controller
         $nuevaVentaCredito-> fechaCobro = $request->input('fechaCobro');
 
         $creado = $nuevaVentaCredito->save();
-    
+
         if ($creado) {
-            return redirect()->route('ListadoVentasCredito.VentasCredito')
+            return redirect()->route('ventasCredito.index')
                 ->with('mensaje', 'La venta al crédito se realizó correctamente.');
         }//fin if
 
