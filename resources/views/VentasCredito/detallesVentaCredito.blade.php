@@ -11,7 +11,7 @@
     <div class="formato">
         <div class="form-group row">
             <label for="nombre" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                <i id="IcNewEmp" class="fas fa-user"></i> Nombre del cliente:</label>
+                <i id="IcNewEmp" class="bi bi-person-fill"></i> Nombre del cliente:</label>
             <div class="col-sm-8 mt-2 ml-6 detalle">
                 {{$venta->clientes->nombres}} {{$venta->clientes->apellidos}}
             </div>
@@ -19,7 +19,7 @@
 
         <div class="form-group row">
                 <label for="nombres" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                    <i id="IcNewEmp" class="fas fa-user-tag"></i> Empleado responsable:</label>
+                    <i id="IcNewEmp" class="bi bi-person-workspace"></i> Empleado responsable:</label>
             <div class="col-sm-8 mt-2 ml-6">
                 {{$venta->responsable}}
             </div>
@@ -33,6 +33,14 @@
             </div>
         </div>
 
+        <div class="form-group row">
+            <label for="servicio_id" class="col-lg-3 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="bi bi-wallet2"></i>Total a pagar:</label>
+            <div class="col-sm-8 mt-2 ml-6">
+                L.{{number_format($venta->servicios->precio, 2)}}
+            </div>
+        </div>
+
         <div class="form-group row ">
             <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp" class="bi bi-calendar-month"></i> Fecha de venta:</label>
@@ -43,7 +51,7 @@
 
         <div class="form-group row ">
             <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                <i  id="IcNewEmp" class="fas fa-user-check"></i> Beneficiario N°1:</label>
+                <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°1:</label>
             <div class="col-sm-8 mt-2 ml-6">
                 {{$venta->beneficiario1}}
             </div>
@@ -59,7 +67,7 @@
 
         <div class="form-group row ">
             <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                <i  id="IcNewEmp" class="fas fa-user-check"></i> Beneficiario N°2:</label>
+                <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°2:</label>
             <div class="col-sm-8 mt-2 ml-6">
                 {{$venta->beneficiario2}}
             </div>
@@ -83,7 +91,7 @@
         <div class="collapse" id="collapseExample"><br>
             <div class="form-group row ">
                 <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                    <i  id="IcNewEmp" class="fas fa-user-check"></i> Beneficiario N°3:</label>
+                    <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°3:</label>
                 <div class="col-sm-8 mt-2 ml-6">
                     {{$venta->beneficiario3}}
                 </div>
@@ -99,7 +107,7 @@
 
             <div class="form-group row ">
                 <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                    <i  id="IcNewEmp" class="fas fa-user-check"></i> Beneficiario N°4:</label>
+                    <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°4:</label>
                 <div class="col-sm-8 mt-2 ml-6">
                     {{$venta->beneficiario4}}
                 </div>
