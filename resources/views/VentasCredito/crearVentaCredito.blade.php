@@ -28,7 +28,7 @@
         
             <hr>
             <acronym title="Haz click para agregar un cliente nuevo desde aquí.">
-            <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; " href="{{route('cliente.nuevo',['cliente'=>0])}}">
+            <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; ">
             <i class="bi bi-plus-circle"></i>Nuevo cliente</a>  
             </acronym>
         
@@ -59,20 +59,7 @@
       <div class="form-outline">
         <label class="form-label" for="cliente_id">Nombre del cliente que adquirirá la póliza de servicio funerario:</label>
         <div>
-         <select name="cliente_id" style="width: 500px;" class=" form-control">
-            @if (isset($newcl))
-                <option style="display: none" value="{{$ident->id}}">{{$newcl->nombres}} {{$newcl->apellidos}}</option>
-            @else
-                <option value="0">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
-            @endif
-            <?php 
-            while($datos = mysqli_fetch_array($query))
-          {?>     
-        <option value="<?php echo $datos['id']?>"> <?php echo $datos['nombres' ].' '.$datos['apellidos' ]?> </option>
-          <?php
-          }?>
-  
-           </select>
+       
       </div>
           <script src='../../js/select2.min.js'></script>
           <script type="text/javascript">
