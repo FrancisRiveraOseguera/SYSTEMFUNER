@@ -35,9 +35,25 @@
 
         <div class="form-group row">
             <label for="servicio_id" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                <i id="IcNewEmp" class="bi bi-wallet2"></i>Total a pagar:</label>
+                <i id="IcNewEmp" class="bi bi-wallet2"></i>Valor total del servicio:</label>
             <div class="col-sm-8 mt-2 ml-6">
                 L.{{number_format($venta->servicios->precio, 2)}}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="servicio_id" class="col-lg-3 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="fas fa-hand-holding-usd"></i> Valor pagado de la prima:</label>
+            <div class="col-sm-8 mt-2 ml-6">
+                L.{{number_format($venta->servicios->prima, 2)}}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="servicio_id" class="col-lg-3 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="fas fa-money-bill-wave"></i> Valor mínimo de la cuota:</label>
+            <div class="col-sm-8 mt-2 ml-6">
+                L.{{number_format($venta->servicios->cuota, 2)}}
             </div>
         </div>
 
