@@ -110,13 +110,13 @@
                     <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°3:</label>
                 <div class="col-sm-8 mt-2 ml-6" id="beneficiario3">{{$venta->beneficiario3}}</div>
             </div>
+        </div>
 
+        <div id="divtelefono3" style="display:none;">
             <div class="form-group row ">
                 <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
                     <i  id="IcNewEmp" class="bi bi-telephone-forward"></i> Teléfono del beneficiario:</label>
-                <div class="col-sm-8 mt-2 ml-6">
-                    {{$venta->telefono3}}
-                </div>
+                <div class="col-sm-8 mt-2 ml-6" id="telefono3" style="display: none;">{{$venta->telefono3}}</div>
             </div>
         </div>
 
@@ -126,13 +126,13 @@
                     <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°4:</label>
                 <div class="col-sm-8 mt-2 ml-6" id="beneficiario4">{{$venta->beneficiario4}}</div>
             </div>
+        </div>
 
+        <div id="divtelefono4" style="display: none">
             <div class="form-group row ">
                 <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
                     <i  id="IcNewEmp" class="bi bi-telephone-forward"></i> Teléfono del beneficiario:</label>
-                <div class="col-sm-8 mt-2 ml-6">
-                    {{$venta->telefono4}}
-                </div>
+                <div class="col-sm-8 mt-2 ml-6" id="telefono4" style="display: none;">{{$venta->telefono4}}</div>
             </div>
         </div>
 
@@ -147,22 +147,58 @@
     function esconderDiv() {
         var divBeneficiario3 = document.getElementById('divBeneficiario3');
         var divBeneficiario4 = document.getElementById('divBeneficiario4');
+        var divtelefono3 = document.getElementById('divtelefono3');
+        var divtelefono4 = document.getElementById('divtelefono4');
         var beneficiario3 = document.getElementById('beneficiario3');
-        var beneficiario4 = document.getElementById('beneficiario4');
+        var beneficiario4 = document.getElementById('beneficiario4')
+        var telefono3 = document.getElementById('telefono3');
+        var telefono4 = document.getElementById('telefono4');
         var ver = document.getElementById('noMas');
+
         if (beneficiario3.innerHTML === '') {
             divBeneficiario3.style.display = "none";
         }else {
             divBeneficiario3.style.display = "block";
         }
-        if (beneficiario4.innerHTML === '') {
-            divBeneficiario4.style.display = "none";
+
+        if (telefono3.innerHTML === '') {
+            divtelefono3.style.display = "none";
         }else {
-            divBeneficiario4.style.display = "block";
+            divtelefono3.style.display = "block";
         }
+
+        if (beneficiario3.innerHTML === '' && telefono3.innerHTML !== ''){
+            divBeneficiario3.style.display = "none";
+            divtelefono3.style.display = "none";
+        }else if (beneficiario3.innerHTML !== '' && telefono3.innerHTML === ''){
+            divBeneficiario3.style.display = "block";
+            divtelefono3.style.display = "none";
+        }
+
+        if (beneficiario4.innerHTML === '') {
+            beneficiario4.style.display = "none";
+        }else {
+            beneficiario4.style.display = "block";
+        }
+
+        if (telefono4.innerHTML === '') {
+            divtelefono4.style.display = "none";
+        }else {
+            divtelefono4.style.display = "block";
+        }
+
+        if (beneficiario4.innerHTML === '' && telefono4.innerHTML !== ''){
+            divBeneficiario4.style.display = "none";
+            divtelefono4.style.display = "none";
+        }else if (beneficiario4.innerHTML !== '' && telefono4.innerHTML === ''){
+            divBeneficiario4.style.display = "block";
+            divtelefono4.style.display = "none";
+        }
+
         if (beneficiario3.innerHTML === '' && beneficiario4.innerHTML === ''){
             ver.style.display = 'block';
         }
+
     }
 </script>
 
@@ -193,6 +229,5 @@
     width: 1em;
     height: 1em;
 }
-
 </style>
 @endsection
