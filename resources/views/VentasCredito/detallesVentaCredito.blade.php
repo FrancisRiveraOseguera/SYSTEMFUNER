@@ -157,9 +157,11 @@
         }
         if (beneficiario4.innerHTML === '') {
             divBeneficiario4.style.display = "none";
-            ver.style.display = 'block';
         }else {
             divBeneficiario4.style.display = "block";
+        }
+        if (beneficiario3.innerHTML === '' && beneficiario4.innerHTML === ''){
+            ver.style.display = 'block';
         }
     }
 </script>
