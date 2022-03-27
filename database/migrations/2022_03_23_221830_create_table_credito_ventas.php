@@ -27,7 +27,7 @@ class CreateTableCreditoVentas extends Migration
             $table->string('beneficiario4')->nullable();
             $table->char('telefono4', 8)->nullable();
             $table->date('fecha')->notnull();
-            $table->date('fechaCobro')->notnull();
+            $table->String('fechaCobro')->notnull();
             $table->timestamps();
         });
     }

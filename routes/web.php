@@ -169,6 +169,10 @@ Route::get('/ventaCredito/detalles/{id}', 'App\Http\Controllers\creditoventaCont
     ->name('ventaCredito.ver')
     ->where('id', '[0-9]+');
 
+Route::get('/ventaCredito/crearPDF/{id}', 'App\Http\Controllers\creditoventaController@pdf')
+    ->name('creditoVenta.pdf')
+    ->where('id', '[0-9]+');
+
 //RUTAS DE NUEVO PAGO
 Route::get('/nuevoPago/{id}',[PagosController::class, 'create'])->name('nuevoPagos.nuevo');
 

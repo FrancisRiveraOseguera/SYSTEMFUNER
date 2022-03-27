@@ -137,4 +137,9 @@ class creditoventaController extends Controller
 
 
     }//fin función store
+
+    public function pdf($id){
+        $venta = creditoventa::findOrFail($id);
+        return view('VentasCredito.crearPDFventaCredito')->with('creditoventa', $venta);
+     }
 }

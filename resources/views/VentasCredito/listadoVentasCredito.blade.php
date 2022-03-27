@@ -77,7 +77,34 @@
                     <a class="btn btn-success" href="{{route('nuevoPagos.nuevo',['id'=>$venta->id])}}"><i class="fas fa-hand-holding-usd"></i>Nuevo Pago</a>
                 </td>
                 <td>
-                    <a class="btn btn-danger" href=""><i class="fas fa-file-pdf"></i>PDF del estado de venta</a>
+                    <!-- Button trigger modal-->
+                    <a class="btn btn-danger" href="{{route('creditoVenta.pdf', ['id'=>$venta->id])}}" data-toggle="modal" data-target="#modalPush{{$venta->id}}"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
+               
+                    <!--Modal: modalPush-->
+                    <div class="modal fade" tabindex="1" id="modalPush{{$venta->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                        <div class="modal-dialog modal-notify modal-info" role="document">
+                            <!--Content-->
+                            <div class="modal-content text-center">
+                            <!--Header-->
+                            <div class="modal-header d-flex justify-content-center">
+                                <p class="heading">Un momento...</p>
+                            </div>
+
+                            <!--Body-->
+                            <div class="modal-body">
+                                <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
+                                <p>Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
+                            </div>
+
+                            <!--Footer-->
+                            <div class="modal-footer flex-center">
+                                <a href="{{route('creditoVenta.pdf', ['id'=>$venta->id])}}" class="modal-footer btn-info">¡Entendido!</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                
                 </td>
 
             </tr>

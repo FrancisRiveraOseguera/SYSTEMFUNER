@@ -59,7 +59,20 @@
       <div class="form-outline">
         <label class="form-label" for="cliente_id">Nombre del cliente que adquirirá la póliza de servicio funerario:</label>
         <div>
-       
+        <select name="cliente_id" style="width: 500px;" class=" form-control">
+            @if (isset($ident))
+                <option style="display: none" value="{{$ident->id}}">{{$ident->nombres}} {{$ident->apellidos}}</option>
+            @else
+                <option value="-1">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
+            @endif
+            <?php 
+            while($datos = mysqli_fetch_array($query))
+          {?>     
+        <option value="<?php echo $datos['id']?>"> <?php echo $datos['nombres' ].' '.$datos['apellidos' ]?> </option>
+          <?php
+          }?>
+        </select>
+
       </div>
           <script src='../../js/select2.min.js'></script>
           <script type="text/javascript">
@@ -212,15 +225,13 @@
 <div class="row mb-4">
   <div class="col">
     <div class="form-outline">
-        <?php $fecha_actual = date("d-m-Y");?>
+        
         <br>
             <label for="fechaCobro" class="form-label">
-                Fecha de cobro:</label>
+                Cobro:</label>
             <div class="col-sm-13">
-                <input type="date" style="width: 500px;" name="fechaCobro" id="fechaCobro" class="form-control"
-                value="{{old('fechaCobro', $contadoVenta->fechaCobro ?? '')}}"
-                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
-                max="<?php echo date('Y-m-d',strtotime($fecha_actual." 10 year"));?>"/>
+                <input readonly type="text" style="width: 500px;" name="fechaCobro" id="fechaCobro" class="form-control"
+                value="Mensual"/>
             </div>
         </div>
     </div>  
@@ -230,17 +241,37 @@
     </div>
 </div> 
     <!--Contenedor para los botones de la vista agregar servicio-->
-    
-    <div  >
-      <a class="btn btn-primary " href="" > <i class="bi bi-box-arrow-left"></i> Ir al listado de ventas al crédito</a>
+    <div>
+        <a class="btn btn-primary " href="{{route('ventasCredito.index')}}"> <i class="bi bi-box-arrow-left"></i>Ir al listado de ventas al contado</a>
 
-       <button type="submit" class="btn btn-success"  href="" ><i class="bi bi-save"></i>Guardar Venta al Crédito</button>
-       </div>
+        <td>          
+            <!--Modal: modalPush-->
+            <a class="btn btn-success" style="color: white;" data-toggle="modal" data-target="#modalPush"><i class="bi bi-save"></i>Guardar venta al Crédito</a>
+            <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-notify modal-info" role="document">
+                    <!--Content-->
+                    <div class="modal-content text-center">
+                    <!--Header-->
+                    <div class="modal-header d-flex justify-content-center">
+                        <p class="heading">Un momento...</p>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
+                            <p>Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
+                    </div>
+                    <!--Footer-->
+                        <div class="modal-footer flex-center">
+                            <button type="close"  class="modal-footer btn-info">¡Entendido!</button>
+                        </div>
+                    </div> 
+            </div>
+            </div>
+        </td>
 
-    <br>
+    </div>
+
 </div>
-
-   
   
   <style>
     #IcNewServ{
