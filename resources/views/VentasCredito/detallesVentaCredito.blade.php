@@ -41,6 +41,14 @@
             </div>
         </div>
 
+        <div class="form-group row">
+            <label for="servicio_id" class="col-lg-3 control-label offset-md-1 requerido hijo">
+                <i id="IcNewEmp" class="bi bi-cash-stack"></i> Cobro:</label>
+            <div class="col-sm-8 mt-2 ml-6">
+                Mensual
+            </div>
+        </div>
+
         <div class="form-group row ">
             <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp" class="bi bi-calendar-month"></i> Fecha de venta:</label>
@@ -81,20 +89,26 @@
             </div>
         </div>
 
-        <div class="col-lg-7 ml-5 pl-5">
-            <acronym title="Haz click para ver si hay más beneficiarios agregados y click para ocultarlos." >
-                <a class="checkbox" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fas fa-user-plus"></i> Ver más beneficiarios.
-                </a>
-            </acronym><br>
+
+        <div class="col-sm-4 ml-5 pl-5">
+        <acronym title="Haz clic para ver si hay más beneficiarios registrados.">
+            <a class="hijo" href="#" onclick="esconderDiv()">
+                <i class="bi bi-people-fill"></i>Otros beneficiarios
+            </a>
+        </acronym>
         </div>
-        <div class="collapse" id="collapseExample"><br>
+
+
+        <br>
+        <div class="col-sm-8 ml-5 pl-5" id="noMas" style="display: none">
+            No hay más beneficiarios registrados.
+        </div>
+
+        <div id="divBeneficiario3" style="display:none;">
             <div class="form-group row ">
                 <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
                     <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°3:</label>
-                <div class="col-sm-8 mt-2 ml-6">
-                    {{$venta->beneficiario3}}
-                </div>
+                <div class="col-sm-8 mt-2 ml-6" id="beneficiario3">{{$venta->beneficiario3}}</div>
             </div>
 
             <div class="form-group row ">
@@ -104,13 +118,13 @@
                     {{$venta->telefono3}}
                 </div>
             </div>
+        </div>
 
+        <div id="divBeneficiario4" style="display: none">
             <div class="form-group row ">
                 <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
                     <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°4:</label>
-                <div class="col-sm-8 mt-2 ml-6">
-                    {{$venta->beneficiario4}}
-                </div>
+                <div class="col-sm-8 mt-2 ml-6" id="beneficiario4">{{$venta->beneficiario4}}</div>
             </div>
 
             <div class="form-group row ">
@@ -127,8 +141,28 @@
         <div>
             <a class="btn btn-primary" href="{{route('ventasCredito.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
         </div>
-    </div>
 </div>
+
+<script>
+    function esconderDiv() {
+        var divBeneficiario3 = document.getElementById('divBeneficiario3');
+        var divBeneficiario4 = document.getElementById('divBeneficiario4');
+        var beneficiario3 = document.getElementById('beneficiario3');
+        var beneficiario4 = document.getElementById('beneficiario4');
+        var ver = document.getElementById('noMas');
+        if (beneficiario3.innerHTML === '') {
+            divBeneficiario3.style.display = "none";
+        }else {
+            divBeneficiario3.style.display = "block";
+        }
+        if (beneficiario4.innerHTML === '') {
+            divBeneficiario4.style.display = "none";
+            ver.style.display = 'block';
+        }else {
+            divBeneficiario4.style.display = "block";
+        }
+    }
+</script>
 
 <style>
     .formato {

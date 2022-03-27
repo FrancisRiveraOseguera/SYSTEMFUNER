@@ -56,7 +56,7 @@
             <th scope="col">Tipo de servicio</th>
             <th scope="col" class="text-center">Detalles</th>
             <th scope="col" class="text-center">Nuevo Pago</th>
-            <th scope="col" class="text-center">Estado de la venta</th>
+            <th scope="col" class="text-center">Contratos</th>
         </tr>
         </thead>
         <tbody>
@@ -79,7 +79,7 @@
                 <td>
                     <!-- Button trigger modal-->
                     <a class="btn btn-danger" href="{{route('creditoVenta.pdf', ['id'=>$venta->id])}}" data-toggle="modal" data-target="#modalPush{{$venta->id}}"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
-               
+
                     <!--Modal: modalPush-->
                     <div class="modal fade" tabindex="1" id="modalPush{{$venta->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
@@ -104,7 +104,7 @@
                         </div>
                         </div>
                     </div>
-                
+
                 </td>
 
             </tr>
