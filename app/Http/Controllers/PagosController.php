@@ -69,6 +69,13 @@ class PagosController extends Controller
        }
     }
 
+    public function historialPagos(Request $request){
+
+        $cuotas  = DB::table('pagos')->get();
+        return view ('pagos.historialPagos')
+        ->with('cuotas', $cuotas);
+    }
+
     /**
      * Display the specified resource.
      *

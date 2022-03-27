@@ -10,7 +10,7 @@
 
         <div class="col-lg-5">
             <a class="btn btn-info btn block" href="{{route('ventaCredito.nueva')}}"><i class="bi bi-plus-circle"></i>Nueva venta al crédito</a>
-            <a class="btn btn-info btn block" href=""><i class="fas fa-clipboard-list"></i>Historial de pagos</a>
+            <a class="btn btn-info btn block" href="{{route('pagos.historialPagos')}}"><i class="fas fa-clipboard-list"></i>Historial de pagos</a>
         </div>
     </div>
     <br>
