@@ -50,19 +50,18 @@
         <thead>
         <tr>
             <tr class="table-info">
-            <th scope="col">Fecha</th>
             <th scope="col">Cliente</th>
             <th scope="col">Empleado</th>
             <th scope="col">Tipo de servicio</th>
             <th scope="col" class="text-center">Detalles</th>
             <th scope="col" class="text-center">Nuevo Pago</th>
+            <th scope="col" class="text-center">Detalles de las cuotas</th>
             <th scope="col" class="text-center">Contratos</th>
         </tr>
         </thead>
         <tbody>
             @forelse($ventas as $venta)
             <tr class="table">
-                <td>{{date_format($venta->created_at,"d-m-Y")}}</td>
                 <td>{{$venta->clientes->nombres}} {{$venta->clientes->apellidos}}</td>
                 <td>{{$venta->responsable}}</td>
                 <td>{{$venta->servicios->tipo}}</td>
@@ -74,8 +73,17 @@
                 </td>
 
                 <td>
-                    <a class="btn btn-success" href="{{route('nuevoPagos.nuevo',['id'=>$venta->id])}}"><i class="fas fa-hand-holding-usd"></i>Nuevo Pago</a>
+                    <a class="btn btn-success" href="{{route('nuevoPagos.nuevo',['id'=>$venta->id])}}">
+                        <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
+                    </a>
                 </td>
+
+                <td class="text-center">
+                    <a class="btn btn-secondary" href="#">
+                        <i class="fas fa-money-bill-wave"></i>Cuotas pagadas
+                    </a>
+                </td>
+
                 <td>
                     <!-- Button trigger modal-->
                     <a class="btn btn-danger" href="{{route('creditoVenta.pdf', ['id'=>$venta->id])}}" data-toggle="modal" data-target="#modalPush{{$venta->id}}"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
