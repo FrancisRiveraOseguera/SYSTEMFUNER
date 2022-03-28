@@ -178,3 +178,6 @@ Route::get('/nuevoPago/{id}',[PagosController::class, 'create'])->name('nuevoPag
 
 Route::post('/nuevoPago/{id}',[PagosController::class, 'store'])->name('nuevoPagos.guardar');
 
+Route::get('/pagodecuota/crearPDF/{id}', 'App\Http\Controllers\PagosController@pdf')
+    ->name('pagodecuota.pdf')
+    ->where('id', '[0-9]+');

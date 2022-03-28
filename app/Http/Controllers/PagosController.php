@@ -41,6 +41,12 @@ class PagosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function pdf($id){
+        $pago = Pagos::findOrFail($id);
+        return view('pagos.recibodepagoPDF')->with('Pagos', $pago);
+     }
+
     public function store(Request $request, $id)
     {
         $rules= [
