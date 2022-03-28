@@ -71,9 +71,14 @@ class PagosController extends Controller
 
     public function historialPagos(Request $request){
 
-        $cuotas  = DB::table('pagos')->get();
-        return view ('pagos.historialPagos')
-        ->with('cuotas', $cuotas);
+        $busqueda = trim($request->get('busqueda'));
+        $cuotas = DB::table('pagos')->orderby('id','DESC' )
+            ->where('venta_id', 'LIKE', '%'.$busqueda.'%')
+            ->paginate(15)-> withQueryString();
+
+        return view('pagos.historialPagos')
+        ->with('cuotas', $cuotas)
+        ->with('busqueda', $busqueda);
     }
 
     /**
@@ -82,9 +87,18 @@ class PagosController extends Controller
      * @param  \App\Models\Pagos  $pagos
      * @return \Illuminate\Http\Response
      */
-    public function show(Pagos $pagos)
+
+    public function show($id)
     {
-        //
+        $cuotas = DB::table('pagos')->get();
+        return view('pagos.detallesCuotas')->with('cuotas', $cuotas);
+    }
+
+    public function pagoDetalles($id){
+
+        $cuotas = creditoventas::findOrFail($id);
+        return view('pagos.details')
+        ->with('cuotas',$cuotas);
     }
 
     /**
