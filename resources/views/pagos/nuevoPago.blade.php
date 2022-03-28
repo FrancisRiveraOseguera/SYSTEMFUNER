@@ -62,25 +62,36 @@
 
     
     
-  <div class="row mb-4">
+<div class="row mb-4">
+  <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="tipo">Saldo pendiente</label>
+        <input type="text" id="cliente" class="form-control"  name="cliente" value="{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}" readonly/>
+      </div>
+  </div>
+
+  
     <div class="col">
         <div class="form-outline">
-          <label class="form-label" for="tipo">Saldo pendiente</label>
-          <input type="text" id="cliente" class="form-control"  name="cliente" value="{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}" readonly/>
+          <label class="form-label" for="tipo">Cuota</label>
+          <input type="text" id="cliente" class="form-control"  name="cliente" value="{{number_format($venta->servicios->cuota, 2)}}" readonly/>
         </div>
     </div>
+  </div>
 
-    <div class="col">
-      <div class="form-outline">
-        <label class="form-label" for="tipo">Cantidad a pagar</label>
-        <input type="number" id="pago" class="form-control"  name="pago" placeholder="0.00" />
-      </div>
+  <div class="row mb-4">
+  <div class="col">
+    <div class="form-outline">
+      <label class="form-label" for="tipo">Cantidad a pagar</label>
+      <input type="text" id="pago" class="form-control"  name="pago" placeholder="0.00" />
     </div>
   </div>
-    
+
+ 
+<div class="col">
+
 </div>
-
-
+</div>
 
 <!--Contenedor para los botones de la vista agregar servicio-->
   <div  >
