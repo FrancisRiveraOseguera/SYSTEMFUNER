@@ -4,4 +4,5 @@
     
     #mysqli=mysqli_connect("localhost","root","123456789","sistemafuneraria");
     #$mysqli=mysqli_connect("localhost","root","ninisa2828","sistemafunerario");
+    $mysqli=mysqli_connect("localhost","root","password","code");
 ?>

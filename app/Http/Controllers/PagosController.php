@@ -49,17 +49,39 @@ class PagosController extends Controller
 
     public function store(Request $request, $id)
     {
-        $rules= [
-            'pago' => 'required|min:1|numeric',
-        ] ;
+        $venta = creditoventa::select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","responsable",
+        DB::raw('SUM(cuota) AS cuota'))
+        ->leftjoin("pagos","pagos.venta_id","=","creditoventas.id")
+        ->groupby("creditoventas.id")
+        ->findOrFail($id);
 
-        $mensaje=[
-            'tipo.required'  => 'El campo :attribute no puede estar vacío.',
-            'tipo.min'  =>'El campo :attribute debe ser positivo.',
-            'tipo.numeric'  =>'El campo :attribute debe de ser numerico.',
-        ];
+        $valor = $venta->servicios->precio - $venta->servicios->prima - $venta->cuota;
 
-        $this->validate($request,$rules, $mensaje);
+        if($valor<$venta->servicios->cuota){
+            $rules= [
+                'pago' => 'required|min:1|numeric|max:'.$valor,
+            ];
+    
+            $mensaje=[
+                'pago.required'=>'El campo :attribute no puede estar vacío.',
+                'pago.min'=>'El campo :attribute debe ser mayor a 0.',
+                'pago.max'=>'El campo :attribute debe ser inferior a '.number_format($valor,2).'.',
+                'pago.numeric'=>'El campo :attribute debe de ser numerico.',
+            ];
+        }else{
+            $rules= [
+                'pago' => 'required|min:'.$venta->servicios->cuota.'|numeric|max:'.$valor,
+            ];
+    
+            $mensaje=[
+                'pago.required'=>'El campo :attribute no puede estar vacío.',
+                'pago.min'=>'El campo :attribute debe ser mayor a '.number_format($venta->servicios->cuota,2).'.',
+                'pago.max'=>'El campo :attribute debe ser inferior a '.number_format($valor,2).'.',
+                'pago.numeric'=>'El campo :attribute debe de ser numerico.',
+            ];
+        }
+
+        $this->validate($request,$rules,$mensaje);
 
         $nuevopago = new Pagos();
 
@@ -69,10 +91,17 @@ class PagosController extends Controller
         $creado = $nuevopago-> save();
        //comprobar si fue creado
        if ($creado){
-         return redirect()->route('ventasCredito.index')->with('mensaje', 'El pago fue agregado con éxito.');
+         return redirect()->route('ventasCredito.index')->with('mensaje', 'El pago se ha registrado exitosamente.');
        }else{
 
        }
+    }
+
+    public function historialPagos(Request $request){
+
+        $cuotas  = DB::table('pagos')->get();
+        return view ('pagos.historialPagos')
+        ->with('cuotas', $cuotas);
     }
 
     /**
