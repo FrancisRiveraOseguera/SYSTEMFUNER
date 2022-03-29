@@ -16,11 +16,13 @@ class creditoventaController extends Controller
 
         $ventas = creditoventa::orderby('creditoventas.id','DESC')
 
-            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","responsable")
+            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","responsable",
+                DB::raw('SUM(cuota) AS cuota'))
             ->join("clientes","cliente_id","=","clientes.id")
+            ->leftjoin("pagos","pagos.venta_id","=","creditoventas.id")
             ->where("clientes.nombres","like","%".$busqueda."%")
             ->orwhere("clientes.apellidos","like","%".$busqueda."%")
-            ->orwhere("creditoventas.responsable","like","%".$busqueda."%")
+            ->groupby("creditoventas.id")
             ->paginate(15)-> withQueryString();
 
         return view('VentasCredito.listadoVentasCredito')
