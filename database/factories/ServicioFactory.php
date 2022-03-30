@@ -18,8 +18,8 @@ class ServicioFactory extends Factory
                     'Europeo de Lujo', 'Colombiano', 'Italiano Especial', 'Súper Colombiano','Súper de Lujo','Económico')),
             'categoria'=>$this->faker->randomElement(array ('Adultos', 'Juvenil', 'Infantil')),
             'precio'=>$this->faker->numberBetween(13000.00,200000.00),
-            'cuota'=>$this->faker->numberBetween(200.00,1500),
-            'prima'=>$this->faker->numberBetween(500,10000),
+            'cuota'=>$this->faker->numberBetween(200.00,999),
+            'prima'=>$this->faker->numberBetween(1000,10000),
             'detalles'=>$this->faker->text,
 
         ];

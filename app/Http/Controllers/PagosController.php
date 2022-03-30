@@ -91,9 +91,7 @@ class PagosController extends Controller
         $creado = $nuevopago-> save();
        //comprobar si fue creado
        if ($creado){
-         return redirect()->route('ventasCredito.index')->with('mensaje', 'El pago se ha registrado exitosamente.');
-       }else{
-
+         return redirect()->route('pagodecuota.pdf', $nuevopago->id);
        }
     }
 

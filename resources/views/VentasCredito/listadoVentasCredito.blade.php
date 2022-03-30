@@ -107,7 +107,7 @@
 
                             <!--Footer-->
                             <div class="modal-footer flex-center">
-                                <a href="{{route('creditoVenta.pdf', ['id'=>$venta->id])}}" class="modal-footer btn-info">¡Entendido!</a>
+                                <a href="{{route('creditoVenta.pdf', ['id'=>$venta->id])}}" class="modal-footer btn-primary">¡Entendido!</a>
                             </div>
                         </div>
                         </div>
@@ -141,5 +141,17 @@
         font-style: bold;
         font-family: 'Times New Roman', Times, serif;
     }
+    .modal-header{
+            font-size: 20px;
+            background-color: #1CB6E9;
+            color: #FFFFFF;
+        }
+        .modal-body{
+            font-size: 15px;
+        }
+        .modal-footer{
+            font-size: 15px;}
+
+    
 </style>
 @endsection

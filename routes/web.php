@@ -156,10 +156,10 @@ Route::get('/ventas', 'App\Http\Controllers\contadoVentaController@home')
     ->name('ventas.index');
 
 //RUTAS DE VENTAS AL CREDITO
-Route::get('/NuevaVentaAlCredito', 'App\Http\Controllers\creditoventaController@create')
+Route::get('/NuevaVentaAlCredito{ident?}', 'App\Http\Controllers\creditoventaController@create')
     ->name('ventaCredito.nueva');
 
-Route::post('/NuevaVentaAlCredito{newcl?}', 'App\Http\Controllers\creditoventaController@store')
+Route::post('/NuevaVentaAlCredito{ident?}', 'App\Http\Controllers\creditoventaController@store')
     ->name('ventaCredito.guardar');
 
 Route::get('/listadoVentasCredito', 'App\Http\Controllers\creditoventaController@index')

@@ -2,7 +2,7 @@
 <?php
     include 'conexion.php';
     $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM clientes");
-    $query2=mysqli_query($mysqli,"SELECT id, tipo FROM servicios");
+    $query2=mysqli_query($mysqli,"SELECT id, tipo, cuota, prima, precio FROM servicios");
     
    
     if(isset($_POST['cliente_id']))
@@ -28,7 +28,7 @@
         
             <hr>
             <acronym title="Haz click para agregar un cliente nuevo desde aquí.">
-            <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; ">
+            <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; " href="{{route('cliente.nuevo',['cliente'=>0])}}">
             <i class="bi bi-plus-circle"></i>Nuevo cliente</a>  
             </acronym>
         
@@ -63,7 +63,7 @@
             @if (isset($ident))
                 <option style="display: none" value="{{$ident->id}}">{{$ident->nombres}} {{$ident->apellidos}}</option>
             @else
-                <option value="-1">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
+                <option value="0">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
             @endif
             <?php 
             while($datos = mysqli_fetch_array($query))
@@ -99,13 +99,27 @@
       <div class="form-outline">
         <label  class="form-label" for="servicio_id">Tipo de póliza de servicio funerario:</label>
         <div>
-          <select  name="servicio_id" style="width: 500px;" class="  form-control " charset="utf8_decode" > 
+          <select id="servicioseleccionado" name="servicio_id" style="width: 1025px;" class="  form-control " charset="utf8_decode" > 
             <option disabled selected value="0">Selecciona el tipo de servicio</option>
                     <?php 
                     
                         while($datos = mysqli_fetch_array($query2))
-                        {?>      
-                            <option value="<?php echo $datos['id']?>"> <?php echo $datos['tipo' ]?> </option>
+                        {?>     
+                            <option id="obtenido" value="<?php echo $datos['id']?>">
+                                           
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            Cuota:
+                            <?php echo $datos['cuota' ]?>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            Prima:
+                            <?php echo $datos['prima' ]?>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            Cuota:
+                            <?php echo $datos['cuota' ]?>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            Tipo:
+                            <?php echo $datos['tipo' ]?>
+                            </option>
                     <?php
                         }
                     ?> 
@@ -120,19 +134,7 @@
       </div>
     </div>
 
-    <div class="col">
-       <?php $fecha_actual = date("d-m-Y");?>
-        <div class="form-outline">
-            <label for="fecha" class="form-label">
-                Fecha de venta:</label>
-            
-                <input type="date" style="width: 495px;" name="fecha" id="fecha" class="form-control"
-                value="{{old('fecha', $contadoVenta->fecha ?? '')}}"
-                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
-                max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
-            
-        </div>
-    </div>
+    
 </div>
 <br>
 <p><i style="color: #bda914 ;" class="bi bi-exclamation-triangle"></i>Se otorga los beneficios de la póliza a las personas que también <b>responderán con el pago</b>  en caso de la 
@@ -237,16 +239,27 @@
     </div>  
 
     <div class="col">
-        
+       <?php $fecha_actual = date("d-m-Y");?>
+        <div class="form-outline">
+            <br>
+            <label for="fecha" class="form-label">
+                Fecha de venta:</label>
+            
+                <input type="date" style="width: 495px;" name="fecha" id="fecha" class="form-control"
+                value="{{old('fecha', $contadoVenta->fecha ?? '')}}"
+                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
+                max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
+            
+        </div>
     </div>
 </div> 
     <!--Contenedor para los botones de la vista agregar servicio-->
     <div>
-        <a class="btn btn-primary " href="{{route('ventasCredito.index')}}"> <i class="bi bi-box-arrow-left"></i>Ir al listado de ventas al contado</a>
+        <a class="btn btn-primary " href="{{route('ventasCredito.index')}}"> <i class="bi bi-box-arrow-left"></i>Ir al listado de ventas al crédito</a>
 
         <td>          
             <!--Modal: modalPush-->
-            <a class="btn btn-success" style="color: white;" data-toggle="modal" data-target="#modalPush"><i class="bi bi-save"></i>Guardar venta al Crédito</a>
+            <a class="btn btn-success"  style="color: white;" data-toggle="modal" data-target="#modalPush"><i class="bi bi-save"></i>Guardar venta al Crédito</a>
             <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-notify modal-info" role="document">
                     <!--Content-->
@@ -262,7 +275,7 @@
                     </div>
                     <!--Footer-->
                         <div class="modal-footer flex-center">
-                            <button type="close"  class="modal-footer btn-info">¡Entendido!</button>
+                            <button type="close"  class="modal-footer btn-primary">¡Entendido!</button>
                         </div>
                     </div> 
             </div>

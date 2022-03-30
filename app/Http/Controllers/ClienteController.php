@@ -92,7 +92,8 @@ class ClienteController extends Controller
 
         if ($creado) {
             if($cliente == 0){
-                return redirect()->route('VentaContado.nueva',['ident'=>$nuevoCliente->id])
+  //              return redirect()->route('VentaContado.nueva',['ident'=>$nuevoCliente->id])
+                return redirect()->route('ventaCredito.nueva',['ident'=>$nuevoCliente->id])
                 ->with('mensaje', 'El cliente fue registrado exitosamente.');
             }else{
                 return redirect()->route('listado.clientes')
