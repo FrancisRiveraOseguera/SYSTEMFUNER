@@ -23,8 +23,8 @@
                     <i class="bi bi-arrow-left-circle"></i>
                 </a>
 
-                <input type="search" class="col-sm-6" name="busqueda"
-                       placeholder="Ingrese el nombre del cliente o empleado para realizar la búsqueda." value="{{$busqueda}}">
+                <input type="search" class="col-sm-5" name="busqueda"
+                       placeholder="Ingrese el nombre del cliente para realizar la búsqueda." value="{{$busqueda}}">
 
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-primary">Buscar</button>
@@ -51,8 +51,8 @@
         <tr>
             <tr class="table-info">
             <th scope="col">Cliente</th>
-            <th scope="col">Empleado</th>
             <th scope="col">Tipo de servicio</th>
+            <th scope="col" class="text-center">Saldo pendiente</th>
             <th scope="col" class="text-center">Detalles</th>
             <th scope="col" class="text-center">Nuevo Pago</th>
             <th scope="col" class="text-center">Detalles de las cuotas</th>
@@ -63,8 +63,8 @@
             @forelse($ventas as $venta)
             <tr class="table">
                 <td>{{$venta->clientes->nombres}} {{$venta->clientes->apellidos}}</td>
-                <td>{{$venta->responsable}}</td>
                 <td>{{$venta->servicios->tipo}}</td>
+                <td>L.{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}</td>
 
                 <td class="text-center">
                     <a class="btn btn-info" href="{{route('ventaCredito.ver', ['id'=>$venta->id])}}">
@@ -86,7 +86,7 @@
 
                 <td>
                     <!-- Button trigger modal-->
-                    <a class="btn btn-danger" href="{{route('creditoVenta.pdf', ['id'=>$venta->id])}}" data-toggle="modal" data-target="#modalPush{{$venta->id}}"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
+                    <a class="btn btn-danger" href="{{route('creditoVenta.pdf', ['id'=>$venta->id])}}" data-toggle="modal" data-target="#modalPush{{$venta->id}}"><i class="fas fa-file-pdf"></i>Imprimir contrato</a>
 
                     <!--Modal: modalPush-->
                     <div class="modal fade" tabindex="1" id="modalPush{{$venta->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -19,9 +19,7 @@
                 <th scope="col">Nº Pago</th>     
                 <th scope="col">Fecha</th>
                 <th scope="col">Cuota</th>
-                <th scope="col">Cliente id</th>
-                <th scope="col"style="text-align: center;  width: 300px;">Ver detalles</th>      
-                <th scope="col" style="text-align: center;  width: 300px;">Detalles de cuotas pagadas</th>      
+                <th scope="col" style="text-align: center;  width: 300px;">Detalles</th>      
             </tr>
         </thead>
         
@@ -31,15 +29,9 @@
         <td>{{$cuo->id}}</td>
         <td>{{date_format(new \DateTime($cuo->created_at), 'd/m/Y' )}}</td>
         <td style="color:#2d812f;">{{$cuo->cuota}}</td>
-        <td>{{$cuo->venta_id}}</td>
         <td class="text-center">
-            <a class="btn btn-info" href="{{route('ventaCredito.ver', ['id'=>$cuo->venta_id])}}">
-                <i class="bi bi-eye"></i>Detalles del cliente
-            </a>
-        </td>
-        <td class="text-center">
-            <a class="btn btn-danger" href="{{route('ventaCredito.ver', ['id'=>$cuo->venta_id])}}">
-                <i class="bi bi-eye"></i>Detalles de cuotas
+            <a class="btn btn-info" href="{{route('pagos.ver', ['id'=>$cuo->venta_id])}}">
+                <i class="bi bi-eye"></i>Detalles del pago                
             </a>
         </td>
         @endforeach

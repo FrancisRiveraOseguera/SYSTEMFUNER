@@ -181,8 +181,18 @@ Route::post('/nuevoPago/{id}',[PagosController::class, 'store'])->name('nuevoPag
 Route::get('historialPagos', 'App\Http\Controllers\PagosController@historialPagos')
     ->name('pagos.historialPagos');
 
+<<<<<<< HEAD
 Route::get('/pagodecuota/crearPDF/{id}', 'App\Http\Controllers\PagosController@pdf')
         ->name('pagodecuota.pdf')
         ->where('id', '[0-9]+');
 
     
+=======
+Route::get('/historialPagos/cuotas/{id}',  'App\Http\Controllers\PagosController@show')
+    ->name('pagos.ver')
+    ->where('id', '[0-9]+');
+
+Route::get('/detallesPago/{id}', 'App\Http\Controllers\PagosController@details')
+    ->name('pagos.pagoDetalles')
+    ->where('id', '[0-9]+');
+>>>>>>> a7a3354a02d0cb15ce83d4118ffe11ac496bf9a2
