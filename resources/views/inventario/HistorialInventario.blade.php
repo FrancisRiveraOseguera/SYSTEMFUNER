@@ -63,7 +63,7 @@
     </thead>
     <tbody>
     @forelse($producto as $prod)
-    <tr class="table">    
+    <tr class="table-primary">    
         <td >{{$prod->servicio_id}}</td>
         <td>{{$prod->responsable}}</td>
         <td >{{$prod->fecha_ingreso}}</td>

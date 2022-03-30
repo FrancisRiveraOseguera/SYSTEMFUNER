@@ -57,7 +57,7 @@
         </thead>
         <tbody>
             @forelse($venta as $vent)
-            <tr class="table">
+            <tr class="table-primary">
                 <td>{{date_format($vent->created_at,"d-m-Y")}}</td>
                 <td>{{$vent->clientes->nombres}} {{$vent->clientes->apellidos}}</td>
                 <td>{{$vent->responsable}}</td>

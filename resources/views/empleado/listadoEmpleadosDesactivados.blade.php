@@ -64,7 +64,7 @@
             </thead>
             <tbody>
                 @forelse($empleados as $empleado)
-                <tr>
+                <tr class="table-primary">
                     <td>{{$empleado->fecha_desactivacion}}</td>
                     <td>{{$empleado->identidad}}</td>
                     <td>{{$empleado->nombres}}</td>

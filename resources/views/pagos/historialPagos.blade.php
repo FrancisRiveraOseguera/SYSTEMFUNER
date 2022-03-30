@@ -25,7 +25,7 @@
         
         <tbody>     
         @foreach($cuotas as $cuo) 
-        <tr class="table">
+        <tr class="table-primary">
         <td>{{$cuo->id}}</td>
         <td>{{date_format(new \DateTime($cuo->created_at), 'd/m/Y' )}}</td>
         <td style="color:#2d812f;">{{$cuo->cuota}}</td>

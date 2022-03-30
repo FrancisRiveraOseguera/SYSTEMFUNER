@@ -61,7 +61,7 @@
         </thead>
         <tbody>
             @forelse($ventas as $venta)
-            <tr class="table">
+            <tr class="table-primary">
                 <td>{{$venta->clientes->nombres}} {{$venta->clientes->apellidos}}</td>
                 <td>{{$venta->servicios->tipo}}</td>
                 <td>L.{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}</td>

@@ -62,7 +62,7 @@
 
   <tbody>
     @forelse($servicio as $Servicio)
-    <tr class="table">
+    <tr class="table-primary">
         <th scope="row">{{$Servicio-> id}}</th>
         <td>{{$Servicio->tipo}}</td>
         <td>{{$Servicio->categoria}}</td>
