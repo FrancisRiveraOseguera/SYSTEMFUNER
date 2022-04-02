@@ -91,16 +91,13 @@ class PagosController extends Controller
        }
     }
 
-    public function historialPagos(Request $request){
+    public function historialPagos(){
 
-        $busqueda = trim($request->get('busqueda'));
-        $cuotas = DB::table('pagos')->orderby('id','DESC' )
-            ->where('venta_id', 'LIKE', '%'.$busqueda.'%')
+        $cuotas = Pagos::orderby('id','DESC' )
             ->paginate(15)-> withQueryString();
 
         return view('pagos.historialPagos')
-        ->with('cuotas', $cuotas)
-        ->with('busqueda', $busqueda);
+        ->with('cuotas', $cuotas);
     }
 
     /**
@@ -110,17 +107,11 @@ class PagosController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function show($id)
-    {
-        $cuotas = DB::table('pagos')->get();
-        return view('pagos.detallesCuotas')->with('cuotas', $cuotas);
-    }
-
     public function pagoDetalles($id){
 
-        $cuotas = creditoventas::findOrFail($id);
-        return view('pagos.details')
-        ->with('cuotas',$cuotas);
+        $pagos = Pagos::findOrFail($id);
+        return view('pagos.detallesCuotas')
+        ->with('pagos',$pagos);
     }
 
     /**

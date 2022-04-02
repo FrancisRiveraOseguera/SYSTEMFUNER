@@ -79,7 +79,7 @@
                 </td>
 
                 <td class="text-center">
-                    <a class="btn btn-secondary" href="#">
+                    <a class="btn btn-secondary" href="{{route('pagos.pagoDetalles', ['id'=>$venta->id])}}">
                         <i class="fas fa-money-bill-wave"></i>Cuotas pagadas
                     </a>
                 </td>

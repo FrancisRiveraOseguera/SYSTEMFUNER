@@ -181,10 +181,6 @@ Route::post('/nuevoPago/{id}',[PagosController::class, 'store'])->name('nuevoPag
 Route::get('historialPagos', 'App\Http\Controllers\PagosController@historialPagos')
     ->name('pagos.historialPagos');
 
-Route::get('/historialPagos/cuotas/{id}',  'App\Http\Controllers\PagosController@show')
-    ->name('pagos.ver')
-    ->where('id', '[0-9]+');
-
-Route::get('/detallesPago/{id}', 'App\Http\Controllers\PagosController@details')
+Route::get('/cuotas-cliente/{id}/detalles', 'App\Http\Controllers\PagosController@pagoDetalles')
     ->name('pagos.pagoDetalles')
     ->where('id', '[0-9]+');

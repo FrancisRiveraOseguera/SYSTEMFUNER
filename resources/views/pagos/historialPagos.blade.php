@@ -6,8 +6,9 @@
     <div class="row">
         <div class="col-lg-7">
             <h3>Historial de pago de cuotas de ventas al crédito</h3>
+            <h3>Agregar filtro de búsqueda</h3>
             <br>
-             <a class="btn btn-primary btn block" href="{{route('ventasCredito.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
+                <a class="btn btn-primary btn block" href="{{route('ventasCredito.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
         </div><hr>
 </div>
 </div><br>
@@ -15,25 +16,23 @@
 <div class="invent">
     <table class="table ">
         <thead>
-            <tr class="table-info"  style="width: 1020px;">
+            <tr class="table-info"  style=" width: 1020px;">
                 <th scope="col">Nº Pago</th>     
-                <th scope="col">Fecha</th>
+                <th scope="col">Fecha del pago</th>
+                <th scope="col">Servicio</th>
+                <th scope="col">Cliente</th>
                 <th scope="col">Cuota</th>
-                <th scope="col" style="text-align: center;  width: 300px;">Detalles</th>      
             </tr>
         </thead>
         
         <tbody>     
         @foreach($cuotas as $cuo) 
         <tr class="table">
-        <td>{{$cuo->id}}</td>
-        <td>{{date_format(new \DateTime($cuo->created_at), 'd/m/Y' )}}</td>
-        <td style="color:#2d812f;">{{$cuo->cuota}}</td>
-        <td class="text-center">
-            <a class="btn btn-info" href="{{route('pagos.ver', ['id'=>$cuo->venta_id])}}">
-                <i class="bi bi-eye"></i>Detalles del pago                
-            </a>
-        </td>
+            <td>{{$cuo->id}}</td>
+            <td>{{date_format(new \DateTime($cuo->created_at), 'd/m/Y' )}}</td>
+            <td>{{$cuo->ventas->servicios->tipo}}</td>
+            <td>{{$cuo->ventas->clientes->nombres}} {{$cuo->ventas->clientes->apellidos}}</td>
+            <td style="color:#2d812f;">L. {{$cuo->cuota}}</td>
         @endforeach
         </tbody>
     </table>

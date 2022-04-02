@@ -1,119 +1,77 @@
 @extends('madre')
-
-@section ('title' , 'Detalles de pago')
-
+@section ('title' , 'Detalles de cuotas')
 @section('content')
 
-
-<div class="servfun">
-    <h3 class="servfu">Detalles del pago</h3><hr>
-
-<!--Contenedor para el título de la vista y los mensajes de error-->
-    @if ($errors->any())
-        <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000" >
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <h5><i class="icon fas fa-ban"></i>El formulario contiene errores.</h5>
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                 @endforeach
-            </ul>
-        </div> 
-    @endif
+<div class="invent">
+    <div class="row">
+        <div class="col-lg-7">
+            <h3>Historial de pago de cuotas de {{$pagos->ventas->clientes->nombres}} {{$pagos->ventas->clientes->apellidos}}</h3>
+            <a style="font-size: 20px; font-style:italic;">{{$pagos->ventas->servicios->tipo}}</a>
+            <br><br>
+                <a class="btn btn-primary btn block" href="{{route('ventasCredito.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
+        </div><hr>
+</div>
 </div><br>
-
-<!--Formulario-->
-<div class="servfun"> 
-<form method="post"  autocomplete="off">
-@csrf 
-
-<div class="row mb-4">
-    <div class="col">
-        <div class="form-outline">
-            <label class="form-label" for="tipo">Servicio solicitado:</label>
-            <input readonly type="text" id="tipo" class="form-control"  name="tipo"/>
-
-        </div>
-</div>
-
-<div class="col">
-    <div class="form-outline">
-        <label class="form-label" for="tipo">Cliente:</label> 
-        <input type="text" id="cliente" class="form-control"  name="cliente" readonly/>
-
-    </div>
-</div>
-</div>
-
-<div class="row mb-4">
-<div class="col">
-    <div class="form-outline">
-        <label class="form-label" for="tipo">Fecha de pago:</label>
-        <input type="text" id="cliente" class="form-control" name="cliente"  readonly/>
-
-    </div>
-</div>
-
-<div class="col">
-    <div class="form-outline">
-        <label class="form-label" for="tipo">Total de cuotas:</label>
-        <input type="text" id="cliente" class="form-control"  name="cliente" readonly/>
-
-    </div>
-  </div>
-</div>
-
-<div class="row mb-4">
-    <div class="col">
-        <div class="form-outline">
-            <label class="form-label" for="tipo">Saldo pendiente:</label>
-            <input type="text" id="cliente" class="form-control"  name="cliente" readonly/>
+ 
+<div class="invent">
+    <table class="table ">
+        <thead>
+            <tr class="table-info"  style=" width: 1020px;">
+                <th scope="col">Nº Cuota</th>     
+                <th scope="col">Fecha del pago</th>
+                <th scope="col">Responsable</th>
+                <th scope="col">Cuota pagada</th>
+                <th scope="col">Saldo pendiente actual</th>
+            </tr>
+        </thead>
         
-        </div>
+        <tbody>     
+            @foreach($pagos as $pago) 
+                <tr class="table">
+                    <td>{{$pagos->ventas->id}}</td>
+                    <td>{{date_format(new \DateTime($pagos->created_at), 'd/m/Y' )}}</td>
+                    <td>{{$pagos->ventas->responsable}}</td>
+                    <td style="color:#2d812f;">L. {{$pagos->cuota}}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 
-<div class="col">
-    <div class="form-outline">
-        <label class="form-label" for="tipo">Cantidad pagada:</label>
-        <input readonly type="number" id="pago" class="form-control"  name="pago" placeholder="0.00" />
+    <style>
 
-    </div>
-</div>
-</div>
+    .invent {
+    border-top: 1px solid #E6E6E6 ;
+    border-left: 1px solid #E6E6E6 ;
+    border-right: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6 ;
+    padding: 20px;
+    background-color: #E0F8F7;
+    position:relative;
+    }
     
-</div><br>
+    .invent{
+        font-style: bold;
+        font-family: 'Times New Roman', Times, serif;
+    }
 
-<!--Contenedor para los botones de la vista agregar servicio-->
-<div>
-    <a class="btn btn-primary " href="{{route('pagos.historialPagos')}}"><i class="bi bi-box-arrow-left">Regresar</i></a>
-</div>
+    .padre{
+        padding-left: 470px
+    }
 
-<br>
-</form>
-</div>
+    .hijo{
+        padding-left: 20px;
+    }
 
+    .x{
+    width:50%;
+    float:right
+    padding: 20px;
+    position: absolute;
+    top: 9%;
+    right: 20px;}
+    
 
-<style>
-#IcNewServ{
-    font-size:30px;
-    width: 1em;
-    height: 1em;
-}
-.servfun {
-border-top: 1px solid #E6E6E6 ;
-border-left: 1px solid #E6E6E6 ;
-border-right: 1px solid #E6E6E6;
-border-bottom: 1px solid #E6E6E6 ;
-padding: 20px;
-background-color: #E0F8F7;
-position:relative;
-}
-
-.servfu{
-   font-style: bold;
-   font-family: 'Times New Roman', Times, serif;
-}
-
-</style>
-
+    </style>
+    
 @endsection
