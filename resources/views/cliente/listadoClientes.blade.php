@@ -62,7 +62,7 @@
         </thead>
         <tbody>
             @forelse($cliente as $client)
-            <tr>
+            <tr class="table-primary">
                 <td>{{$client->identidad}}</td>
                 <td>{{$client->nombres}}</td>
                 <td>{{$client->apellidos}}</td>

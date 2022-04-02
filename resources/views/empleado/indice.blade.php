@@ -66,7 +66,7 @@
     </thead>
     <tbody>
     @forelse($empleado as $emple)
-    <tr>
+    <tr class="table-primary">
         <td>{{$emple->identidad}}</td>
         <td>{{$emple->nombres}}</td>
         <td>{{$emple->apellidos}}</td>

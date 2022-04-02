@@ -41,6 +41,12 @@ class PagosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function pdf($id){
+        $pago = Pagos::findOrFail($id);
+        return view('pagos.recibodepagoPDF')->with('Pagos', $pago);
+     }
+
     public function store(Request $request, $id)
     {
         $venta = creditoventa::select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","responsable",
@@ -85,9 +91,7 @@ class PagosController extends Controller
         $creado = $nuevopago-> save();
        //comprobar si fue creado
        if ($creado){
-         return redirect()->route('ventasCredito.index')->with('mensaje', 'El pago se ha registrado exitosamente.');
-       }else{
-
+         return redirect()->route('pagodecuota.pdf', $nuevopago->id);
        }
     }
 

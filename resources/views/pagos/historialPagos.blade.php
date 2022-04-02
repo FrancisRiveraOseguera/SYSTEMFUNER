@@ -27,12 +27,15 @@
         
         <tbody>     
         @foreach($cuotas as $cuo) 
-        <tr class="table">
-            <td>{{$cuo->id}}</td>
-            <td>{{date_format(new \DateTime($cuo->created_at), 'd/m/Y' )}}</td>
-            <td>{{$cuo->ventas->servicios->tipo}}</td>
-            <td>{{$cuo->ventas->clientes->nombres}} {{$cuo->ventas->clientes->apellidos}}</td>
-            <td style="color:#2d812f;">L. {{$cuo->cuota}}</td>
+        <tr class="table-primary">
+        <td>{{$cuo->id}}</td>
+        <td>{{date_format(new \DateTime($cuo->created_at), 'd/m/Y' )}}</td>
+        <td style="color:#2d812f;">{{$cuo->cuota}}</td>
+        <td class="text-center">
+            <a class="btn btn-info" href="{{route('pagos.ver', ['id'=>$cuo->venta_id])}}">
+                <i class="bi bi-eye"></i>Detalles del pago                
+            </a>
+        </td>
         @endforeach
         </tbody>
     </table>

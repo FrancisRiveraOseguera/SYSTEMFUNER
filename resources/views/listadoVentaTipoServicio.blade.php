@@ -36,7 +36,7 @@
     <tbody>
       @forelse($ventas as $vent)
       @foreach ($vent->contadoventas as $item)
-      <tr class="table">  
+      <tr class="table-primary">  
           <td>{{date_format($item->created_at,"d-m-Y")}}</td>
           <td>{{$item->clientes->nombres}} {{$item->clientes->apellidos}}</td>
           <td>{{$item->responsable}}</td>

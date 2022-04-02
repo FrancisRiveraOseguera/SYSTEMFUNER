@@ -35,7 +35,7 @@
   </thead>
   <tbody>     
   @foreach($inventario as $producto) 
-    <tr class="table"> 
+    <tr class="table-primary"> 
       <td>{{$producto->servicio_id}}</td>
       <td style="">{{$producto->tipo}}</td>
       <td style="text-align: center">{{$producto->categoria}}</td>

@@ -38,10 +38,16 @@ class creditoventaController extends Controller
         return view('VentasCredito.detallesVentaCredito')->with('venta', $venta);
     }//FIN DE LA FUNCIÓN
 
+
+    public function pdf($id){
+        $venta = creditoventa::findOrFail($id);
+        return view('VentasCredito.crearPDFventaCredito')->with('creditoventa', $venta);
+     }
+
      //FUNCIÓN CREACIÓN DE VENTA AL CRÉDITO
-     public function create($newcl = null){
-        $clientes = Cliente::where('id',$newcl)->first();
-        return view('VentasCredito.crearVentaCredito')->with('newcl',$clientes);;
+     public function create($ident = null){
+        $clientes = Cliente::where('id',$ident)->first();
+        return view('VentasCredito.crearVentaCredito')->with('ident',$clientes);;
 
     }//fin función create
 
@@ -132,16 +138,13 @@ class creditoventaController extends Controller
         $creado = $nuevaVentaCredito->save();
 
         if ($creado) {
-            return redirect()->route('ventasCredito.index')
-                ->with('mensaje', 'La venta al crédito se realizó correctamente.');
+            return redirect()->route('creditoVenta.pdf', $nuevaVentaCredito->id);
+                
         }//fin if
 
 
 
     }//fin función store
 
-    public function pdf($id){
-        $venta = creditoventa::findOrFail($id);
-        return view('VentasCredito.crearPDFventaCredito')->with('creditoventa', $venta);
-     }
+    
 }
