@@ -72,10 +72,13 @@
                     </a>
                 </td>
 
+                <!-- Botón de nuevo pago, con función de desaparecer cuando el saldo pendiente este en cero -->
                 <td>
+                    @if (($venta->servicios->precio - $venta->servicios->prima - $venta->cuota)>0)
                     <a class="btn btn-success" href="{{route('nuevoPagos.nuevo',['id'=>$venta->id])}}">
                         <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
                     </a>
+                    @endif
                 </td>
 
                 <td class="text-center">
