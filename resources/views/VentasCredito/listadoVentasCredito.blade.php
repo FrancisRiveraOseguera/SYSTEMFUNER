@@ -9,7 +9,7 @@
         <h3 class="col-lg-7">Listado de ventas al crédito</h3>
 
         <div class="col-lg-5">
-            <a class="btn btn-info btn block" href="{{route('ventaCredito.nueva')}}"><i class="bi bi-plus-circle"></i>Nueva venta al crédito</a>
+            <a class="btn btn-info btn block" target="_blank" href="{{route('ventaCredito.nueva')}}"><i class="bi bi-plus-circle"></i>Nueva venta al crédito</a>
             <a class="btn btn-info btn block" href="{{route('pagos.historialPagos')}}"><i class="fas fa-clipboard-list"></i>Historial de pagos</a>
         </div>
     </div>
@@ -75,7 +75,7 @@
                 <!-- Botón de nuevo pago, con función de desaparecer cuando el saldo pendiente este en cero -->
                 <td>
                     @if (($venta->servicios->precio - $venta->servicios->prima - $venta->cuota)>0)
-                    <a class="btn btn-success" href="{{route('nuevoPagos.nuevo',['id'=>$venta->id])}}">
+                    <a class="btn btn-success" target="_blank" href="{{route('nuevoPagos.nuevo',['id'=>$venta->id])}}">
                         <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
                     </a>
                     @endif

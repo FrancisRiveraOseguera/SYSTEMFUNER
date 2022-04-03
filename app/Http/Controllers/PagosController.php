@@ -44,7 +44,15 @@ class PagosController extends Controller
 
     public function pdf($id){
         $pago = Pagos::findOrFail($id);
-        return view('pagos.recibodepagoPDF')->with('Pagos', $pago);
+
+        $total = Pagos::select(DB::raw('servicios.precio -  SUM(pagos.cuota) - servicios.prima as total'))
+        ->join('creditoventas','pagos.venta_id','creditoventas.id')
+        ->join('servicios','servicios.id', 'creditoventas.servicio_id')
+        ->where('pagos.venta_id', $pago->venta_id)
+        ->groupby('venta_id')
+        ->first();
+
+        return view('pagos.recibodepagoPDF')->with('Pagos', $pago)->with('total', $total);
      }
 
     public function store(Request $request, $id)

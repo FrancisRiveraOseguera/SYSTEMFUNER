@@ -184,3 +184,7 @@ Route::get('historialPagos', 'App\Http\Controllers\PagosController@historialPago
 Route::get('/cuotas-cliente/{id}/detalles', 'App\Http\Controllers\PagosController@pagoDetalles')
     ->name('pagos.pagoDetalles')
     ->where('id', '[0-9]+');
+
+    Route::get('/pagodecuota/crearPDF/{id}', 'App\Http\Controllers\PagosController@pdf')
+    ->name('pagodecuota.pdf')
+    ->where('id', '[0-9]+');

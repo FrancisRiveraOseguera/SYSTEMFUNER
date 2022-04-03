@@ -30,7 +30,7 @@
             teléfono <b>{{$creditoventa->clientes->telefono}}</b>. Solicito a ustedes atentamente <a class="hh"><b>{{$creditoventa->cantidad_v}}</b></a> póliza(s) de seguro funerario de tipo <a class="hh"><b>{{$creditoventa->servicios->tipo}}</b></a> con un Valor de L. <b>{{$creditoventa->servicios->precio}}.00</b>, dando de prima L. <b>{{$creditoventa->servicios->prima}}.00</b>, con una cuota mínima mensual de L. <b>{{$creditoventa->servicios->cuota}}.00</b> 
             y con la siguiente descripción: <br><br><b>{{$creditoventa->servicios->detalles}}</b> </b>.
             <br><br>
-            Otorgo os beneficios de esta póliza a las personas que también responderán por el saldo en caso de mi defunción, ellos son;
+            Otorgo los beneficios de esta póliza a las personas que también responderán por el saldo en caso de mi defunción, ellos son;
             <ol>
 
                 <li > <b>{{$creditoventa->beneficiario1}}</b></li>
@@ -143,17 +143,17 @@
             user-select: none;
         }
         .line1{
-            margin-left: 7%;
+            margin-left: 15%;
         }
         .line2{
-            margin-left: 9%;
+            margin-left: 20%;
         }
         .frm1{
-            margin-left: 15%;
+            margin-left: 23%;
             font-size: 12px;
         }
         .frm2{
-            margin-left: 34%;
+            margin-left: 32%;
             font-size: 12px;
         }
         .modal{

@@ -24,9 +24,17 @@
         </div><hr>
 
         <div class="shb2">
-           Pago de cuota de Póliza de servicio Funerario tipo: <u>Aquí va el servicio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> <br>
-            A nombre de: <u>Nombre cliente&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-            La Cantidad de: <u>xxx.00 Lempiras Exactos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u><br>
+           <b>Pago de cuota de Póliza de servicio Funerario tipo:</b> <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$Pagos->ventas->servicios->tipo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> <br><br>
+           <b>A nombre de:</b> <u>&nbsp;&nbsp;{{$Pagos->ventas->clientes->nombres}} {{$Pagos->ventas->clientes->apellidos}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+            Con DNI número: <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$Pagos->ventas->clientes->identidad}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+           <br> <br><b> La Cantidad de:</b> <u>{{$Pagos->cuota}} Lempiras Exactos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u>  <b> 
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;realizado en la fecha: </b> {{$Pagos->created_at->format(' d-m-Y')}}<br><br>
+            <b>Saldo pendiente: L.{{$total->total}}.00</b> 
+            <br>
+            <div>
+            <a class="line1">_________________________</a><br>
+            <a class="frm1"><b>Colector</b></a>
+            </div>
            
 
         </div>
@@ -82,6 +90,13 @@
         .title{
             font-size: 14px;
         }
+        .line1{
+            margin-left: 60%;
+        }
+        .frm1{
+            margin-left: 72%;
+            font-size: 12px;
+        }
         .logo{
             position: absolute;
             margin-left: 10px;
@@ -123,6 +138,7 @@
         }
 
         .shb2{
+            margin-left:10px;
             font-weight: normal;
             text-align: left;
             font-size:13px;

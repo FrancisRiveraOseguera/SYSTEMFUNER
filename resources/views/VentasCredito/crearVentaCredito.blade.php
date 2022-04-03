@@ -108,8 +108,8 @@
                             <option id="obtenido" value="<?php echo $datos['id']?>">
                                            
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            Cuota:
-                            <?php echo $datos['cuota' ]?>
+                            Precio:
+                            <?php echo $datos['precio' ]?>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             Prima:
                             <?php echo $datos['prima' ]?>
