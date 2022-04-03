@@ -121,9 +121,10 @@ class PagosController extends Controller
 
     public function pagoDetalles($id){
 
-        $pagos = Pagos::findOrFail($id);
+        $pagos = creditoventa::findOrFail($id);
+        $cuotas = Pagos::where('venta_id', $id)->get();
         return view('pagos.detallesCuotas')
-        ->with('pagos',$pagos);
+        ->with('pagos',$pagos)->with('cuotas',$cuotas);
     }
 
     /**

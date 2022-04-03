@@ -5,33 +5,52 @@
 <div class="invent">
     <div class="row">
         <div class="col-lg-7">
-            <h3>Historial de pago de cuotas de {{$pagos->ventas->clientes->nombres}} {{$pagos->ventas->clientes->apellidos}}</h3>
-            <a style="font-size: 20px; font-style:italic;">{{$pagos->ventas->servicios->tipo}}</a>
+        <h3>Historial de pago de cuotas de <a style="color: red;">{{$pagos->clientes->nombres}} {{$pagos->clientes->apellidos}}</a></h3>
+            <a style="font-size: 20px; font-style:italic;"> Tipo de servicio <a style="color: red; font-size: 20px; font-style:italic;">{{$pagos->servicios->tipo}}</a></a>
             <br><br>
                 <a class="btn btn-primary btn block" href="{{route('ventasCredito.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
         </div><hr>
 </div>
 </div><br>
- 
+
 <div class="invent">
     <table class="table ">
         <thead>
             <tr class="table-info"  style=" width: 1020px;">
-                <th scope="col">Nº Cuota</th>     
+                <th scope="col">Nº Cuota</th>
                 <th scope="col">Fecha del pago</th>
                 <th scope="col">Responsable</th>
-                <th scope="col">Cuota pagada</th>
+                <th scope="col">Prima</th>
                 <th scope="col">Saldo pendiente actual</th>
             </tr>
         </thead>
         
-        <tbody>     
-            @foreach($pagos as $pago) 
+        <tbody> 
+            <?php 
+                $n=1;
+                $pagado = 0;
+            ?>    
+            <tr>
+                <td>0</td>
+                <td>{{date_format(new \DateTime($pagos->created_at), 'd/m/Y' )}}</td>
+                <td>{{$pagos->responsable}}</td>
+                <td>L. {{$pagos->servicios->prima}}</td>
+                <td>L. {{$pagos->servicios->precio - $pagos->servicios->prima}}</td>
+            </tr>
+            @foreach($cuotas as $pago) 
                 <tr class="table">
-                    <td>{{$pagos->ventas->id}}</td>
-                    <td>{{date_format(new \DateTime($pagos->created_at), 'd/m/Y' )}}</td>
-                    <td>{{$pagos->ventas->responsable}}</td>
-                    <td style="color:#2d812f;">L. {{$pagos->cuota}}</td>
+                    <td>{{$n}}</td>
+                    <td>{{date_format(new \DateTime($pago->created_at), 'd/m/Y' )}}</td>
+                    <td>{{$pago->ventas->responsable}}</td>
+                    <td style="color:#2d812f;">L. {{$pago->cuota}}</td>
+
+                    <?php 
+                        $n++;
+                        $pagado += $pago->cuota;
+                    ?>   
+
+                    <td>L. {{$pago->ventas->servicios->precio - $pago->ventas->servicios->prima - $pagado}}</td>
+                     
                 </tr>
             @endforeach
         </tbody>
