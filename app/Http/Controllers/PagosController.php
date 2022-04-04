@@ -74,7 +74,7 @@ class PagosController extends Controller
                 'pago.required'=>'El campo :attribute no puede estar vacío.',
                 'pago.min'=>'El campo :attribute debe ser mayor a 0.',
                 'pago.max'=>'El campo :attribute debe ser inferior a '.number_format($valor,2).'.',
-                'pago.numeric'=>'El campo :attribute debe de ser numerico.',
+                'pago.numeric'=>'El campo :attribute debe de ser numérico.',
             ];
         }else{
             $rules= [
@@ -83,9 +83,9 @@ class PagosController extends Controller
     
             $mensaje=[
                 'pago.required'=>'El campo :attribute no puede estar vacío.',
-                'pago.min'=>'El campo :attribute debe ser mayor a '.number_format($venta->servicios->cuota,2).'.',
+                'pago.min'=>'El campo :attribute debe ser mayor o igual a '.number_format($venta->servicios->cuota,2).'.',
                 'pago.max'=>'El campo :attribute debe ser inferior a '.number_format($valor,2).'.',
-                'pago.numeric'=>'El campo :attribute debe de ser numerico.',
+                'pago.numeric'=>'El campo :attribute debe de ser numérico.',
             ];
         }
 
