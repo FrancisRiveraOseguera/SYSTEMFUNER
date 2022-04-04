@@ -24,6 +24,7 @@ class PagosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // función para crear un nuevo pago 
     public function create($id)
     {
         $venta = creditoventa::select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","responsable",
@@ -34,7 +35,7 @@ class PagosController extends Controller
         
         return view('pagos.nuevoPago')->with('venta',$venta);
     }
-
+    //fin de la función crear un nuevo pago
     /**
      * Store a newly created resource in storage.
      *
@@ -42,6 +43,7 @@ class PagosController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    
     public function pdf($id){
         $pago = Pagos::findOrFail($id);
 
@@ -55,6 +57,7 @@ class PagosController extends Controller
         return view('pagos.recibodepagoPDF')->with('Pagos', $pago)->with('total', $total);
      }
 
+     //función de las validaciones de nuevo pago 
     public function store(Request $request, $id)
     {
         $venta = creditoventa::select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","responsable",
@@ -102,6 +105,7 @@ class PagosController extends Controller
          return redirect()->route('pagodecuota.pdf', $nuevopago->id);
        }
     }
+    //fin de la función de validaciones de nuevo pago 
 
     public function historialPagos(){
 

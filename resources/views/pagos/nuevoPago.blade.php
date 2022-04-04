@@ -93,7 +93,7 @@
 </div>
 </div>
 
-<!--Contenedor para los botones de la vista agregar servicio-->
+<!--Contenedor para los botones de la vista agregar nuevo pago-->
   <div  >
   <a class="btn btn-primary " href="{{route('ventasCredito.index')}}" > <i class="bi bi-box-arrow-left"></i> Regresar</a>
  
