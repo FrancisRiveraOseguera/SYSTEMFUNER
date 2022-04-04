@@ -5,7 +5,7 @@
 <div class="invent">
     <div class="row">
         <div class="col-lg-7">
-        <h3>Historial de pago de cuotas de <a ><b> {{$pagos->clientes->nombres}} {{$pagos->clientes->apellidos}}</b></a></h3>
+        <h3>Cuotas pagadas de <a ><b> {{$pagos->clientes->nombres}} {{$pagos->clientes->apellidos}}</b></a></h3>
            <u> <a style="font-size: 20px; "> Tipo de servicio: <a style="font-size: 20px; "> <b>{{$pagos->servicios->tipo}}</b></a></a></u>
             <br><br>
                 <a class="btn btn-primary btn block" href="{{route('ventasCredito.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
