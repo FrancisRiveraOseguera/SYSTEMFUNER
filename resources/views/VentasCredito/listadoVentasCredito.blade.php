@@ -50,18 +50,20 @@
         <thead>
         <tr>
             <tr class="table-info">
+            <th scope="col">Fecha</th>
             <th scope="col">Cliente</th>
             <th scope="col">Tipo de servicio</th>
             <th scope="col" class="text-center">Saldo pendiente</th>
             <th scope="col" class="text-center">Detalles</th>
             <th scope="col" class="text-center">Nuevo Pago</th>
             <th scope="col" class="text-center">Detalles de las cuotas</th>
-          
+
         </tr>
         </thead>
         <tbody>
             @forelse($ventas as $venta)
             <tr class="table-primary">
+                <td>{{date_format($venta->created_at,"d-m-Y")}}</td>
                 <td>{{$venta->clientes->nombres}} {{$venta->clientes->apellidos}}</td>
                 <td>{{$venta->servicios->tipo}}</td>
                 <td>L.{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}</td>
@@ -82,7 +84,7 @@
                 </td>
 
                 <td class="text-center">
-                    <a class="btn btn-secondary"  href="{{route('pagos.pagoDetalles', ['id'=>$venta->id])}}">
+                    <a class="btn btnAqua"  href="{{route('pagos.pagoDetalles', ['id'=>$venta->id])}}">
                         <i class="fas fa-money-bill-wave"></i>Cuotas pagadas
                     </a>
                 </td>
@@ -114,8 +116,17 @@
         font-style: bold;
         font-family: 'Times New Roman', Times, serif;
     }
-    
 
-    
+    .btnAqua{
+        background: darkturquoise;
+        color: white;
+    }
+
+    .btnAqua:hover{
+        color: white;
+        background: lightseagreen;
+    }
+
+
 </style>
 @endsection
