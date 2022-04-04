@@ -68,7 +68,6 @@ class creditoventaController extends Controller
             'beneficiario4' =>'nullable|regex:/^[\pL\s\-]+$/u|max:50',
             'telefono4' => 'nullable|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
             'fecha' => 'required',
-            'fechaCobro' => 'required',
 
         ];
 
@@ -76,9 +75,9 @@ class creditoventaController extends Controller
             'cliente_id.exists' => 'El nombre del cliente no ha sido seleccionado.',
             'cliente_id.required' => 'El Nombre del cliente no ha sido seleccionado.',
 
-            'responsable.required' => 'El campo "Empleado responsable de la venta" no puede estar vacío.',
-            'responsable.regex' => 'El campo "Empleado responsable de la venta" solo puede contener letras.',
-            'responsable.max' => 'El campo "Empleado responsable de la venta" debe contener 50 letras como máximo.',
+            'responsable.required' => 'El campo Empleado responsable de la venta no puede estar vacío.',
+            'responsable.regex' => 'El campo Empleado responsable de la venta solo puede contener letras.',
+            'responsable.max' => 'El campo Empleado responsable de la venta debe contener 50 letras como máximo.',
 
 
             'servicio_id.required' => 'El tipo de póliza de servicio funerario no ha sido seleccionado.',
@@ -95,7 +94,7 @@ class creditoventaController extends Controller
             'beneficiario2.regex' => 'El campo :attribute solo debe contener letras. ',
             'befeficiario2.max' => 'El campo :attribute debe contener 50 letras como máximo.',
 
-            'telefono2.required' => 'El campo teléfono  del beneficiario 2 no puede estar vacío.',
+            'telefono2.required' => 'El campo teléfono del beneficiario 2 no puede estar vacío.',
             'telefono2.regex' => 'El campo teléfono del beneficiario 2 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
             'telefono2.numeric' => 'El campo teléfono del beneficiario 2 solo acepta números.',
 
@@ -111,9 +110,9 @@ class creditoventaController extends Controller
             'telefono4.regex' => 'El campo teléfono del beneficiario 4 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
             'telefono4.numeric' => 'El campo teléfono del beneficiario 4 solo acepta números.',
 
-            'fecha.required' => 'El campo "Fecha" no puede estar vacío.',
+            'fecha.required' => 'El campo Fecha de venta no puede estar vacío.',
 
-            'fechaCobro.required' => 'El campo "Fecha de cobro" no puede estar vacío.',
+           
 
         ];
 

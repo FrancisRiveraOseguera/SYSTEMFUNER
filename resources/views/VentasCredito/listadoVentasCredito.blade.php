@@ -56,7 +56,7 @@
             <th scope="col" class="text-center">Detalles</th>
             <th scope="col" class="text-center">Nuevo Pago</th>
             <th scope="col" class="text-center">Detalles de las cuotas</th>
-            <th scope="col" class="text-center">Contratos</th>
+          
         </tr>
         </thead>
         <tbody>
@@ -87,36 +87,6 @@
                     </a>
                 </td>
 
-                <td>
-                    <!-- Button trigger modal-->
-                    <a class="btn btn-danger" href="{{route('creditoVenta.pdf', ['id'=>$venta->id])}}" data-toggle="modal" data-target="#modalPush{{$venta->id}}"><i class="fas fa-file-pdf"></i>Imprimir contrato</a>
-
-                    <!--Modal: modalPush-->
-                    <div class="modal fade" tabindex="1" id="modalPush{{$venta->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-                        <div class="modal-dialog modal-notify modal-info" role="document">
-                            <!--Content-->
-                            <div class="modal-content text-center">
-                            <!--Header-->
-                            <div class="modal-header d-flex justify-content-center">
-                                <p class="heading">Un momento...</p>
-                            </div>
-
-                            <!--Body-->
-                            <div class="modal-body">
-                                <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
-                                <p>Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
-                            </div>
-
-                            <!--Footer-->
-                            <div class="modal-footer flex-center">
-                                <a href="{{route('creditoVenta.pdf', ['id'=>$venta->id])}}" class="modal-footer btn-primary">¡Entendido!</a>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-
-                </td>
 
             </tr>
             @empty
@@ -144,16 +114,7 @@
         font-style: bold;
         font-family: 'Times New Roman', Times, serif;
     }
-    .modal-header{
-            font-size: 20px;
-            background-color: #1CB6E9;
-            color: #FFFFFF;
-        }
-        .modal-body{
-            font-size: 15px;
-        }
-        .modal-footer{
-            font-size: 15px;}
+    
 
     
 </style>

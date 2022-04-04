@@ -8,7 +8,7 @@
 <html>
    <!-- <script language="javascript">alert("Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria.")</script>-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Previsualización del Contrato</title>
+    <title>Previsualización Recibo de Pago</title>
     
     <body>
         
