@@ -105,48 +105,37 @@
             </div>
         </div>
 
+        @if($venta->beneficiario3 != "")
+            <div id="divBeneficiario3">
+                <div class="form-group row ">
+                    <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
+                        <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°3:</label>
+                    <div class="col-sm-8 mt-2 ml-6">{{$venta->beneficiario3}}</div>
+                </div>
 
-        <div class="col-sm-4 ml-5 pl-5">
-        <acronym title="Haz clic para ver si hay más beneficiarios registrados.">
-            <a class="hijo" href="#" onclick="esconderDiv()">
-                <i class="bi bi-people-fill"></i>Otros beneficiarios
-            </a>
-        </acronym>
-        </div>
-
-
-        <br>
-        <div class="col-sm-8 ml-5 pl-5" id="noMas" style="display: none">
-            No hay más beneficiarios registrados.
-        </div>
-
-        <div id="divBeneficiario3" style="display:none;">
-            <div class="form-group row ">
-                <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                    <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°3:</label>
-                <div class="col-sm-8 mt-2 ml-6" id="beneficiario3">{{$venta->beneficiario3}}</div>
+                <div class="form-group row ">
+                    <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
+                        <i  id="IcNewEmp" class="bi bi-telephone-forward"></i> Teléfono del beneficiario:</label>
+                    <div class="col-sm-8 mt-2 ml-6">{{$venta->telefono3}}</div>
+                </div>
             </div>
+        @endif
 
-            <div class="form-group row ">
-                <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                    <i  id="IcNewEmp" class="bi bi-telephone-forward"></i> Teléfono del beneficiario:</label>
-                <div class="col-sm-8 mt-2 ml-6" id="telefono3">{{$venta->telefono3}}</div>
-            </div>
-        </div>
+        @if($venta->beneficiario4 != "")
+            <div id="divBeneficiario4">
+                <div class="form-group row ">
+                    <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
+                        <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°4:</label>
+                    <div class="col-sm-8 mt-2 ml-6">{{$venta->beneficiario4}}</div>
+                </div>
 
-        <div id="divBeneficiario4" style="display: none">
-            <div class="form-group row ">
-                <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                    <i  id="IcNewEmp" class="bi bi-person-check-fill"></i> Beneficiario N°4:</label>
-                <div class="col-sm-8 mt-2 ml-6" id="beneficiario4">{{$venta->beneficiario4}}</div>
+                <div class="form-group row ">
+                    <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
+                        <i  id="IcNewEmp" class="bi bi-telephone-forward"></i> Teléfono del beneficiario:</label>
+                    <div class="col-sm-8 mt-2 ml-6">{{$venta->telefono4}}</div>
+                </div>
             </div>
-
-            <div class="form-group row ">
-                <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                    <i  id="IcNewEmp" class="bi bi-telephone-forward"></i> Teléfono del beneficiario:</label>
-                <div class="col-sm-8 mt-2 ml-6" id="telefono4">{{$venta->telefono4}}</div>
-            </div>
-        </div>
+        @endif
 
         <br>
         <!--botones-->
@@ -183,32 +172,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    function esconderDiv() {
-        var divBeneficiario3 = document.getElementById('divBeneficiario3');
-        var divBeneficiario4 = document.getElementById('divBeneficiario4');
-        var beneficiario3 = document.getElementById('beneficiario3');
-        var beneficiario4 = document.getElementById('beneficiario4')
-        var ver = document.getElementById('noMas');
-
-        if (beneficiario3.innerHTML === '') {
-            divBeneficiario3.style.display = "none";
-        }else {
-            divBeneficiario3.style.display = "block";
-        }
-
-        if (beneficiario4.innerHTML === '') {
-            divBeneficiario4.style.display = "none";
-        }else {
-            divBeneficiario4.style.display = "block";
-        }
-
-        if (beneficiario3.innerHTML === '' && beneficiario4.innerHTML === ''){
-            ver.style.display = 'block';
-        }
-    }
-</script>
 
 <style>
     .formato {
