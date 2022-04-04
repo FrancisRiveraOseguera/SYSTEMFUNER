@@ -54,8 +54,8 @@
             <th scope="col">Cliente</th>
             <th scope="col">Tipo de servicio</th>
             <th scope="col" class="text-center">Saldo pendiente</th>
-            <th scope="col" class="text-center">Detalles</th>
             <th scope="col" class="text-center">Nuevo Pago</th>
+            <th scope="col" class="text-center">Detalles</th>
             <th scope="col" class="text-center">Detalles de las cuotas</th>
 
         </tr>
@@ -68,12 +68,6 @@
                 <td>{{$venta->servicios->tipo}}</td>
                 <td>L.{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}</td>
 
-                <td class="text-center">
-                    <a class="btn btn-info" href="{{route('ventaCredito.ver', ['id'=>$venta->id])}}">
-                        <i class="bi bi-eye"></i>Detalles
-                    </a>
-                </td>
-
                 <!-- Botón de nuevo pago, con función de desaparecer cuando el saldo pendiente este en cero -->
                 <td>
                     @if (($venta->servicios->precio - $venta->servicios->prima - $venta->cuota)>0)
@@ -82,6 +76,14 @@
                     </a>
                     @endif
                 </td>
+
+                <td class="text-center">
+                    <a class="btn btn-info" href="{{route('ventaCredito.ver', ['id'=>$venta->id])}}">
+                        <i class="bi bi-eye"></i>Detalles
+                    </a>
+                </td>
+
+            
 
                 <td class="text-center">
                     <a class="btn btnAqua"  href="{{route('pagos.pagoDetalles', ['id'=>$venta->id])}}">
