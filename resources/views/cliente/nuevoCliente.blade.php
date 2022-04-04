@@ -116,7 +116,7 @@
 
         <!--botones-->
         @if ($cliente==0)
-            <a class="btn btn-primary" href="{{route('VentaContado.nueva')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
+            <a class="btn btn-primary" href="{{route('ventaCredito.nueva')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
         @else
             <a class="btn btn-primary" href="{{route('listado.clientes')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
         @endif

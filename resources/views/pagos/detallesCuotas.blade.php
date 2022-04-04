@@ -5,8 +5,8 @@
 <div class="invent">
     <div class="row">
         <div class="col-lg-7">
-        <h3>Historial de pago de cuotas de <a style="color: red;">{{$pagos->clientes->nombres}} {{$pagos->clientes->apellidos}}</a></h3>
-            <a style="font-size: 20px; font-style:italic;"> Tipo de servicio <a style="color: red; font-size: 20px; font-style:italic;">{{$pagos->servicios->tipo}}</a></a>
+        <h3>Historial de pago de cuotas de <a ><b> {{$pagos->clientes->nombres}} {{$pagos->clientes->apellidos}}</b></a></h3>
+           <u> <a style="font-size: 20px; "> Tipo de servicio: <a style="font-size: 20px; "> <b>{{$pagos->servicios->tipo}}</b></a></a></u>
             <br><br>
                 <a class="btn btn-primary btn block" href="{{route('ventasCredito.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
         </div><hr>
@@ -30,7 +30,7 @@
                 $n=1;
                 $pagado = 0;
             ?>    
-            <tr>
+            <tr class="table-primary">
                 <td>0</td>
                 <td>{{date_format(new \DateTime($pagos->created_at), 'd/m/Y' )}}</td>
                 <td>{{$pagos->responsable}}</td>
@@ -38,7 +38,7 @@
                 <td>L. {{$pagos->servicios->precio - $pagos->servicios->prima}}</td>
             </tr>
             @foreach($cuotas as $pago) 
-                <tr class="table">
+                <tr class="table-primary">
                     <td>{{$n}}</td>
                     <td>{{date_format(new \DateTime($pago->created_at), 'd/m/Y' )}}</td>
                     <td>{{$pago->ventas->responsable}}</td>

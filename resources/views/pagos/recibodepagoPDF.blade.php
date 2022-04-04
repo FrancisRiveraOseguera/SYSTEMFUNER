@@ -26,7 +26,7 @@
         <div class="shb2">
            <b>Pago de cuota de Póliza de servicio Funerario tipo:</b> <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$Pagos->ventas->servicios->tipo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> <br><br>
            <b>A nombre de:</b> <u>&nbsp;&nbsp;{{$Pagos->ventas->clientes->nombres}} {{$Pagos->ventas->clientes->apellidos}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-            Con DNI número: <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$Pagos->ventas->clientes->identidad}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+           <b> Con identidad:</b> <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$Pagos->ventas->clientes->identidad}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
            <br> <br><b> La Cantidad de:</b> <u>{{$Pagos->cuota}} Lempiras Exactos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u>  <b> 
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;realizado en la fecha: </b> {{$Pagos->created_at->format(' d-m-Y')}}<br><br>
             <b>Saldo pendiente: L.{{$total->total}}.00</b> 
