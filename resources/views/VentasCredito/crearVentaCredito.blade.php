@@ -239,17 +239,15 @@
     </div>  
 
     <div class="col">
-       <?php $fecha_actual = date("d-m-Y");?>
+    <?php $fecha_actual = date("d-m-Y");?>
+        
         <div class="form-outline">
             <br>
-            <label for="fecha" class="form-label">
-                Fecha de venta:</label>
-            
-                <input type="date" style="width: 495px;" name="fecha" id="fecha" class="form-control"
-                value="{{old('fecha', $contadoVenta->fecha ?? '')}}"
-                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"
-                max="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
-            
+            <label for="fecha" class="form-label">Fecha de venta</label>
+            <div class="col-sm-13">
+                    <input type="text" readonly name="fecha" id="fecha" class="form-control" style="width:490px;"
+                    value="<?php echo date($fecha_actual)?>{{($creditoVenta->fecha ?? '')}}"/>
+            </div>
         </div>
     </div>
 </div> 
