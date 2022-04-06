@@ -19,7 +19,7 @@
         
         <div class="shb">
             OFICINAS<br>
-            Bº Abajo salida a Tegucigalpa, frente a Ferreteria Santa Fé, Danlí, El Paraíso<br>
+            Bº Abajo salida a Tegucigalpa, frente a Ferretería Santa Fé, Danlí, El Paraíso<br>
             Teléfono: 2763-6520 | Email: funeralesbendicionhn@gmail.com
         </div><hr>
 
