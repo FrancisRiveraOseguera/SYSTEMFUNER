@@ -38,7 +38,7 @@
 
 <div class="col">
   <div class="form-outline">
-    <label class="form-label" for="tipo">cliente</label>
+    <label class="form-label" for="tipo">Cliente</label>
     <input type="text" id="cliente" class="form-control"  name="cliente" value="{{$venta->clientes->nombres}} {{$venta->clientes->apellidos}}" readonly/>
   </div>
 </div>
@@ -99,7 +99,7 @@
  
   <td>          
             <!--Modal: modalPush-->
-            <a class="btn btn-success"  style="color: white;" data-toggle="modal" data-target="#modalPush"><i class="bi bi-save"></i>Guardar venta al Crédito</a>
+            <a class="btn btn-success"  style="color: white;" data-toggle="modal" data-target="#modalPush"><i class="bi bi-save"></i>Guardar pago</a>
             <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-notify modal-info" role="document">
                     <!--Content-->
