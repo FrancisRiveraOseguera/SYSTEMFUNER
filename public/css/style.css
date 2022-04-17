@@ -136,7 +136,7 @@ a[data-toggle="collapse"] {
 @media (max-width:400px) {
   #sidebar {
     margin-top: -20px;
-    
+
   }
   #logo {
     display: none;
@@ -150,7 +150,7 @@ a[data-toggle="collapse"] {
   border-left: 1px solid #E6E6E6 ;
   border-right: 1px solid #E6E6E6;
   border-bottom: 1px solid #E6E6E6 ;
-  
+
   background-color: #E0F8F7;
   position:relative;
    }
@@ -170,4 +170,32 @@ a[data-toggle="collapse"] {
     font-size:30px;
     width: 1em;
     height: 1em;
+}
+
+header.masthead {
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+    color: #fff;
+    background-image: url("../assets/flowers.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    height: 700px;
+
+}
+
+header.masthead .masthead-subheading {
+    font-size: xxx-large;
+    font-style: italic;
+    line-height: 1.5rem;
+    margin-bottom: 25px;
+    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+header.masthead .masthead-heading {
+    font-size: x-large;
+    font-weight: 700;
+    line-height: 2.25rem;
+    margin-bottom: 2rem;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
