@@ -193,3 +193,11 @@ Route::get('/cuotas-cliente/{id}/detalles', 'App\Http\Controllers\PagosControlle
 Route::get('/inicio', function () {
     return view('pantallaInicial');
 });
+
+// RUTAS USUARIO
+Route::get('/nuevoUsuario', 'App\Http\Controllers\UsuarioController@create')
+    ->name('usuarios.create');
+
+
+Route::post('/nuevoUsuario', 'App\Http\Controllers\UsuarioController@store')
+    ->name('usuarios.store');
