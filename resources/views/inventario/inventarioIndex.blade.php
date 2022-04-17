@@ -21,42 +21,18 @@
 </div><br>
 
 <div class="invent !important">
-    <div class="container">
-        <div class="container">
-            <div class="padre">
-                <a href="{{route('Servicio.lista')}}"> 
-                    <img src="/assets/producto.png" class="rounded-circle bs" width="120" height="120">
-                </a>
-            </div>
-        </div><br>
+    <a href="{{route('Servicio.lista')}}"><img src="/assets/producto.png" class="rounded-circle bs servicios" width="120" height="120"></a>
+    <a href="{{route('historialinventario.index')}}"><img src="/assets/inventario.png" class="rounded-circle bs inventario" width="120" height="120"></a><br><br>
 
-        <div class="text-center hijo">
-            <h5 class="section-heading text-uppercase">Servicios</h5>
-            <p class="section-subheading text-muted">Ingresa al listado de servicios de la funeraria.</p>
-        </div>
-    </div>
+    <a style="margin-left:12%; font-size: 15px;">INGRESAR A SERVICIOS</a>
+    <a style="margin-left:40%; font-size: 15px;">INGRESAR A INVENTARIO</a><br>
+
+    <a style="margin-left:9%; font-size: 14px; color:#808080">Ingresa al listado de servicios de la funeraria.</a>
+    <a style="margin-left:28%; font-size: 14px; color:#808080">Ingresa al listado de productos en inventario de la funeraria.</a>
 
 </div>
 
-<br><div class="invent !important">
-
-    <div class="container">
-            <div class="container">
-                <div class="padre">
-                    <a href="{{route('historialinventario.index')}}"> 
-                        <img src="/assets/inventario.png" class="rounded-circle bs" width="120" height="120">
-                    </a>
-            </div>
-    </div><br>
-
-    <div class="text-center hijo">
-        <h5 class="section-heading text-uppercase">Productos en inventario</h5>
-        <p class="section-subheading text-muted">Ingresa al listado de productos en inventario de la funeraria.</p>
-    </div>
-</div>
-
-    <style>
-
+<style>
     .invent {
     border-top: 1px solid #E6E6E6 ;
     border-left: 1px solid #E6E6E6 ;
@@ -66,6 +42,14 @@
     background-color: #E0F8F7;
     position:relative;
     }
+
+    .inventario{
+        margin-left: 45%;
+    }
+
+    .servicios{
+        margin-left: 15%;
+    }
     
     .invent{
         font-style: bold;
@@ -73,7 +57,6 @@
     }
 
     .padre{
-        padding-left: 395px;
         -moz-user-select: none;
         user-select: none;
     }
