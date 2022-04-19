@@ -1,5 +1,5 @@
 @extends('madre')
-@section('title', 'Editar empleado')
+@section('title', 'Editar usuario')
 
 @section('content')
 
@@ -17,7 +17,7 @@
     @endif
 
     <div class="emple">
-        <h3> Editar datos del empleado</h3>
+        <h3> Editar datos del Usuario</h3>
         <hr>
 
         <!--Formulario-->
