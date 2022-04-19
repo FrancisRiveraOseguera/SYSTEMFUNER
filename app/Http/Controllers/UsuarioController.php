@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Crypt;
 
 class UsuarioController extends Controller
 {
@@ -40,7 +41,7 @@ class UsuarioController extends Controller
             'nameUser' => 'required|max:20|unique:usuarios,nameUser',
             'cargo' => 'required',
             'password' => [
-                'required', 'max:30',
+                'required',
                 Password::min(8)
                     ->mixedCase()
                     ->letters()
@@ -48,8 +49,10 @@ class UsuarioController extends Controller
                     ->symbols()
                     ->uncompromised(),
             ],
-            'password_confirmation' => 'min:8|max:30|same:password',
+            'password_confirmation' => 'min:8|same:password',
         ];
+
+        $request['password'] = bcrypt($request['password']);
 
         $mensaje=[
             'correo.required' => 'El campo :attribute no puede estar vacío.',
@@ -59,6 +62,8 @@ class UsuarioController extends Controller
             'nombres.required' => 'El campo :attribute no puede estar vacío.',
             'nombres.regex' => 'El campo :attribute solo debe contener letras. ',
             'nombres.max' => 'El campo :attribute debe contener 35 letras como máximo.',
+
+            'nameUser.required' => 'El campo nombre de usuario no puede estar vacío.',
 
             'apellidos.required' => 'El campo :attribute no puede estar vacío.',
             'apellidos.regex' => 'El campo :attribute solo debe contener letras. ',
