@@ -17,9 +17,8 @@ class UsuarioTable extends Migration
             $table->increments('id');
             $table->string('nombres', 35);
             $table->string('apellidos', 35);
-            $table->char('identidad', 13)->unique();
-            $table->string('direccion', 100);
-            $table->char('telefono', 8);
+            $table->string('correo', 35)->unique();
+            $table->string('nameUser', 20)->unique();
             $table->string('cargo', 50);
             $table->string('password', 20);
             $table->timestamps();

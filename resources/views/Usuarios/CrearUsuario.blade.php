@@ -24,14 +24,14 @@
     <form method="post" action="" autocomplete="off">
         @csrf
         <div class="form-group row">
-            <label for="identidad" class="col-lg-2 control-label offset-md-1 requerido">
-                <i id="IcNewEmp" class="bi bi-credit-card-2-front"></i>Identidad</label>
+            <label for="correo" class="col-lg-2 control-label offset-md-1 requerido">
+                <i id="IcNewEmp" class="fa fa-envelope-o"></i>Correo electrónico</label>
             <div class="col-sm-8">
                 <input type="text"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                       maxlength = "13" name="identidad" id="identidad"
-                       placeholder="Escriba el número de identidad del usuario, sin guiones ni espacios."
-                class="form-control" value="{{old('identidad', $usuario->identidad ?? '')}}"/>
+                       maxlength = "35" name="correo" id="correo"
+                       placeholder="Ingrese el correo electrónico del usuario, sin guiones ni espacios."
+                class="form-control" value="{{old('correo', $usuario->correo ?? '')}}"/>
             </div>
         </div>
 
@@ -61,26 +61,14 @@
             </div>
         </div>
 
-
         <div class="form-group row">
-            <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido">
-                <i id="IcNewEmp" class="bi bi-telephone-forward"></i>Teléfono del usuario</label>
+            <label for="nameUser" class="col-lg-2 control-label offset-md-1 requerido">
+                <i  id="IcNewEmp" class="fa fa-user-circle-o"></i>Nombre del usuario</label>
             <div class="col-sm-8">
-            <input type="text" placeholder="Número de teléfono del usuario."
-                id="telefono" name="telefono" maxlength="8" class="form-control"
+                <textarea name="nameUser" id="nameUser" maxlength="20" style="resize: none;"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                value="{{old('telefono', $usuario->telefono ?? '')}}"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="direccion" class="col-lg-2 control-label offset-md-1 requerido">
-                <i  id="IcNewEmp" class="bi bi-signpost"></i>Dirección</label>
-            <div class="col-sm-8">
-                <textarea name="direccion" id="direccion" maxlength="100" style="resize: none;"
-                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                placeholder="Dirección de domicilio del usuario."  rows="1" cols="52"
-                class="form-control">{{old('direccion', $usuario->direccion ?? '')}}</textarea>
+                placeholder="Nombre que utilizará el usuario."  rows="1" cols="52"
+                class="form-control">{{old('nameUser', $usuario->nameUser ?? '')}}</textarea>
             </div>
         </div>
 
