@@ -11,16 +11,9 @@
     <div>
     <br>
     <a class="btn btn-info btn block"  href="{{route('usuarios.create')}}"><i class="bi bi-plus-circle"></i>Nuevo usuario</a>
-<<<<<<< HEAD
-    <br>
-</div><br>
-
-=======
     
 </div>
-<hr>
-<br>
->>>>>>> bdf64d2fed436a810cc59047280aeb905ef9ea78
+<hr><br>
     <!--Mensaje de alerta para validacón-->
     @if(session('mensaje'))
     <div class= "alert alert-success">
