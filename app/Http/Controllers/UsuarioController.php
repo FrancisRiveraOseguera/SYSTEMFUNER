@@ -4,9 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
+
+    public function index(Request $request)
+    { 
+        $busqueda = trim($request->get('busqueda'));
+        $usuarios = DB::table('usuarios')
+
+        ->where('nameUser', 'LIKE', '%'.$busqueda.'%')
+        ->orwhere('correo', 'LIKE', '%'.$busqueda.'%')
+        ->paginate(15)-> withQueryString();
+
+        return view('Usuarios.listadoUsuarios')
+        ->with('usuarios', $usuarios)
+        ->with('busqueda', $busqueda);
+    }
+
+
+
     public function create(){
         return view ('Usuarios.CrearUsuario');
     }
@@ -62,7 +80,7 @@ class UsuarioController extends Controller
         if ($creado) {
             if($creado){
                 /*Se debe cambiar la ruta de redirección, la dejé en el listado de clientes porque no existe nada para usuarios */
-                return redirect()->route('listado.clientes')->with('mensaje', 'El usuario fue registrado exitosamente.');
+                return redirect()->route('listado.usuario')->with('mensaje', 'El usuario fue registrado exitosamente.');
             }else{
             }
             }

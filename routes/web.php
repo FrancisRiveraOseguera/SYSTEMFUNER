@@ -7,6 +7,7 @@ use App\Http\Controllers\contadoVentaController;
 use App\Http\Controllers\creditoventaController;
 use App\Http\Controllers\DetalleServicioController;
 use App\Http\Controllers\PagosController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -201,3 +202,8 @@ Route::get('/nuevoUsuario', 'App\Http\Controllers\UsuarioController@create')
 
 Route::post('/nuevoUsuario', 'App\Http\Controllers\UsuarioController@store')
     ->name('usuarios.store');
+
+
+Route::get('listadoUsuarios',[UsuarioController::class, 'index'])
+->name('listado.usuario');
+

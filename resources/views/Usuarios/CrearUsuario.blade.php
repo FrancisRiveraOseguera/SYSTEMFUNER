@@ -96,7 +96,7 @@
         <br>
 
         <!--botones-->
-        <a class="btn btn-primary" href=""><i class="bi bi-box-arrow-left"></i>Regresar</a>
+        <a class="btn btn-primary" href="{{route('listado.usuario')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
         <button type="submit" class="btn btn-success" ><i class="bi bi-save"></i>Guardar</button>
     </form>
 </div>
