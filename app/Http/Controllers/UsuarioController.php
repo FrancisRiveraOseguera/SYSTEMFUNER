@@ -38,8 +38,17 @@ class UsuarioController extends Controller
             'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'nameUser' => 'required|max:20|unique:usuarios,nameUser',
-            'cargo' => 'required|regex:/^[\pL\s\-]+$/u|min:5|max:50|unique:usuarios,cargo',
-            'password' => 'required|regex:/^[\pL\s\-]+$/u|min:8|max:20',
+            'cargo' => 'required',
+            'password' => [
+                'required', 'max:30',
+                Password::min(8)
+                    ->mixedCase()
+                    ->letters()
+                    ->numbers()
+                    ->symbols()
+                    ->uncompromised(),
+            ],
+            'password_confirmation' => 'min:8|max:30|same:password',
         ];
 
         $mensaje=[
@@ -61,7 +70,8 @@ class UsuarioController extends Controller
 
             'cargo.required'  => 'El campo :attribute no puede estar vacío.',
 
-            'password.required'  => 'El campo :attribute no puede estar vacío.',
+            'password.required'  => 'El campo contraseña no puede estar vacío.',
+            'password.alpha_num'  => 'El campo contraseña debe tener letras y números',
         ];
 
         $this->validate($request,$rules,$mensaje);
@@ -155,7 +165,7 @@ class UsuarioController extends Controller
         $actualizado = $actualizarUsuario->save();
 
         if ($actualizado){
-            return redirect()->route('listado.usuarios')
+            return redirect()->route('listado.usuario')
                 ->with('mensaje', 'Los datos del usuario han sido actualizados exitosamente');
         }
 

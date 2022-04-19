@@ -12,7 +12,7 @@
     <br>
     <a class="btn btn-info btn block"  href="{{route('usuarios.create')}}"><i class="bi bi-plus-circle"></i>Nuevo usuario</a>
     <br>
-</div>
+</div><br>
 
     <!--Mensaje de alerta para validacón-->
     @if(session('mensaje'))
