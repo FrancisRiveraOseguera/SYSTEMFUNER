@@ -170,4 +170,12 @@ class UsuarioController extends Controller
         }
 
     }
+
+    //Eliminar usuario
+    public function destroy($id)
+    {
+        Usuario::destroy($id);
+
+        return redirect()->route('listado.usuario')->with('mensaje', 'El usuario fue eliminado exitosamente');
+    }
 }

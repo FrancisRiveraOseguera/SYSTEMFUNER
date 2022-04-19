@@ -206,6 +206,10 @@ Route::post('/nuevoUsuario', 'App\Http\Controllers\UsuarioController@store')
 Route::get('listadoUsuarios',[UsuarioController::class, 'index'])
 ->name('listado.usuario');
 
+//ELIMINAR USUARIO
+Route::delete('usuario/borrar/{id}',[UsuarioController::class, 'destroy'])
+->name('usuario.borrar')-> where('id' ,'[0-9]+');
+
 //EDITAR usuario
 Route::get('/usuario/{id}/editar', 'App\Http\Controllers\UsuarioController@edit')
     ->name('usuario.edit')->where('id', '[0-9]+');
