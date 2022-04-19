@@ -29,5 +29,11 @@
     "Before proceeding, please check your email for a verification link.": "Antes de poder continuar, por favor, confirma tu correo electrónico con el enlace que te hemos enviado.",
     "If you did not receive the email": "Si no has recibido el email",
     "click here to request another": "pulsa aquí para que te enviemos otro",
-    "All rights reserved.":  "Todos los derechos reservados."
+    "All rights reserved.":  "Todos los derechos reservados.",
+    "The :attribute must contain at least one letter.": "La contraseña debe contener al menos una letra",
+    "The :attribute must contain at least one uppercase and one lowercase letter.": "La contraseña debe contener al menos una letra mayúscula y una minúscula",
+    "The :attribute must contain at least one number.": "La contraseña debe contener al menos un número",
+    "The :attribute must contain at least one symbol.": "La contraseña debe contener al menos un símbolo",
+    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "La contraseña ha aparecido en una fuga de datos. Elija una contraseña diferente"
 }
+

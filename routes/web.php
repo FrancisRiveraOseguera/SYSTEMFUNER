@@ -199,7 +199,6 @@ Route::get('/inicio', function () {
 Route::get('/nuevoUsuario', 'App\Http\Controllers\UsuarioController@create')
     ->name('usuarios.create');
 
-
 Route::post('/nuevoUsuario', 'App\Http\Controllers\UsuarioController@store')
     ->name('usuarios.store');
 
@@ -207,3 +206,9 @@ Route::post('/nuevoUsuario', 'App\Http\Controllers\UsuarioController@store')
 Route::get('listadoUsuarios',[UsuarioController::class, 'index'])
 ->name('listado.usuario');
 
+//EDITAR usuario
+Route::get('/usuario/{id}/editar', 'App\Http\Controllers\UsuarioController@edit')
+    ->name('usuario.edit')->where('id', '[0-9]+');
+
+Route::put('/usuario/{id}/editar', 'App\Http\Controllers\UsuarioController@update')
+    ->name('usuario.update')->where('id', '[0-9]+');    
