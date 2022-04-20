@@ -47,14 +47,16 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
                 <a class="nav-link" id="link" href="#">
-                    <i class="fas fa-user"></i>Usuario</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="link" href="#">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Cerrar sesión
-                    <span class="sr-only">(current)</span>
-                </a>
+                   
+                </li>
+                <li class="nav-item">
+                    
+                        <i class="fas fa-sign-out-alt"></i>
+                             Cerrar sesión
+                        <span class="sr-only">(current)</span>
+                    </a>
+               
+           
             </li>
         </ul>
     </div>

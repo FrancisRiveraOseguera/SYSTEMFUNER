@@ -20,7 +20,7 @@ class UsuarioTable extends Migration
             $table->string('correo', 35)->unique();
             $table->string('nameUser', 20)->unique();
             $table->string('cargo', 50);
-            $table->string('password', 20);
+            $table->text('password');
             $table->timestamps();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
