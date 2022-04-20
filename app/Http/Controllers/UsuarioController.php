@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use App\Models\Empleado;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Crypt;
@@ -27,8 +28,9 @@ class UsuarioController extends Controller
 
 
 
-    public function create(){
-        return view ('Usuarios.CrearUsuario');
+    public function create($ident = null){
+        $empleados = Empleado::where('id',$ident)->first();
+        return view ('Usuarios.CrearUsuario')->with('ident', $empleados);
     }
 
     public function store(Request $request)
@@ -36,12 +38,11 @@ class UsuarioController extends Controller
         //Validación de los datos
         $rules=[
             'correo' => 'required|max:35|min:8|unique:usuarios,correo|email:filter',
-            'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
-            'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
+            'empleado_id' => 'required|exists:App\Models\Empleado,id',
             'nameUser' => 'required|max:20|unique:usuarios,nameUser',
             'cargo' => 'required',
             'password' => [
-                'required',
+                'required','min:8',
                 Password::min(8)
                     ->mixedCase()
                     ->letters()
@@ -51,32 +52,21 @@ class UsuarioController extends Controller
             ],
             'password_confirmation' => 'min:8|same:password',
         ];
-
-        $request['password'] = bcrypt($request['password']);
-
+    
         $mensaje=[
             'correo.required' => 'El campo :attribute no puede estar vacío.',
             'correo.regex' => 'El campo :attribute no cumple el formato correcto.',
             'correo.unique' => 'El campo :attribute debe de ser único.',
 
-            'nombres.required' => 'El campo :attribute no puede estar vacío.',
-            'nombres.regex' => 'El campo :attribute solo debe contener letras. ',
-            'nombres.max' => 'El campo :attribute debe contener 35 letras como máximo.',
+            'empleado_id.exists' => 'El campo nombre del empleado no fue seleccionado.',
+            'empleado_id.required' => 'El campo nombre del empleado no fue seleccionado.',
 
             'nameUser.required' => 'El campo nombre de usuario no puede estar vacío.',
-
-            'apellidos.required' => 'El campo :attribute no puede estar vacío.',
-            'apellidos.regex' => 'El campo :attribute solo debe contener letras. ',
-            'apellidos.max' => 'El campo :attribute debe contener 35 letras como máximo.',
-
-            'correo.required' => 'El campo :attribute no puede estar vacío.',
-            'correo.max' => 'El campo :attribute debe contener 35 letras como máximo.',
-            'correo.min' => 'El campo :attribute debe contener 8 letras como mínimo.',
 
             'cargo.required'  => 'El campo :attribute no puede estar vacío.',
 
             'password.required'  => 'El campo contraseña no puede estar vacío.',
-            'password.alpha_num'  => 'El campo contraseña debe tener letras y números',
+            'password.min'  => 'La contraseña es insegura, para mayor seguridad debe poseer 8 caracteres como mínimo.',
         ];
 
         $this->validate($request,$rules,$mensaje);
@@ -85,11 +75,11 @@ class UsuarioController extends Controller
 
 
         $nuevoUser->correo = $request->input('correo');
-        $nuevoUser->nombres = $request->input('nombres');
-        $nuevoUser->apellidos = $request->input('apellidos');
+        $nuevoUser->empleado_id = $request->input('empleado_id');
         $nuevoUser->nameUser = $request->input('nameUser');
         $nuevoUser->cargo = $request->input('cargo');
         $nuevoUser->password = $request->input('password');
+        $nuevoUser->password = bcrypt($request->password);
 
         $creado = $nuevoUser->save();
 

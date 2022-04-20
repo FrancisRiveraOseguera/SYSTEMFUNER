@@ -15,8 +15,7 @@ class UsuarioTable extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombres', 35);
-            $table->string('apellidos', 35);
+            $table->integer('empleado_id');
             $table->string('correo', 35)->unique();
             $table->string('nameUser', 20)->unique();
             $table->string('cargo', 50);

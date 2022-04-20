@@ -2,6 +2,18 @@
 @section ('title' , 'Crear usuarios')
 @section('content')
 
+<?php
+    include 'conexion.php';
+    $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM empleados");
+       
+    if(isset($_POST['empleado_id']))
+    {
+        $empleado_id=$_POST['empleado_id'];
+        echo $empleado_id;
+    }
+
+?>
+
 <div class="emple">
     <h3> Nuevo Usuario</h3>
     <hr>
@@ -38,28 +50,32 @@
 
         <div class="form-group row">
                 <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido">
-                    <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
+                    <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombre del empleado</label>
             <div class="col-sm-8">
-                <input type = "text"
-                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                       maxlength = "35" name="nombres" id="nombres"
-                       placeholder="Nombres del usuario." class="form-control"
-                value="{{old('nombres', $usuario->nombres ?? '')}}"/>
+                <select name="empleado_id" style="width: 500px;" class=" form-control">
+                    @if (isset($ident))
+                        <option style="display: none" value="{{$ident->id}}">{{$ident->nombres}} {{$ident->apellidos}}</option>
+                    @else
+                        <option value="0">Selecciona el nombre del empleado que será dueño de este usuario.</option>
+                    @endif
+                    <?php 
+                    while($datos = mysqli_fetch_array($query))
+                    {?>     
+                    <option value="<?php echo $datos['id']?>"> <?php echo $datos['nombres' ].' '.$datos['apellidos' ]?> </option>
+                    <?php
+                    }?>
+                </select>
             </div>
         </div>
 
-
-        <div class="form-group row">
-            <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido">
-                <i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
-            <div class="col-sm-8">
-                <input type = "text"
-                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                       maxlength = "35" name="apellidos" id="apellidos"
-                       placeholder="Apellidos del usuario." class="form-control"
-                value="{{old('apellidos', $usuario->apellidos ?? '')}}"/>
-            </div>
-        </div>
+        <div>
+          <script src='../../js/select2.min.js'></script>
+          <script type="text/javascript">
+             $(document).ready(function(){
+             $('empleado_id').select2();
+               });
+           </script>
+      </div>
 
         <div class="form-group row">
             <label for="nameUser" class="col-lg-2 control-label offset-md-1 requerido">
