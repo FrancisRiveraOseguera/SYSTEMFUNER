@@ -67,22 +67,22 @@
     <nav id="sidebar">
         <ul class="list-unstyled components" style="font-size: 14px">
             <li><br>
-                <a href=""><i class="fas fa-home" style="font-size: 14px"></i>Inicio</a>
+                <a href="{{url('/inicio')}}"><i class="fas fa-home" style="font-size: 14px"></i>Inicio</a>
             </li>
             <li>
-                <a href="{{route('listado.clientes')}}"><i class="fas fa-clipboard" style="font-size: 14px"></i>Clientes</a>
+                <a href="{{route('empleado.index')}}"><i class="fas fa-user-tie" style="font-size: 14px"></i>Empleados</a>
             </li>
             <li>
-                <a href="{{route('empleado.index')}}"><i class="fas fa-user-cog" style="font-size: 14px"></i>Empleados</a>
-            </li>
-            <li>
-                <a href="{{route('Servicio.lista')}}"><i class="fas fa-hands-helping" style="font-size: 14px"></i>Servicios</a>
-            </li>
-            <li>
-                <a href="{{route('historialinventario.index')}}"><i class="fas fa-shopping-cart" style="font-size: 14px"></i>Productos</a>
+                <a href="{{route('listado.clientes')}}"><i class="fas fa-user-circle" style="font-size: 14px"></i>Clientes</a>
             </li>
             <li>
                 <a href="{{route('inventario.home')}}"><i class="fas fa-boxes" style="font-size: 14px"></i>Inventario</a>
+            </li>
+            <li>
+                <a href="{{route('ventas.index')}}"><i class="fas fa-cash-register" style="font-size: 14px"></i>Ventas</a>
+            </li>
+            <li>
+                <a href="{{route('listado.usuario')}}"><i class="fas fa-users-cog" style="font-size: 14px"></i>Usuarios</a>
             </li>
         </ul>
     </nav>

@@ -173,41 +173,4 @@
     </div>
 </div>
 
-<style>
-    .formato {
-        border-top: 1px solid #E6E6E6 ;
-        border-left: 1px solid #E6E6E6 ;
-        border-right: 1px solid #E6E6E6;
-        border-bottom: 1px solid #E6E6E6 ;
-        padding: 20px;
-        background-color: #E0F8F7;
-        position:relative;
-        font-style: bold;
-        font-family: 'Times New Roman', Times, serif;
-    }
-
-    .requerido{
-        margin-top:-6px;
-    }
-
-    .hijo{
-        font-weight: bold;
-    }
-
-    .modal-header{
-            font-size: 20px;
-            background-color: #1CB6E9;
-            color: #FFFFFF;
-        }
-        .modal-body{
-            font-size: 15px;
-        }
-        .modal-footer{
-            font-size: 15px;}
-    #IcNewEmp{
-    font-size:25px;
-    width: 1em;
-    height: 1em;
-}
-</style>
 @endsection
