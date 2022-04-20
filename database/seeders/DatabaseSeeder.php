@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             ClienteSeeder::class,
             EmpleadoSeeder::class,
             ServicioSeeder::class,
-            
+            UsuarioSeeder::class,
         ]);
     }
 }
