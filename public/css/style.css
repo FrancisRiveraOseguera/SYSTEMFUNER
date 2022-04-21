@@ -4,6 +4,15 @@
   -webkit-box-sizing:border-box;
 }
 
+.colorbs:hover{
+  background: #a40c0c;
+  border-radius: 10px;
+  box-shadow: 0px 4px 0px #770909;
+  position:relative;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
 /*Color de la navbar*/
 .blue {
   background: #1d3d69;

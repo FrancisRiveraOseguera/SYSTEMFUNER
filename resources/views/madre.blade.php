@@ -48,7 +48,7 @@
             <li class="nav-item active">
                 <a class="nav-link" id="link" href="#"><i class="fas fa-user"></i>{{Auth()->User()->nameUser}}</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item colorbs">
                 <form action="{{route('logout')}}" method="post" id="formulario1">
                     @csrf
                     <a class="nav-link" id="link" href="javascript: document.forms['formulario1'].submit()">

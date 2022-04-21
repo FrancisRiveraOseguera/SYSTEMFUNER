@@ -17,7 +17,7 @@
     @endif
 
     <div class="emple">
-        <h3> Editar datos del Usuario</h3>
+        <h3> Editar datos del usuario</h3>
         <hr>
 
         <!--Formulario-->
