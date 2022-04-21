@@ -46,16 +46,24 @@
             <td>{{$usuario->cargo}}</td>
                 
             <td class="text-center">
+                @if ($usuario->id ==1 )
+                        
+                @else
                 <a class="btn btn-success"
                     href="{{route('usuario.edit', ['id'=> $usuario->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
-            </td>
+                @endif
+                </td>
 
             <td class="text-center">
+                @if ($usuario->id ==1 )
+                        
+                @else
                 <form method="post" action="{{route('usuario.borrar',['id'=>$usuario->id])}}">
+
                     <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush">
                         <i class="fas fa-minus-circle"></i>Eliminar
                     </a>
-    
+                    
                     <!--Modal: modalPush-->
                     <div class="modal fade" tabindex="1" id="modalPush"role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-notify modal-info" role="document">
@@ -83,6 +91,7 @@
                         </div>
                     </div>
                 </form>
+                @endif
             </td>
         </tr>
                    
