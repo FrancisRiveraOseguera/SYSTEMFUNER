@@ -46,17 +46,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" id="link" href="#">
-                   
-                </li>
-                <li class="nav-item">
-                    
+                <a class="nav-link" id="link" href="#"><i class="fas fa-user"></i>{{Auth()->User()->nameUser}}</a>
+            </li>
+            <li class="nav-item">
+                <form action="{{route('logout')}}" method="post" id="formulario1">
+                    @csrf
+                    <a class="nav-link" id="link" href="javascript: document.forms['formulario1'].submit()">
                         <i class="fas fa-sign-out-alt"></i>
-                             Cerrar sesión
+                        Cerrar sesión
                         <span class="sr-only">(current)</span>
                     </a>
-               
-           
+                </form>
             </li>
         </ul>
     </div>

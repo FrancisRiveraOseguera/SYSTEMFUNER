@@ -34,39 +34,68 @@
     <title>Funerales La Bendición</title>
 </head>
 <body>
-<header class="masthead">
-    <div class="container">
-        <div class="masthead-heading text-uppercase"><img src="assets/logo.png" style="width: 50px;" alt="Logo" /> Funerales La Bendición</div><br>
-        <div class="masthead-subheading">¡Bienvenido a Funerales La Bendición!</div><br>
-        <a class="btn btn-light" href="#categorias">Categorías principales</a><br>
-        <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel" style="width: 400px; margin-left: 350px">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="assets/Jardín.png" alt="First slide" style="height: 280px">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="assets/Faraón.png" alt="Second slide" style="height: 280px">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="assets/Romano.png" alt="Third slide" style="height: 280px">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+
+<!--Panel superior-->
+<nav class="navbar navbar-expand-lg navbar-light blue fixed-top">
+    <a class="navbar-brand">
+        <img src="/assets/logo.png" class="rounded-circle" width="50" height="50">
+        <h4 id="logo">Funerales La Bendición</h4>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"   data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" id="link" href="#"><i class="fas fa-user"></i>{{Auth()->User()->nameUser}}</a>
+            </li>
+            <li class="nav-item">
+                <form action="{{route('logout')}}" method="post" id="formulario1">
+                    @csrf
+                    <a class="nav-link" id="link" href="javascript: document.forms['formulario1'].submit()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Cerrar sesión
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </form>
+            </li>
+        </ul>
     </div>
-</header>
+</nav>
+
+<div class="container masthead col-sm-12">
+    <br><br>
+    <div class="masthead-subheading">¡Bienvenido a Funerales La Bendición!</div><br>
+    <a class="btn btn-light ml-5" href="#categorias">Categorías principales</a>
+    <div id="carouselExampleIndicators" class="carousel slide mt-2" data-ride="carousel" style="width: 500px; margin-left: 400px">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="assets/Jardín.png" alt="First slide" style="height: 350px">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="assets/Faraón.png" alt="Second slide" style="height: 350px">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="assets/Romano.png" alt="Third slide" style="height: 350px">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
 <br>
 <section class="page-section">
     <div class="container" id="categorias">
