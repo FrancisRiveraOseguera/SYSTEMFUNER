@@ -106,7 +106,7 @@ class UsuarioController extends Controller
 
         $rules=[
             'correo' => 'required|max:35|min:8|email:filter|unique:usuarios,correo,'.$id,
-            'nameUser' => 'required|max:20|unique:usuarios,nameUser,'.$id,
+            'nameUser' => 'required|max:20|min:5|unique:usuarios,nameUser,'.$id,
             'cargo' => 'required|regex:/^[\pL\s\-]+$/u|min:5|max:50|unique:usuarios,cargo,'.$id,
         
         ];
@@ -115,13 +115,17 @@ class UsuarioController extends Controller
             'correo.required' => 'El campo :attribute no puede estar vacío.',
             'correo.regex' => 'El campo :attribute no cumple el formato correcto.',
             'correo.unique' => 'El campo :attribute debe de ser único.',
-
+            
+            'nameUser.required' => 'El campo nombre de usuario no puede estar vacío.',
+            'nameUser.max' => 'El campo nombre debe tener como máximo 20 caracteres.',
+            'nameUser.unique' => 'El campo nombre de usuario ya está en uso, este campo debe ser único.',
+            'nameUser.min' => 'El campo nombre de usuario debe tener como mínimo 5 caracteres.',
 
             'correo.required' => 'El campo :attribute no puede estar vacío.',
             'correo.max' => 'El campo :attribute debe contener 35 letras como máximo.',
             'correo.min' => 'El campo :attribute debe contener 8 letras como mínimo.',
 
-            'cargo.required'  => 'El campo :attribute no puede estar vacío.',
+            'cargo.required'  => 'El campo :attribute no ha sido seleccionado.',
 
         ];
 
