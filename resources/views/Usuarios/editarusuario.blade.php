@@ -39,29 +39,17 @@
 
 
         <div class="form-group row">
-                <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido">
-                    <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
+                <label for="empleado_id" class="col-lg-2 control-label offset-md-1 requerido">
+                    <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombre del empleado</label>
             <div class="col-sm-8">
-                <input type = "text"
+                <input type = "text" readonly
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                       maxlength = "35" name="nombres" id="nombres"
+                       maxlength = "35" name="empleado_id" id="empleado_id"
                        placeholder="Nombres del usuario." class="form-control"
-                value="{{$usuario->nombres}}"/>
+                value="{{$usuario->empleados->nombres }}&nbsp;{{ $usuario->empleados->apellidos}}"/>
             </div>
         </div>
 
-
-        <div class="form-group row">
-            <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido">
-                <i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
-            <div class="col-sm-8">
-                <input type = "text"
-                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                       maxlength = "35" name="apellidos" id="apellidos"
-                       placeholder="Apellidos del usuario." class="form-control"
-                value="{{$usuario->apellidos}}"/>
-            </div>
-        </div>
 
         <div class="form-group row">
             <label for="nameUser" class="col-lg-2 control-label offset-md-1 requerido">
@@ -86,15 +74,7 @@
             </div>
         </div>
 
-        <div class="form-group row">
-            <label for="password" class="col-lg-2 control-label offset-md-1 requerido">
-                <i  id="IcNewEmp" <i class="bi bi-key"></i>Contraseña</label>
-            <div class="col-sm-8">
-                <input type="password" style="width: 95%; height: 100%;" placeholder="  Ingresa la contraseña, mínimo 8 letras." id="password" class="masked" name="password" maxlength="20" style="resize: none;"
-                placeholder="Contraseña para el usuario." rows="1" cols="52" class="form-control masked"  value="{{$usuario->password}}"></input>
-                <i class="fa fa-eye" id="eye"></i>
-            </div>
-        </div>
+        
         <br>
                 <!--Botones-->
                 <div>
