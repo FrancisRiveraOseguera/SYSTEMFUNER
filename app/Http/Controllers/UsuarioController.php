@@ -63,7 +63,7 @@ class UsuarioController extends Controller
 
             'empleado_id.exists' => 'El campo nombre del empleado no fue seleccionado.',
             'empleado_id.required' => 'El campo nombre del empleado no fue seleccionado.',
-            'empleado.unique' => 'Este empleado ya posee un usuario existente dentro del sistema.',
+            'empleado_id.unique' => 'Este empleado ya posee un usuario existente dentro del sistema.',
 
             'nameUser.required' => 'El campo nombre de usuario no puede estar vacío.',
             'nameUser.max' => 'El campo nombre debe tener como máximo 20 caracteres.',

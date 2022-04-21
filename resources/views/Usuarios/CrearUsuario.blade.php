@@ -52,11 +52,11 @@
                 <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido">
                     <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombre del empleado</label>
             <div class="col-sm-8">
-                <select name="empleado_id" style="width: 500px;" class=" form-control">
+                <select name="empleado_id" style="width: 100%;" class=" form-control">
                     @if (isset($ident))
                         <option style="display: none" value="{{$ident->id}}">{{$ident->nombres}} {{$ident->apellidos}}</option>
                     @else
-                        <option selected disabled value="0">Selecciona el nombre del empleado que será dueño de este usuario.</option>
+                        <option selected disabled value="0">Seleccione el nombre del empleado que será dueño de este usuario.</option>
                     @endif
                     <?php 
                     while($datos = mysqli_fetch_array($query))
@@ -83,7 +83,7 @@
             <div class="col-sm-8">
                 <textarea name="nameUser" id="nameUser" maxlength="20" style="resize: none;"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                placeholder="Nombre que utilizará el usuario."  rows="1" cols="52"
+                placeholder="Ingrese el nombre que utilizará el usuario."  rows="1" cols="52"
                 class="form-control">{{old('nameUser', $usuario->nameUser ?? '')}}</textarea>
             </div>
         </div>
@@ -104,7 +104,7 @@
             <label for="password" class="col-lg-2 control-label offset-md-1 requerido">
                 <i  id="IcNewEmp" <i class="bi bi-key"></i>Contraseña</label>
             <div class="col-sm-8">
-                <input type="password" style="width: 95%; height: 100%;" placeholder="  Ingresa la contraseña, mínimo 8 letras." id="password" class="masked" name="password" maxlength="20" style="resize: none;"
+                <input type="password" style="width: 94%; height: 100%;" placeholder="  Ingrese la contraseña, mínimo 8 letras." id="password" class="masked" name="password" maxlength="20" style="resize: none;"
                 placeholder="Contraseña para el usuario." rows="1" cols="52" class="form-control masked">{{old('password', $usuario->password ?? '')}}</input>
                 <i class="fa fa-eye" id="eye"></i>
             </div>
