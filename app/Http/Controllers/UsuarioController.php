@@ -16,7 +16,7 @@ class UsuarioController extends Controller
     public function index(Request $request)
     { 
         $busqueda = trim($request->get('busqueda'));
-        $usuarios = DB::table('usuarios')
+        $usuarios = usuario::orderby('usuarios.id','DESC')
 
         ->where('nameUser', 'LIKE', '%'.$busqueda.'%')
         ->orwhere('correo', 'LIKE', '%'.$busqueda.'%')
