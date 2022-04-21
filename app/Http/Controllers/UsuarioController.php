@@ -106,20 +106,9 @@ class UsuarioController extends Controller
 
         $rules=[
             'correo' => 'required|max:35|min:8|email:filter|unique:usuarios,correo,'.$id,
-            'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
-            'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'nameUser' => 'required|max:20|unique:usuarios,nameUser,'.$id,
             'cargo' => 'required|regex:/^[\pL\s\-]+$/u|min:5|max:50|unique:usuarios,cargo,'.$id,
-            'password' => [
-                'required', 'max:30',
-                Password::min(8)
-                    ->mixedCase()
-                    ->letters()
-                    ->numbers()
-                    ->symbols()
-                    ->uncompromised(),
-            ],
-            'password_confirmation' => 'min:8|max:50|same:password',
+        
         ];
 
         $mensaje=[
@@ -127,13 +116,6 @@ class UsuarioController extends Controller
             'correo.regex' => 'El campo :attribute no cumple el formato correcto.',
             'correo.unique' => 'El campo :attribute debe de ser único.',
 
-            'nombres.required' => 'El campo :attribute no puede estar vacío.',
-            'nombres.regex' => 'El campo :attribute solo debe contener letras. ',
-            'nombres.max' => 'El campo :attribute debe contener 35 letras como máximo.',
-
-            'apellidos.required' => 'El campo :attribute no puede estar vacío.',
-            'apellidos.regex' => 'El campo :attribute solo debe contener letras. ',
-            'apellidos.max' => 'El campo :attribute debe contener 35 letras como máximo.',
 
             'correo.required' => 'El campo :attribute no puede estar vacío.',
             'correo.max' => 'El campo :attribute debe contener 35 letras como máximo.',
@@ -141,8 +123,6 @@ class UsuarioController extends Controller
 
             'cargo.required'  => 'El campo :attribute no puede estar vacío.',
 
-            'password.required'  => 'El campo Contraseña no puede estar vacío.',
-            'password.alpha_num'  => 'El campo Contraseña debe tener letras y números',
         ];
 
     $this->validate($request,$rules,$mensaje);
@@ -151,11 +131,9 @@ class UsuarioController extends Controller
 
         
         $actualizarUsuario->correo = $request->input('correo');
-        $actualizarUsuario->nombres = $request->input('nombres');
-        $actualizarUsuario->apellidos = $request->input('apellidos');
         $actualizarUsuario->nameUser = $request->input('nameUser');
         $actualizarUsuario->cargo = $request->input('cargo');
-        $actualizarUsuario->password = $request->input('password');
+        
 
 
         $actualizado = $actualizarUsuario->save();
