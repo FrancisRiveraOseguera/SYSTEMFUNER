@@ -10,11 +10,11 @@
             </svg>
             <input type="correo" name="correo" class="login__input name @error('correo') is-invalid @enderror" placeholder="Correo electrónico"/>
             @error('correo')
-                <span class="invalid-feedback" role="alert" style="font-size: 15px;color:red">
+                <span class="invalid-feedback" role="alert" style="  font-size: 15px;color:rgb(0, 238, 255)">
                     @if ($message == 'El campo correo es obligatorio.')
                     El campo correo electrónico es obligatorio.
                     @else
-                    {{$message}}
+                    {{$message}} 
                     @endif
                 </span>
             @enderror
@@ -26,7 +26,7 @@
             </svg>
             <input type="password" name="password"  class="login__input pass @error('password') is-invalid @enderror" placeholder="Contraseña"/>
             @error('password')
-                <span class="invalid-feedback" role="alert" style="font-size: 15px;color:red">
+                <span class="invalid-feedback" role="alert" style= " font-size: 15px;color:rgb(0, 238, 255)">
                     @if ($message == 'El campo password es obligatorio.')
                         El campo contraseña es obligatorio.
                     @endif
