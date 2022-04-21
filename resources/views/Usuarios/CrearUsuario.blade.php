@@ -56,7 +56,7 @@
                     @if (isset($ident))
                         <option style="display: none" value="{{$ident->id}}">{{$ident->nombres}} {{$ident->apellidos}}</option>
                     @else
-                        <option value="0">Selecciona el nombre del empleado que será dueño de este usuario.</option>
+                        <option selected disabled value="0">Selecciona el nombre del empleado que será dueño de este usuario.</option>
                     @endif
                     <?php 
                     while($datos = mysqli_fetch_array($query))

@@ -39,9 +39,9 @@ class UsuarioController extends Controller
         //Validación de los datos
         $rules=[
             'correo' => 'required|max:35|min:8|unique:usuarios,correo|email:filter',
-            'empleado_id' => 'required|exists:App\Models\Empleado,id',
-            'nameUser' => 'required|max:20|unique:usuarios,nameUser',
-            'cargo' => 'required',
+            'empleado_id' => 'required|unique:usuarios,empleado_id|exists:App\Models\Empleado,id',
+            'nameUser' => 'required|min:5|max:20|unique:usuarios,nameUser',
+            'cargo' => 'required|unique:usuarios,cargo',
             'password' => [
                 'required','min:8',
                 Password::min(8)
@@ -58,13 +58,20 @@ class UsuarioController extends Controller
             'correo.required' => 'El campo :attribute no puede estar vacío.',
             'correo.regex' => 'El campo :attribute no cumple el formato correcto.',
             'correo.unique' => 'El campo :attribute debe de ser único.',
+            'correo.max' => 'El campo :attribute debe contener 35 letras como máximo.',
+            'correo.min' => 'El campo :attribute debe contener 8 letras como mínimo.',
 
             'empleado_id.exists' => 'El campo nombre del empleado no fue seleccionado.',
             'empleado_id.required' => 'El campo nombre del empleado no fue seleccionado.',
+            'empleado.unique' => 'Este empleado ya posee un usuario existente dentro del sistema.',
 
             'nameUser.required' => 'El campo nombre de usuario no puede estar vacío.',
+            'nameUser.max' => 'El campo nombre debe tener como máximo 20 caracteres.',
+            'nameUser.unique' => 'El nombre de usuario ya está en uso, este campo debe ser único.',
+            'nameUser.min' => 'El campo nombre de usuario debe tener como mínimo 5 caracteres.',
 
             'cargo.required'  => 'El campo :attribute no puede estar vacío.',
+            'cargo.unique' => 'El campo :attribute ya está en uso.',
 
             'password.required'  => 'El campo contraseña no puede estar vacío.',
             'password.min'  => 'La contraseña es insegura, para mayor seguridad debe poseer 8 caracteres como mínimo.',
