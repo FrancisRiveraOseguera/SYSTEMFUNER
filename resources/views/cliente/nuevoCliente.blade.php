@@ -115,12 +115,18 @@
         <br>
 
         <!--botones-->
-        @if ($cliente==0)
+        @if ($cliente==-1)
             <a class="btn btn-primary" href="{{route('ventaCredito.nueva')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
         @else
+           @if ($cliente==0)
+            <a class="btn btn-primary" href="{{route('VentaContado.nueva')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
+            @else
             <a class="btn btn-primary" href="{{route('listado.clientes')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
-        @endif
-        <button type="submit" class="btn btn-success" ><i class="bi bi-save"></i>Guardar</button>
+            @endif
+            @endif   
+         
+        
+        <button type="submit" class="btn btn-success"  ><i class="bi bi-save"></i>Guardar</button>
     </form>
 </div>
 

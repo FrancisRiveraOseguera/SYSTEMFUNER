@@ -12,7 +12,7 @@
 
         <div>
             <br>
-            <a class="btn btn-info btn block" href="{{route('cliente.nuevo')}}">
+            <a class="btn btn-info btn block" href="{{route('cliente.nuevo',['cliente'=>-2])}}">
                 <i class="bi bi-plus-circle"></i>Nuevo cliente
             </a>
         </div>

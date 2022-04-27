@@ -91,15 +91,33 @@ class ClienteController extends Controller
         $creado = $nuevoCliente->save();
 
         if ($creado) {
-            if($cliente == 0){
+            if($cliente == -1){
   //              return redirect()->route('VentaContado.nueva',['ident'=>$nuevoCliente->id])
                 return redirect()->route('ventaCredito.nueva',['ident'=>$nuevoCliente->id])
-                ->with('mensaje', 'El cliente fue registrado exitosamente.');
-            }else{
-                return redirect()->route('listado.clientes')
-                ->with('mensaje', 'El cliente fue registrado exitosamente.');
-            }
-            }
+                ->with('mensaje', 'El cliente fue registrado exitosamente.');}//fin if
+
+                
+                    if($cliente == 0){
+                         return redirect()->route('VentaContado.nueva',['ident'=>$nuevoCliente->id])
+                         ->with('mensaje', 'El cliente fue registrado exitosamente.');
+
+                        }//fin if
+
+                        if($cliente == -2){  
+                             return redirect()->route('listado.clientes')
+                          ->with('mensaje', 'El cliente fue registrado exitosamente.');
+
+                        }//fin else
+
+
+                
+                        
+                
+    
+                   
+                   
+         }
+       
     }
 
     /**

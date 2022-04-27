@@ -28,7 +28,7 @@
         
             <hr>
             <acronym title="Haz click para agregar un cliente nuevo desde aquí.">
-            <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; " href="{{route('cliente.nuevo',['cliente'=>0])}}">
+            <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; " href="{{route('cliente.nuevo',['cliente'=>-1])}}">
             <i class="bi bi-plus-circle"></i>Nuevo cliente</a>  
             </acronym>
         
