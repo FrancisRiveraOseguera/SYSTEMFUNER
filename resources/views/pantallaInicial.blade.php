@@ -104,29 +104,29 @@
         </div>
         <div class="row text-center">
             <div class="col-md-4">
-                <img src="/assets/empleados.png" alt="Empleados" width="200px">
-                <a class="btn btn-success" href="{{route('empleado.index')}}">Dirigir a empleados</a>
+                <img src="/assets/empleados.png" alt="Empleados" width="200px"><br>
+                <a class="btn btn-success" href="{{route('empleado.index')}}">Empleados</a>
                 <p class="text-muted">Ingresa a nuestra base de datos para empleados.</p>
             </div>
             <div class="col-md-4">
                 <img src="/assets/clientes.png" alt="Clientes" width="200px" class="mb-1"><br>
-                <a class="btn btn-success" href="{{route('listado.clientes')}}">Dirigir a clientes</a>
+                <a class="btn btn-success" href="{{route('listado.clientes')}}">Clientes</a>
                 <p class="text-muted">Ingresa a nuestra base de datos para clientes.</p>
             </div>
             <div class="col-md-4">
-                <img src="/assets/ataud.png" alt="Servicios" width="200px">
-                <a class="btn btn-success" href="{{route('Servicio.lista')}}">Dirigir a servicios</a>
+                <img src="/assets/ataud.png" alt="Servicios" width="200px"><br>
+                <a class="btn btn-success" href="{{route('Servicio.lista')}}">Servicios</a>
                 <p class="text-muted">Ingresa a nuestra base de datos para servicios.</p>
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-4">
-                <img src="/assets/inventario1.png" alt="Inventario" width="200px">
-                <a class="btn btn-success" href="{{route('inventario.home')}}">Dirigir a inventario</a>
+                <img src="/assets/inventario1.png" alt="Inventario" width="200px"><br>
+                <a class="btn btn-success" href="{{route('inventario.home')}}">Inventario</a>
                 <p class="text-muted">Ingresa a nuestro inventario de productos.</p>
             </div>
             <div class="col-md-4">
                 <img src="/assets/ventas1.png" alt="Ventas" width="200px" class="mb-1"><br>
-                <a class="btn btn-success" href="{{route('ventas.index')}}">Dirigir a ventas</a>
+                <a class="btn btn-success" href="{{route('ventas.index')}}">Ventas</a>
                 <p class="text-muted">Ingresa a nuestra base de datos de ventas.</p>
             </div>
         </div>
