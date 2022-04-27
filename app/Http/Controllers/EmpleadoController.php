@@ -164,14 +164,14 @@ class EmpleadoController extends Controller
     public function update(Request $request, $id)
     {
         $rules=[
-            'identidad' => 'required|regex:([0,1]{1}[0-9]{12})|numeric',
+            'identidad' => 'required|regex:([0,1]{1}[0-9]{12})|numeric|unique:empleados,identidad,'.$id,
             'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'genero' => 'required',
             'fecha_ingreso' => 'required',
             'fecha_de_nacimiento' => 'required',
-            'telefono' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
-            'contacto_de_emergencia' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
+            'telefono' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:empleados,telefono,'.$id,
+            'contacto_de_emergencia' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:empleados,contacto_de_emergencia,'.$id,
             'direccion' => 'required|max:100'
         ];
 
