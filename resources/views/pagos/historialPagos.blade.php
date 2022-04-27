@@ -36,6 +36,8 @@
         @endforeach
         </tbody>
     </table>
+    <!--paginación de la tabla-->
+   {{$cuotas->links() }}
 </div>
 
     <style>

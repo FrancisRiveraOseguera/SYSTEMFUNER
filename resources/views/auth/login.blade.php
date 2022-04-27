@@ -34,7 +34,7 @@
                 </span>
             @enderror
         </div>
-        <button type="submit" class="login__submit">Iniciar Sesión</button>
+        <button type="submit" class="login__submit">Iniciar sesión</button>
     </div>
 </form>
 @endsection
