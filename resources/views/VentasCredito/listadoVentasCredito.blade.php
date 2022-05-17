@@ -81,9 +81,38 @@
                         <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
                     </a>
                     @else
-                    <a class="btn btn-secondary text-white" target="_blank">
+                    <!-- <a class="btn btn-secondary text-white" target="_blank">
+                        <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
+                    </a>-->
+
+                    <!-- Button trigger modal-->
+                    <a class="btn btn-secondary text-white" data-toggle="modal" data-target="#modalPush">
                         <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
                     </a>
+
+                    <!--Modal: modalPush-->
+                    <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                        <div class="modal-dialog modal-notify modal-info" role="document">
+                            <!--Content-->
+                            <div class="modal-content text-center">
+                                <!--Header-->
+                                <div class="modal-header d-flex justify-content-center">
+                                    <p class="heading">Nuevo Pago</p>
+                                </div>
+
+                                <!--Body-->
+                                <div class="modal-body">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                    <p>Este cliente no puede realizar un nuevo pago, ya que el saldo pendiente es L0.00 </p>
+                                </div>
+
+                                <!--Footer-->
+                                <div class="modal-footer flex-center">
+                                    <a href="{{route('ventasCredito.index')}}" class="modal-footer btn-primary">¡Entendido!</a>
+                                </div>
+                            </div>
+                        </div>
                     @endif
                 </td>
 
