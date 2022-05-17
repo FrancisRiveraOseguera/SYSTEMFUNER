@@ -81,10 +81,6 @@
                         <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
                     </a>
                     @else
-                    <!-- <a class="btn btn-secondary text-white" target="_blank">
-                        <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
-                    </a>-->
-
                     <!-- Button trigger modal-->
                     <a class="btn btn-secondary text-white" data-toggle="modal" data-target="#modalPush">
                         <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
@@ -98,12 +94,11 @@
                             <div class="modal-content text-center">
                                 <!--Header-->
                                 <div class="modal-header d-flex justify-content-center">
-                                    <p class="heading">Nuevo Pago</p>
+                                    <p class="heading"><i class="fas fa-hand-holding-usd"></i>Nuevo Pago</p>
                                 </div>
 
                                 <!--Body-->
                                 <div class="modal-body">
-                                    <i class="fas fa-hand-holding-usd"></i>
                                     <p>Este cliente no puede realizar un nuevo pago, ya que el saldo pendiente es L0.00 </p>
                                 </div>
 
