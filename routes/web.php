@@ -139,6 +139,9 @@ Route::middleware("auth")->group(function () {
 
     //RUTAS DE VENTAS
     //Rutas de creación y validación de ventas
+    Route::get('listadoTodasLasVentas',[contadoVentaController::class, 'ventas'])
+    ->name('listadotodaslas.ventas');
+
     Route::get('listadoVentasContado',[contadoVentaController::class, 'index'])
     ->name('listadoVentas.index');
 

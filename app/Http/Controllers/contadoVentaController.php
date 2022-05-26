@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 class contadoVentaController extends Controller
 {
+    public function  ventas() {
+        //mandarlo  a buscar 
+        $ventas  = DB::table('todaslasventas')->get();
+        return view ('VentasContado/listadoVentas')->with('ContadoVenta', $ventas );
+
+    }
+
+
     //función para mostrar  listado de ventas al contado y hacer las búsquedas
     public function index(Request $request){
         $busqueda = trim($request->get('busqueda'));
