@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="vent">
+<div class="formato">
     <div class="row">
         <h3 class="col-lg-7">Listado de ventas al crédito</h3>
 
@@ -45,7 +45,7 @@
 
 
 <!--Creación de tabla-->
-<div class="vent !important">
+<div class="formato !important">
     <table class="table" >
         <thead>
         <tr>
@@ -117,34 +117,17 @@
                     </a>
                 </td>
 
-
             </tr>
             @empty
             <tr>
-                <th scope="row" colspan="5"> No hay resultados</th>
+                <th scope="row" colspan="5">No hay resultados</th>
             </tr>
             @endforelse
         </tbody>
     </table>
     {{$ventas->links()}}
 </div>
-
 <style>
-    .vent {
-        border-top: 1px solid #E6E6E6 ;
-        border-left: 1px solid #E6E6E6 ;
-        border-right: 1px solid #E6E6E6;
-        border-bottom: 1px solid #E6E6E6 ;
-        padding: 20px;
-        background-color: #E0F8F7;
-        position:relative;
-    }
-
-    .vent{
-        font-style: bold;
-        font-family: 'Times New Roman', Times, serif;
-    }
-
     .btnAqua{
         background: darkturquoise;
         color: white;
@@ -154,7 +137,5 @@
         color: white;
         background: lightseagreen;
     }
-
-
 </style>
 @endsection

@@ -242,3 +242,18 @@ a[data-toggle="collapse"] {
     width: 1em;
     height: 1em;
 }
+
+.xd{
+    width:40%;
+}
+.x{
+    width:60%;
+    float:right;
+    padding: 20px;
+    position: absolute;
+    top: 20%;
+    right: 20px;
+
+}
+
+
