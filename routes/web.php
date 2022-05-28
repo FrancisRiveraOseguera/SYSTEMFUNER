@@ -222,8 +222,17 @@ Route::middleware("auth")->group(function () {
         ->name('usuario.edit')->where('id', '[0-9]+');
 
     Route::put('/usuario/{id}/editar', 'App\Http\Controllers\UsuarioController@update')
-        ->name('usuario.update')->where('id', '[0-9]+');  
+        ->name('usuario.update')->where('id', '[0-9]+');
+    
+    // RUTAS CARGOS
+    Route::get('/listadoCargos', 'App\Http\Controllers\cargoController@index')
+        ->name('listadoCargos.index');
+    
+    Route::get('/nuevoCargo', 'App\Http\Controllers\cargoController@create')
+        ->name('cargos.nuevo');
 
+    Route::post('/nuevoCargo', 'App\Http\Controllers\cargoController@store')
+        ->name('cargos.store');
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas
 });//después de esta linea todas las rutas que se agreguen no pediran estar logueado para acceder.
