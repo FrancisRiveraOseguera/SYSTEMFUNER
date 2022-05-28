@@ -43,6 +43,10 @@ Route::middleware("auth")->group(function () {
     Route::get('listadoVentaTipoServicio/{id}',[DetalleServicioController::class, 'index'])
     ->name('tipoServicio.index')->where('id', '[0-9]+');
 
+    //ruta para ver las ventas al crédito de cada tipo de servicio desde el listado de SERVICIOS
+    Route::get('/ventasCreditoDelServicio/{id}', 'App\Http\Controllers\DetalleServicioController@creditoVentas')
+        ->where('id', '[0-9]+')->name('ventasCreditoDelServicio');
+
     //RUTAS PARA EDITAR SERVICIO
     Route::get('/servicio/{id}/editar', 'App\Http\Controllers\ServicioController@editar')
         ->name('Servicio.editar')->where('id', '[0-9]+');
