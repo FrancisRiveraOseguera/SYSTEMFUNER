@@ -5,7 +5,7 @@
 <div class="formato">
     <div class="row">
         <div class="col-lg-7">
-            <h3>Listado de ventas al contado del servicio</h3>
+            <h3>Listado de ventas al contado del servicio <a ><b>{{$servicio->tipo}} </b></a></h3>
             <br>
              <a class="btn btn-primary btn block" href="{{route('Servicio.lista')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
         </div>
@@ -24,7 +24,7 @@
         <th scope="col">Empleado</th>
         <th scope="col">Tipo de servicio</th>
         <th scope="col">Cantidad</th>
-        <th scope="col">Precio Unitario</th>
+        <th scope="col">Precio unitario</th>
         <th scope="col">Costo Total</th>
     </tr>
   </thead>

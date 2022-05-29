@@ -13,7 +13,7 @@ class cargoController extends Controller
     {
         $busqueda = trim($request->get('busqueda'));
 
-        $cargo = DB::table('cargos')
+        $cargo = DB::table('cargos')->orderby('id','DESC' )
 
             ->where('cargo', 'LIKE', '%'.$busqueda.'%')
             ->orwhere('sueldo', 'LIKE', '%'.$busqueda.'%')
@@ -61,5 +61,51 @@ class cargoController extends Controller
     } else {
 
     }
-}
+  }
+
+  //Función para editar los datos
+  public function editar($id){
+    $cargo = Cargo::findOrFail($id);
+    return view('Cargos.editarCargo')
+        ->with('cargo', $cargo);
+    }
+
+    //Función para guardar los datos actualizados
+    public function update(Request $request, $id){
+        //Validar campos del formulario editar
+        $rules= [
+            'sueldo' => 'required|numeric|min:1'
+        ] ;
+
+        $mensaje=[
+            'sueldo.required' => 'El campo sueldo no puede estar vacío.',
+            'sueldo.numeric' => 'El campo sueldo solo acepta números.',
+            'sueldo.min'  =>'El campo :attribute no puede ser menor a Lps. 1',
+
+        ];
+
+        $this->validate($request,$rules, $mensaje);
+
+        $actualizarCargo = Cargo::findOrFail($id);
+
+        //Recuperación de los datos guardados
+        $actualizarCargo -> sueldo = $request->input('sueldo');
+    
+
+        $actualizado = $actualizarCargo-> save();
+
+        //Comprobar si fue actualizado
+        if ($actualizado){
+            return redirect()->route('listadoCargos.index')->with('mensaje',
+                'Los datos del sueldo han sido actualizados exitosamente!');
+        }
+    }
+    //Eliminar cargo
+    public function destroy($id)
+    {
+        Cargo::destroy($id);
+
+        return redirect()->route('listadoCargos.index')->with('mensaje', 'El cargo fue eliminado exitosamente!');
+    }
+
 }

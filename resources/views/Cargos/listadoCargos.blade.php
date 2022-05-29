@@ -36,6 +36,8 @@
             <tr class="table-info ">
             <th scope="col">Cargo</th>
             <th scope="col">Sueldo</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
         </tr>
         </thead>
         <tbody>
@@ -44,6 +46,43 @@
                 <td>{{$carg->cargo}}</td>
                 <td>Lps. {{$carg->sueldo}}</td>
 
+                <td>
+                    <a class="btn btn-success"
+                        href="{{route('Cargo.editar', ['id'=>$carg->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
+                    </td>
+                    <td>
+                        <form method="post" action="{{route('cargo.borrar',['id'=>$carg->id])}}">
+        
+                            <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush">
+                                <i class="fas fa-minus-circle"></i>Eliminar
+                            </a>
+                            
+                            <!--Modal: modalPush-->
+                            <div class="modal fade" tabindex="1" id="modalPush"role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-notify modal-info" role="document">
+                                    <!--Content-->
+                                    <div class="modal-content text-center">
+                                        <!--Header-->
+                                        <div class="modal-header d-flex justify-content-center">
+                                            <p class="heading">Eliminar cargo</p>
+                                        </div>
+            
+                                        <!--Body-->
+                                        <div class="modal-body">
+                                            <p>¿Seguro que deseas eliminar el cargo?</p>
+                                        </div>
+            
+                                        <!--Footer-->
+                                        @csrf
+                                        @method('delete')
+            
+                                        <div class="modal-footer flex-center">
+                                            <button type="submit" class="modal-footer btn btn-info">Aceptar</button>
+                                            <a class="modal-footer btn btn-danger" href="{{route('listadoCargos.index')}}">Cancelar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
             </tr>
             @empty
             <tr>

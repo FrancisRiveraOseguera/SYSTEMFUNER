@@ -238,6 +238,19 @@ Route::middleware("auth")->group(function () {
     Route::post('/nuevoCargo', 'App\Http\Controllers\cargoController@store')
         ->name('cargos.store');
 
+    // Rutas editar Cargo
+
+    Route::get('/Cargo/{id}/editar', 'App\Http\Controllers\cargoController@editar')
+        ->name('Cargo.editar')->where('id', '[0-9]+');
+
+    Route::put('/Cargo/{id}/editar', 'App\Http\Controllers\cargoController@update')
+        ->name('Cargo.update')->where('id', '[0-9]+');
+
+    //Eliminar cargo
+    Route::delete('cargo/borrar/{id}', 'App\Http\Controllers\cargoController@destroy')
+    ->name('cargo.borrar')-> where('id' ,'[0-9]+');
+
+
 //todas las rutas anteriores pide estar logueado para acceder a ellas
 });//después de esta linea todas las rutas que se agreguen no pediran estar logueado para acceder.
 

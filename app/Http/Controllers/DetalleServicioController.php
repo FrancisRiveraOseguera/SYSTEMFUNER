@@ -10,8 +10,11 @@ class DetalleServicioController extends Controller
 {
     //función para mostrar el listado de ventas de cada tipo de servicio
     public function index($id){
+        $servicio = Servicio::findOrFail($id);
         $ventas = Servicio::with('contadoventas')->where('id', $id)->get();
-        return view('listadoVentaTipoServicio')->with('ventas', $ventas);
+        return view('listadoVentaTipoServicio')
+        ->with('ventas', $ventas)
+        ->with('servicio', $servicio);
 
     }//fin de la función//
 
