@@ -22,6 +22,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('genero');
             $table->string('direccion', 100);
             $table->date('fecha_ingreso');
+            $table->string('cargo_id');
             $table->date('fecha_de_nacimiento');
             $table->char('telefono', 8)->nullable();
             $table->char('contacto_de_emergencia', 8)->nullable();

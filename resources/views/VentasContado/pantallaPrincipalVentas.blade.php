@@ -30,7 +30,7 @@
                        <h4 class="card-title">Todas las ventas</h4>
                        <p class="card-text">En esta sección puede ver las ventas al contado
                            y al crédito que se han realizado.</p>
-                       <a href="#" class="btn btn-primary">Ver</a>
+                       <a href="{{route('listadotodaslas.ventas')}}" class="btn btn-primary">Ver</a>
                    </div>
                </div>
 

@@ -1,4 +1,17 @@
 @extends('madre')
+<?php
+    include 'conexion.php';
+    $query=mysqli_query($mysqli,"SELECT id, cargo  FROM cargos");
+    
+   
+    if(isset($_POST['cargo_id']))
+    {
+        $cliente_id=$_POST['cargo_id'];
+        echo $cargo_id;
+    }
+
+
+?>
 @section ('title' , 'Nuevo Empleado')
 
 @section('content')
@@ -80,6 +93,32 @@
                 max="<?php echo date('Y-m-d',strtotime($fecha_actual));?>"/>
             </div>
         </div>
+
+        <div class="form-group row">
+            <label for="cargo_id" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-rolodex"></i>Cargo</label>
+            <div class="col-sm-8">
+                <select  name="cargo_id" style="width: 680px;" class="  form-control " charset="utf8_decode" >
+
+               <option disabled selected value="0">Selecciona el cargo del nuevo empleado</option>
+                 <?php 
+            
+                  while($datos = mysqli_fetch_array($query))
+                {?>      
+                    <option value="<?php echo $datos['id']?>"> <?php echo $datos['cargo' ]?> </option>
+                    <?php
+                }
+                     ?> 
+                 </select>
+            </div>
+            <script src='../../js/select2.min.js'></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $('cargo_id').select2();
+        });
+      </script>
+        </div>
+
+
         
         <div class="form-group row">
             <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido"><i  id="IcNewEmp"class="bi bi-calendar-month"></i>Fecha Nacimiento</label>

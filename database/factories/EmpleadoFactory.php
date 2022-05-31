@@ -21,6 +21,7 @@ class EmpleadoFactory extends Factory
             'apellidos'=>$this->faker->lastName,
             'genero'=>$this->faker->randomElement(array ('Masculino','Femenino')),
             'fecha_ingreso'=>$this->faker->dateTimeBetween('-20 years', '-1 years'),
+            'cargo_id'=>$this->faker-> numberBetween(1, 1),
             'fecha_de_nacimiento'=>$this->faker->dateTimeBetween('-60 years', '-18 years'),
             'direccion'=>$this->faker->randomElement(array ('Colonia La Concepción', 'Colonia Nueva Esperanza',
             'Barrio San Antonio','Colonia El Zarzal', 'Barrio La Reforma',

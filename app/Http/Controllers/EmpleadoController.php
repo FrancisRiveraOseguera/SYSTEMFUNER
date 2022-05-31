@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Empleado;
 use App\Models\empleados_desactivados;
 use Illuminate\Http\Request;
+use App\Models\Cargo;
 use Illuminate\Support\Facades\DB;
 
 class EmpleadoController extends Controller
@@ -54,6 +55,7 @@ class EmpleadoController extends Controller
             'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'genero' => 'required',
             'fecha_ingreso' => 'required',
+            'cargo_id' => 'required',
             'fecha_de_nacimiento' => 'required',
             'telefono' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric||unique:empleados,telefono',
             'contacto_de_emergencia' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:empleados,contacto_de_emergencia',
@@ -77,6 +79,7 @@ class EmpleadoController extends Controller
         'genero.required' => 'El campo género no puede estar vacío.',
 
         'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
+        'cargo_id.required' => 'El campo :attribute no ha sido seleccionado',
 
         'fecha_de_nacimiento.required' => 'El campo :attribute no puede estar vacío.',
 
@@ -106,6 +109,7 @@ class EmpleadoController extends Controller
     $nuevoEmpleado->genero = $request->input('genero');
     $nuevoEmpleado->direccion= $request->input('direccion');
     $nuevoEmpleado->fecha_ingreso = $request->input('fecha_ingreso');
+    $nuevoEmpleado->cargo_id = $request->input('cargo_id');
     $nuevoEmpleado->fecha_de_nacimiento = $request->input('fecha_de_nacimiento');
     $nuevoEmpleado->telefono= $request->input('telefono');
     $nuevoEmpleado->contacto_de_emergencia= $request->input('contacto_de_emergencia');
@@ -169,6 +173,7 @@ class EmpleadoController extends Controller
             'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
             'genero' => 'required',
             'fecha_ingreso' => 'required',
+            'cargo_id' => 'required',
             'fecha_de_nacimiento' => 'required',
             'telefono' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:empleados,telefono,'.$id,
             'contacto_de_emergencia' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:empleados,contacto_de_emergencia,'.$id,
@@ -192,6 +197,7 @@ class EmpleadoController extends Controller
             'genero.required' => 'El campo género no puede estar vacío.',
 
             'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
+            'cargo_id.required' => 'El campo :attribute no ha sido seleccionado',
 
             'fecha_de_nacimiento.required' => 'El campo :attribute no puede estar vacío.',
 
@@ -220,6 +226,7 @@ class EmpleadoController extends Controller
         $actualizar -> apellidos = $request->input('apellidos');
         $actualizar -> genero = $request->input('genero');
         $actualizar -> fecha_ingreso = $request->input('fecha_ingreso');
+        $actualizar -> cargo_id = $request->input('cargo_id');
         $actualizar -> fecha_de_nacimiento = $request->input('fecha_de_nacimiento');
         $actualizar -> telefono = $request->input('telefono');
         $actualizar -> contacto_de_emergencia = $request->input('contacto_de_emergencia');

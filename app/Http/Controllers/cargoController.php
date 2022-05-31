@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Cargo;
+use App\Models\Empleado;
 
 class cargoController extends Controller
 {

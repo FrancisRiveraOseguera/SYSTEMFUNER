@@ -9,6 +9,9 @@ class Empleado extends Model
 {
     public function usuarios(){
         return $this->BelongsTo(usuario::class, 'id');}
+
+        public function cargos(){
+            return $this->BelongsTo(cargo::class, 'cargo_id','id');}
     
     use HasFactory;
 }

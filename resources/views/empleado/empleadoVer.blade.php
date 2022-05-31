@@ -52,6 +52,14 @@
             </div>
 
             <div class="form-group row">
+                <label for="cargo_id"  class="col-lg-2 control-label offset-md-1 requerido hijo">
+                <i  id="IcNewEmp"class="bi bi-person-rolodex"></i>Cargo:</label>
+                <div class="col-sm-8">
+                {{$empleado->cargos->cargo}}
+                </div>
+            </div>
+
+            <div class="form-group row">
                 <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp"class="bi bi-calendar-month"></i>Fecha Nacimiento:</label>
                 <div class="col-sm-8">
