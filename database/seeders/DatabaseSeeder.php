@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 use App\Models\Servicio;
+use App\Models\Cargo;
 use App\Models\Empleado;
 use Illuminate\Database\Seeder;
 
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
             EmpleadoSeeder::class,
             ServicioSeeder::class,
             UsuarioSeeder::class,
+            CargoSeeder::class,
         ]);
     }
 }
