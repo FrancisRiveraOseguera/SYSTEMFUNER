@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="formato">
-    <h3> Editar Cargo</h3>
+    <h3> Editar cargo</h3>
     <hr>
     @if ($errors->any())
     <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000">
@@ -28,7 +28,7 @@
 
         <div class="form-group row">
                 <label for="cargo" class="col-lg-2 control-label offset-md-1 requerido">
-                    <i id="IcNewEmp" class="bi bi-card-heading"></i>Nombre del cargo</label>
+                    <i id="IcNewEmp" class="bi bi-card-heading"></i>Tipo de cargo</label>
             <div class="col-sm-8">
                 <input type = "text" readonly
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"

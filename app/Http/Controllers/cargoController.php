@@ -76,10 +76,17 @@ class cargoController extends Controller
     public function update(Request $request, $id){
         //Validar campos del formulario editar
         $rules= [
+            'cargo' => 'required|regex:/^[\pL\s\-]+$/u|max:70|min:5|unique:cargos,cargo,'.$id,
             'sueldo' => 'required|numeric|min:1'
         ] ;
 
         $mensaje=[
+            'cargo.required' => 'El campo :attribute no puede estar vacío.',
+            'cargo.unique' => 'Este :attribute ya existe.',
+            'cargo.regex' => 'El campo :attribute solo debe contener letras.',
+            'cargo.min' => 'El campo :attribute debe contener como mínimo 5 letras.',
+
+
             'sueldo.required' => 'El campo sueldo no puede estar vacío.',
             'sueldo.numeric' => 'El campo sueldo solo acepta números.',
             'sueldo.min'  => 'El campo sueldo no puede ser menor a 1 lempira.',
@@ -99,7 +106,7 @@ class cargoController extends Controller
         //Comprobar si fue actualizado
         if ($actualizado){
             return redirect()->route('listadoCargos.index')->with('mensaje',
-                'Los datos del sueldo han sido actualizados exitosamente!');
+                'Los datos del cargo han sido actualizados exitosamente!');
         }
     }
     //Eliminar cargo
