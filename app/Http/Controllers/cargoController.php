@@ -33,7 +33,7 @@ class cargoController extends Controller
     {
         $rules=[
             'cargo' => 'required|regex:/^[\pL\s\-]+$/u|max:70|min:5|unique:cargos,cargo',
-            'sueldo' => 'required|numeric'
+            'sueldo' => 'required|numeric|min:1'
         ];
 
         $mensaje=[
@@ -45,6 +45,7 @@ class cargoController extends Controller
 
             'sueldo.required' => 'El campo sueldo no puede estar vacío.',
             'sueldo.numeric' => 'El campo sueldo solo acepta números.',
+            'sueldo.min' => 'El campo sueldo no puede ser menor a 1 lempira.',
         ];
 
     $this->validate($request,$rules,$mensaje);
@@ -81,7 +82,7 @@ class cargoController extends Controller
         $mensaje=[
             'sueldo.required' => 'El campo sueldo no puede estar vacío.',
             'sueldo.numeric' => 'El campo sueldo solo acepta números.',
-            'sueldo.min'  =>'El campo :attribute no puede ser menor a Lps. 1',
+            'sueldo.min'  => 'El campo sueldo no puede ser menor a 1 lempira.',
 
         ];
 

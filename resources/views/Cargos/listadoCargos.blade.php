@@ -34,7 +34,7 @@
         <thead>
         <tr>
             <tr class="table-info ">
-            <th scope="col">Cargo</th>
+            <th scope="col">Tipo de cargo</th>
             <th scope="col">Sueldo</th>
             <th scope="col">Editar</th>
             <th scope="col">Eliminar</th>
