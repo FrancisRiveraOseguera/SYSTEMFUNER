@@ -55,7 +55,7 @@
                 <label for="cargo_id"  class="col-lg-2 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp"class="bi bi-person-rolodex"></i>Cargo:</label>
                 <div class="col-sm-8">
-                {{$empleado->cargos->cargo}}
+                    {{$empleado->cargos->cargo}}
                 </div>
             </div>
 

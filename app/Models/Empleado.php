@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Empleado extends Model
 {
     public function usuarios(){
-        return $this->BelongsTo(usuario::class, 'id');}
+        return $this->BelongsTo(usuario::class, 'id');
+    }
 
-        public function cargos(){
-            return $this->BelongsTo(cargo::class, 'cargo_id','id');}
+    public function cargos(){
+        return $this->BelongsTo(Cargo::class, 'cargo_id','id');
+    }
     
     use HasFactory;
 }
