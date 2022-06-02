@@ -100,37 +100,32 @@
 <section class="page-section">
     <div class="container" id="categorias">
         <div class="text-center" style="font-family: 'Georgia'">
-            <h1 class="section-heading text-uppercase">Categorías principales</h1><br>
+            <h1 class="section-heading text-uppercase catP">Categorías principales</h1><br>
         </div>
         <div class="row text-center">
-            <div class="col-md-4">
-                <img src="/assets/empleados.png" alt="Empleados" width="200px"><br>
+            <div class="col-md-4 cat">
+                <a href="{{route('empleado.index')}}"><img src="/assets/empleados.png" alt="Empleados" width="200px"><br>
                 <a class="btn btn-success" href="{{route('empleado.index')}}">Empleados</a>
-                <p class="text-muted">Ingresa a nuestra base de datos para empleados.</p>
             </div>
-            <div class="col-md-4">
-                <img src="/assets/clientes.png" alt="Clientes" width="200px" class="mb-1"><br>
+            <div class="col-md-4 cat">
+                <a href="{{route('listado.clientes')}}"><img src="/assets/clientes.png" alt="Clientes" width="200px" class="mb-1"><br>
                 <a class="btn btn-success" href="{{route('listado.clientes')}}">Clientes</a>
-                <p class="text-muted">Ingresa a nuestra base de datos para clientes.</p>
             </div>
-            <div class="col-md-4">
-                <img src="/assets/ataud.png" alt="Servicios" width="200px"><br>
+            <div class="col-md-4 cat">
+                <a href="{{route('Servicio.lista')}}"><img src="/assets/ataud.png" alt="Servicios" width="200px"><br>
                 <a class="btn btn-success" href="{{route('Servicio.lista')}}">Servicios</a>
-                <p class="text-muted">Ingresa a nuestra base de datos para servicios.</p>
             </div>
             <div class="col-md-2"></div>
-            <div class="col-md-4">
-                <img src="/assets/inventario1.png" alt="Inventario" width="200px"><br>
-                <a class="btn btn-success" href="{{route('inventario.home')}}">Inventario</a>
-                <p class="text-muted">Ingresa a nuestro inventario de productos.</p>
+            <div class="col-md-4 cat">
+                <a href="{{route('inventario.home')}}"><img src="/assets/inventario1.png" alt="Inventario" style="margin-top: 65px;" width="200px"><br>
+                <a class="btn btn-success">Inventario</a>
             </div>
-            <div class="col-md-4">
-                <img src="/assets/ventas1.png" alt="Ventas" width="200px" class="mb-1"><br>
+            <div class="col-md-4 cat">
+                <a href="{{route('ventas.index')}}"><img src="/assets/ventas1.png" alt="Ventas" style="margin-top: 65px;" width="200px" class="mb-1"><br>
                 <a class="btn btn-success" href="{{route('ventas.index')}}">Ventas</a>
-                <p class="text-muted">Ingresa a nuestra base de datos de ventas.</p>
             </div>
         </div>
-    </div>
+    </div><br>
 </section>
 <<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

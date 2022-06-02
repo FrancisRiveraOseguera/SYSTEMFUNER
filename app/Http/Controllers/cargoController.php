@@ -32,8 +32,9 @@ class cargoController extends Controller
     public function store(Request $request)
     {
         $rules=[
-            'cargo' => 'required|regex:/^[\pL\s\-]+$/u|max:70|min:5|unique:cargos,cargo',
-            'sueldo' => 'required|numeric|min:1'
+            'cargo' => 'required | regex:/^[\pL\s\-]+$/u | max:70 | min:5 | unique:cargos,cargo',
+            'sueldo' => 'required | numeric | min:1',
+            'detalles_cargo' => 'required | max:2000 | min:25 | unique:cargos,detalles_cargo',
         ];
 
         $mensaje=[
@@ -46,6 +47,10 @@ class cargoController extends Controller
             'sueldo.required' => 'El campo sueldo no puede estar vacío.',
             'sueldo.numeric' => 'El campo sueldo solo acepta números.',
             'sueldo.min' => 'El campo sueldo no puede ser menor a 1 lempira.',
+
+            'detalles_cargo.required' => 'El campo detalles del cargo no puede estar vacío.',
+            'detalles_cargo.unique' => 'Este detalles del cargo ya existe.',
+            'detalles_cargo.min' => 'El campo detalles del cargo debe contener como mínimo 25 letras.',
         ];
 
     $this->validate($request,$rules,$mensaje);
@@ -77,7 +82,7 @@ class cargoController extends Controller
         //Validar campos del formulario editar
         $rules= [
             'cargo' => 'required|regex:/^[\pL\s\-]+$/u|max:70|min:5|unique:cargos,cargo,'.$id,
-            'sueldo' => 'required|numeric|min:1'
+            'sueldo' => 'required|numeric|min:1',
         ] ;
 
         $mensaje=[
@@ -86,11 +91,9 @@ class cargoController extends Controller
             'cargo.regex' => 'El campo :attribute solo debe contener letras.',
             'cargo.min' => 'El campo :attribute debe contener como mínimo 5 letras.',
 
-
             'sueldo.required' => 'El campo sueldo no puede estar vacío.',
             'sueldo.numeric' => 'El campo sueldo solo acepta números.',
             'sueldo.min'  => 'El campo sueldo no puede ser menor a 1 lempira.',
-
         ];
 
         $this->validate($request,$rules, $mensaje);

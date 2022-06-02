@@ -4,6 +4,22 @@
   -webkit-box-sizing:border-box;
 }
 
+.cat{
+  color: #fff;
+}
+
+.cat:hover{
+  transform: scale(1.2);
+  transition: all .5s ease-in-out;
+}
+
+.cat:active{
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
 .colorbs:hover{
   background: #a40c0c;
   border-radius: 10px;

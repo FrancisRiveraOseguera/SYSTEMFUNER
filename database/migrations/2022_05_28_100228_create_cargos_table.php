@@ -17,6 +17,7 @@ class CreateCargosTable extends Migration
             $table->id();
             $table->string('cargo');
             $table->integer('sueldo');
+            $table->string('detalles_cargo', 3000);
             $table->timestamps();
         });
     }
