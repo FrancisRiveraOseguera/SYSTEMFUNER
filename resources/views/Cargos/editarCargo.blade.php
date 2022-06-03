@@ -50,6 +50,16 @@
                     value="{{$cargo->sueldo}}"/>
             </div>
         </div>
+
+        <div class="form-group row">
+            <label for="detalles_cargo" class="col-lg-2 control-label offset-md-1 requerido">
+                <i id="IcNewEmp" class="fas fa-tasks"></i>Tareas del cargo</label>
+            <div class="col-sm-8">
+                <textarea rows="10" cols="52" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    name="detalles_cargo" id="detalles_cargo"  maxlength = "1000" minlenght = "25"
+                    placeholder="Descripción de tareas a realizar en este cargo." class="form-control">{{$cargo->detalles_cargo}}</textarea>
+            </div>
+        </div>
         <br>
 
         <a class="btn btn-primary" href="/listadoCargos"><i class="bi bi-box-arrow-left"></i>Regresar</a> 
