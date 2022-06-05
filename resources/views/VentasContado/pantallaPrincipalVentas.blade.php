@@ -10,12 +10,12 @@
                <h3 class="ml-3">Ventas</h3>
            </div>
            <div class="col-lg-3">
-               <a class="btn btn-info btn block" href="{{route('VentaContado.nueva')}}">
+               <a class="btn btn-info btn block" target="_blank" href="{{route('VentaContado.nueva')}}">
                    <i class="fas fa-donate"></i>Nueva venta al contado
                </a>
            </div>
            <div class="col-lg-3">
-               <a class="btn btn-info btn block" href="{{route('ventaCredito.nueva')}}">
+               <a class="btn btn-info btn block"  target="_blank" href="{{route('ventaCredito.nueva')}}">
                    <i class="fas fa-file-invoice-dollar"></i>Nueva venta al crédito
                </a>
            </div>

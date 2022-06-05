@@ -180,7 +180,7 @@
                     </div>
                     <!--Footer-->
                         <div class="modal-footer flex-center">
-                            <button type="close" class="modal-footer btn-info">¡Entendido!</button>
+                            <button type="close"  class="modal-footer btn-info">¡Entendido!</button>
                         </div>
                     </div> 
             </div>
@@ -191,7 +191,6 @@
     
   </div>
 
-   
   
   <style>
     #IcNewServ{

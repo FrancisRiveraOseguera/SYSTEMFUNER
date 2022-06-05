@@ -163,6 +163,10 @@ Route::middleware("auth")->group(function () {
         ->name('contadoVenta.pdf')
         ->where('id', '[0-9]+');
 
+    Route::get('/todaslasventas/crearPDF', 'App\Http\Controllers\contadoVentaController@pdftodaslasventas')
+        ->name('todaslasventas.pdf')
+        ->where('id', '[0-9]+');
+
     //Ruta para ver la página principal de ventas
     Route::get('/ventas', 'App\Http\Controllers\contadoVentaController@home')
         ->name('ventas.index');

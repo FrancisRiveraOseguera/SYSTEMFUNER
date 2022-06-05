@@ -26,11 +26,7 @@ class CreateViewTodaslasventasTable extends Migration
            WHERE MONTH(created_at)=MONTH(NOW())) ");
         
     }
-    /* DB::statement(" CREATE VIEW todaslasventas AS 
-           SELECT cliente_id, servicio_id, responsable, created_at FROM contado_ventas 
-           where MONTH(created_at)=MONTH(NOW()) 
-           UNION (SELECT cliente_id, servicio_id, responsable, created_at FROM creditoventas 
-           WHERE MONTH(created_at)=MONTH(NOW())) ");*/
+    
 
     /**
      * Reverse the migrations.

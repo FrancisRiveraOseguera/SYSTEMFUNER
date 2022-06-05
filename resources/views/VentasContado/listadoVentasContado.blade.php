@@ -11,7 +11,7 @@
  
 <div>
     <br>
-    <a class="btn btn-info btn block" href="{{route('VentaContado.nueva')}}">
+    <a target="_blank" class="btn btn-info btn block" href="{{route('VentaContado.nueva')}}">
         <i class="bi bi-plus-circle"></i>Nueva venta al contado
     </a>
 </div>

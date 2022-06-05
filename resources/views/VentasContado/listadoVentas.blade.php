@@ -7,10 +7,39 @@
 <div class="invent">
     <div class="row">
         <div class="col-lg-7">
-            <h3>Listado de Todas las ventas del Mes Actual</h3>
+            <h3>Listado de todas las ventas del mes actual</h3>
             <br>
-             <a class="btn btn-primary btn block" href="{{route('historialinventario.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
-             <a class="btn btn-danger btn block" href=""><i class="bi bi-file-earmark-pdf"></i>Previsualizar e Imprimir Reporte</a>
+             <a class="btn btn-primary btn block" href="{{route('ventas.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
+             <td>
+                    <!-- Button trigger modal-->
+                    <a class="btn btn-danger" target="_blank" href="{{route('todaslasventas.pdf')}}" data-toggle="modal" data-target="#modalPush"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
+               
+                    <!--Modal: modalPush-->
+                    <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                        <div class="modal-dialog modal-notify modal-info" role="document">
+                            <!--Content-->
+                            <div class="modal-content text-center">
+                            <!--Header-->
+                            <div class="modal-header d-flex justify-content-center">
+                                <p class="heading">Un momento...</p>
+                            </div>
+
+                            <!--Body-->
+                            <div class="modal-body">
+                                <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
+                                <p>Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
+                            </div>
+
+                            <!--Footer-->
+                            <div class="modal-footer flex-center">
+                                <a href="{{route('todaslasventas.pdf')}}" target="_blank" class="modal-footer btn-info">¡Entendido!</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                
+                </td>
             
         </div>
 <hr>

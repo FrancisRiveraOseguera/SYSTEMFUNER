@@ -48,6 +48,11 @@ class contadoVentaController extends Controller
        return view('VentasContado.crearPDF')->with('contadoventa', $venta);
     }
 
+    public function pdftodaslasventas(){
+        $ventas  = DB::table('todaslasventas')->get() ;
+        return view ('VentasContado/pdflistadoVentas')->with('ContadoVenta', $ventas );
+     }
+
     //FUNCIÓN CREACIÓN DE VENTA AL CONTADO
     public function create($ident = null){
         $clientes = Cliente::where('id',$ident)->first();
