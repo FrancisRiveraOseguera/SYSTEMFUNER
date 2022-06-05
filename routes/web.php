@@ -227,11 +227,11 @@ Route::middleware("auth")->group(function () {
 
     Route::put('/usuario/{id}/editar', 'App\Http\Controllers\UsuarioController@update')
         ->name('usuario.update')->where('id', '[0-9]+');
-    
+
     // RUTAS CARGOS
     Route::get('/listadoCargos', 'App\Http\Controllers\cargoController@index')
         ->name('listadoCargos.index');
-    
+
     Route::get('/nuevoCargo', 'App\Http\Controllers\cargoController@create')
         ->name('cargos.nuevo');
 
@@ -249,6 +249,11 @@ Route::middleware("auth")->group(function () {
     //Eliminar cargo
     Route::delete('cargo/borrar/{id}', 'App\Http\Controllers\cargoController@destroy')
     ->name('cargo.borrar')-> where('id' ,'[0-9]+');
+
+    //Detalles del cargo
+    Route::get('/cargo/detalles/{id}', 'App\Http\Controllers\cargoController@show')
+        ->where('id', '[0-9]+')
+        ->name('cargo.ver');
 
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas

@@ -14,8 +14,9 @@ class CargoFactory extends Factory
     public function definition()
     {
         return [
-            'cargo'=>$this->faker-> randomElement(array ('Vendedor', 'Cobrador')),
+            'cargo'=>$this->faker->unique()-> randomElement(array ('Vendedor', 'Cobrador')),
             'sueldo'=>$this->faker-> numberBetween(10000, 15000),
+            'detalles_cargo'=>$this->faker->text
         ];
     }
 }

@@ -38,7 +38,7 @@ class cargoController extends Controller
         ];
 
         $mensaje=[
-            
+
             'cargo.required' => 'El campo :attribute no puede estar vacío.',
             'cargo.unique' => 'Este :attribute ya existe.',
             'cargo.regex' => 'El campo :attribute solo debe contener letras.',
@@ -87,7 +87,7 @@ class cargoController extends Controller
         ] ;
 
         $mensaje=[
-            
+
             'sueldo.required' => 'El campo sueldo no puede estar vacío.',
             'sueldo.numeric' => 'El campo sueldo solo acepta números.',
             'sueldo.min'  => 'El campo sueldo no puede ser menor a 1 lempira.',
@@ -104,7 +104,7 @@ class cargoController extends Controller
         //Recuperación de los datos guardados
         $actualizarCargo -> sueldo = $request->input('sueldo');
         $actualizarCargo -> detalles_cargo = $request->input('detalles_cargo');
-    
+
         $actualizado = $actualizarCargo-> save();
 
         //Comprobar si fue actualizado
@@ -113,6 +113,14 @@ class cargoController extends Controller
                 'Los datos del cargo han sido actualizados exitosamente!');
         }
     }
+
+    //función para ver los detalles del cargo
+    public function show($id)
+    {
+        $cargo = Cargo::findOrFail($id);
+        return view('Cargos.detallesCargo')->with('cargo', $cargo);
+    }
+
     //Eliminar cargo
     public function destroy($id)
     {
