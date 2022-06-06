@@ -244,12 +244,18 @@ class EmpleadoController extends Controller
 
 
     //FUNCIÓN PARA DESACTIVAR A UN EMPLEADO
-    public function destroy ($id)
+    public function desactivar ($id)
     {
-        Empleado::destroy($id);
+        $empleado = Empleado::findOrFail($id);
 
-        return redirect()->route('empleado.index')
-            ->with('mensaje', 'El empleado ha sido desactivado exitosamente.');
+        $empleado->estado = 0;
+
+        $estado = $empleado->save();
+
+        if ($estado) {
+            return redirect()->route('empleado.index')
+                ->with('mensaje', 'El empleado ha sido desactivado exitosamente.');
+        }
     }
 
     //FUNCION PARA VER EL LISTADO DE LOS CLIENTES DESACTIVADOS
@@ -257,32 +263,42 @@ class EmpleadoController extends Controller
     {
         $busqueda = trim($request->get('busqueda'));
 
-        $empleados = DB::table('empleados_desactivados')
+        $empleados1 = DB::table('empleados')
+            ->select('*')
+            ->where("estado", "=", 0);
 
-            ->where('fecha_desactivacion', 'LIKE', '%'.$busqueda.'%')
-            ->orwhere('identidad', 'LIKE', '%'.$busqueda.'%')
-            ->orwhere('nombres', 'LIKE', '%'.$busqueda.'%')
+        $empleados2 = $empleados1
+            ->where('nombres', 'LIKE', '%'.$busqueda.'%')
+            ->orWhere('identidad', 'LIKE', '%'.$busqueda.'%');
+
+        $empleados = $empleados2
+            ->where("estado", "=", 0)
             ->paginate(15)-> withQueryString();
 
         return view('empleado.listadoEmpleadosDesactivados')
             ->with('empleados', $empleados)
             ->with('busqueda', $busqueda);
-
     }
 
     //FUNCIÓN PARA VER LA INFORMACIÓN DEL EMPLEADO DESACTIVADO
     public function verEmpleadoDesactivado($id){
-        $empleado = empleados_desactivados::findOrFail($id);
+        $empleado = Empleado::findOrFail($id);
         return view('empleado.verEmpleadoDesactivado')->with('empleado', $empleado);
     }
 
     //FUNCIÓN PARA HABILITAR UN EMPLEADO DESACTIVADO
     public function habilitarEmpleadoDesactivado($id)
     {
-        empleados_desactivados::destroy($id);
+        $empleado = Empleado::findOrFail($id);
 
-        return redirect()->route('listado.empleados.desactivados')
-            ->with('mensaje', 'El empleado ha sido habilitado exitosamente.');
+        $empleado->estado = 1;
+
+        $estado = $empleado->save();
+
+        if ($estado) {
+            return redirect()->route('listado.empleados.desactivados')
+                ->with('mensaje', 'El empleado ha sido habilitado exitosamente.');
+        }
     }
 
 }

@@ -78,9 +78,10 @@ Route::middleware("auth")->group(function () {
         ->where('id', '[0-9]+');
 
     //DESACTIVAR EMPLEADO
-    Route::delete('empleado/{id}/desactivar', 'App\Http\Controllers\EmpleadoController@destroy')
+    Route::get('empleado/desactivar/{id}', 'App\Http\Controllers\EmpleadoController@desactivar')
         ->name('empleado.desactivar')
-        ->where('id', '[0-9]+');
+        ->where('id', '[0-9]+')
+    ;
 
     //VER INFORMACIÓN DE LOS EMPLEADOS DESACTIVADOS
     Route::get('/listadoEmpleadosDesactivados',

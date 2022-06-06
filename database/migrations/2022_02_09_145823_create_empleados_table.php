@@ -14,7 +14,7 @@ class CreateEmpleadosTable extends Migration
     public function up()
     {
         Schema::create('empleados', function (Blueprint $table) {
-         
+
             $table->increments('id');
             $table->char('identidad', 13);
             $table->string('nombres', 35);
@@ -26,6 +26,7 @@ class CreateEmpleadosTable extends Migration
             $table->date('fecha_de_nacimiento');
             $table->char('telefono', 8)->nullable();
             $table->char('contacto_de_emergencia', 8)->nullable();
+            $table->tinyInteger('estado')->default(1);
             $table->timestamps();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
