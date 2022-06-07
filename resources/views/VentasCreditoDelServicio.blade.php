@@ -3,8 +3,8 @@
 @section('content')
     <div class="formato">
         <div class="row">
-            <div class="col-lg-7">
-                <h3>Listado de ventas al crédito del servicio {{$servicio->tipo}}</h3>
+            <div class="col-lg-10">
+                <h3>Listado de ventas al crédito del servicio <b>{{$servicio->tipo}}</b></h3>
                 <br>
                  <a class="btn btn-primary btn block" href="{{route('Servicio.lista')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
             </div>
@@ -34,9 +34,9 @@
                         <td>{{$venta->clientes->nombres}} {{$venta->clientes->apellidos}}</td>
                         <td>{{$venta->servicios->tipo}}</td>
                         <td>L.{{number_format($venta->servicios->precio,2)}}</td>
-                        <td>L.{{number_format($venta->servicios->cuota,2)}}</td>
-                        <td>L.{{number_format($venta->cuota,2)}}</td>
-                        <td>L.{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}</td>
+                        <td>L.{{number_format($venta->servicios->prima,2)}}</td>
+                        <td class="text-success">L.{{number_format($venta->cuota,2)}}</td>
+                        <td class="text-danger">L.{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}</td>
                     </tr>
                     @empty
                     <tr>
