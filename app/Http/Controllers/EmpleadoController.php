@@ -25,6 +25,7 @@ class EmpleadoController extends Controller
 
             ->where('identidad', 'LIKE', '%'.$busqueda.'%')
             ->orwhere('nombres', 'LIKE', '%'.$busqueda.'%')
+            ->orderBy('nombres','asc')
             ->paginate(15)-> withQueryString();
 
             return view('empleado/indice')
@@ -275,6 +276,7 @@ class EmpleadoController extends Controller
 
         $empleados = $empleados2
             ->where("estado", "=", 0)
+            ->orderBy('nombres','asc')
             ->paginate(15)-> withQueryString();
 
         return view('empleado.listadoEmpleadosDesactivados')

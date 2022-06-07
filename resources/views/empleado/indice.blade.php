@@ -80,13 +80,13 @@
                             href="{{route('empleado.edit', ['id'=> $emple->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
                     </td>
                     <td class="text-center">
-                        <form method="post" action="{{route('empleado.desactivar', ['id'=>$emple->id, 'estado'=>1])}}">
-                            <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush">
+                        <form method="post" action="{{route('empleado.desactivar', ['id'=>$emple->id])}}">
+                            <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush{{$emple->id}}">
                                 <i class="fas fa-minus-circle"></i>Desactivar
                             </a>
 
                             <!--Modal: modalPush-->
-                            <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" tabindex="1" id="modalPush{{$emple->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-notify modal-info" role="document">
                                     <!--Content-->
                                     <div class="modal-content text-center">

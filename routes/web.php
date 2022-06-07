@@ -95,7 +95,7 @@ Route::middleware("auth")->group(function () {
         ->where('id', '[0-9]+');
 
     //HABILITAR EMPLEADO DESACTIVADO
-    Route::delete('/empleadoDesactivado/{id}/Habilitar',
+    Route::get('/empleadoDesactivado/Habilitar/{id}',
         'App\Http\Controllers\EmpleadoController@habilitarEmpleadoDesactivado')
         ->name('empleado.habilitar')
         ->where('id', '[0-9]+');

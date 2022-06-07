@@ -72,12 +72,12 @@
                         </td>
                         <td class="text-center">
                             <form method="post" action="{{route('empleado.habilitar', ['id'=>$empleado->id])}}">
-                                <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush">
+                                <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush{{$empleado->id}}">
                                     <i class="fas fa-plus-circle"></i> Habilitar
                                 </a>
 
                                 <!--Modal: modalPush-->
-                                <div class="modal fade" tabindex="1" id="modalPush"role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" tabindex="1" id="modalPush{{$empleado->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-notify modal-info" role="document">
                                         <!--Content-->
                                         <div class="modal-content text-center">
@@ -92,11 +92,8 @@
                                             </div>
 
                                             <!--Footer-->
-                                            @csrf
-                                            @method('delete')
-
                                             <div class="modal-footer flex-center">
-                                                <button type="submit" class="modal-footer btn btn-info">Aceptar</button>
+                                                <a type="submit" class="modal-footer btn btn-info" href="{{route('empleado.habilitar', ['id'=>$empleado->id])}}">Aceptar</a>
                                                 <a class="modal-footer btn btn-danger" href="{{route('listado.empleados.desactivados')}}">Cancelar</a>
                                             </div>
                                         </div>
