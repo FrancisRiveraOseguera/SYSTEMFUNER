@@ -24,7 +24,7 @@
                 <label for="nombres" class="col-lg-3 control-label offset-md-1 requerido hijo">
                     <i id="IcNewEmp" class="bi bi-person-fill"></i>Empleado responsable:</label>
             <div class="col-sm-8 mt-2 ml-6">
-                {{$contadoventa->responsable}}
+                {{$contadoventa->empleados->nombres}} {{$contadoventa->empleados->apellidos}}
             </div>
         </div>
         

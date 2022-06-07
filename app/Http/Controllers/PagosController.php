@@ -27,7 +27,7 @@ class PagosController extends Controller
     // función para crear un nuevo pago 
     public function create($id)
     {
-        $venta = creditoventa::select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","responsable",
+        $venta = creditoventa::select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id",
         DB::raw('SUM(cuota) AS cuota'))
         ->leftjoin("pagos","pagos.venta_id","=","creditoventas.id")
         ->groupby("creditoventas.id")
@@ -60,7 +60,7 @@ class PagosController extends Controller
      //función de las validaciones de nuevo pago 
     public function store(Request $request, $id)
     {
-        $venta = creditoventa::select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","responsable",
+        $venta = creditoventa::select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id",
         DB::raw('SUM(cuota) AS cuota'))
         ->leftjoin("pagos","pagos.venta_id","=","creditoventas.id")
         ->groupby("creditoventas.id")

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+use App\Models\empleado;
 use App\Models\creditoventa;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,7 @@ class creditoventaController extends Controller
 
         $ventas = creditoventa::orderby('creditoventas.id','DESC')
 
-            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","responsable",
+            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id",
                 DB::raw('SUM(cuota) AS cuota'))
             ->join("clientes","cliente_id","=","clientes.id")
             ->leftjoin("pagos","pagos.venta_id","=","creditoventas.id")
@@ -57,7 +58,7 @@ class creditoventaController extends Controller
 
         $rules=[
             'cliente_id' =>'required|exists:App\Models\Cliente,id',
-            'responsable' =>'required|regex:/^[\pL\s\-]+$/u|max:50',
+            'empleado_id' => 'required|exists:App\Models\Empleado,id',
             'servicio_id' => 'required',
             'beneficiario1' =>'required|regex:/^[\pL\s\-]+$/u|max:50',
             'telefono1' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
@@ -75,10 +76,8 @@ class creditoventaController extends Controller
             'cliente_id.exists' => 'El nombre del cliente no ha sido seleccionado.',
             'cliente_id.required' => 'El Nombre del cliente no ha sido seleccionado.',
 
-            'responsable.required' => 'El campo Empleado responsable de la venta no puede estar vacío.',
-            'responsable.regex' => 'El campo Empleado responsable de la venta solo puede contener letras.',
-            'responsable.max' => 'El campo Empleado responsable de la venta debe contener 50 letras como máximo.',
-
+            'empleado_id.required' => 'El campo Empleado responsable de la venta no ha sido seleccionado.',
+            
 
             'servicio_id.required' => 'El tipo de póliza de servicio funerario no ha sido seleccionado.',
 
@@ -121,7 +120,7 @@ class creditoventaController extends Controller
         $nuevaVentaCredito= new creditoventa();
 
         $nuevaVentaCredito-> cliente_id = $request->input('cliente_id');
-        $nuevaVentaCredito-> responsable = $request->input('responsable');
+        $nuevaVentaCredito-> empleado_id = $request->input('empleado_id');
         $nuevaVentaCredito-> servicio_id = $request->input('servicio_id');
         $nuevaVentaCredito-> beneficiario1 = $request->input('beneficiario1');
         $nuevaVentaCredito-> telefono1 = $request->input('telefono1');

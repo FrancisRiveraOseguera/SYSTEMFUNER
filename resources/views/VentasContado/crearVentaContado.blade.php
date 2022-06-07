@@ -3,6 +3,7 @@
     include 'conexion.php';
     $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM clientes");
     $query2=mysqli_query($mysqli,"SELECT servicio_id, tipo FROM cantidad_inventario");
+    $query3=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM empleados");
     
    
     if(isset($_POST['cliente_id']))
@@ -15,6 +16,12 @@
     {
         $servicio_id=$_POST['servicio_id'];
         echo $servicio_id;
+    }
+
+    if(isset($_POST['empleado_id']))
+    {
+        $empleado_id=$_POST['empleado_id'];
+        echo $empleado_id;
     }
 
 ?>
@@ -82,17 +89,33 @@
     </div>
 
     <div class="col">
-      <div class="form-outline">
-          <label class=" form-label" for="responsable">Empleado responsable de la venta de la póliza:</label>
-          <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type = "text"
-                name="responsable" id="responsable"  maxlength = "50" placeholder="Nombre y apellido del responsable de la venta." class="form-control" 
-                value="{{old('responsable', $contadoVenta->responsable ?? '')}}"/> 
+    <div class="form-outline">
+        <label class="form-label" for="empleado_id">Nombre del empleado responsable:</label>
         <div>
+         <select name="empleado_id" style="width: 500px;" class=" form-control">
+            
+                <option value="0">Para seleccionar escribe las primeras letras del nombre del empleado. </option>
+                  <?php 
+                    while($datos = mysqli_fetch_array($query3))
+                  {?>     
+                <option value="<?php echo $datos['id']?>"> <?php echo $datos['nombres' ].' '.$datos['apellidos' ]?> </option>
+                 <?php
+                 }?>
+  
+         </select>
+      </div>
+          <script src='../../js/select2.min.js'></script>
+          <script type="text/javascript">
+             $(document).ready(function(){
+             $('empleado_id').select2();
+               });
+           </script>
+      
+        </div>
         </div>
     </div>
-    </div>
-    </div>
+    
+    
 
     <div class="row mb-4">
     <div class="col">
@@ -145,7 +168,7 @@
             <label for="fecha" class="form-label">
                 Fecha: </label>
             <div class="col-sm-13">
-                    <input type="text" readonly name="fecha" id="fecha" class="form-control" style="width:500px;"
+                    <input type="date"   name="fecha" id="fecha" class="form-control" style="width:500px;"
                     value="<?php echo date($fecha_actual)?>{{($contadoVenta->fecha ?? '')}}"/>
             </div>
             </div>

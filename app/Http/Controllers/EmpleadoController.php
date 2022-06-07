@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Empleado;
 use App\Models\empleados_desactivados;
 use Illuminate\Http\Request;
+use App\Models\contadoventa;
+use App\Models\creditoventa;
 use App\Models\Cargo;
 use Illuminate\Support\Facades\DB;
 

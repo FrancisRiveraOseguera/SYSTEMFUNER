@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\contadoventa;
+use App\Models\empleado;
+use App\Models\creditoventa;
 use App\Models\cantidad_inventario;
 use App\Models\Cliente;
 use Illuminate\Support\Facades\DB;
@@ -12,9 +14,16 @@ class contadoVentaController extends Controller
     public function  ventas() {
         //mandarlo  a buscar 
         $ventas  = DB::table('todaslasventas')->get();
-        return view ('VentasContado/listadoVentas')->with('ContadoVenta', $ventas );
+        return view ('VentasContado/listadoVentas')->with('ContadoVenta',  $ventas);
 
     }
+
+    //public function sumitas(){
+    //   $ventascredito  = DB::select(' SELECT  SUM((select precio from servicios where id = servicio_id)) as Totalventascredito FROM creditoventas
+    //WHERE MONTH(created_at)=MONTH(NOW())');
+    //return view('VentasContado/listadoVentas')->with('venti',$ventascredito);
+
+    //}
 
 
     //función para mostrar  listado de ventas al contado y hacer las búsquedas
@@ -23,11 +32,11 @@ class contadoVentaController extends Controller
 
         $venta = contadoventa::orderby('contado_ventas.id','DESC')
 
-        ->select("contado_ventas.id", "contado_ventas.created_at","cliente_id","servicio_id","responsable")
+        ->select("contado_ventas.id", "contado_ventas.created_at","cliente_id","servicio_id","empleado_id")
         ->join("clientes","cliente_id","=","clientes.id")
         ->where("clientes.nombres","like","%".$busqueda."%")
         ->orwhere("clientes.apellidos","like","%".$busqueda."%")
-        ->orwhere("contado_ventas.responsable","like","%".$busqueda."%")
+        ->orwhere("contado_ventas.empleado_id","like","%".$busqueda."%")
         ->paginate(15)-> withQueryString();
 
             return view('VentasContado/listadoVentasContado')
@@ -73,7 +82,7 @@ class contadoVentaController extends Controller
 
         $rules=[
             'cliente_id' =>'required|exists:App\Models\Cliente,id',
-            'responsable' =>'required|regex:/^[\pL\s\-]+$/u|max:50',
+            'empleado_id' => 'required|exists:App\Models\Empleado,id',
             'servicio_id' => 'required|exists:App\Models\Inventario,servicio_id',
             'cantidad_v' => 'required|numeric|min:1|max: '.$maximo,
             'fecha' => 'required',
@@ -84,9 +93,8 @@ class contadoVentaController extends Controller
             'cliente_id.exists' => 'El nombre del cliente no ha sido seleccionado.',
             'cliente_id.required' => 'El Nombre del cliente no ha sido seleccionado.',
 
-            'responsable.required' => 'El campo "Empleado responsable de la venta" no puede estar vacío.',
-            'responsable.regex' => 'El campo "Empleado responsable de la venta" solo puede contener letras.',
-            'responsable.max' => 'El campo "Empleado responsable de la venta" debe contener 50 letras como máximo.',
+            'empleado_id.required' => 'El campo "Empleado responsable de la venta" no ha sido seleccionado',
+           
 
             'servicio_id.exists' => 'El campo "Póliza de servicio funerario tipo: " no existe en inventario.',
             'servicio_id.required' => 'El tipo de póliza de servicio funerario no ha sido seleccionado.',
@@ -104,7 +112,7 @@ class contadoVentaController extends Controller
         $nuevaVentaContado= new contadoventa();
 
         $nuevaVentaContado-> cliente_id = $request->input('cliente_id');
-        $nuevaVentaContado-> responsable = $request->input('responsable');
+        $nuevaVentaContado-> empleado_id = $request->input('empleado_id');
         $nuevaVentaContado-> servicio_id = $request->input('servicio_id');
         $nuevaVentaContado-> fecha = $request->input('fecha');
         $nuevaVentaContado-> cantidad_v= $request->input('cantidad_v');

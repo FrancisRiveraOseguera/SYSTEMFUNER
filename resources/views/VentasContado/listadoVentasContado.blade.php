@@ -60,7 +60,7 @@
             <tr class="table-primary">
                 <td>{{date_format($vent->created_at,"d-m-Y")}}</td>
                 <td>{{$vent->clientes->nombres}} {{$vent->clientes->apellidos}}</td>
-                <td>{{$vent->responsable}}</td>
+                <td>{{$vent->empleados->nombres}} {{$vent->empleados->apellidos}}</td>
                 <td>{{$vent->servicios->tipo}}</td>
         
                 <td class="text-center">

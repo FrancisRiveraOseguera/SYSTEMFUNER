@@ -33,7 +33,7 @@
             <tr class="table-primary">
                 <td>0</td>
                 <td>{{date_format(new \DateTime($pagos->created_at), 'd/m/Y' )}}</td>
-                <td>{{$pagos->responsable}}</td>
+                <td>{{$pagos->empleados->nombres}} {{$pagos->empleados->apellidos}}</td>
                 <td>L. {{$pagos->servicios->prima}}</td>
                 <td>L. {{$pagos->servicios->precio - $pagos->servicios->prima}}</td>
             </tr>
@@ -41,7 +41,7 @@
                 <tr class="table-primary">
                     <td>{{$n}}</td>
                     <td>{{date_format(new \DateTime($pago->created_at), 'd/m/Y' )}}</td>
-                    <td>{{$pago->ventas->responsable}}</td>
+                    <td>{{$pago->ventas->empleados->nombres}} {{$pago->ventas->empleados->apellidos}}</td>
                     <td style="color:#2d812f;">L. {{$pago->cuota}}</td>
 
                     <?php 

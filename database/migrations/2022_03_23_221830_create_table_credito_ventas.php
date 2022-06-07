@@ -16,7 +16,7 @@ class CreateTableCreditoVentas extends Migration
         Schema::create('creditoventas', function (Blueprint $table) {
             $table->id();
             $table->integer('cliente_id');
-            $table->string('responsable');
+            $table->integer('empleado_id');
             $table->integer('servicio_id');
             $table->string('beneficiario1');
             $table->char('telefono1', 8);
@@ -28,6 +28,7 @@ class CreateTableCreditoVentas extends Migration
             $table->char('telefono4', 8)->nullable();
             $table->date('fecha')->notnull();
             $table->String('fechaCobro')->notnull();
+            $table->string('contratotipo')->default('A crédito');
             $table->timestamps();
         });
     }

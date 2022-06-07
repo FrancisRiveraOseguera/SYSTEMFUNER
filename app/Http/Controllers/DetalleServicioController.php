@@ -22,7 +22,7 @@ class DetalleServicioController extends Controller
     public function creditoVentas($id){
         $servicio = Servicio::findOrFail($id);
         $ventas = creditoventa::orderby('creditoventas.id','DESC')
-            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","responsable",
+            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id",
                 DB::raw('SUM(cuota) AS cuota'))
             ->join("clientes","cliente_id","=","clientes.id")
             ->leftjoin("pagos","pagos.venta_id","=","creditoventas.id")

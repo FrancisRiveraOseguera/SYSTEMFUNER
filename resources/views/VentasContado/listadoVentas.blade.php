@@ -12,7 +12,7 @@
              <a class="btn btn-primary btn block" href="{{route('ventas.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
              <td>
                     <!-- Button trigger modal-->
-                    <a class="btn btn-danger" target="_blank" href="{{route('todaslasventas.pdf')}}" data-toggle="modal" data-target="#modalPush"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
+                    <a class="btn btn-danger" target="_blank" href="{{route('todaslasventas.pdf')}}" data-toggle="modal" data-target="#modalPush"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir reporte de ventas</a>
                
                     <!--Modal: modalPush-->
                     <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -28,7 +28,7 @@
                             <!--Body-->
                             <div class="modal-body">
                                 <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
-                                <p>Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
+                                <p>Para exportar el reporte de ventas a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
                             </div>
 
                             <!--Footer-->
@@ -55,20 +55,22 @@
     <tr class="table-info"  style="width: 1020px;">
     
       <th scope="col" style="text-align: left; width: 300px;">Fecha y hora de venta</th>
-      <th scope="col"style="text-align: left;  width: 400px;">Responsable</th>
+      <th scope="col"style="text-align: left;  width: 300px;">Responsable</th>
       <th scope="col"style=" width: 300px;">Servicio</th>
       <th scope="col"style=" width: 300px;">Categoría</th>
+      <th scope="col"style=" width: 300px; ">Contrato tipo:</th>
       <th scope="col" style="text-align: left; width: 300px;">Precio</th>
-
+     
     </tr>
   </thead>
   <tbody>     
   @foreach($ContadoVenta as $ventas) 
     <tr class="table-primary"> 
     <td>{{$ventas->created_at}}</td>
-     <td>{{$ventas->responsable}}</td> 
+    <td>{{$ventas->nombres}} {{$ventas->apellidos}} </td> 
     <td>{{$ventas->TipoServicio}}</td>
     <td>{{$ventas->categoria}}</td>
+    <td style=" color: #0B614B;">{{$ventas->contratotipo}}</td> 
     <td>{{$ventas->Precio}}.00</td>     
 @endforeach
 

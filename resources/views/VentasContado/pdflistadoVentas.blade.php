@@ -24,6 +24,7 @@
       <th scope="col"style="text-align: left;  width: 400px;">Responsable</th>
       <th scope="col"style=" width: 300px;">Servicio</th>
       <th scope="col"style=" width: 300px;">Categoría</th>
+      <th scope="col"style=" width: 300px;">Contrato tipo:</th>
       <th scope="col" style="text-align: left; width: 200px;">Precio</th>
 
     </tr>
@@ -32,9 +33,10 @@
   @foreach($ContadoVenta as $ventas) 
     <tr class="table"> 
     <td>{{$ventas->created_at}}</td>
-     <td>{{$ventas->responsable}}</td> 
+    <td>{{$ventas->nombres}} {{$ventas->apellidos}} </td> 
     <td>{{$ventas->TipoServicio}}</td>
     <td>{{$ventas->categoria}}</td>
+    <td style=" color: #0B614B;">{{$ventas->contratotipo}}</td>
     <td>{{$ventas->Precio}}.00</td>     
 @endforeach
 

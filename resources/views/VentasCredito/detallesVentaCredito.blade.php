@@ -21,7 +21,7 @@
                 <label for="nombres" class="col-lg-3 control-label offset-md-1 requerido hijo">
                     <i id="IcNewEmp" class="bi bi-person-workspace"></i> Empleado responsable:</label>
             <div class="col-sm-8 mt-2 ml-6">
-                {{$venta->responsable}}
+            {{$venta->clientes->nombres}} {{$venta->clientes->apellidos}}
             </div>
         </div>
 
