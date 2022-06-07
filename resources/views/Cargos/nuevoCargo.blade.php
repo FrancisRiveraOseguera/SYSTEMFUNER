@@ -30,7 +30,7 @@
             <div class="col-sm-8">
                 <input type = "text"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    maxlength = "70" name="cargo" id="cargo"
+                    maxlength = "50" name="cargo" id="cargo"
                     placeholder="Nombre del cargo" class="form-control"
                     value="{{old('cargo', $cargos->cargo ?? '')}}"/>
             </div>
@@ -53,7 +53,7 @@
                 <i id="IcNewEmp" class="fas fa-tasks"></i>Tareas del cargo</label>
             <div class="col-sm-8">
                 <textarea rows="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    name="detalles_cargo" id="detalles_cargo"  maxlength = "2000" minlenght = "25"
+                    name="detalles_cargo" id="detalles_cargo"  maxlength = "1000" minlenght = "25"
                     placeholder="Descripción de tareas a realizar en este cargo." class="form-control"
                     value="{{old('detalles_cargo', $cargos->detalles_cargo ?? '')}}"></textarea>
             </div>

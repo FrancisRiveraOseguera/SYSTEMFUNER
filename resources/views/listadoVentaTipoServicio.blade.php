@@ -4,8 +4,8 @@
 
 <div class="formato">
     <div class="row">
-        <div class="col-lg-7">
-            <h3>Listado de ventas al contado del servicio <a ><b>{{$servicio->tipo}} </b></a></h3>
+        <div class="col-lg-10">
+            <h3>Listado de ventas al contado del servicio <b>{{$servicio->tipo}}</b></h3>
             <br>
              <a class="btn btn-primary btn block" href="{{route('Servicio.lista')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
         </div>
@@ -34,7 +34,7 @@
       <tr class="table-primary">
           <td>{{date_format($item->created_at,"d-m-Y")}}</td>
           <td>{{$item->clientes->nombres}} {{$item->clientes->apellidos}}</td>
-          <td>{{$item->responsable}}</td>
+          <td>{{$item->empleados->nombres}} {{$item->empleados->apellidos}}</td>
           <td>{{$vent->tipo}}</td>
           <td>{{$item->cantidad_v}}</td>
           <td>{{$vent->precio}}</td>

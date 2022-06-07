@@ -33,20 +33,21 @@ class cargoController extends Controller
     {
         $rules=[
             'cargo' => 'required | regex:/^[\pL\s\-]+$/u | max:70 | min:5 | unique:cargos,cargo',
-            'sueldo' => 'required | numeric | min:1',
-            'detalles_cargo' => 'required | max:2000 | min:25 | unique:cargos,detalles_cargo',
+            'sueldo' => 'required | numeric | min:7000|max:25000',
+            'detalles_cargo' => 'required | max:1000 | min:25 | unique:cargos,detalles_cargo',
         ];
 
         $mensaje=[
 
-            'cargo.required' => 'El campo :attribute no puede estar vacío.',
-            'cargo.unique' => 'Este :attribute ya existe.',
-            'cargo.regex' => 'El campo :attribute solo debe contener letras.',
-            'cargo.min' => 'El campo :attribute debe contener como mínimo 5 letras.',
+            'cargo.required' => 'El campo tipo de cargo no puede estar vacío.',
+            'cargo.unique' => 'Este tipo de cargo ya existe.',
+            'cargo.regex' => 'El campo tipo de cargo solo debe contener letras.',
+            'cargo.min' => 'El campo tipo de cargo debe contener como mínimo 5 letras.',
 
-            'sueldo.required' => 'El campo sueldo no puede estar vacío.',
-            'sueldo.numeric' => 'El campo sueldo solo acepta números.',
-            'sueldo.min' => 'El campo sueldo no puede ser menor a 1 lempira.',
+            'sueldo.required' => 'El campo sueldo mensual no puede estar vacío.',
+            'sueldo.numeric' => 'El campo sueldo mensual solo acepta números.',
+            'sueldo.max'  => 'El campo sueldo mensual no puede ser mayor a 25000 lempiras.',
+            'sueldo.min'  => 'El campo sueldo mensual no puede ser menor a 7000 lempiras.',
 
             'detalles_cargo.required' => 'El campo tareas del cargo no puede estar vacío.',
             'detalles_cargo.unique' => 'Las tareas del cargo ya existen.',
@@ -82,20 +83,21 @@ class cargoController extends Controller
     public function update(Request $request, $id){
         //Validar campos del formulario editar
         $rules= [
-            'cargo' => 'required | regex:/^[\pL\s\-]+$/u|max:50|min:5|unique:cargos,cargo,'.$id,
-            'sueldo' => 'required|numeric|min:1',
+            'cargo' => 'required |regex:/^[\pL\s\-]+$/u|max:50|min:5|unique:cargos,cargo,'.$id,
+            'sueldo' => 'required|numeric|min:7000|max:25000',
             'detalles_cargo' => 'required|string|max:1000|min:25|unique:cargos,detalles_cargo,'.$id,
         ] ;
 
         $mensaje=[
-            'cargo.required' => 'El campo :attribute no puede estar vacío.',
-            'cargo.unique' => 'Este :attribute ya existe.',
-            'cargo.regex' => 'El campo :attribute solo debe contener letras.',
-            'cargo.min' => 'El campo :attribute debe contener como mínimo 5 letras.',
+            'cargo.required' => 'El campo tipo de cargo no puede estar vacío.',
+            'cargo.unique' => 'Este tipo de cargo ya existe.',
+            'cargo.regex' => 'El campo tipo de cargo solo debe contener letras.',
+            'cargo.min' => 'El campo tipo de cargo debe contener como mínimo 5 letras.',
 
             'sueldo.required' => 'El campo sueldo no puede estar vacío.',
-            'sueldo.numeric' => 'El campo sueldo solo acepta números.',
-            'sueldo.min'  => 'El campo sueldo no puede ser menor a 1 lempira.',
+            'sueldo.numeric' => 'El campo sueldo mensual solo acepta números.',
+            'sueldo.max'  => 'El campo sueldo mensual no puede ser mayor a 25000 lempiras.',
+            'sueldo.min'  => 'El campo sueldo mensual no puede ser menor a 7000 lempiras.',
 
             'detalles_cargo.required' => 'El campo tareas del cargo no puede estar vacío.',
             'detalles_cargo.min' => 'El campo tareas del cargo debe contener como mínimo 25 letras.',
