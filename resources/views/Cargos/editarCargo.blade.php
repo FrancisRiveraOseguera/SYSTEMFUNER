@@ -30,9 +30,9 @@
                 <label for="cargo" class="col-lg-2 control-label offset-md-1 requerido">
                     <i id="IcNewEmp" class="bi bi-card-heading"></i>Tipo de cargo</label>
             <div class="col-sm-8">
-                <input type = "text" readonly
+                <input type = "text" 
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    maxlength = "70" name="cargo" id="cargo"
+                    maxlength = "50" name="cargo" id="cargo"
                     placeholder="Nombre del cargo" class="form-control"
                     value="{{$cargo->cargo}}"/>
             </div>

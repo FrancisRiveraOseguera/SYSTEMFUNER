@@ -16,30 +16,28 @@
 
 @section('content')
 
-    <br>
-    @if ($errors->any())
-        <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h5><i class="icon fas fa-ban"></i>El formulario contiene errores</h5>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
     <div class="emple">
         <h3> Editar datos del empleado</h3>
         <hr>
-
+        @if ($errors->any())
+    <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h5><i class="icon fas fa-ban"></i>El formulario contiene errores</h5>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+    </div> <br>
         <!--Formulario-->
         <div class="emple">
             <form method="post">
                 @csrf
                 @method('put')
                 <div class="form-group row">
-                    <label for="identidad" class="col-lg-2 control-label offset-md-1 requerido hijo"> <i id="IcNewEmp" class="bi bi-credit-card-2-front"></i> Identidad</label>
+                    <label for="identidad" class="col-lg-2 control-label offset-md-1 requerido "> <i id="IcNewEmp" class="bi bi-credit-card-2-front"></i> Identidad</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                type = "text"
@@ -49,7 +47,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
+                    <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido "><i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                         type="text"  maxlength = "35"name="nombres" id="nombres" placeholder="Nombres del empleado" class="form-control" value="{{old('nombres', $empleado->nombres ?? '')}}"/>
@@ -57,7 +55,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
+                    <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido "><i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                         type="text" maxlength = "35" name="apellidos" id="apellidos" placeholder="Apellidos del empleado." class="form-control" value="{{old('apellidos', $empleado->apellidos ?? '')}}"/>
@@ -65,7 +63,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="genero" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                    <label for="genero" class="col-lg-2 control-label offset-md-1 requerido ">
                         <i id="IcNewEmp" class="bi bi-gender-ambiguous"></i>Género</label>
                     <div class="col-sm-8">
                         <select name="genero" id="genero" class="form-control"/>
@@ -79,7 +77,7 @@
                 <?php $fecha_actual = date("d-m-Y");?>
 
                 <div class="form-group row">
-                    <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido hijo"><i  id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso</label>
+                    <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido"><i  id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso</label>
                     <div class="col-sm-8">
                         <input type="date" name="fecha_ingreso" id="fecha_ingreso" class="form-control"
                                value="{{old('fecha_ingreso', $empleado->fecha_ingreso ?? '')}}"
@@ -88,7 +86,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="genero" class="col-lg-2 control-label offset-md-1 requerido hijo">
+                    <label for="genero" class="col-lg-2 control-label offset-md-1 requerido">
                         <i id="IcNewEmp" class="bi bi-person-rolodex"></i>Cargo</label>
                     <div class="col-sm-8">
                        <select  name="cargo_id" style="width: 680px;" class="  form-control " charset="utf8_decode" >                  
@@ -110,10 +108,10 @@
                              });
                       </script>
                     </div>
-                </div>
+                
 
                 <div class="form-group row">
-                    <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido hijo"><i  id="IcNewEmp"class="bi bi-calendar-month"></i>Fecha Nacimiento</label>
+                    <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido "><i  id="IcNewEmp"class="bi bi-calendar-month"></i>Fecha Nacimiento</label>
                     <div class="col-sm-8">
                         <input type="date" name="fecha_de_nacimiento" id="fecha_de_nacimiento" class="form-control"
                                value="{{old('fecha_de_nacimiento', $empleado->fecha_de_nacimiento ?? '')}}"
@@ -123,7 +121,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Empleado</label>
+                    <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Empleado</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                type = "text"
@@ -132,7 +130,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido hijo"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Emergencia</label>
+                    <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Emergencia</label>
                     <div class="col-sm-8">
                         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                type = "text"
@@ -141,7 +139,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-lg-2 control-label offset-md-1 requerido hijo" for="direccion"><i id="IcNewServ" class="bi bi-pencil-square"></i>Dirección</label>
+                    <label class="col-lg-2 control-label offset-md-1 requerido" for="direccion"><i id="IcNewServ" class="bi bi-pencil-square"></i>Dirección</label>
                     
                     <div class="col-sm-8">
                         <textarea oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="text" maxlength = "100" name="direccion" id="direccion" placeholder="Dirección de domicilio." class="form-control" cols="52" rows="1" value="{{old('direccion', $empleado->direccion ?? '')}}">{{$empleado->direccion}}</textarea>

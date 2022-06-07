@@ -82,11 +82,16 @@ class cargoController extends Controller
     public function update(Request $request, $id){
         //Validar campos del formulario editar
         $rules= [
+            'cargo' => 'required | regex:/^[\pL\s\-]+$/u|max:50|min:5|unique:cargos,cargo,'.$id,
             'sueldo' => 'required|numeric|min:1',
             'detalles_cargo' => 'required|string|max:1000|min:25|unique:cargos,detalles_cargo,'.$id,
         ] ;
 
         $mensaje=[
+            'cargo.required' => 'El campo :attribute no puede estar vacío.',
+            'cargo.unique' => 'Este :attribute ya existe.',
+            'cargo.regex' => 'El campo :attribute solo debe contener letras.',
+            'cargo.min' => 'El campo :attribute debe contener como mínimo 5 letras.',
 
             'sueldo.required' => 'El campo sueldo no puede estar vacío.',
             'sueldo.numeric' => 'El campo sueldo solo acepta números.',
@@ -102,6 +107,7 @@ class cargoController extends Controller
         $actualizarCargo = Cargo::findOrFail($id);
 
         //Recuperación de los datos guardados
+        $actualizarCargo->cargo = $request->input('cargo');
         $actualizarCargo -> sueldo = $request->input('sueldo');
         $actualizarCargo -> detalles_cargo = $request->input('detalles_cargo');
 
