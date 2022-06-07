@@ -14,8 +14,8 @@ class ServicioFactory extends Factory
     public function definition()
     {
         return [
-            'tipo'=>$this->faker->unique()->randomElement(array ('Jardín', 'Faraón', 'Romano','Ejecutivo','Presidente especial',
-                    'Europeo de Lujo', 'Colombiano', 'Italiano Especial', 'Súper Colombiano','Súper de Lujo','Económico')),
+            'tipo'=>$this->faker->unique()->randomElement(array ('Sencillo', 'Egipcio', 'Romano','Ejecutivo','Presidente especial',
+                    'Europeo de Lujo', 'Colombiano', 'Italiano Especial', 'Italiano de lujo','Ejecutivo especial','Veneciano')),
             'categoria'=>$this->faker->randomElement(array ('Adultos', 'Juvenil', 'Infantil')),
             'precio'=>$this->faker->numberBetween(13000.00,99000.00),
             'cuota'=>$this->faker->numberBetween(200.00,999),
