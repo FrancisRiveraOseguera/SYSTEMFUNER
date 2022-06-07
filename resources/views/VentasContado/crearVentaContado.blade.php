@@ -3,9 +3,9 @@
     include 'conexion.php';
     $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM clientes");
     $query2=mysqli_query($mysqli,"SELECT servicio_id, tipo FROM cantidad_inventario");
-    $query3=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM empleados");
-    
-   
+    $query3=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM empleados WHERE estado = 1");
+
+
     if(isset($_POST['cliente_id']))
     {
         $cliente_id=$_POST['cliente_id'];
@@ -32,15 +32,15 @@
 <!--Contenedor para el título de la vista y los mensajes de error-->
 <div class="servfun">
         <h3 class="servfu" >Nueva Venta al Contado</h3>
-        
+
             <hr>
         <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; " href="{{route('cliente.nuevo',['cliente'=>0])}}">
-            <i class="bi bi-plus-circle"></i>Nuevo cliente</a>   
-        
-        <a class="btn btn-link " href="{{route('ventas.index')}}" > 
-                <i class="bi bi-box-arrow-left"></i>Ir al inicio de Ventas </a> 
-                
-                <div> 
+            <i class="bi bi-plus-circle"></i>Nuevo cliente</a>
+
+        <a class="btn btn-link " href="{{route('ventas.index')}}" >
+                <i class="bi bi-box-arrow-left"></i>Ir al inicio de Ventas </a>
+
+                <div>
                  </div>
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000" >
@@ -51,14 +51,14 @@
                     <li>{{ $error }}</li>
                      @endforeach
                 </ul>
-            </div> 
+            </div>
         @endif
 </div><br>
-   
+
 <!--Formulario-->
-<div class="servfun"> 
+<div class="servfun">
 <form method="post"  autocomplete="off">
-  @csrf 
+  @csrf
   <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
@@ -70,13 +70,13 @@
             @else
                 <option value="0">Para seleccionar escribe las primeras letras del nombre del cliente. </option>
             @endif
-            <?php 
+            <?php
             while($datos = mysqli_fetch_array($query))
-          {?>     
+          {?>
         <option value="<?php echo $datos['id']?>"> <?php echo $datos['nombres' ].' '.$datos['apellidos' ]?> </option>
           <?php
           }?>
-  
+
            </select>
       </div>
           <script src='../../js/select2.min.js'></script>
@@ -93,15 +93,15 @@
         <label class="form-label" for="empleado_id">Nombre del empleado responsable:</label>
         <div>
          <select name="empleado_id" style="width: 500px;" class=" form-control">
-            
+
                 <option value="0">Para seleccionar escribe las primeras letras del nombre del empleado. </option>
-                  <?php 
+                  <?php
                     while($datos = mysqli_fetch_array($query3))
-                  {?>     
+                  {?>
                 <option value="<?php echo $datos['id']?>"> <?php echo $datos['nombres' ].' '.$datos['apellidos' ]?> </option>
                  <?php
                  }?>
-  
+
          </select>
       </div>
           <script src='../../js/select2.min.js'></script>
@@ -110,12 +110,12 @@
              $('empleado_id').select2();
                });
            </script>
-      
+
         </div>
         </div>
     </div>
-    
-    
+
+
 
     <div class="row mb-4">
     <div class="col">
@@ -125,14 +125,14 @@
         <select  name="servicio_id" style="width: 500px;" class="  form-control " charset="utf8_decode" >
 
         <option disabled selected value="0">Selecciona el tipo de servicio</option>
-                    <?php 
-                    
+                    <?php
+
                         while($datos = mysqli_fetch_array($query2))
-                        {?>      
+                        {?>
                             <option value="<?php echo $datos['servicio_id']?>"> <?php echo $datos['tipo' ]?> </option>
                     <?php
                         }
-                    ?> 
+                    ?>
         </select>
         </div>
         <script src='../../js/select2.min.js'></script>
@@ -174,18 +174,18 @@
             </div>
         </div>
 
-    </div>  
+    </div>
 
     <div class="col">
 
     </div>
     </div>
-    
+
     <!--Contenedor para los botones de la vista agregar servicio-->
     <div>
         <a class="btn btn-primary " href="{{route('listadoVentas.index')}}"> <i class="bi bi-box-arrow-left"></i>Ir al listado de ventas al contado</a>
 
-        <td>          
+        <td>
             <!--Modal: modalPush-->
             <a class="btn btn-success" style="color: white;" data-toggle="modal" data-target="#modalPush"><i class="bi bi-save"></i>Guardar Venta</a>
             <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -205,16 +205,16 @@
                         <div class="modal-footer flex-center">
                             <button type="close"  class="modal-footer btn-info">¡Entendido!</button>
                         </div>
-                    </div> 
+                    </div>
             </div>
             </div>
         </td>
 
     </div>
-    
+
   </div>
 
-  
+
   <style>
     #IcNewServ{
         font-size:30px;
