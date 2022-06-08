@@ -97,7 +97,7 @@
         <div class="form-group row">
             <label for="cargo_id" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-rolodex"></i>Cargo</label>
             <div class="col-sm-8">
-                <select  name="cargo_id" style="width: 680px;" class="  form-control " charset="utf8_decode" >
+                <select  name="cargo_id" style=";" class="  form-control " charset="utf8_decode" >
 
                <option disabled selected value="0">Selecciona el cargo del nuevo empleado</option>
                  <?php 

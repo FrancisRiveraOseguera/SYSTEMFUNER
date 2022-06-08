@@ -267,7 +267,9 @@
             <label for="fecha" class="form-label">Fecha de venta</label>
             <div class="col-sm-13">
                     <input type="date"  name="fecha" id="fecha" class="form-control" style="width:490px;"
-                    value="<?php echo date($fecha_actual)?>{{($creditoVenta->fecha ?? '')}}"/>
+                    value="<?php echo date('Y-m-d',strtotime($fecha_actual))?>{{($creditoVenta->fecha ?? '')}}"
+                    max="<?php echo date('Y-m-d',strtotime($fecha_actual));?>"
+                    min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
             </div>
         </div>
     </div>

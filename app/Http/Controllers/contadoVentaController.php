@@ -13,7 +13,7 @@ class contadoVentaController extends Controller
 {
     public function  ventas() {
         //mandarlo  a buscar 
-        $ventas  = DB::table('todaslasventas')->get();
+        $ventas  = DB::table('todaslasventas')->paginate(15)-> withQueryString();
         return view ('VentasContado/listadoVentas')->with('ContadoVenta',  $ventas);
 
     }

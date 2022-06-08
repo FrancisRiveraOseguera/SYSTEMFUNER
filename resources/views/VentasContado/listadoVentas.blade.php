@@ -78,6 +78,7 @@
 
   </tbody>
 </table>
+{{$ContadoVenta->links()}} 
 </div>
 
     <style>

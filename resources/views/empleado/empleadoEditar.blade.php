@@ -89,7 +89,7 @@
                     <label for="genero" class="col-lg-2 control-label offset-md-1 requerido">
                         <i id="IcNewEmp" class="bi bi-person-rolodex"></i>Cargo</label>
                     <div class="col-sm-8">
-                       <select  name="cargo_id" style="width: 680px;" class="  form-control " charset="utf8_decode" >                  
+                       <select  name="cargo_id" style="" class="  form-control " charset="utf8_decode" >                  
                               <option value="{{$empleado->cargo_id}}">{{$empleado->cargos->cargo}}</option>
                                  <?php 
             
