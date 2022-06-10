@@ -82,7 +82,7 @@ class EmpleadoController extends Controller
         'genero.required' => 'El campo género no puede estar vacío.',
 
         'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
-        'cargo_id.required' => 'El campo :attribute no ha sido seleccionado',
+        'cargo_id.required' => 'El campo cargo no ha sido seleccionado',
 
         'fecha_de_nacimiento.required' => 'El campo :attribute no puede estar vacío.',
 
