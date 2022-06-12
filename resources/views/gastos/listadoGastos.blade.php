@@ -15,8 +15,38 @@
             <a class="btn btn-info btn block" href="nuevoGasto">
                 <i class="bi bi-plus-circle"></i>Nuevo gasto
             </a>
+        </div><br>
+        <td>
+                    <!-- Button trigger modal-->
+                    <a class="btn btn-danger" target="_blank" href="{{route('gastos.pdf')}}" data-toggle="modal" data-target="#modalPush"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir reporte de gastos</a>
+               
+                    <!--Modal: modalPush-->
+                    <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                        <div class="modal-dialog modal-notify modal-info" role="document">
+                            <!--Content-->
+                            <div class="modal-content text-center">
+                            <!--Header-->
+                            <div class="modal-header d-flex justify-content-center">
+                                <p class="heading">Un momento...</p>
+                            </div>
+
+                            <!--Body-->
+                            <div class="modal-body">
+                                <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
+                                <p>Para exportar el reporte de gastos a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
+                            </div>
+
+                            <!--Footer-->
+                            <div class="modal-footer flex-center">
+                                <a href="{{route('gastos.pdf')}}" target="_blank" class="modal-footer btn-info">¡Entendido!</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                
+             </td>
         </div>
-    </div>
     <hr>
 
     <!--Barra de búsqueda-->
@@ -66,7 +96,7 @@
                 <td>{{$gast->empleados->nombres}} {{$gast->empleados->apellidos}}</td>
                 <td>
                     <a class="btn btn-info"
-                    href=""><i class="bi bi-eye"></i>Detalles
+                    href="{{route('gastos.ver', ['id'=>$gast->id])}}"><i class="bi bi-eye"></i>Detalles
                     </a>
                 </td>
             @empty
@@ -78,5 +108,6 @@
     </table>
     {{$gasto->links()}}
 </div>
+
 
 @endsection

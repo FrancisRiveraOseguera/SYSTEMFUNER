@@ -257,7 +257,6 @@ Route::middleware("auth")->group(function () {
     Route::put('/Cargo/{id}/editar', 'App\Http\Controllers\cargoController@update')
         ->name('Cargo.update')->where('id', '[0-9]+');
 
-
     //Detalles del cargo
     Route::get('/cargo/detalles/{id}', 'App\Http\Controllers\cargoController@show')
         ->where('id', '[0-9]+')
@@ -272,6 +271,14 @@ Route::middleware("auth")->group(function () {
 
     Route::post('/nuevoGasto', 'App\Http\Controllers\GastoController@store')
         ->name('gastos.store');
+    
+    Route::get('/gasto/{id}', 'App\Http\Controllers\GastoController@show')
+        ->name('gastos.ver')
+        ->where('id', '[0-9]+');
+
+    Route::get('/gastos/PDF', 'App\Http\Controllers\GastoController@gastosPDF')
+        ->name('gastos.pdf')
+        ->where('id', '[0-9]+');
 
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas

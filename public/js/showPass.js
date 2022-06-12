@@ -1,11 +1,15 @@
 function show() {
-    var p = document.getElementById('password');
+    var p = document.getElementById('pass1');
+    var o = document.getElementById('pass2');
     p.setAttribute('type', 'text');
+    o.setAttribute('type', 'text');
 }
 
 function hide() {
-    var p = document.getElementById('password');
+    var p = document.getElementById('pass1');
+    var o = document.getElementById('pass2');
     p.setAttribute('type', 'password');
+    o.setAttribute('type', 'password');
 }
 
 var pwShown = 0;

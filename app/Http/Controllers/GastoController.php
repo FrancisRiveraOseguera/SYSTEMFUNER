@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gasto;
+use App\Models\empleado;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -96,10 +97,17 @@ class GastoController extends Controller
      * @param  \App\Models\Gasto  $gasto
      * @return \Illuminate\Http\Response
      */
-    public function show(Gasto $gasto)
+    public function show($id)
     {
-        //
+        $gasto = Gasto::findOrFail($id);
+        return view('gastos/detallesGasto')->with('gasto', $gasto);
     }
+
+    public function gastosPDF(){
+        $gasto  = DB::table('gastos')->get();
+        return view ('gastos/gastosPDF')->with('Gastos', $gasto);
+    }
+
 
     /**
      * Show the form for editing the specified resource.

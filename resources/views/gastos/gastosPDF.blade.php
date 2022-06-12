@@ -1,15 +1,21 @@
+<?php
+    include 'conexion.php';
+    $query=mysqli_query($mysqli,"SELECT nombres, apellidos FROM empleados");
+?>
+
+
 <!DOCTYPE html>
 <html>
    <!-- <script language="javascript">alert("Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria.")</script>-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Reporte mensual de  ventas</title>
+    <title>Reporte de gastos</title>
     
     <body>
 
         <img src="/assets/logo_contrato.png" title="Exportar a PDF e imprimir" class="rounded-circle logo" id="btn" width="120" height="100">
         <div class="sh">
             <br>
-            <h3><b>REPORTE MENSUAL DE VENTAS</h3></b>
+            <h3><b>REPORTE DE GASTOS</h3></b>
             <br>
             <h3><b>FUNERALES LA BENDICIÓN</h3></b>
             <hr>
@@ -21,23 +27,19 @@
     <tr class="table"  style="width: 1000px;">
     
       <th scope="col" style="text-align: left; width: 500px;">Fecha y hora de venta</th>
-      <th scope="col"style="text-align: left;  width: 400px;">Responsable</th>
-      <th scope="col"style=" width: 300px;">Servicio</th>
-      <th scope="col"style=" width: 300px;">Categoría</th>
-      <th scope="col"style=" width: 300px;">Contrato tipo:</th>
-      <th scope="col" style="text-align: left; width: 200px;">Precio</th>
+      <th scope="col"style="text-align: left;  width: 400px;">Tipo de gasto</th>
+      <th scope="col"style=" width: 300px;">Cantidad</th>
+      <th scope="col"style=" width: 300px;">Responsable</th>
 
     </tr>
   </thead>
   <tbody>     
-  @foreach($ContadoVenta as $ventas) 
+  @foreach($Gastos as $gast) 
     <tr class="table"> 
-    <td>{{$ventas->created_at}}</td>
-    <td>{{$ventas->nombres}} {{$ventas->apellidos}} </td> 
-    <td>{{$ventas->TipoServicio}}</td>
-    <td>{{$ventas->categoria}}</td>
-    <td style=" color: #0B614B;">{{$ventas->contratotipo}}</td>
-    <td>{{$ventas->Precio}}.00</td>     
+    <td>{{$gast->created_at}}</td>
+    <td>{{$gast->tipo_gasto}}</td>
+    <td>L. {{$gast->cantidad}}</td>
+    <td>{{$gast->empleados->nombres}} {{$gast->empleados->apellidos}}</td>
 @endforeach
 
     

@@ -37,7 +37,7 @@
         @csrf
         <div class="form-group row">
             <label for="correo" class="col-lg-2 control-label offset-md-1 requerido">
-                <i id="IcNewEmp" class="fa fa-envelope-o"></i>Correo electrónico</label>
+                <i id="IcNewEmp" class="fa fa-envelope-o"></i>Correo electrónico:</label>
             <div class="col-sm-8">
                 <input type="text"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
@@ -50,7 +50,7 @@
 
         <div class="form-group row">
                 <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido">
-                    <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombre del empleado</label>
+                    <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombre del empleado:</label>
             <div class="col-sm-8">
                 <select name="empleado_id" style="width: 100%;" class=" form-control">
                     @if (isset($ident))
@@ -79,7 +79,7 @@
 
         <div class="form-group row">
             <label for="nameUser" class="col-lg-2 control-label offset-md-1 requerido">
-                <i  id="IcNewEmp" class="fa fa-user-circle-o"></i>Nombre del usuario</label>
+                <i  id="IcNewEmp" class="fa fa-user-circle-o"></i>Nombre del usuario:</label>
             <div class="col-sm-8">
                 <textarea name="nameUser" id="nameUser" maxlength="20" style="resize: none;"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
@@ -90,9 +90,9 @@
 
         <div class="form-group row">
             <label for="ocupacion" class="col-lg-2 control-label offset-md-1 requerido">
-                <i id="IcNewEmp" class="fas fa-user-tie"></i>Cargo</label>
+                <i id="IcNewEmp"  class="fas fa-user-tie"></i>Cargo:</label>
             <div class="col-sm-8">
-                <select name="cargo" id="cargo"style=background:white>
+                <select name="cargo" style="width: 100%; background:white" id="cargo">
                     <option selected disabled value="0" >Cargo del usuario dentro de la compañía</option>
                     <option value="Gerente">Gerente</option> 
                     <option value="Subgerente">Subgerente</option> 
@@ -101,15 +101,25 @@
         </div>
 
         <div class="form-group row">
-            <label for="password" class="col-lg-2 control-label offset-md-1 requerido">
-                <i  id="IcNewEmp" <i class="bi bi-key"></i>Contraseña</label>
+            <label for="pass1" class="col-lg-2 control-label offset-md-1 requerido">
+                <i  id="IcNewEmp" class="bi bi-key"></i>Contraseña:</label>
             <div class="col-sm-8">
-                <input type="password" style="width: 94%; height: 100%;" placeholder="  Ingrese la contraseña, mínimo 8 letras." id="password" class="masked" name="password" maxlength="20" style="resize: none;"
+                <input type="password" style="width: 94%; height: 100%;" placeholder="  Ingrese la contraseña, mínimo 8 letras." id="pass1" class="masked" name="password" maxlength="20" style="resize: none;"
                 placeholder="Contraseña para el usuario." rows="1" cols="52" class="form-control masked">{{old('password', $usuario->password ?? '')}}</input>
                 <i class="fa fa-eye" id="eye"></i>
             </div>
         </div>
+
+        <div class="form-group row">
+            <label for="pass2" class="col-lg-2 control-label offset-md-1 requerido">
+                <i  id="IcNewEmp" class="bi bi-key"></i>Confirme contraseña:</label>
+            <div class="col-sm-8">
+                <input type="password" style="width: 94%; height: 100%;" placeholder="  Confirme la contraseña." id="pass2" class="masked" name="password" maxlength="20" style="resize: none;"
+                placeholder="Contraseña para el usuario." rows="1" cols="52" class="form-control masked"></input>
+            </div><div id="error2"></div> <i id="G"></i>
+        </div>
         <br>
+
 
         <!--botones-->
         <a class="btn btn-primary" href="{{route('listado.usuario')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
@@ -140,6 +150,10 @@
         font-size:25px;
         width: 1em;
         height: 1em;
+    }
+
+    #G{
+        margin-left: 26.5%;
     }
 
 
