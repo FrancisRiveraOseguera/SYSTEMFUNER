@@ -305,4 +305,10 @@ class EmpleadoController extends Controller
         }
     }
 
+    //funcion para crear constancia de trabajo
+    public function pdfConstancia($id){
+        $empleado = Empleado::findOrFail($id);
+        return view('empleado.PDFconstanciaTrabajo')->with('empleado', $empleado);
+     }
+
 }

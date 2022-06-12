@@ -65,6 +65,12 @@ Route::middleware("auth")->group(function () {
 
     Route::post('empleado/nuevo',[EmpleadoController::class, 'store']);
 
+    //contancia de trabajo de empleado
+    Route::get('/constanciaTrabajoPDF/{id}', 'App\Http\Controllers\EmpleadoController@pdfConstancia')
+    ->name('constanciatrabajo.pdf')
+    ->where('id', '[0-9]+');
+
+
     //EDITAR EMPLEADO
     Route::get('/empleado/{id}/editar', 'App\Http\Controllers\EmpleadoController@edit')
         ->name('empleado.edit')->where('id', '[0-9]+');

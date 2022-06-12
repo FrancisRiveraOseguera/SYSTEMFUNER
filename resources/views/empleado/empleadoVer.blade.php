@@ -93,6 +93,33 @@
 
             <!--REGRESAR A PANTALLA PRINCIPAL EMPLEADO-->
             <a class="btn btn-primary" href="{{route('empleado.index')}}" > <i class="bi bi-box-arrow-left"></i>Regresar</a>
+            <a class="btn btn-danger" href="{{route('constanciatrabajo.pdf', ['id'=>$empleado->id])}}" data-toggle="modal" data-target="#modalPush{{$empleado->id}}"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir constancia de trabajo</a>
+            <!--Modal: modalPush-->
+            <div class="modal fade" tabindex="1" id="modalPush{{$empleado->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal-dialog modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+    <!--Header-->
+    <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Un momento...</p>
+    </div>
+
+    <!--Body-->
+    <div class="modal-body">
+        <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
+        <p>Para exportar la constancia de trabajo  a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
+    </div>
+
+    <!--Footer-->
+    <div class="modal-footer flex-center">
+        <a href="{{route('constanciatrabajo.pdf', ['id'=>$empleado->id])}}" class="modal-footer btn-info">¡Entendido!</a>
+    </div>
+</div>
+</div>
+</div>
+
+</td>
 
         </form>
 
