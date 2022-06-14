@@ -19,8 +19,12 @@ class GastoController extends Controller
         $busqueda = trim($request->get('busqueda'));
 
         $gasto = Gasto::orderby('gastos.id','DESC')
+            ->select("gastos.id", "gastos.fecha","tipo_gasto","detalles_gasto","cantidad","empleado_id")
             ->where('tipo_gasto', 'LIKE', '%'.$busqueda.'%')
             ->orwhere('fecha', 'LIKE', '%'.$busqueda.'%')
+            ->join("empleados","empleado_id","=","empleados.id")
+            ->orwhere("empleados.nombres","like","%".$busqueda."%")
+            ->orwhere("empleados.apellidos","like","%".$busqueda."%")
             ->paginate(15)-> withQueryString();
 
         return view('gastos/listadoGastos')

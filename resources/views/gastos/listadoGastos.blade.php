@@ -5,65 +5,74 @@
 @section('content')
 
 
+
 <div class="formato">
+    <div class="row">
+        <div class="col-lg-6">
+            <h3>Listado de gastos</h3>
+        </div>
 
-    <div class="xd">
-        <h3>Listado de gastos</h3>
-
-        <div>
-            <br>
+        <div class="col-lg-2.5">
             <a class="btn btn-info btn block" href="nuevoGasto">
                 <i class="bi bi-plus-circle"></i>Nuevo gasto
             </a>
-        </div><br>
-        <td>
-                    <!-- Button trigger modal-->
-                    <a class="btn btn-danger" target="_blank" href="{{route('gastos.pdf')}}" data-toggle="modal" data-target="#modalPush"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir reporte de gastos</a>
-               
-                    <!--Modal: modalPush-->
-                    <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        </div>
+        <div class="col-lg-4">
+            <td>
+                <!-- Button trigger modal-->
+                <a class="btn btn-danger" target="_blank" href="{{route('gastos.pdf')}}" data-toggle="modal" data-target="#modalPush"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir reporte de gastos</a>
 
-                        <div class="modal-dialog modal-notify modal-info" role="document">
-                            <!--Content-->
-                            <div class="modal-content text-center">
-                            <!--Header-->
-                            <div class="modal-header d-flex justify-content-center">
-                                <p class="heading">Un momento...</p>
-                            </div>
+                <!--Modal: modalPush-->
+                <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-                            <!--Body-->
-                            <div class="modal-body">
-                                <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
-                                <p>Para exportar el reporte de gastos a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
-                            </div>
-
-                            <!--Footer-->
-                            <div class="modal-footer flex-center">
-                                <a href="{{route('gastos.pdf')}}" target="_blank" class="modal-footer btn-info">¡Entendido!</a>
-                            </div>
+                    <div class="modal-dialog modal-notify modal-info" role="document">
+                        <!--Content-->
+                        <div class="modal-content text-center">
+                        <!--Header-->
+                        <div class="modal-header d-flex justify-content-center">
+                            <p class="heading">Un momento...</p>
                         </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+                            <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
+                            <p>Para exportar el reporte de gastos a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
+                        </div>
+
+                        <!--Footer-->
+                        <div class="modal-footer flex-center">
+                            <a href="{{route('gastos.pdf')}}" target="_blank" class="modal-footer btn-info">¡Entendido!</a>
                         </div>
                     </div>
-                
-             </td>
+                    </div>
+                </div>
+            
+        </td>
+    
         </div>
-    <hr>
+    </div>
 
     <!--Barra de búsqueda-->
-    <form  action="{{route('listadoGastos.index')}}" method="GET" autocomplete="off" class="x">
-        <div  class="input-group input-group-sm">
-            <a type="button" href="{{route('listadoGastos.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-backspace" <acronym title="Borrar la búsqueda."></i></a>
+    <div>
+        <br>
+        <form  action="{{route('listadoGastos.index')}}" method="GET" autocomplete="off">
+            <div   class="input-group input-group-sm">
+                <a type="button" href="{{route('listadoGastos.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-backspace" acronym title="Borrar la búsqueda."></i></a>
 
-            <input type="search" class="col-sm-9" name="busqueda"
-                placeholder="Ingrese la fecha o el tipo de gasto para realizar la búsqueda." value="{{$busqueda}}">
+                <input type="search" class="col-sm-6" name="busqueda"
+                    placeholder="Ingrese la fecha, el tipo de gasto o responsable para realizar la búsqueda." value="{{$busqueda}}">
 
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-primary">
-                    Buscar
-                </button>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">
+                        Buscar
+                    </button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+
+
+    <hr>
 
     <!--Mensajes de alerta -->
     @if(session('mensaje'))
@@ -99,6 +108,7 @@
                     href="{{route('gastos.ver', ['id'=>$gast->id])}}"><i class="bi bi-eye"></i>Detalles
                     </a>
                 </td>
+                
             @empty
             <tr>
                 <th scope="row" colspan="5"> No hay gastos</th>
