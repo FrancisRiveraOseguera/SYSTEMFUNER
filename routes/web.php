@@ -196,6 +196,17 @@ Route::middleware("auth")->group(function () {
         ->name('creditoVenta.pdf')
         ->where('id', '[0-9]+');
 
+    //Ruta para marcar como servicio usado en las ventas al crédito
+    Route::get('/ventaCredito/marcarServicio/{id}', 'App\Http\Controllers\creditoventaController@marcarServicio')
+        ->name('creditoVenta.marcarServicio')
+        ->where('id', '[0-9]+');
+
+    Route::get('/ventaCredito/serviciosUsados', 'App\Http\Controllers\creditoventaController@serviciosUsados')
+        ->name('creditoVenta.serviciosUsados');
+
+
+
+
     //RUTAS DE NUEVO PAGO
     Route::get('/nuevoPago/{id}',[PagosController::class, 'create'])->name('nuevoPagos.nuevo');
 
@@ -271,7 +282,7 @@ Route::middleware("auth")->group(function () {
 
     Route::post('/nuevoGasto', 'App\Http\Controllers\GastoController@store')
         ->name('gastos.store');
-    
+
     Route::get('/gasto/{id}', 'App\Http\Controllers\GastoController@show')
         ->name('gastos.ver')
         ->where('id', '[0-9]+');

@@ -17,7 +17,7 @@ class creditoventaController extends Controller
 
         $ventas = creditoventa::orderby('creditoventas.id','DESC')
 
-            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id",
+            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id", 'estado',
                 DB::raw('SUM(cuota) AS cuota'))
             ->join("clientes","cliente_id","=","clientes.id")
             ->leftjoin("pagos","pagos.venta_id","=","creditoventas.id")
@@ -77,7 +77,7 @@ class creditoventaController extends Controller
             'cliente_id.required' => 'El Nombre del cliente no ha sido seleccionado.',
 
             'empleado_id.required' => 'El campo Empleado responsable de la venta no ha sido seleccionado.',
-            
+
 
             'servicio_id.required' => 'El tipo de póliza de servicio funerario no ha sido seleccionado.',
 
@@ -111,7 +111,7 @@ class creditoventaController extends Controller
 
             'fecha.required' => 'El campo Fecha de venta no puede estar vacío.',
 
-           
+
 
         ];
 
@@ -137,12 +137,45 @@ class creditoventaController extends Controller
 
         if ($creado) {
             return redirect()->route('creditoVenta.pdf', $nuevaVentaCredito->id);
-                
+
         }//fin if
 
 
 
     }//fin función store
 
-    
+    //Función para marcar servicio usado
+    public function marcarServicio($id){
+
+        $marcar = creditoventa::findOrFail($id);
+        $marcar -> estado = 0;
+        $marcar ->save();
+
+        if ($marcar) {
+            return redirect()->route('ventasCredito.index')
+                ->with('mensaje', 'El servicio se ha sido marcado como usado.');
+        }
+    }
+
+    //Función para ver las ventas que han sido marcadas como servicio usado
+    public function serviciosUsados(Request $request){
+        $busqueda = trim($request->get('busqueda'));
+
+        $ventas = creditoventa::orderby('creditoventas.id','DESC')
+
+            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id", 'estado',
+                DB::raw('SUM(cuota) AS cuota'))
+            ->where('estado', '=', 0)
+            ->join("clientes","cliente_id","=","clientes.id")
+            ->leftjoin("pagos","pagos.venta_id","=","creditoventas.id")
+            ->where("creditoventas.estado","=",0)
+            ->groupby("creditoventas.id")
+            ->paginate(15)-> withQueryString();
+
+
+
+        return view('VentasCredito.listadoServiciosUsados')
+            ->with('ventas', $ventas)
+            ->with('busqueda', $busqueda);
+    }
 }

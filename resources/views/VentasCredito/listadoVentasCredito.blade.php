@@ -8,9 +8,18 @@
     <div class="row">
         <h3 class="col-lg-7">Listado de ventas al crédito</h3>
 
-        <div class="col-lg-5">
+        <div class="col-lg-5 row">
             <a class="btn btn-info btn block" target="_blank" href="{{route('ventaCredito.nueva')}}"><i class="bi bi-plus-circle"></i>Nueva venta al crédito</a>
-            <a class="btn btn-info btn block"  href="{{route('pagos.historialPagos')}}"><i class="fas fa-clipboard-list"></i>Historial de pagos</a>
+            <div class="dropdown show ml-2">
+                <a class="btn btn-secondary dropdown-toggle pt-2 pb-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Más opciones <i class="bi bi-caret-down"></i>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{{route('pagos.historialPagos')}}"><i class="fas fa-clipboard-list"></i>Historial de pagos</a>
+                    <a class="dropdown-item" href="{{route('creditoVenta.serviciosUsados')}}"><i class="bi bi-clipboard2-check-fill"></i>Listado de servicios usados</a>
+                </div>
+            </div>
         </div>
     </div>
     <br>
@@ -62,66 +71,69 @@
         </thead>
         <tbody>
             @forelse($ventas as $venta)
-            <tr class="table-primary">
-                <td>{{date_format($venta->created_at,"d/m/Y")}}</td>
-                <td>{{$venta->clientes->nombres}} {{$venta->clientes->apellidos}}</td>
-                <td>{{$venta->servicios->tipo}}</td>
-                <td>L.{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}</td>
+                @if($venta->estado==1)
+                    <tr class="table-primary">
+                @elseif($venta->estado==0)
+                    <tr class="table-danger">
+                @endif
+                    <td>{{date_format($venta->created_at,"d/m/Y")}}</td>
+                    <td>{{$venta->clientes->nombres}} {{$venta->clientes->apellidos}}</td>
+                    <td>{{$venta->servicios->tipo}}</td>
+                    <td>L.{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}</td>
 
-                <td class="text-center">
-                    <a class="btn btn-info" href="{{route('ventaCredito.ver', ['id'=>$venta->id])}}">
-                        <i class="bi bi-eye"></i>Detalles
-                    </a>
-                </td>
+                    <td class="text-center">
+                        <a class="btn btn-info" href="{{route('ventaCredito.ver', ['id'=>$venta->id])}}">
+                            <i class="bi bi-eye"></i>Detalles
+                        </a>
+                    </td>
 
-                <!-- Botón de nuevo pago, con función de desaparecer cuando el saldo pendiente este en cero -->
-                <td>
-                    @if (($venta->servicios->precio - $venta->servicios->prima - $venta->cuota)>0)
-                    <a class="btn btn-success" target="_blank" href="{{route('nuevoPagos.nuevo',['id'=>$venta->id])}}">
-                        <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
-                    </a>
-                    @else
-                    <!-- Button trigger modal-->
-                    <a class="btn btn-secondary text-white" data-toggle="modal" data-target="#modalPush">
-                        <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
-                    </a>
+                    <!-- Botón de nuevo pago, con función de desaparecer cuando el saldo pendiente este en cero -->
+                    <td>
+                        @if (($venta->servicios->precio - $venta->servicios->prima - $venta->cuota)>0)
+                        <a class="btn btn-success" target="_blank" href="{{route('nuevoPagos.nuevo',['id'=>$venta->id])}}">
+                            <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
+                        </a>
+                        @else
+                        <!-- Button trigger modal-->
+                        <a class="btn btn-secondary text-white" data-toggle="modal" data-target="#modalPush">
+                            <i class="fas fa-hand-holding-usd"></i>Nuevo Pago
+                        </a>
 
-                    <!--Modal: modalPush-->
-                    <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <!--Modal: modalPush-->
+                        <div class="modal fade" tabindex="1" id="modalPush" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-                        <div class="modal-dialog modal-notify modal-info" role="document">
-                            <!--Content-->
-                            <div class="modal-content text-center">
-                                <!--Header-->
-                                <div class="modal-header d-flex justify-content-center">
-                                    <p class="heading"><i class="fas fa-hand-holding-usd"></i>Nuevo Pago</p>
-                                </div>
+                            <div class="modal-dialog modal-notify modal-info" role="document">
+                                <!--Content-->
+                                <div class="modal-content text-center">
+                                    <!--Header-->
+                                    <div class="modal-header d-flex justify-content-center">
+                                        <p class="heading"><i class="fas fa-hand-holding-usd"></i>Nuevo Pago</p>
+                                    </div>
 
-                                <!--Body-->
-                                <div class="modal-body">
-                                    <p>Este cliente no puede realizar un nuevo pago, ya que el saldo pendiente es L0.00 </p>
-                                </div>
+                                    <!--Body-->
+                                    <div class="modal-body">
+                                        <p>Este cliente no puede realizar un nuevo pago, ya que el saldo pendiente es L0.00 </p>
+                                    </div>
 
-                                <!--Footer-->
-                                <div class="modal-footer flex-center">
-                                    <a href="{{route('ventasCredito.index')}}" class="modal-footer btn-primary">¡Entendido!</a>
+                                    <!--Footer-->
+                                    <div class="modal-footer flex-center">
+                                        <a href="{{route('ventasCredito.index')}}" class="modal-footer btn-primary">¡Entendido!</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endif
-                </td>
+                        @endif
+                    </td>
 
-                <td class="text-center">
-                    <a class="btn btnAqua"  href="{{route('pagos.pagoDetalles', ['id'=>$venta->id])}}">
-                        <i class="fas fa-money-bill-wave"></i>Cuotas pagadas
-                    </a>
-                </td>
-
-            </tr>
-            @empty
-            <tr>
-                <th scope="row" colspan="5">No hay resultados</th>
-            </tr>
+                    <td class="text-center">
+                        <a class="btn btnAqua"  href="{{route('pagos.pagoDetalles', ['id'=>$venta->id])}}">
+                            <i class="fas fa-money-bill-wave"></i>Cuotas pagadas
+                        </a>
+                    </td>
+                </tr>
+                @empty
+                <tr>
+                    <th scope="row" colspan="5">No hay resultados</th>
+                </tr>
             @endforelse
         </tbody>
     </table>

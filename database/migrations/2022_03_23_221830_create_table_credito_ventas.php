@@ -29,6 +29,7 @@ class CreateTableCreditoVentas extends Migration
             $table->date('fecha')->notnull();
             $table->String('fechaCobro')->notnull();
             $table->string('contratotipo')->default('A crédito');
+            $table->tinyInteger('estado')->default(1);
             $table->timestamps();
         });
     }
