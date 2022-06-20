@@ -43,6 +43,11 @@
     </div>
     <hr>
 
+    <div class="row ml-2">
+        <div class="cuadro mr-2">1</div>
+        <p class="fuente">Ventas cuyo servicio ha sido marcado como usado</p>
+    </div>
+
     <!--Mensajes de alerta -->
     @if(session('mensaje'))
     <div class="alert alert-success">
