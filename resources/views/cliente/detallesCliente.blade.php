@@ -43,7 +43,8 @@
             <label for="fecha_de_nacimiento" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp" class="bi bi-calendar-month"></i>Fecha Nacimiento:</label>
             <div class="col-sm-7 mt-2 ml-6">
-                {{ $cliente->fecha_de_nacimiento}}
+            {{date('d-m-Y',strtotime( $cliente->fecha_de_nacimiento))}}
+            
             </div>
         </div>
         
@@ -67,7 +68,7 @@
         <div class="form-group row">
             <label for="ocupacion" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i id="IcNewEmp" class="fas fa-user-tie"></i>Ocupación:</label>
-            <div class="col-sm-8 mt-2 ml-6">
+            <div class="col-sm-8  detalle">
             {{$cliente->ocupacion}}
             </div>
         </div>

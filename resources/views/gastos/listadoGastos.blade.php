@@ -4,8 +4,6 @@
 
 @section('content')
 
-
-
 <div class="formato">
     <div class="row">
         <div class="col-lg-6">
@@ -52,6 +50,7 @@
         </div>
     </div>
 
+
     <!--Barra de búsqueda-->
     <div>
         <br>
@@ -60,7 +59,7 @@
                 <a type="button" href="{{route('listadoGastos.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-backspace" acronym title="Borrar la búsqueda."></i></a>
 
                 <input type="search" class="col-sm-6" name="busqueda"
-                    placeholder="Ingrese la fecha, el tipo de gasto o responsable para realizar la búsqueda." value="{{$busqueda}}">
+                    placeholder="Ingrese el tipo de gasto o responsable para realizar la búsqueda." value="{{$busqueda}}">
 
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-primary">
@@ -68,9 +67,51 @@
                     </button>
                 </div>
             </div>
-        </form>
-    </div>
 
+        <br>
+        <!--Búsqueda por fecha-->
+
+        <div class="input-group input-group-sm">
+            <label for="">Desde:</label>
+            &nbsp;&nbsp;&nbsp;
+            <input type="date" name="inicio" id="inicio" min="{{$fecha->inicio}}" max="{{$fecha->final}}" 
+            value="{{$inicio}}" onchange="minimo();">
+            &nbsp;&nbsp;&nbsp;
+            <label for="">Hasta: </label>
+            &nbsp;&nbsp;&nbsp;
+            <input type="date" name="final" id="final" min="{{$fecha->inicio}}" max="{{$fecha->final}}" 
+            value="{{$final}}" onchange="maximo();">
+            &nbsp;&nbsp;&nbsp;
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">
+                    Buscar
+                </button>
+                <a type="button" href="{{route('listadoGastos.index')}}" 
+                class="btn btn-danger btn-sm">Limpiar</a>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for=""><b>Total de gastos</b></label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" disabled class="col-sm-2" value="L. {{number_format($suma->total,2)}}">
+        </div>
+    </form>
+
+</div>
+<br>
+<script>
+    function minimo() {
+    var value = $("#inicio").val();
+    $("#final").attr("min", value);
+    }
+    function maximo() {
+    var value = $("#final").val();
+    $("#inicio").attr("max", value);
+    }
+</script>
 
     <hr>
 
@@ -99,7 +140,7 @@
         <tbody>
             @forelse($gasto as $gast)
             <tr class="table-primary">
-                <td >{{$gast->fecha}}</td>
+                <td>{{date('d-m-Y',strtotime($gast->fecha))}}</td>
                 <td>{{$gast->tipo_gasto}}</td>
                 <td>L.{{number_format($gast->cantidad,2)}}</td>
                 <td>{{$gast->empleados->nombres}} {{$gast->empleados->apellidos}}</td>
@@ -108,12 +149,15 @@
                     href="{{route('gastos.ver', ['id'=>$gast->id])}}"><i class="bi bi-eye"></i>Detalles
                     </a>
                 </td>
+
+                
                 
             @empty
             <tr>
                 <th scope="row" colspan="5"> No hay gastos</th>
             </tr>
             @endforelse
+
         </tbody>
     </table>
     {{$gasto->links()}}

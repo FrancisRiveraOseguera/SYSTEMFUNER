@@ -4,7 +4,7 @@
 
 <?php
     include 'conexion.php';
-    $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM empleados");
+    $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM empleados WHERE estado = 1");
        
     if(isset($_POST['empleado_id']))
     {
@@ -74,8 +74,8 @@
 
         <div class="form-group row">
             <label for="empleado_id" class="col-lg-2 control-label offset-md-1 requerido">
-                <i id="IcNewEmp" class="bi bi-person-fill"></i>Responsable</label>
-        <div class="col-sm-8">
+                <i id="IcNewEmp"  class="bi bi-person-fill"></i>Responsable</label>
+        <div class="col-sm-8" >
             <select name="empleado_id"  class=" form-control">
                 
                 <option selected disabled value="0">Para seleccionar escribe las primeras letras del nombre del empleado.</option>
@@ -104,12 +104,14 @@
         <div class="form-group row">
             <label for="fecha" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha</label>
             <div class="col-sm-8">
-                    <input type="text" readonly name="fecha" id="fecha_ingreso" class="form-control hijo" 
-                    value="<?php echo date($fecha_actual)?>{{($gasto->fecha ?? '')}}"/>
+                    <input type="date" name="fecha" id="fecha" class="form-control hijo" 
+                    value="<?php echo date('Y-m-d',strtotime($fecha_actual))?>{{($gasto->fecha ?? '')}}"
+                    max="<?php echo date('Y-m-d',strtotime($fecha_actual));?>"
+                    min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 2 day"));?>"/>
             </div>
         </div>
 
-        
+
         <br>
 
         <a class="btn btn-primary" href="/listadoGastos"><i class="bi bi-box-arrow-left"></i>Regresar</a> 

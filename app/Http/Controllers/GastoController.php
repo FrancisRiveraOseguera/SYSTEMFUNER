@@ -16,20 +16,49 @@ class GastoController extends Controller
      */
     public function index(Request $request)
     {
-        $busqueda = trim($request->get('busqueda'));
+        $fecha = Gasto::select(DB::raw('min(fecha) as inicio,max(fecha) as final'))->first();
 
-        $gasto = Gasto::orderby('gastos.id','DESC')
-            ->select("gastos.id", "gastos.fecha","tipo_gasto","detalles_gasto","cantidad","empleado_id")
-            ->where('tipo_gasto', 'LIKE', '%'.$busqueda.'%')
-            ->orwhere('fecha', 'LIKE', '%'.$busqueda.'%')
-            ->join("empleados","empleado_id","=","empleados.id")
+        $busqueda = trim($request->get('busqueda'));
+        $inicio = $request->get('inicio');
+        $final = $request->get('final');
+
+        if ($inicio == "") {
+            $inicio = $fecha->inicio;
+        }
+
+        if ($final == "") {
+            $final = $fecha->final;
+        }
+
+
+        $gasto = Gasto::select("gastos.id", "gastos.fecha","tipo_gasto","detalles_gasto","cantidad","empleado_id")
+        ->join("empleados","empleado_id","=","empleados.id")
+        ->whereBetween('fecha', [$inicio, $final])
+        ->where(function ($query) use ($busqueda){
+            $query->where('tipo_gasto', 'LIKE', '%'.$busqueda.'%')
             ->orwhere("empleados.nombres","like","%".$busqueda."%")
-            ->orwhere("empleados.apellidos","like","%".$busqueda."%")
-            ->paginate(15)-> withQueryString();
+            ->orwhere("empleados.apellidos","like","%".$busqueda."%");
+        })
+        ->paginate(15);
+        
+        $suma = Gasto::select(DB::raw("sum(cantidad) as total"))
+        ->join("empleados","empleado_id","=","empleados.id")
+        ->whereBetween('fecha', [$inicio, $final])
+        ->where(function ($query) use ($busqueda){
+            $query->where('tipo_gasto', 'LIKE', '%'.$busqueda.'%')
+            ->orwhere("empleados.nombres","like","%".$busqueda."%")
+            ->orwhere("empleados.apellidos","like","%".$busqueda."%");
+        })
+        ->first();
 
         return view('gastos/listadoGastos')
             ->with('gasto', $gasto)
-            ->with('busqueda', $busqueda);
+            ->with('busqueda', $busqueda)
+            ->with('fecha', $fecha)
+            ->with('inicio', $inicio)
+            ->with('final', $final)
+            ->with('suma', $suma);
+    
     }
     
     /**
