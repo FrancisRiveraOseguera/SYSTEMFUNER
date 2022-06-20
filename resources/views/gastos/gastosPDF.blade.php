@@ -29,7 +29,6 @@
       <th scope="col" style="text-align: left; width: 500px;">Fecha y hora de venta</th>
       <th scope="col"style="text-align: left;  width: 400px;">Tipo de gasto</th>
       <th scope="col"style=" width: 300px;">Cantidad</th>
-      <th scope="col"style=" width: 300px;">Responsable</th>
 
     </tr>
   </thead>
@@ -39,7 +38,6 @@
     <td>{{$gast->created_at}}</td>
     <td>{{$gast->tipo_gasto}}</td>
     <td>L. {{$gast->cantidad}}</td>
-    <td>{{$gast->empleados->nombres}} {{$gast->empleados->apellidos}}</td>
 @endforeach
 
     
@@ -203,10 +201,11 @@
         .aa{
             text-align: right;
         }
+
         .serv{
             margin-left: 26px;
             text-align: center;
-            text-weight: bold;
+            font-weight: bold;
             font-family: 'Times New Romans'
         }
         
