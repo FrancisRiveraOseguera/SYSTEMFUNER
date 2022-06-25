@@ -47,7 +47,7 @@
                 <label for="fecha_ingreso"  class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso:</label>
                 <div class="col-sm-8 mt-2">
-                {{$empleado->fecha_ingreso}}
+                {{date('d-m-Y',strtotime($empleado->fecha_ingreso))}}
                 </div>
             </div>
 
@@ -63,7 +63,8 @@
                 <label for="fecha_de_nacimiento" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp"class="bi bi-calendar-month"></i>Fecha Nacimiento:</label>
                 <div class="col-sm-8 mt-2">
-                {{$empleado->fecha_de_nacimiento}}
+                {{date('d-m-Y',strtotime($empleado->fecha_de_nacimiento))}}
+                
                 </div>
             </div>
 
@@ -77,7 +78,7 @@
 
             <div class="form-group row">
                 <label for="contacto_de_emergencia" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                <i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. emergencia:</label>
+                <i id="IcNewEmp" class="bi bi-telephone-forward"></i>Tel. Emergencia:</label>
                 <div class="col-sm-8 mt-2">
                 {{$empleado->contacto_de_emergencia }}
                 </div>

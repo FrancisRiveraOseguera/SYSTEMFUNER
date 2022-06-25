@@ -289,4 +289,13 @@ a[data-toggle="collapse"] {
 
 }
 
+.fuente{
+    font-family: 'Times New Roman', Times, serif;
+}
 
+.cuadro{
+    background: rgb(252, 191, 202);
+    width: 30px;
+    height: 25px;
+    color: rgb(252, 191, 202);
+}

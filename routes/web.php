@@ -205,7 +205,8 @@ Route::middleware("auth")->group(function () {
     Route::get('/ventaCredito/serviciosUsados', 'App\Http\Controllers\creditoventaController@serviciosUsados')
         ->name('creditoVenta.serviciosUsados');
 
-
+    Route::get('/ventaCredito/serviciosUsados/SaldoCero', 'App\Http\Controllers\creditoventaController@serviciosUsadosSaldo0')
+        ->name('creditoVenta.serviciosUsados.saldoCero');
 
 
     //RUTAS DE NUEVO PAGO
