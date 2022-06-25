@@ -19,7 +19,7 @@
        
        <div style="margin-top:70px; margin-left:70px; margin-right:70px;"><p style="text-align: justify; line-height: 2;  font-size: 18px;">Por medio de la presente, la empresa Funerales La Bendición hace constar que el Sr.
        {{$empleado->nombres}} {{$empleado->apellidos}} con cédula de identidad  {{$empleado->identidad}} y cuyo puesto de trabajo dentro de la empresa es {{$empleado->cargos->cargo}},
-       labora actualmente con nosotros, y que lo ha venido haciendo desde {{$empleado->fecha_ingreso}}
+       labora actualmente con nosotros, y que lo ha venido haciendo desde {{date('d-m-Y',strtotime($empleado->fecha_ingreso))}}
         haciéndolo siempre con respeto y responsabilidad, mostrando total dominio del puesto.
         <br><br>
         Su buena voluntad para ejecutar las tareas asignadas y la forma eficiente en que sigue las instrucciones son dignas de mención. A continuación detallamos las principales 

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Gate;
+use App\Mail\EmergencyCallReceived;
 
 class UsuarioController extends Controller
 {
@@ -93,6 +96,15 @@ class UsuarioController extends Controller
 
         if ($creado) {
             if($creado){
+
+                $call=[
+                    'correo' => $nuevoUser->correo,
+                    'cargo' => $nuevoUser->cargo,
+                    'empleado_id' => $nuevoUser->empleados->nombres." ".$nuevoUser->empleados->apellidos,
+                    'nombreUsuario' =>  $nuevoUser->nameUser
+                ];
+
+                Mail::to($nuevoUser->correo)->send(new EmergencyCallReceived($call));
                 /*Se debe cambiar la ruta de redirección, la dejé en el listado de clientes porque no existe nada para usuarios */
                 return redirect()->route('listado.usuario')->with('mensaje', 'El usuario fue registrado exitosamente.');
             }else{
