@@ -27,20 +27,19 @@
         <th scope="col">Precio unitario</th>
         <th scope="col">Costo Total</th>
     </tr>
-  </thead>
+    </thead>
     <tbody>
-      @forelse($ventas as $vent)
-      @foreach ($vent->contadoventas as $item)
-      <tr class="table-primary">
-          <td>{{date_format($item->created_at,"d-m-Y")}}</td>
-          <td>{{$item->clientes->nombres}} {{$item->clientes->apellidos}}</td>
-          <td>{{$item->empleados->nombres}} {{$item->empleados->apellidos}}</td>
-          <td>{{$vent->tipo}}</td>
-          <td>{{$item->cantidad_v}}</td>
-          <td>{{$vent->precio}}</td>
-          <td>{{$item->cantidad_v * $item->servicios->precio}}</td>
-      </tr>
-    @endforeach
+    @forelse($ventas as $vent)
+    
+    <tr class="table-primary">
+        <td>{{date_format($vent->created_at,"d-m-Y")}}</td>
+        <td>{{$vent->clientes->nombres}} {{$vent->clientes->apellidos}}</td>
+        <td>{{$vent->empleados->nombres}} {{$vent->empleados->apellidos}}</td>
+        <td>{{$vent->servicios->tipo}}</td>
+        <td>{{$vent->cantidad_v}}</td>
+        <td>{{number_format($vent->servicios->precio,2)}}</td>
+          <td class="text-success">{{number_format($vent->cantidad_v * $vent->servicios->precio,2)}}</td>
+    </tr>
 
     @empty
     <tr>
@@ -49,5 +48,6 @@
     @endforelse
 </tbody>
 </table>
+{{$ventas->links()}}
 </div>
 @endsection

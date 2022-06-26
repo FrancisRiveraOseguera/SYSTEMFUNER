@@ -87,15 +87,15 @@
                     Buscar
                 </button>
                 <a type="button" href="{{route('listadoGastos.index')}}" 
-                class="btn btn-danger btn-sm">Limpiar</a>
+                class="btn btn-secondary btn-sm">Limpiar</a>
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <label for=""><b>Total de gastos</b></label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <label for=""><b>Total de gastos: </b></label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" disabled class="col-sm-2" value="L. {{number_format($suma->total,2)}}">
         </div>
     </form>

@@ -32,6 +32,7 @@ class GastoController extends Controller
 
 
         $gasto = Gasto::select("gastos.id", "gastos.fecha","tipo_gasto","detalles_gasto","cantidad","empleado_id")
+        ->orderby('id','DESC')
         ->join("empleados","empleado_id","=","empleados.id")
         ->whereBetween('fecha', [$inicio, $final])
         ->where(function ($query) use ($busqueda){
@@ -39,7 +40,7 @@ class GastoController extends Controller
             ->orwhere("empleados.nombres","like","%".$busqueda."%")
             ->orwhere("empleados.apellidos","like","%".$busqueda."%");
         })
-        ->paginate(15);
+        ->paginate(15)-> withQueryString();
         
         $suma = Gasto::select(DB::raw("sum(cantidad) as total"))
         ->join("empleados","empleado_id","=","empleados.id")
@@ -93,11 +94,11 @@ class GastoController extends Controller
             'tipo_gasto.regex' => 'El campo tipo de gasto solo debe contener letras.',
 
 
-            'detalles_gasto.required' => 'El campo descripción del gasto no puede estar vacío.',
+            'detalles_gasto.required' => 'El campo descripción no puede estar vacío.',
 
             'cantidad.required' => 'El campo cantidad no puede estar vacío.',
             'cantidad.numeric' => 'El campo cantidad solo acepta números.',
-            'cantidad.min'  => 'El campo cantidad no puede ser menor a 1.',
+            'cantidad.min'  => 'El campo cantidad no puede ser menor a 1 lempira.',
 
             'empleado_id.exists' => 'El campo responsable no ha sido seleccionado',
             'empleado_id.required' => 'El campo responsable no ha sido seleccionado.',

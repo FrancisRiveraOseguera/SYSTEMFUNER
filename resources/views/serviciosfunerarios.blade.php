@@ -61,8 +61,8 @@
         <th scope="row">{{$Servicio-> id}}</th>
         <td>{{$Servicio->tipo}}</td>
         <td>{{$Servicio->categoria}}</td>
-        <td>{{$Servicio->cuota}}</td>
-        <td>{{$Servicio->precio}}</td>
+        <td>{{number_format($Servicio->cuota,2)}}</td>
+        <td>{{number_format($Servicio->precio,2)}}</td>
         <td style="text-align: center;">
          <a class="btn btn-info" href="{{route('Servicio.ver', ['id'=>$Servicio->id])}}"><i class="bi bi-eye"></i>Detalles</a>
         <td style="text-align: center;">

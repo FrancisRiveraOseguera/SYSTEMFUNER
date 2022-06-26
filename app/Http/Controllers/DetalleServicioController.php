@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\contadoVenta;
 use App\Models\Servicio;
 use App\Models\creditoventa;
 use Illuminate\Http\Request;
@@ -8,10 +10,16 @@ use Illuminate\Support\Facades\DB;
 
 class DetalleServicioController extends Controller
 {
-    //función para mostrar el listado de ventas de cada tipo de servicio
+    //función para mostrar el listado de ventas al contado de cada tipo de servicio 
     public function index($id){
         $servicio = Servicio::findOrFail($id);
-        $ventas = Servicio::with('contadoventas')->where('id', $id)->get();
+        $ventas = contadoVenta::orderby('contado_ventas.id','DESC')
+        ->select("contado_ventas.id", "contado_ventas.created_at","cliente_id","servicio_id","empleado_id","cantidad_v")
+        ->join("clientes","cliente_id","=","clientes.id")
+        ->join("empleados","empleado_id","=","empleados.id")
+        ->where('contado_ventas.servicio_id', $servicio->id)
+        ->paginate(15)-> withQueryString();
+
         return view('listadoVentaTipoServicio')
         ->with('ventas', $ventas)
         ->with('servicio', $servicio);
