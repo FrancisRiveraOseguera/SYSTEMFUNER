@@ -1,9 +1,3 @@
-<?php
-    include 'conexion.php';
-    $query=mysqli_query($mysqli,"SELECT nombres, apellidos FROM empleados");
-?>
-
-
 <!DOCTYPE html>
 <html>
    <!-- <script language="javascript">alert("Para exportar el contrato a PDF y poder imprimirlo, haz clíc en el logo de la funeraria.")</script>-->
@@ -21,29 +15,28 @@
             <hr>
         </div>
         
-        <div class="invent">
- <table class="table ">
-  <thead>
-    <tr class="table"  style="width: 1000px;">
+<div class="invent">
+    <table class="table ">
+        <thead>
+            <tr class="table"  style="width: 1000px;">
+                <th scope="col" style="text-align: left; width: 500px;">Fecha de gasto</th>
+                <th scope="col"style="text-align: left;  width: 400px;">Tipo de gasto</th>
+                <th scope="col"style=" width: 300px;">Cantidad</th>
+                <th scope="col"style=" width: 300px;">Responsable</th>
+            </tr>
+        </thead>
     
-      <th scope="col" style="text-align: left; width: 500px;">Fecha y hora de venta</th>
-      <th scope="col"style="text-align: left;  width: 400px;">Tipo de gasto</th>
-      <th scope="col"style=" width: 300px;">Cantidad</th>
+    <tbody>     
+    @foreach($gasto as $gast) 
+        <tr class="table"> 
+        <td>{{date('d-m-Y', strtotime($gast->fecha))}}</td>
+        <td>{{$gast->tipo_gasto}}</td>
+        <td>L. {{$gast->cantidad}}</td>
+        <td>{{$gast->empleados->nombres}} {{$gast->empleados->apellidos}}</td>
+    @endforeach 
+    </tbody>
 
-    </tr>
-  </thead>
-  <tbody>     
-  @foreach($Gastos as $gast) 
-    <tr class="table"> 
-    <td>{{$gast->created_at}}</td>
-    <td>{{$gast->tipo_gasto}}</td>
-    <td>L. {{$gast->cantidad}}</td>
-@endforeach
-
-    
-
-  </tbody>
-</table>
+    </table>
 
         <!-- Required meta tags -->
         <meta charset="utf-8">

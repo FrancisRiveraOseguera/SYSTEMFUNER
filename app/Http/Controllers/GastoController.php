@@ -40,6 +40,7 @@ class GastoController extends Controller
             ->orwhere("empleados.nombres","like","%".$busqueda."%")
             ->orwhere("empleados.apellidos","like","%".$busqueda."%");
         })
+        ->orderBy('fecha', 'asc')
         ->paginate(15)-> withQueryString();
         
         $suma = Gasto::select(DB::raw("sum(cantidad) as total"))
@@ -138,8 +139,13 @@ class GastoController extends Controller
     }
 
     public function gastosPDF(){
-        $gasto  = DB::table('gastos')->get();
-        return view ('gastos/gastosPDF')->with('Gastos', $gasto);
+        $gasto = Gasto::select("gastos.id", "gastos.fecha","tipo_gasto","detalles_gasto","cantidad","empleado_id")
+        ->join("empleados","empleado_id","=","empleados.id")
+        ->orderBy('fecha', 'asc')
+        ->get();
+
+        return view ('gastos/gastosPDF')
+        ->with('gasto', $gasto);
     }
 
 

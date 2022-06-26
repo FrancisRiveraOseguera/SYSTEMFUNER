@@ -39,7 +39,7 @@
 
                         <!--Footer-->
                         <div class="modal-footer flex-center">
-                            <a href="{{route('gastos.pdf')}}" target="_blank" class="modal-footer btn-info">¡Entendido!</a>
+                            <a href="{{route('gastos.pdf')}}" target="_blank" class="modal-footer btn-info">Imprimir reporte de gastos</a>
                         </div>
                     </div>
                     </div>

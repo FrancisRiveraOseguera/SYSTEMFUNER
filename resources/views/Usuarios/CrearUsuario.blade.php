@@ -35,18 +35,6 @@
     <div class="emple">
     <form method="post" action="" autocomplete="off">
         @csrf
-        <div class="form-group row">
-            <label for="correo" class="col-lg-2 control-label offset-md-1 requerido">
-                <i id="IcNewEmp" class="fa fa-envelope-o"></i>Correo electrónico:</label>
-            <div class="col-sm-8">
-                <input type="text"
-                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                       maxlength = "35" name="correo" id="correo"
-                       placeholder="Ingrese el correo electrónico del usuario, sin guiones ni espacios."
-                class="form-control" value="{{old('correo', $usuario->correo ?? '')}}"/>
-            </div>
-        </div>
-
 
         <div class="form-group row">
                 <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido">
@@ -67,6 +55,7 @@
                 </select>
             </div>
         </div>
+        
 
         <div>
           <script src='../../js/select2.min.js'></script>
@@ -76,6 +65,18 @@
                });
            </script>
       </div>
+
+      <div class="form-group row">
+            <label for="correo" class="col-lg-2 control-label offset-md-1 requerido">
+                <i id="IcNewEmp" class="fa fa-envelope-o"></i>Correo electrónico:</label>
+            <div class="col-sm-8">
+                <input type="text"
+                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                       maxlength = "35" name="correo" id="correo"
+                       placeholder="Ingrese el correo electrónico del usuario, sin guiones ni espacios."
+                class="form-control" value="{{old('correo', $usuario->correo ?? '')}}"/>
+            </div>
+        </div>
 
         <div class="form-group row">
             <label for="nameUser" class="col-lg-2 control-label offset-md-1 requerido">
@@ -114,7 +115,7 @@
             <label for="pass2" class="col-lg-2 control-label offset-md-1 requerido">
                 <i  id="IcNewEmp" class="bi bi-key"></i>Confirme contraseña:</label>
             <div class="col-sm-8">
-                <input type="password" style="width: 94%; height: 100%;" placeholder="  Confirme la contraseña." id="pass2" class="masked" name="password" maxlength="20" style="resize: none;"
+                <input type="password" style="width: 94%; height: 100%;" placeholder="  Confirme la contraseña." id="pass2" class="masked" name="password_confirmation" maxlength="20" style="resize: none;"
                 placeholder="Contraseña para el usuario." rows="1" cols="52" class="form-control masked"></input>
             </div><div id="error2"></div> <i id="G"></i>
         </div>

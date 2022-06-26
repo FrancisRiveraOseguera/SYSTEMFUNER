@@ -35,9 +35,9 @@
     <button id="sidebarCollapse" class="btn navbar-btn">
         <i class="fas fa-lg fa-bars"></i>
     </button>
-    <a class="navbar-brand" href="/inicio">
+    <a class="navbar-brand">
         <img src="/assets/logo.png" class="rounded-circle" style="margin-right:10px; margin-left:10px;" width="50" height="50">
-        <h4 style="text-shadow: 4px 4px 8px black;" id="logo">Funerales La Bendición</h4>
+        <h4 style="text-shadow: 4px 4px 8px black;"3 id="logo">Funerales La Bendición</h4>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"   data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

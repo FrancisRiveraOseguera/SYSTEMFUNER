@@ -78,6 +78,10 @@ class UsuarioController extends Controller
 
             'password.required'  => 'El campo contraseña no puede estar vacío.',
             'password.min'  => 'La contraseña es insegura, para mayor seguridad debe poseer 8 caracteres como mínimo.',
+
+            'password_confirmation.required' => 'El campo confirmar contraseña no puede estar vacío.',
+            'password_confirmation.min' => 'El campo confirmar contraseña debe poseer 8 caracteres como mínimo.',
+            'password_confirmation.same' => 'El campo confirmar contraseña debe coincidir con el campo contraseña.',
         ];
 
         $this->validate($request,$rules,$mensaje);

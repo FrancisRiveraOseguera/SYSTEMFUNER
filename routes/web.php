@@ -290,8 +290,7 @@ Route::middleware("auth")->group(function () {
         ->where('id', '[0-9]+');
 
     Route::get('/gastos/PDF', 'App\Http\Controllers\GastoController@gastosPDF')
-        ->name('gastos.pdf')
-        ->where('id', '[0-9]+');
+        ->name('gastos.pdf');
 
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas
