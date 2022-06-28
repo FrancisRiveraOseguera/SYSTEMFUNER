@@ -36,10 +36,9 @@
                             <i class="pdf fas fa-file-pdf fa-4x mb-4"></i>
                             <p>Para exportar el reporte de gastos a PDF y poder imprimirlo, haz clíc en el logo de la funeraria ubicado en la parte superior izquierda.</p>
                         </div>
-
                         <!--Footer-->
                         <div class="modal-footer flex-center">
-                            <a href="{{route('gastos.pdf')}}" target="_blank" class="modal-footer btn-info">Imprimir reporte de gastos</a>
+                            <a href="{{route('gastos.pdf')}}" target="_blank" class="modal-footer btn-info">Imprimir reporte mensual de gastos</a>
                         </div>
                     </div>
                     </div>

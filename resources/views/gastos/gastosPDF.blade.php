@@ -9,7 +9,7 @@
         <img src="/assets/logo_contrato.png" title="Exportar a PDF e imprimir" class="rounded-circle logo" id="btn" width="120" height="100">
         <div class="sh">
             <br>
-            <h3><b>REPORTE DE GASTOS</h3></b>
+            <h3><b>REPORTE MENSUAL DE GASTOS</h3></b>
             <br>
             <h3><b>FUNERALES LA BENDICIÓN</h3></b>
             <hr>

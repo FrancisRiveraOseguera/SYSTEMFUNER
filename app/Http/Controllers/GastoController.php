@@ -60,7 +60,6 @@ class GastoController extends Controller
             ->with('inicio', $inicio)
             ->with('final', $final)
             ->with('suma', $suma);
-    
     }
     
     /**
@@ -139,11 +138,13 @@ class GastoController extends Controller
         return view('gastos/detallesGasto')->with('gasto', $gasto);
     }
 
-    public function gastosPDF(){
+    public function gastosPDF()
+    {
         $gasto = Gasto::select("gastos.id", "gastos.fecha","tipo_gasto","detalles_gasto","cantidad","empleado_id")
         ->join("empleados","empleado_id","=","empleados.id")
         ->orderBy('fecha', 'asc')
-        ->get();
+        ->where('fecha', '>=', \Carbon\Carbon::now()->startOfMonth())
+        -> get();
 
         return view ('gastos/gastosPDF')
         ->with('gasto', $gasto);
