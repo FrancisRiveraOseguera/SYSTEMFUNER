@@ -5,7 +5,7 @@
 <?php
     include 'conexion.php';
     $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM empleados");
-       
+
     if(isset($_POST['empleado_id']))
     {
         $empleado_id=$_POST['empleado_id'];
@@ -37,10 +37,11 @@
         @csrf
 
         <div class="form-group row">
-                <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido">
+                <label for="nombres" class="col-lg-3 control-label offset-md-1 requerido">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombre del empleado:</label>
-            <div class="col-sm-8">
-                <select name="empleado_id" style="width: 100%;" class=" form-control">
+            <div class="col-sm-7">
+                <select name="empleado_id" style="width: 94%; height: 100%;"class=" form-control">
                     @if (isset($ident))
                         <option style="display: none" value="{{$ident->id}}">{{$ident->nombres}} {{$ident->apellidos}}</option>
                     @else
@@ -58,31 +59,33 @@
         
 
         <div>
-          <script src='../../js/select2.min.js'></script>
-          <script type="text/javascript">
-             $(document).ready(function(){
-             $('empleado_id').select2();
-               });
-           </script>
-      </div>
+        <script src='../../js/select2.min.js'></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+            $('empleado_id').select2();
+            });
+        </script>
+    </div>
 
-      <div class="form-group row">
-            <label for="correo" class="col-lg-2 control-label offset-md-1 requerido">
+    <div class="form-group row">
+            <label for="correo" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i id="IcNewEmp" class="fa fa-envelope-o"></i>Correo electrónico:</label>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <input type="text"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                       maxlength = "35" name="correo" id="correo"
-                       placeholder="Ingrese el correo electrónico del usuario, sin guiones ni espacios."
+                    maxlength = "35" name="correo" id="correo" style="width: 94%; height: 100%;"
+                    placeholder="Ingrese el correo electrónico del usuario, sin guiones ni espacios."
                 class="form-control" value="{{old('correo', $usuario->correo ?? '')}}"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="nameUser" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="nameUser" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i  id="IcNewEmp" class="fa fa-user-circle-o"></i>Nombre del usuario:</label>
-            <div class="col-sm-8">
-                <textarea name="nameUser" id="nameUser" maxlength="20" style="resize: none;"
+            <div class="col-sm-7">
+                <textarea name="nameUser" id="nameUser" style="width: 94%; height: 100%;" maxlength="20" style="resize: none;"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 placeholder="Ingrese el nombre que utilizará el usuario."  rows="1" cols="52"
                 class="form-control">{{old('nameUser', $usuario->nameUser ?? '')}}</textarea>
@@ -90,10 +93,11 @@
         </div>
 
         <div class="form-group row">
-            <label for="ocupacion" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="ocupacion" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i id="IcNewEmp"  class="fas fa-user-tie"></i>Cargo:</label>
-            <div class="col-sm-8">
-                <select name="cargo" style="width: 100%; background:white" id="cargo">
+            <div class="col-sm-7">
+                <select name="cargo" style="width: 94%; height: 108%; background:white" id="cargo">
                     <option selected disabled value="0" >Cargo del usuario dentro de la compañía</option>
                     <option value="Gerente">Gerente</option> 
                     <option value="Subgerente">Subgerente</option> 
@@ -102,9 +106,10 @@
         </div>
 
         <div class="form-group row">
-            <label for="pass1" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="pass1" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i  id="IcNewEmp" class="bi bi-key"></i>Contraseña:</label>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <input type="password" style="width: 94%; height: 100%;" placeholder="  Ingrese la contraseña, mínimo 8 letras." id="pass1" class="masked" name="password" maxlength="20" style="resize: none;"
                 placeholder="Contraseña para el usuario." rows="1" cols="52" class="form-control masked">{{old('password', $usuario->password ?? '')}}</input>
                 <i class="fa fa-eye" id="eye"></i>
@@ -112,9 +117,10 @@
         </div>
 
         <div class="form-group row">
-            <label for="pass2" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="pass2" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i  id="IcNewEmp" class="bi bi-key"></i>Confirme contraseña:</label>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <input type="password" style="width: 94%; height: 100%;" placeholder="  Confirme la contraseña." id="pass2" class="masked" name="password_confirmation" maxlength="20" style="resize: none;"
                 placeholder="Contraseña para el usuario." rows="1" cols="52" class="form-control masked"></input>
             </div><div id="error2"></div> <i id="G"></i>

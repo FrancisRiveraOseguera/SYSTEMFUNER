@@ -58,14 +58,14 @@
                 @if ($usuario->id ==1 )
                         
                 @else
-                <form method="post" action="{{route('usuario.borrar',['id'=>$usuario->id])}}">
+                <form method="post" action="{{route('usuario.borrar',['id'=> $usuario->id])}}">
 
-                    <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush">
+                    <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush{{$usuario->id}}">
                         <i class="fas fa-minus-circle"></i>Eliminar
                     </a>
                     
                     <!--Modal: modalPush-->
-                    <div class="modal fade" tabindex="1" id="modalPush"role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" tabindex="1" id="modalPush{{$usuario->id}}"role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-notify modal-info" role="document">
                             <!--Content-->
                             <div class="modal-content text-center">

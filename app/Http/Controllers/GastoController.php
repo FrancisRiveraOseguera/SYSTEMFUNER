@@ -84,7 +84,7 @@ class GastoController extends Controller
         $rules=[
             'tipo_gasto' => 'required|regex:/^[\pL\s\-]+$/u|max:70',
             'detalles_gasto' => 'required|max:1000',
-            'cantidad' => 'required|numeric|min:1',
+            'cantidad' => 'required|numeric|min:1|max:15000',
             'empleado_id' => 'required|exists:App\Models\Empleado,id',
             
         ];
@@ -100,6 +100,7 @@ class GastoController extends Controller
             'cantidad.required' => 'El campo cantidad no puede estar vacío.',
             'cantidad.numeric' => 'El campo cantidad solo acepta números.',
             'cantidad.min'  => 'El campo cantidad no puede ser menor a 1 lempira.',
+            'cantidad.max'  => 'El campo cantidad no puede ser mayor a 15,000 lempiras.',
 
             'empleado_id.exists' => 'El campo responsable no ha sido seleccionado',
             'empleado_id.required' => 'El campo responsable no ha sido seleccionado.',
