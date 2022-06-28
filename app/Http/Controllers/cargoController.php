@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Cargo;
 use App\Models\Empleado;
+use App\Models\Usuario;
 
 class cargoController extends Controller
 {
