@@ -92,18 +92,6 @@
             </div>
         </div>
 
-        <div class="form-group row">
-            <label for="ocupacion" class="col-lg-3 control-label offset-md-1 requerido">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <i id="IcNewEmp"  class="fas fa-user-tie"></i>Cargo:</label>
-            <div class="col-sm-7">
-                <select name="cargo" style="width: 94%; height: 108%; background:white" id="cargo">
-                    <option selected disabled value="0" >Cargo del usuario dentro de la compañía</option>
-                    <option value="Gerente">Gerente</option> 
-                    <option value="Subgerente">Subgerente</option> 
-                </select>
-            </div>
-        </div>
 
         <div class="form-group row">
             <label for="pass1" class="col-lg-3 control-label offset-md-1 requerido">

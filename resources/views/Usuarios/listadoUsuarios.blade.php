@@ -32,7 +32,6 @@
             <tr class="table-info">
             <th scope="col">Nombre de usuario</th>
             <th scope="col">Correo electrónico</th>
-            <th scope="col">Cargo</th>
             <th scope="col" class="text-center" >Editar</th>
             <th scope="col" class="text-center" >Eliminar</th>
             
@@ -43,7 +42,7 @@
             <tr class="table-primary">
             <td>{{$usuario->nameUser}}</td>
             <td>{{$usuario->correo}}</td>
-            <td>{{$usuario->cargo}}</td>
+            
                 
             <td class="text-center">
                 @if ($usuario->id ==1 )

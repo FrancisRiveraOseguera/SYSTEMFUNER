@@ -18,7 +18,7 @@ class UsuarioTable extends Migration
             $table->integer('empleado_id');
             $table->string('correo', 35)->unique();
             $table->string('nameUser', 20)->unique();
-            $table->string('cargo', 50);
+            $table->integer('cargo_id');
             $table->text('password');
             $table->timestamps();
             $table->charset = 'utf8mb4';
