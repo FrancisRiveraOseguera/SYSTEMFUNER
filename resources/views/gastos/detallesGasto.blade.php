@@ -22,7 +22,7 @@
         <div class="form-group row">
             <label for="detalles_gasto" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i id="IcNewEmp" class="fas fa-tasks"></i>Descripción:</label>
-            <textarea disabled rows="4" style="color: black; background: none; border: none; resize: none;" class="col-sm-6 mt-1 ml-6">{{$gasto->detalles_gasto}}
+            <textarea disabled style="color: black; background: none; border: none; resize: none;" class="col-sm-6 mt-1 ml-6">{{$gasto->detalles_gasto}}
             </textarea>
         </div>
         
@@ -49,7 +49,7 @@
             <label for="fecha" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i  id="IcNewEmp" class="bi bi-calendar-month"></i>Fecha:</label>
             <div class="col-sm-7 mt-1 ml-6">
-                {{($gasto->fecha)}}
+                {{date('d-m-Y', strtotime($gasto->fecha))}}
             </div>
         </div><br>
          

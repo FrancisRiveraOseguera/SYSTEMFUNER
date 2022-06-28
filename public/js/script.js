@@ -21,7 +21,7 @@ $(function(){
 //Password validation
 $(document).ready(function() {
 
-	$('#pass2').keyup(function() {
+$('#pass2').keyup(function() {
 
 		var pass1 = $('#pass1').val();
 		var pass2 = $('#pass2').val();

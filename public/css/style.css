@@ -17,18 +17,6 @@ div#error2 {
   left: -87px;
 }
 
-.bt{
-  background: rgba(33, 166, 199, 0.856);
-  color: white;
-  text-decoration: none;
-}
-
-.bt:hover{
-  background: red;
-  color: white;
-  text-decoration: none;
-}
-
 html{
   scroll-behavior: smooth;
 }

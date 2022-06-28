@@ -174,7 +174,6 @@
                     min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 0 day"));?>"/>
             </div>
             </div>
-        </div>
 
     </div>
 
@@ -205,16 +204,14 @@
                     </div>
                     <!--Footer-->
                         <div class="modal-footer flex-center">
-                            <button type="close"  class="modal-footer btn-info">¡Entendido!</button>
+                            <button type="close" class="modal-footer btn-info">¡Entendido!</button>
                         </div>
                     </div>
-            </div>
+                </div>
             </div>
         </td>
-
     </div>
-
-  </div>
+</div>
 
 
   <style>

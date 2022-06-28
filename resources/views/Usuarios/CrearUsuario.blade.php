@@ -160,9 +160,13 @@
     }
 
     #G{
-        margin-left: 26.5%;
+        margin-left: 35%;
     }
 
+    #error2{
+        margin-left: 45px;
+        margin-top: -8px;
+    }
 
     </style>
 
