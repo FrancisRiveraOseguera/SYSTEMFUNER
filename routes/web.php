@@ -8,6 +8,7 @@ use App\Http\Controllers\creditoventaController;
 use App\Http\Controllers\DetalleServicioController;
 use App\Http\Controllers\PagosController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\PermissionController;
 
 
 /*
@@ -291,6 +292,17 @@ Route::middleware("auth")->group(function () {
 
     Route::get('/gastos/PDF', 'App\Http\Controllers\GastoController@gastosPDF')
         ->name('gastos.pdf');
+
+    //RUTA PERMISOS
+    Route::get('permisos',[PermissionController::class, 'index'])
+    ->name('permisos.lista');
+
+    Route::get('permisos/crear',[PermissionController::class, 'create'])
+    ->name('permisos.create');
+
+    Route::post('permisos/crear',[PermissionController::class, 'store'])
+    ->name('permisos.store');
+    
 
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas

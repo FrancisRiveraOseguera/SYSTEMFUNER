@@ -41,7 +41,7 @@
                 <input type = "text"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     maxlength = "50" name="tipo_gasto" id="tipo_gasto"
-                    placeholder="Nombre del gasto" class="form-control"
+                    placeholder="Tipo de gasto" class="form-control"
                     value="{{old('tipo_gasto', $gasto->tipo_gasto ?? '')}}"/>
             </div>
         </div>

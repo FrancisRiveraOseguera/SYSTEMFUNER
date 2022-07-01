@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ServicioSeeder::class,
             UsuarioSeeder::class,
             CargoSeeder::class,
+            PermisosSeeder::class,
         ]);
     }
 }

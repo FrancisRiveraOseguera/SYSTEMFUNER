@@ -18,7 +18,7 @@ class UsuarioSeeder extends Seeder
             'empleado_id'=> 'Admin',
             'correo' => 'funeraria@gmail.com',
             'nameUser' => 'Admin',
-            'cargo' => 'Admin',
+            'cargo_id' => 'Admin',
             'password' => bcrypt('12345678')
         ]);
     }
