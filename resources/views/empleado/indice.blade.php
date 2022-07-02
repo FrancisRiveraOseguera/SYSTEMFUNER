@@ -22,10 +22,10 @@
             <br>
             <form  action="{{route('empleado.index')}}" method="GET" autocomplete="off">
                 <div   class="input-group input-group-sm">
-                    <a type="button" href="{{route('empleado.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
+                    <a type="button" href="{{route('empleado.index')}}" class="btn btn-secondary btn-sm">Limpiar</a>
 
                     <input type="search" class="col-sm-6" name="busqueda"
-                        placeholder="Ingrese el nombre o identidad del empleado para realizar la búsqueda" value="{{$busqueda}}">
+                        placeholder="Ingrese el nombre o identidad del empleado para realizar la búsqueda." value="{{$busqueda}}">
 
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-primary">

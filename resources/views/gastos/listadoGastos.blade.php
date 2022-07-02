@@ -55,7 +55,7 @@
         <br>
         <form  action="{{route('listadoGastos.index')}}" method="GET" autocomplete="off">
             <div   class="input-group input-group-sm">
-                <a type="button" href="{{route('listadoGastos.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-backspace" acronym title="Borrar la búsqueda."></i></a>
+                <a type="button" href="{{route('listadoGastos.index')}}" class="btn btn-secondary btn-sm">Limpiar</a>
 
                 <input type="search" class="col-sm-6" name="busqueda"
                     placeholder="Ingrese el tipo de gasto o responsable para realizar la búsqueda." value="{{$busqueda}}">
@@ -67,6 +67,7 @@
                 </div>
             </div>
 
+        <br>
         <br>
         <!--Búsqueda por fecha-->
 

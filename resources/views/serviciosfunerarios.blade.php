@@ -18,7 +18,7 @@
     <!--Barra de búsqueda-->
     <form action="{{route('Servicio.lista')}}" method="GET" class="x"  autocomplete="off" >
      <div class="input-group input-group-sm">
-          <a type="button" href="{{route('Servicio.lista')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
+          <a type="button" href="{{route('Servicio.lista')}}" class="btn btn-secondary btn-sm">Limpiar</a>
           <input type="search" class="col-sm-9" name="busqueda"
            placeholder="Ingrese la categoría o el tipo  para realizar la búsqueda." value="{{$busqueda}}">
 

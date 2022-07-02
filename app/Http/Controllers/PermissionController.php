@@ -8,10 +8,18 @@ use Illuminate\Support\Facades\Gate;
 
 class PermissionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $permisos = Permission::paginate(15)-> withQueryString();
-        return view('permisos/listadopermisos')->with('permisos', $permisos);
+        $busqueda = trim($request->get('busqueda'));
+
+        $permisos = Permission::orderby('permissions.id','DESC')
+
+        ->where('name', 'LIKE', '%'.$busqueda.'%')
+        ->paginate(15)-> withQueryString();
+
+        return view('permisos/listadopermisos')
+        ->with('permisos', $permisos)
+        ->with('busqueda', $busqueda);
     }
 
     public function create()

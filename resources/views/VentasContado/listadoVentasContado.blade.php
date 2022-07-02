@@ -21,9 +21,9 @@
 <!--Barra de búsqueda-->
 <form  action="{{route('listadoVentas.index')}}" method="GET" autocomplete="off" class="x">
 <div  class="input-group input-group-sm">
-    <a type="button" href="{{route('listadoVentas.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
+    <a type="button" href="{{route('listadoVentas.index')}}" class="btn btn-secondary btn-sm">Limpiar</a>
 
-    <input type="search" class="col-sm-10" name="busqueda"
+    <input type="search" class="col-sm-9" name="busqueda"
            placeholder="Ingrese el nombre del cliente o empleado para realizar la búsqueda." value="{{$busqueda}}">
 
     <div class="input-group-append">
@@ -125,7 +125,7 @@
         }
 
         .x{
-            width:60%;
+            width:65%;
             float:right;
             padding: 20px;
             position: absolute;

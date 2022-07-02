@@ -15,6 +15,22 @@
         </a>
     </div>
 
+    <!--Barra de búsqueda-->
+    <form  action="{{route('permisos.lista')}}" method="GET" autocomplete="off" class="x">
+        <div  class="input-group input-group-sm">
+            <a type="button" href="{{route('permisos.lista')}}" class="btn btn-secondary btn-sm"></i>Limpiar</a>
+
+            <input type="search" class="col-sm-9" name="busqueda"
+                placeholder="Ingrese el nombre del permiso para realizar la búsqueda." value="{{$busqueda}}">
+
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </form>
+
 <hr>
 
     <!--Mensajes de alerta -->
@@ -34,7 +50,7 @@
         <tr>
             <tr class="table-info ">
             <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
+            <th scope="col">Descripción</th>
             <th scope="col">Editar</th>
             <th scope="col">Eliminar</th>
         </tr>

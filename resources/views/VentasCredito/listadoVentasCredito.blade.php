@@ -29,7 +29,7 @@
         <form  action="{{route('ventasCredito.index')}}" method="GET" autocomplete="off" class="">
             <div  class="input-group input-group-sm">
                 <a type="button" href="{{route('ventasCredito.index')}}" class="btn btn-secondary btn-sm">
-                    <i class="bi bi-arrow-left-circle"></i>
+                    Limpiar
                 </a>
 
                 <input type="search" class="col-sm-5" name="busqueda"

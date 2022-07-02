@@ -25,7 +25,7 @@
     <br>
     <form  action="{{route('historialinventario.index')}}" method="GET" autocomplete="off">
         <div   class="input-group input-group-sm">
-            <a type="button" href="{{route('historialinventario.index')}}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i></a>
+            <a type="button" href="{{route('historialinventario.index')}}" class="btn btn-secondary btn-sm">Limpiar</a>
 
             <input type="search" class="col-sm-7" name="busqueda"
                 placeholder="Ingrese el número de producto o nombre del responsable para realizar la búsqueda." value="{{$busqueda}}">
