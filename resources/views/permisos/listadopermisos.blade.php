@@ -47,7 +47,7 @@
                 
                 <td>
                     <a class="btn btn-success"
-                        href=""><i class="bi bi-pencil-square"></i>Editar
+                        href="{{route('permiso.editar', ['id'=> $perm->id])}}"><i class="bi bi-pencil-square"></i>Editar
                     </a>
                 </td>
 

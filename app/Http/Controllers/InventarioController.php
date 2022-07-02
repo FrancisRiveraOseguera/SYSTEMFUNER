@@ -46,22 +46,22 @@ class InventarioController extends Controller
 
     $mensaje=[
            'servicio_id.exists' => 'El producto no ha sido seleccionado.',
-            'servicio_id.required' => 'El campo número de producto no puede estar vacío.',
-            'servicio_id.numeric' => 'El campo número de producto solo debe contener números. ',
+            'servicio_id.required' => 'El número de producto no puede estar vacío.',
+            'servicio_id.numeric' => 'El número de producto solo debe contener números. ',
            
             
-            'responsable.required' => 'El campo :attribute no puede estar vacío.',
-            'responsable.regex' => 'El campo :attribute solo debe contener letras. ',
-            'responsable.max' => 'El campo :attribute debe contener 35 letras como máximo.',
-            'responsable.min' => 'El campo :attribute debe contener 5 letras como mínimo.',
+            'responsable.required' => 'El :attribute no puede estar vacío.',
+            'responsable.regex' => 'El :attribute solo debe contener letras. ',
+            'responsable.max' => 'El  :attribute debe contener 35 letras como máximo.',
+            'responsable.min' => 'El :attribute debe contener 5 letras como mínimo.',
 
-            'fecha_ingreso.required' => 'El campo :attribute no puede estar vacío.',
+            'fecha_ingreso.required' => 'La fecha de ingreso no puede estar vacía.',
     
                     
-            'cantidad_aIngresar.required'  =>'El campo :attribute no puede estar vacío.',
-            'cantidad_aIngresar.numeric'  =>'El campo :attribute no puede contener letras.',
-            'cantidad_aIngresar.min'  =>'El campo :attribute no puede ser menor a 1 unidad',
-            'cantidad_aIngresar.max'  =>'El campo :attribute no puede ser mayor a 25 unidades',
+            'cantidad_aIngresar.required'  =>'La cantidad a ingresar no puede estar vacía.',
+            'cantidad_aIngresar.numeric'  =>'La cantidad a ingresar no puede contener letras.',
+            'cantidad_aIngresar.min'  =>'La cantidad a ingresar no puede ser menor a 1 unidad',
+            'cantidad_aIngresar.max'  =>'La cantidad a ingresar no puede ser mayor a 25 unidades',
 
 
            

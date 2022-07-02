@@ -302,6 +302,15 @@ Route::middleware("auth")->group(function () {
 
     Route::post('permisos/crear',[PermissionController::class, 'store'])
     ->name('permisos.store');
+
+    //RUTAS EDITAR PERMISO 
+
+    Route::get('/permiso/{id}/editar', 'App\Http\Controllers\PermissionController@editar')
+        ->name('permiso.editar')->where('id', '[0-9]+');
+
+    Route::put('/permiso/{id}/editar', 'App\Http\Controllers\PermissionController@update')
+        ->name('permiso.update')->where('id', '[0-9]+');
+
     
 
 

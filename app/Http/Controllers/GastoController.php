@@ -90,19 +90,19 @@ class GastoController extends Controller
 
         $mensaje=[
 
-            'tipo_gasto.required' => 'El campo tipo de gasto no puede estar vacío.',
-            'tipo_gasto.regex' => 'El campo tipo de gasto solo debe contener letras.',
+            'tipo_gasto.required' => 'El  tipo de gasto no puede estar vacío.',
+            'tipo_gasto.regex' => 'El tipo de gasto solo debe contener letras.',
 
 
-            'detalles_gasto.required' => 'El campo descripción no puede estar vacío.',
+            'detalles_gasto.required' => 'La descripción no puede estar vacía.',
 
-            'cantidad.required' => 'El campo cantidad no puede estar vacío.',
-            'cantidad.numeric' => 'El campo cantidad solo acepta números.',
-            'cantidad.min'  => 'El campo cantidad no puede ser menor a 1 lempira.',
-            'cantidad.max'  => 'El campo cantidad no puede ser mayor a 15,000 lempiras.',
+            'cantidad.required' => 'La cantidad no puede estar vacía.',
+            'cantidad.numeric' => 'La cantidad solo acepta números.',
+            'cantidad.min'  => 'La cantidad no puede ser menor a 1 lempira.',
+            'cantidad.max'  => 'La cantidad no puede ser mayor a 15,000 lempiras.',
 
-            'empleado_id.exists' => 'El campo responsable no ha sido seleccionado',
-            'empleado_id.required' => 'El campo responsable no ha sido seleccionado.',
+            'empleado_id.exists' => 'El responsable no ha sido seleccionado',
+            'empleado_id.required' => 'El responsable no ha sido seleccionado.',
 
         ];
 

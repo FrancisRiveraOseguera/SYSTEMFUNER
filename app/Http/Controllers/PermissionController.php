@@ -50,4 +50,49 @@ class PermissionController extends Controller
 
         }
     }
+
+    //FUNCIÓN PARA EDITAR LOS PERMISOS
+    public function editar($id)
+    {
+        $permisos = Permission::findOrFail($id);
+        return view('permisos/permisoEditar')
+            ->with('permisos', $permisos);
+    }
+
+
+      //Función para guardar los datos actualizados AL EDITAR UN PERMISO
+      public function update(Request $request, $id){
+        //Validar campos del formulario editar
+        $rules= [
+            'name' => 'required|max:100|unique:permissions,name,'.$id,
+            'descripcion'=> 'required|max:191',
+            
+        ] ;
+
+        $mensaje=[
+            'name.required' => 'El nombre del permiso no puede estar vacío.',
+            'name.max' => 'El nombre del permiso es muy extenso.',
+            'name.unique' => 'El nombre del permiso ya existe.',
+
+            'descripcion.required' => 'La descripción del permiso no puede estar vacío.',
+            'descripcion.max' => 'La descripcion del permiso es muy extensa.',
+        ];
+
+        $this->validate($request,$rules, $mensaje);
+
+        $actualizarPermiso = Permission::findOrFail($id);
+
+        //Recuperación de los datos guardados
+        $actualizarPermiso->name= $request->input('name');
+        $actualizarPermiso -> descripcion = $request->input('descripcion');
+    
+
+        $actualizado = $actualizarPermiso-> save();
+
+        //Comprobar si fue actualizado
+        if ($actualizado){
+            return redirect()->route('permisos.lista')->with('mensaje',
+                'Los datos del permiso han sido actualizados exitosamente!');
+        }
+    }
 }

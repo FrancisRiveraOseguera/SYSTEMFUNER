@@ -58,29 +58,29 @@ class UsuarioController extends Controller
         ];
     
         $mensaje=[
-            'correo.required' => 'El campo :attribute no puede estar vacío.',
-            'correo.regex' => 'El campo :attribute no cumple el formato correcto.',
-            'correo.unique' => 'El campo :attribute debe de ser único.',
-            'correo.max' => 'El campo :attribute debe contener 35 letras como máximo.',
-            'correo.min' => 'El campo :attribute debe contener 8 letras como mínimo.',
+            'correo.required' => 'El  :attribute no puede estar vacío.',
+            'correo.regex' => 'El :attribute no cumple el formato correcto.',
+            'correo.unique' => 'El :attribute debe de ser único.',
+            'correo.max' => 'El :attribute debe contener 35 letras como máximo.',
+            'correo.min' => 'El :attribute debe contener 8 letras como mínimo.',
 
-            'empleado_id.exists' => 'El campo nombre del empleado no fue seleccionado.',
-            'empleado_id.required' => 'El campo nombre del empleado no fue seleccionado.',
+            'empleado_id.exists' => 'El nombre del empleado no fue seleccionado.',
+            'empleado_id.required' => 'El nombre del empleado no fue seleccionado.',
             'empleado_id.unique' => 'Este empleado ya posee un usuario existente dentro del sistema.',
 
-            'nameUser.required' => 'El campo nombre de usuario no puede estar vacío.',
-            'nameUser.max' => 'El campo nombre debe tener como máximo 20 caracteres.',
+            'nameUser.required' => 'El nombre de usuario no puede estar vacío.',
+            'nameUser.max' => 'El nombre debe tener como máximo 20 caracteres.',
             'nameUser.unique' => 'El nombre de usuario ya está en uso, este campo debe ser único.',
-            'nameUser.min' => 'El campo nombre de usuario debe tener como mínimo 5 caracteres.',
+            'nameUser.min' => 'El nombre de usuario debe tener como mínimo 5 caracteres.',
 
            
 
-            'password.required'  => 'El campo contraseña no puede estar vacío.',
+            'password.required'  => 'La contraseña no puede estar vacía.',
             'password.min'  => 'La contraseña es insegura, para mayor seguridad debe poseer 8 caracteres como mínimo.',
 
-            'password_confirmation.required' => 'El campo confirmar contraseña no puede estar vacío.',
-            'password_confirmation.min' => 'El campo confirmar contraseña debe poseer 8 caracteres como mínimo.',
-            'password_confirmation.same' => 'El campo confirmar contraseña debe coincidir con el campo contraseña.',
+            'password_confirmation.required' => 'Por favor confirme su contraseña.',
+            'password_confirmation.min' => 'La contraseña  debe poseer 8 caracteres como mínimo para confirmarla.',
+            'password_confirmation.same' => 'Las contraseñas no coinciden.',
         ];
 
         $this->validate($request,$rules,$mensaje);
@@ -135,18 +135,18 @@ class UsuarioController extends Controller
         ];
 
         $mensaje=[
-            'correo.required' => 'El campo :attribute no puede estar vacío.',
-            'correo.regex' => 'El campo :attribute no cumple el formato correcto.',
-            'correo.unique' => 'El campo :attribute debe de ser único.',
+            'correo.required' => 'El :attribute no puede estar vacío.',
+            'correo.regex' => 'El :attribute no cumple el formato correcto.',
+            'correo.unique' => 'El :attribute debe de ser único.',
+            'correo.max' => 'El  :attribute debe contener 35 letras como máximo.',
+            'correo.min' => 'El :attribute debe contener 8 letras como mínimo.',
             
-            'nameUser.required' => 'El campo nombre de usuario no puede estar vacío.',
-            'nameUser.max' => 'El campo nombre debe tener como máximo 20 caracteres.',
-            'nameUser.unique' => 'El campo nombre de usuario ya está en uso, este campo debe ser único.',
-            'nameUser.min' => 'El campo nombre de usuario debe tener como mínimo 5 caracteres.',
+            'nameUser.required' => 'El nombre de usuario no puede estar vacío.',
+            'nameUser.max' => 'El nombre debe tener como máximo 20 caracteres.',
+            'nameUser.unique' => 'El nombre de usuario ya está en uso, este campo debe ser único.',
+            'nameUser.min' => 'El nombre de usuario debe tener como mínimo 5 caracteres.',
 
-            'correo.required' => 'El campo :attribute no puede estar vacío.',
-            'correo.max' => 'El campo :attribute debe contener 35 letras como máximo.',
-            'correo.min' => 'El campo :attribute debe contener 8 letras como mínimo.',
+      
 
         
 

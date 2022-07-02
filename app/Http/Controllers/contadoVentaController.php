@@ -93,18 +93,18 @@ class contadoVentaController extends Controller
 
         $mensaje=[
             'cliente_id.exists' => 'El nombre del cliente no ha sido seleccionado.',
-            'cliente_id.required' => 'El Nombre del cliente no ha sido seleccionado.',
+            'cliente_id.required' => 'El nombre del cliente no ha sido seleccionado.',
 
-            'empleado_id.required' => 'El campo "Empleado responsable de la venta" no ha sido seleccionado',
+            'empleado_id.required' => 'El empleado responsable de la venta no ha sido seleccionado',
            
 
-            'servicio_id.exists' => 'El campo "Póliza de servicio funerario tipo: " no existe en inventario.',
+            'servicio_id.exists' => 'La póliza de servicio funerario sellecionada no existe en inventario.',
             'servicio_id.required' => 'El tipo de póliza de servicio funerario no ha sido seleccionado.',
 
-            'fecha.required' => 'El campo "Fecha" no puede estar vacío.',
+            'fecha.required' => 'La fecha no puede estar vacía.',
 
-            'cantidad_v.required'=> 'El campo "Cantidad" no puede estar vacío.',
-            'cantidad_v.numeric'=> 'El campo "Cantidad" debe ser un número.',
+            'cantidad_v.required'=> 'La cantidad no puede estar vacío.',
+            'cantidad_v.numeric'=> 'La cantidad  debe ser un número.',
             'cantidad_v.max'=>'La cantidad a comprar excede la cantidad disponible en inventario.',
             'cantidad_v.min'=> 'La cantidad a comprar debe ser 1 como mínimo.'
         ];

@@ -74,42 +74,42 @@ class creditoventaController extends Controller
 
         $mensaje=[
             'cliente_id.exists' => 'El nombre del cliente no ha sido seleccionado.',
-            'cliente_id.required' => 'El Nombre del cliente no ha sido seleccionado.',
+            'cliente_id.required' => 'El nombre del cliente no ha sido seleccionado.',
 
-            'empleado_id.required' => 'El campo Empleado responsable de la venta no ha sido seleccionado.',
+            'empleado_id.required' => 'El empleado responsable de la venta no ha sido seleccionado.',
 
 
             'servicio_id.required' => 'El tipo de póliza de servicio funerario no ha sido seleccionado.',
 
-            'beneficiario1.required' => 'El campo :attribute no puede estar vacío.',
-            'beneficiario1.regex' => 'El campo :attribute solo debe contener letras. ',
-            'befeficiario1.max' => 'El campo :attribute debe contener 50 letras como máximo.',
+            'beneficiario1.required' => 'El beneficiario N° 1 no puede estar vacío.',
+            'beneficiario1.regex' => 'El beneficiario N° 1 solo debe contener letras. ',
+            'befeficiario1.max' => 'El beneficiario N° 1 debe contener 50 letras como máximo.',
 
-            'telefono1.required' => 'El campo teléfono  del beneficiario 1 no puede estar vacío.',
-            'telefono1.regex' => 'El campo teléfono del beneficiario 1 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
-            'telefono1.numeric' => 'El campo teléfono del beneficiario 1 solo acepta números.',
+            'telefono1.required' => 'El teléfono  del beneficiario N° 1 no puede estar vacío.',
+            'telefono1.regex' => 'El teléfono del beneficiario  N° 1 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
+            'telefono1.numeric' => 'El teléfono del beneficiario N° 1 solo acepta números.',
 
-            'beneficiario2.required' => 'El campo :attribute no puede estar vacío.',
-            'beneficiario2.regex' => 'El campo :attribute solo debe contener letras. ',
-            'befeficiario2.max' => 'El campo :attribute debe contener 50 letras como máximo.',
+            'beneficiario2.required' => 'El beneficiario N° 2 no puede estar vacío.',
+            'beneficiario2.regex' => 'El beneficiario N° 2 solo debe contener letras. ',
+            'befeficiario2.max' => 'El beneficiario N° 2 debe contener 50 letras como máximo.',
 
-            'telefono2.required' => 'El campo teléfono del beneficiario 2 no puede estar vacío.',
-            'telefono2.regex' => 'El campo teléfono del beneficiario 2 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
-            'telefono2.numeric' => 'El campo teléfono del beneficiario 2 solo acepta números.',
+            'telefono2.required' => 'El teléfono del beneficiario N° 2 no puede estar vacío.',
+            'telefono2.regex' => 'El teléfono del beneficiario N° 2 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
+            'telefono2.numeric' => 'El teléfono del beneficiario N° 2 solo acepta números.',
 
-            'beneficiario3.regex' => 'El campo :attribute solo debe contener letras. ',
-            'befeficiario3.max' => 'El campo :attribute debe contener 50 letras como máximo.',
+            'beneficiario3.regex' => 'El beneficiario N° 3 solo debe contener letras. ',
+            'befeficiario3.max' => 'El beneficiario N° 3 debe contener 50 letras como máximo.',
 
-            'telefono3.regex' => 'El campo teléfono del beneficiario 3 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
-            'telefono3.numeric' => 'El campo teléfono del beneficiario 3 solo acepta números.',
+            'telefono3.regex' => 'El teléfono del beneficiario N° 3 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
+            'telefono3.numeric' => 'El teléfono del beneficiario N° 3 solo acepta números.',
 
-            'beneficiario4.regex' => 'El campo :attribute solo debe contener letras. ',
-            'befeficiario4.max' => 'El campo :attribute debe contener 50 letras como máximo.',
+            'beneficiario4.regex' => 'El beneficiario N° 4 solo debe contener letras. ',
+            'befeficiario4.max' => 'El beneficiario N° 4 debe contener 50 letras como máximo.',
 
-            'telefono4.regex' => 'El campo teléfono del beneficiario 4 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
-            'telefono4.numeric' => 'El campo teléfono del beneficiario 4 solo acepta números.',
+            'telefono4.regex' => 'El teléfono del beneficiario N° 4 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
+            'telefono4.numeric' => 'El teléfono del beneficiario N° 4 solo acepta números.',
 
-            'fecha.required' => 'El campo Fecha de venta no puede estar vacío.',
+            'fecha.required' => 'La fecha de venta no puede estar vacía.',
 
 
 

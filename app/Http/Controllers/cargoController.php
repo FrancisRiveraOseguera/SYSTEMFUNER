@@ -40,19 +40,19 @@ class cargoController extends Controller
 
         $mensaje=[
 
-            'cargo.required' => 'El campo tipo de cargo no puede estar vacío.',
+            'cargo.required' => 'El tipo de cargo no puede estar vacío.',
             'cargo.unique' => 'Este tipo de cargo ya existe.',
-            'cargo.regex' => 'El campo tipo de cargo solo debe contener letras.',
-            'cargo.min' => 'El campo tipo de cargo debe contener como mínimo 5 letras.',
+            'cargo.regex' => 'El tipo de cargo solo debe contener letras.',
+            'cargo.min' => 'El tipo de cargo debe contener como mínimo 5 letras.',
 
-            'sueldo.required' => 'El campo sueldo mensual no puede estar vacío.',
-            'sueldo.numeric' => 'El campo sueldo mensual solo acepta números.',
-            'sueldo.max'  => 'El campo sueldo mensual no puede ser mayor a 25000 lempiras.',
-            'sueldo.min'  => 'El campo sueldo mensual no puede ser menor a 7000 lempiras.',
+            'sueldo.required' => 'El sueldo mensual no puede estar vacío.',
+            'sueldo.numeric' => 'El sueldo mensual solo acepta números.',
+            'sueldo.max'  => 'El sueldo mensual no puede ser mayor a 25000 lempiras.',
+            'sueldo.min'  => 'El sueldo mensual no puede ser menor a 7000 lempiras.',
 
-            'detalles_cargo.required' => 'El campo tareas del cargo no puede estar vacío.',
+            'detalles_cargo.required' => 'Las tareas del cargo no puede estar vacío.',
             'detalles_cargo.unique' => 'Las tareas del cargo ya existen.',
-            'detalles_cargo.min' => 'El campo tareas del cargo debe contener como mínimo 25 letras.',
+            'detalles_cargo.min' => 'Las tareas del cargo debe contener como mínimo 25 letras.',
         ];
 
     $this->validate($request,$rules,$mensaje);
@@ -90,18 +90,18 @@ class cargoController extends Controller
         ] ;
 
         $mensaje=[
-            'cargo.required' => 'El campo tipo de cargo no puede estar vacío.',
+            'cargo.required' => 'El  tipo de cargo no puede estar vacío.',
             'cargo.unique' => 'Este tipo de cargo ya existe.',
-            'cargo.regex' => 'El campo tipo de cargo solo debe contener letras.',
-            'cargo.min' => 'El campo tipo de cargo debe contener como mínimo 5 letras.',
+            'cargo.regex' => 'El tipo de cargo solo debe contener letras.',
+            'cargo.min' => 'El tipo de cargo debe contener como mínimo 5 letras.',
 
-            'sueldo.required' => 'El campo sueldo no puede estar vacío.',
-            'sueldo.numeric' => 'El campo sueldo mensual solo acepta números.',
-            'sueldo.max'  => 'El campo sueldo mensual no puede ser mayor a 25000 lempiras.',
-            'sueldo.min'  => 'El campo sueldo mensual no puede ser menor a 7000 lempiras.',
+            'sueldo.required' => 'El sueldo no puede estar vacío.',
+            'sueldo.numeric' => 'El sueldo mensual solo acepta números.',
+            'sueldo.max'  => 'El sueldo mensual no puede ser mayor a 25000 lempiras.',
+            'sueldo.min'  => 'El sueldo mensual no puede ser menor a 7000 lempiras.',
 
-            'detalles_cargo.required' => 'El campo tareas del cargo no puede estar vacío.',
-            'detalles_cargo.min' => 'El campo tareas del cargo debe contener como mínimo 25 letras.',
+            'detalles_cargo.required' => 'Las  tareas del cargo no puede estar vacío.',
+            'detalles_cargo.min' => 'Las tareas del cargo deben contener como mínimo 25 letras.',
             'detalles_cargo.unique' => 'Las tareas del cargo ya existen.',
         ];
 

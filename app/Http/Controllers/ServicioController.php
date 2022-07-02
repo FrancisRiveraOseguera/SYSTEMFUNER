@@ -43,33 +43,33 @@ class ServicioController extends Controller
         ] ;
 
         $mensaje=[
-            'tipo.required'  => 'El campo :attribute no puede estar vacío.',
-            'tipo.regex'  =>'El campo :attribute no puede contener números.',
-            'tipo.unique'  =>'El campo :attribute debe ser único.',
-            'tipo.min'  =>'El campo :attribute debe tener al menos de 5 letras.',
-            'tipo.max'  =>'El campo :attribute no debe tener mas de 25 letras.',
+            'tipo.required'  => 'El tipo de servicio no puede estar vacío.',
+            'tipo.regex'  =>'El tipo de servicio no puede contener números.',
+            'tipo.unique'  =>'El tipo de servicio debe ser único.',
+            'tipo.min'  =>'El tipo de servicio debe tener al menos de 5 letras.',
+            'tipo.max'  =>'El tipo de servicio no debe tener mas de 25 letras.',
 
-            'categoria.required' =>'El campo :attribute no puede estar vacío.',
-            'categoria.alpha'  =>'El campo :attribute debe ser: Adultos, Juvenil o Infantil.',
+            'categoria.required' =>'La categoría no puede estar vacía.',
+            'categoria.alpha'  =>'La categoría debe ser: Adultos, Juvenil o Infantil.',
 
-            'precio.required'  =>'El campo :attribute no puede estar vacío.',
-            'precio.numeric'  =>'El campo :attribute debe contener únicamente números.',
-            'precio.max'  =>'El campo :attribute no debe exceder los L.200000',
-            'precio.min'  =>'El campo :attribute debe ser mayor a  L.13000',
+            'precio.required'  =>'El precio no puede estar vacío.',
+            'precio.numeric'  =>'El precio debe contener únicamente números.',
+            'precio.max'  =>'El precio no debe exceder los L.200000',
+            'precio.min'  =>'El precio debe ser mayor a  L.13000',
 
 
-            'detalles.required'  =>'El campo :attribute del servicio no puede estar vacío.',
-            'detalles.max'  =>'El campo :attribute no puede contener mas de 300 letras.',
+            'detalles.required'  =>'Los detalles del servicio no pueden estar vacíos.',
+            'detalles.max'  =>'Los detalles del servicio no puede contener mas de 300 letras.',
 
-            'cuota.required'  =>'El campo :attribute no puede estar vacío.',
-            'cuota.numeric'  =>'El campo :attribute no puede contener letras.',
-            'cuota.min'  =>'El campo :attribute no puede ser menor a L.200',
-            'cuota.max'  =>'El campo :attribute no puede ser mayor a L.1500',
+            'cuota.required'  =>'La cuota no puede estar vacía.',
+            'cuota.numeric'  =>'La cuota no puede contener letras.',
+            'cuota.min'  =>'La cuota no puede ser menor a L.200',
+            'cuota.max'  =>'La cuota no puede ser mayor a L.1500',
 
-            'prima.required'  =>'El campo :attribute no puede estar vacío.',
-            'prima.numeric'  =>'El campo :attribute no puede contener letras.',
-            'prima.min'  =>'El campo :attribute no puede ser menor a L.500',
-            'prima.max'  =>'El campo :attribute no puede ser mayor a L.10000',
+            'prima.required'  =>'La prima no puede estar vacía.',
+            'prima.numeric'  =>'La prima  no puede contener letras.',
+            'prima.min'  =>'La prima  no puede ser menor a L.500',
+            'prima.max'  =>'La prima  no puede ser mayor a L.10000',
 
         ];
 
@@ -116,30 +116,30 @@ class ServicioController extends Controller
         ] ;
 
         $mensaje=[
-            'tipo.required'  => 'El campo :attribute no puede estar vacío.',
-            'tipo.regex'  =>'El campo :attribute no puede contener números.',
-            'tipo.min'  =>'El campo :attribute debe tener al menos de 5 letras.',
+            'tipo.required'  => 'El tipo de servicio no puede estar vacío.',
+            'tipo.regex'  =>'El tipo de servicio no puede contener números.',
+            'tipo.min'  =>'El tipo de servicio debe tener al menos de 5 letras.',
 
-            'categoria.required' =>'El campo :attribute no puede estar vacío.',
-            'categoria.alpha'  =>'El campo :attribute debe ser: Adultos, Juvenil o Infantil.',
+            'categoria.required' =>'La categoría no puede estar vacía.',
+            'categoria.alpha'  =>'La categoría debe ser: Adultos, Juvenil o Infantil.',
 
-            'precio.required'  =>'El campo :attribute no puede estar vacío.',
-            'precio.numeric'  =>'El campo :attribute debe contener únicamente números.',
-            'precio.max'  =>'El campo :attribute no debe exceder los L.200000.',
-            'precio.min'  =>'El campo :attribute debe ser mayor a  L.13000.',
+            'precio.required'  =>'El precio no puede estar vacío.',
+            'precio.numeric'  =>'El precio debe contener únicamente números.',
+            'precio.max'  =>'El precio no debe exceder los L.200000.',
+            'precio.min'  =>'El precio debe ser mayor a  L.13000.',
 
-            'detalles.required'  =>'El campo :attribute del servicio no puede estar vacío.',
-            'detalles.max'  =>'El campo :attribute no puede contener mas de 300 letras.',
+            'detalles.required'  =>'Los :attribute del servicio no pueden estar vacíos.',
+            'detalles.max'  =>'Los :attribute no pueden contener mas de 300 letras.',
 
-            'cuota.required'  =>'El campo :attribute no puede estar vacío.',
-            'cuota.numeric'  =>'El campo :attribute no puede contener letras.',
-            'cuota.min'  =>'El campo :attribute no puede ser menor a L.200.',
-            'cuota.max'  =>'El campo :attribute no puede ser mayor a L.1500.',
+            'cuota.required'  =>'La :attribute no puede estar vacía.',
+            'cuota.numeric'  =>'La :attribute no puede contener letras.',
+            'cuota.min'  =>'La :attribute no puede ser menor a L.200.',
+            'cuota.max'  =>'La :attribute no puede ser mayor a L.1500.',
 
-            'prima.required'  =>'El campo :attribute no puede estar vacío.',
-            'prima.numeric'  =>'El campo :attribute no puede contener letras.',
-            'prima.min'  =>'El campo :attribute no puede ser menor a L.500.',
-            'prima.max'  =>'El campo :attribute no puede ser mayor a L.10000.',
+            'prima.required'  =>'La :attribute no puede estar vacío.',
+            'prima.numeric'  =>'La :attribute no puede contener letras.',
+            'prima.min'  =>'La :attribute no puede ser menor a L.500.',
+            'prima.max'  =>'La :attribute no puede ser mayor a L.10000.',
 
         ];
 
