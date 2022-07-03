@@ -20,7 +20,7 @@
 </div> <br>
 
     <div class="emple">
-    <form method="post" action="" autocomplete="off">
+    <form method="post" action="{{route('roles.store')}}" autocomplete="off">
         @csrf
 
     <div class="form-group row">
@@ -47,40 +47,38 @@
         </div>
 
         <!--Lista de permisos ya creados-->
-        <div class="form-group row">
-                    <label for="permisos" style="margin-left: 12%;" class="col-lg-3 control-label offset-md-1 requerido"><i  id="IcNewEmp" class="fa fa-shield"></i>Permisos</label>
-                    <div class="col-sm-7">
-                        <div class="form-group">
-                            <div class="tab-content">
-                                <div class="tab-pane active">
-                                    <table class="table">
-                                        <tbody>
-                                            @foreach ($permissions as $id => $permission)
-                                            <tr>
-                                                <td>
-                                                    <div class="form-check row">
-                                                        <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="permissions[]" value="{{$id}}">
-                                                            <span class="form-check-sign">
-                                                                <span class="form-check-sign">
-                                                                    <span class="check"></span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                                <td style="width: 20%; float:left" id="permisos">
-                                                    {{$permission}}
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
+        <div class="form-group row" id="formElement">
+            <label for="permisos" style="margin-left: 12%;" class="col-lg-3 control-label offset-md-1 requerido"><i  id="IcNewEmp" class="fa fa-shield"></i>Permisos</label>
+                <div class="col-sm-7">
+                    <div class="form-group">
+                        <div class="tab-content">
+                            <div class="tab-pane active">
+                                <table class="table">
+                                    <tbody>
+                                    @foreach ($permissions as $id => $permission)
+                                    <tr>
+                                        <td>
+                                            <div class="form-check row">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" name="permissions[]" value="{{$id}}">
+                                                    <span class="form-check-sign">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                            <td style="width: 100%; text-align: left;" name="permisos" id="permisos">
+                                            {{$permission}}
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-
+            </div>
 
         <!--botones-->
         <a class="btn btn-primary" href="{{route('roles.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
