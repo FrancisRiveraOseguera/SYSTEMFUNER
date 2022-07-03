@@ -312,6 +312,17 @@ Route::middleware("auth")->group(function () {
         ->name('permiso.update')->where('id', '[0-9]+');
 
     
+    //RUTA ROLES
+    Route::get('roles', 'App\Http\Controllers\RoleController@index')
+    ->name('roles.index');
+
+    Route::get('roles/crear', 'App\Http\Controllers\RoleController@create')
+        ->name('roles.create');
+    
+    Route::post('roles/crear', 'App\Http\Controllers\RoleController@store')
+    ->name('roles.store');
+
+    
 
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas

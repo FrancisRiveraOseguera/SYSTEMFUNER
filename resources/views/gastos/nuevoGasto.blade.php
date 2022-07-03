@@ -61,12 +61,12 @@
 
         <div class="form-group row">
             <label for="cantidad" class="col-lg-2 control-label offset-md-1 requerido">
-                <i id="IcNewEmp" class="bi bi-cash-coin"></i>Cantidad</label>
+                <i id="IcNewEmp" class="bi bi-cash-coin"></i>Total gastado</label>
             <div class="col-sm-8">
                 <input type = "text"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     name="cantidad" id="cantidad"  maxlength = "5"
-                    placeholder="Cantidad gastada" class="form-control"
+                    placeholder="Cantidad total de dinero gastado." class="form-control"
                     value="{{old('cantidad', $gasto->cantidad ?? '')}}"/>
             </div>
         </div>

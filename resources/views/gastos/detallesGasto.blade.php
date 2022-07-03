@@ -29,7 +29,7 @@
 
         <div class="form-group row">
                 <label for="cantidad" class="col-lg-3 control-label offset-md-1 requerido hijo">
-                    <i id="IcNewEmp" class="bi bi-cash-coin"></i>Cantidad:</label>
+                    <i id="IcNewEmp" class="bi bi-cash-coin"></i>Total gastado:</label>
             <div class="col-sm-8 mt-1 ml-6">
                 L. {{$gasto->cantidad}}
             </div>
