@@ -51,9 +51,39 @@
                 </td>
 
                 <td>
-                    <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush">
-                        <i class="fas fa-minus-circle"></i>Eliminar
-                    </a>
+                    <form method="post" action="{{route('rol.eliminar',['id'=> $rol->id])}}">
+
+                        <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush{{$rol->id}}">
+                            <i class="fas fa-minus-circle"></i>Eliminar
+                        </a>
+
+                        <!--Modal: modalPush-->
+                        <div class="modal fade" tabindex="1" id="modalPush{{$rol->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-notify modal-info" role="document">
+                                <!--Content-->
+                                <div class="modal-content text-center">
+                                    <!--Header-->
+                                    <div class="modal-header d-flex justify-content-center">
+                                        <p class="heading">Eliminar rol</p><i class="bi bi-person-rolodex"></i>
+                                    </div>
+
+                                    <!--Body-->
+                                    <div class="modal-body">
+                                        <p>¿Seguro que deseas eliminar el rol?</p>
+                                    </div>
+
+                                    <!--Footer-->
+                                    @csrf
+                                    @method('delete')
+
+                                    <div class="modal-footer flex-center">
+                                        <button type="submit" class="modal-footer btn btn-info">Aceptar</button>
+                                        <a class="modal-footer btn btn-danger" href="{{route('roles.index')}}">Cancelar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </td>
 
             @empty

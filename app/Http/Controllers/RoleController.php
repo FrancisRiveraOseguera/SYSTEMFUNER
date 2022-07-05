@@ -104,6 +104,12 @@ class RoleController extends Controller
             return redirect()->route('roles.index')
                 ->with('mensaje', 'El rol fue actualizado exitosamente!');
         }
+    }
 
+    public function destroy($id){
+        Role::destroy($id);
+
+        return redirect()->route('roles.index')
+            ->with('mensaje', 'El rol fue eliminado exitosamente!');
     }
 }

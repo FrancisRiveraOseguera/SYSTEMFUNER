@@ -330,6 +330,10 @@ Route::middleware("auth")->group(function () {
         ->name('rol.update')
         ->where('id', '[0-9]+');
 
+    Route::delete('roles/{id}/eliminar', 'App\Http\Controllers\RoleController@destroy')
+        ->name('rol.eliminar')
+        ->where('id', '[0-9]+');
+
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas
 });//después de esta linea todas las rutas que se agreguen no pediran estar logueado para acceder.
