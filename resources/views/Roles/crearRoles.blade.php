@@ -46,47 +46,39 @@
             </div>
         </div>
 
-        <!--Lista de permisos ya creados-->
-        <div class="form-group row" id="formElement">
-            <label for="permisos" style="margin-left: 12%;" class="col-lg-3 control-label offset-md-1 requerido"><i  id="IcNewEmp" class="fa fa-shield"></i>Permisos</label>
-                <div class="col-sm-7">
-                    <div class="form-group">
-                        <div class="tab-content">
-                            <div class="tab-pane active">
-                                <table class="table">
-                                    <tbody>
-                                    @foreach ($permissions as $id => $permission)
-                                    <tr>
-                                        <td>
-                                            <div class="form-check row">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" name="permissions[]" value="{{$id}}">
-                                                    <span class="form-check-sign">
-                                                        <span class="check"></span>
-                                                    </span>
-                                                </label>
-                                            </div>
-                                        </td>
-                                            <td style="width: 100%; text-align: left;" name="permisos" id="permisos">
-                                            {{$permission}}
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+        <!--Lista de permisos ya creados mejorado-->
+        <div class="form-group row">
+            <label for="permisos" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i  id="IcNewEmp" class="fa fa-shield"></i>Permisos:</label>
+            <div class="col-sm-7">
+                <table class="table">
+                    <tbody>
+                    @foreach ($permissions as $id => $permission)
+                    <tr>
+                        <td >
+                            <div class="form-check row">
+                                <input class="form-check-input" type="checkbox" name="permissions[]" value="{{$id}}">
+                                <span class="form-check-sign">
+                                   <span class="check"></span>
+                                </span>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </td>                 
+                    <td style="width: 100%; text-align: left;" name="permisos" id="permisos">
+                        {{$permission}}
+                    </td>
+                    </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
+        </div>
 
         <!--botones-->
         <a class="btn btn-primary" href="{{route('roles.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
         <button type="submit" class="btn btn-success" ><i class="bi bi-save"></i>Guardar</button>
     </form>
 </div>
-
-<script src="/../js/showPass.js"></script>
 
 <style>
         .emple {
@@ -109,15 +101,6 @@
         font-size:25px;
         width: 1em;
         height: 1em;
-    }
-
-    #G{
-        margin-left: 35%;
-    }
-
-    #error2{
-        margin-left: 45px;
-        margin-top: -8px;
     }
 
     </style>

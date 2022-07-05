@@ -64,7 +64,7 @@
                                 <div class="modal-content text-center">
                                     <!--Header-->
                                     <div class="modal-header d-flex justify-content-center">
-                                        <p class="heading">Eliminar rol</p><i class="bi bi-person-rolodex"></i>
+                                        <p class="heading"><i class="bi bi-person-rolodex"></i>Eliminar rol</p>
                                     </div>
 
                                     <!--Body-->
