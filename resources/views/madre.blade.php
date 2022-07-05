@@ -85,13 +85,17 @@
             </li>
 
             <li>
+                <a href="{{route('listadoGastos.index')}}"><i class="fa fa-chart-pie" style="font-size: 14px"></i>Gastos</a>
+            </li>
+
+            <li>
                 <a href="{{route('listado.usuario')}}"><i class="fas fa-users-cog" style="font-size: 14px"></i>Usuarios</a>
             </li>
             <li>
-                <a href="{{route('roles.index')}}"><i class="bi bi-person-rolodex" style="font-size: 14px"></i>Roles</a>
+                <a href="{{route('roles.index')}}"><i class="fa fa-address-card" style="font-size: 14px"></i>Roles</a>
             </li>
             <li>
-                <a href="{{route('permisos.lista')}}"><i class="bi bi-card-heading" style="font-size: 14px"></i>Permisos</a>
+                <a href="{{route('permisos.lista')}}"><i class="fa fa-user-shield" style="font-size: 14px"></i>Permisos</a>
             </li>
         </ul>
     </nav>

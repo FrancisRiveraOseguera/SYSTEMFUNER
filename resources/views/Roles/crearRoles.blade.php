@@ -41,7 +41,7 @@
             <div class="col-sm-7">
                 <textarea name="descripcion" id="descripcion" maxlength="100" minlenght="10"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                placeholder="Ingrese la descripción del rol."  rows="4" 
+                placeholder="Ingrese la descripción del rol, sea breve y específico."  rows="4" 
                 class="form-control">{{old('descripcion')}}</textarea>
             </div>
         </div>
@@ -54,9 +54,11 @@
             <div class="col-sm-7">
                 <table class="table">
                     <tbody>
+                    <input type="button" class="btn btn-primary" style="margin-right: 10%; height: 33px;" onclick='selectAll()' value="Seleccionar todos los permisos"/>
+                    <input type="button" class="btn btn-info" style="height: 33px; margin-bottom: 5px" onclick='UnSelectAll()' value="Quitar todos los permisos"/>
                     @foreach ($permissions as $id => $permission)
                     <tr>
-                        <td >
+                        <td>
                             <div class="form-check row">
                                 <input class="form-check-input" type="checkbox" name="permissions[]" value="{{$id}}">
                                 <span class="form-check-sign">
@@ -64,9 +66,9 @@
                                 </span>
                             </div>
                         </td>                 
-                    <td style="width: 100%; text-align: left;" name="permisos" id="permisos">
-                        {{$permission}}
-                    </td>
+                        <td style="width: 100%; text-align: left;" class="permisos" id="permisos">
+                            {{$permission}}
+                        </td>
                     </tr>
                         @endforeach
                     </tbody>
@@ -74,6 +76,24 @@
             </div>
         </div>
 
+        <script type="text/javascript">
+        function selectAll(){
+            var subjects=document.getElementsByName('permissions[]');
+            for(var i=0; i<subjects.length; i++){
+            if(subjects[i].type=='checkbox')
+                subjects[i].checked=true;
+            }
+        }
+        
+        function UnSelectAll(){
+            var subjects=document.getElementsByName('permissions[]');
+            for(var i=0; i<subjects.length; i++){
+            if(subjects[i].type=='checkbox')
+                subjects[i].checked=false;
+            }
+        }      
+        </script>
+        
         <!--botones-->
         <a class="btn btn-primary" href="{{route('roles.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
         <button type="submit" class="btn btn-success" ><i class="bi bi-save"></i>Guardar</button>

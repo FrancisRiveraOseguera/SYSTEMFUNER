@@ -32,6 +32,7 @@
         <thead>
         <tr>
             <tr class="table-info ">
+            <th scope="col">id</th>
             <th scope="col">Nombre del rol</th>
             <th scope="col">Descripcion</th>
             <th scope="col">Editar</th>
@@ -41,6 +42,7 @@
         <tbody>
             @forelse($Roles as $rol)
             <tr class="table-primary">
+                <td>{{$rol->id}}</td>
                 <td>{{$rol->name}}</td>
                 <td>{{$rol->descripcion}}</td>
 
