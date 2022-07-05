@@ -31,8 +31,8 @@
                     <div class="col-sm-7">
                 <input type = "text"  
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    maxlength = "50" name="name" id="name"
-                    placeholder="Nombre del permiso" class="form-control"
+                    maxlength = "32" name="name" id="name"  minlenght="5"
+                    placeholder="Ingrese el nombre del permiso" class="form-control"
                     value="{{$permisos->name}}"/>
         </div>
     </div>
@@ -44,8 +44,8 @@
                 <div class="col-sm-7">
                 <textarea type = "text" rows="2" cols="52"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    maxlength = "190" name="descripcion" id="descripcion"
-                    placeholder="Descripción del permiso" class="form-control">{{$permisos->descripcion}}</textarea>
+                    maxlength = "84" name="descripcion" id="descripcion"
+                    placeholder="Ingrese la descripción del permiso." class="form-control">{{$permisos->descripcion}}</textarea>
          </div>
 
         </div>

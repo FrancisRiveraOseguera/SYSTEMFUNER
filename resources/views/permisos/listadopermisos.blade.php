@@ -49,7 +49,7 @@
         <thead>
         <tr>
             <tr class="table-info ">
-            <th scope="col">Nombre</th>
+            <th scope="col">Nombre del permiso</th>
             <th scope="col">Descripción</th>
             <th scope="col">Editar</th>
             <th scope="col">Eliminar</th>

@@ -16,289 +16,284 @@ class PermisosSeeder extends Seeder
     {
         //cargos
         Permission::create([
-            'name' => 'listadocargos',
-            'descripcion' => 'Para poder acceder al listado de los cargos',
+            'name' => 'Listado_cargos',
+            'descripcion' => 'Para poder acceder al listado de los cargos.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'nuevocargos',
-            'descripcion' => 'Para poder crear un cargo',
+            'name' => 'Nuevo_cargo',
+            'descripcion' => 'Para poder crear un cargo.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'editarcargos',
-            'descripcion' => 'Para poder editar un cargo',
+            'name' => 'Editar_cargo',
+            'descripcion' => 'Para poder editar un cargo.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'detallescargos',
-            'descripcion' => 'Para poder ver los detalles del cargo',
-            'guard_name' => 'web'
-        ]);
-        Permission::create([
-            'name' => 'eliminarcargos',
-            'descripcion' => 'Para poder eliminar un cargo',
+            'name' => 'Detalles_cargos',
+            'descripcion' => 'Para poder ver los detalles del cargo.',
             'guard_name' => 'web'
         ]);
         //clientes
         Permission::create([
-            'name' => 'listadoclientes',
-            'descripcion' => 'para poder acceder al listado de los clientes',
+            'name' => 'Listado_clientes',
+            'descripcion' => 'para poder acceder al listado de los clientes.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'nuevoclientes',
-            'descripcion' => 'Para poder crear un cliente',
+            'name' => 'Nuevo_cliente',
+            'descripcion' => 'Para poder crear un cliente.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'editarclientes',
-            'descripcion' => 'Para poder editar los datos del cliente',
+            'name' => 'Editar_clientes',
+            'descripcion' => 'Para poder editar los datos del cliente.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'detallesclientes',
-            'descripcion' => 'Para poder ver los detalles de un cliente',
+            'name' => 'Detalles_clientes',
+            'descripcion' => 'Para poder ver los detalles de un cliente.',
             'guard_name' => 'web'
         ]);
         //ventas al contado
         Permission::create([
-            'name' => 'listadoventas',
-            'descripcion' => 'Para poder acceder al listado de las ventas',
+            'name' => 'Listado_ventas',
+            'descripcion' => 'Para poder acceder al listado de todas las ventas.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'listadoventascontado',
-            'descripcion' => 'Para poder acceder al listado de las ventas al contado',
+            'name' => 'Listado_ventas_contado',
+            'descripcion' => 'Para poder acceder al listado de las ventas al contado.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'detalleentascontado',
-            'descripcion' => 'Para poder ver los detalles de las ventas al contado',
+            'name' => 'Detalles_ventas_contado',
+            'descripcion' => 'Para poder ver los detalles de las ventas al contado.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'pdfventascontado',
-            'descripcion' => 'Para poder previsualisar e imprimir las ventas al contado ',
+            'name' => 'Pdf_ventas_contado',
+            'descripcion' => 'Para poder previsualisar e imprimir las ventas al contado. ',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'nuevaventascontado',
-            'descripcion' => 'Para poder crear una venta al contado',
+            'name' => 'Nueva_ventas_contado',
+            'descripcion' => 'Para poder crear una venta al contado.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'principalventas',
-            'descripcion' => 'Para poder acceder a la pantalla principal de ventas',
+            'name' => 'Principal_ventas',
+            'descripcion' => 'Para poder acceder a la pantalla principal de ventas.',
             'guard_name' => 'web'
         ]);
         //ventascrédito
         Permission::create([
-            'name' => 'listadoventascredito',
-            'descripcion' => 'Para poder acceder al listado de ventas al crédito',
+            'name' => 'Listado_ventas_crédito',
+            'descripcion' => 'Para poder acceder al listado de ventas al crédito.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'detalleentascredito',
-            'descripcion' => 'Para poder ver los detalles de las ventas al crédito',
+            'name' => 'Detalles_ventas_crédito',
+            'descripcion' => 'Para poder ver los detalles de las ventas al crédito.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'nuevaventascredito',
-            'descripcion' => 'Para poder crear una venta al crédito',
+            'name' => 'Nueva_venta_crédito',
+            'descripcion' => 'Para poder crear una venta al crédito.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'pdfventascredito',
-            'descripcion' => 'Para poder previsualizar e imprimir las ventas al crédito',
+            'name' => 'Pdf_ventas_crédito',
+            'descripcion' => 'Para poder previsualizar e imprimir las ventas al crédito.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'serviciosusados',
-            'descripcion' => 'Para poder acceder al listado de servicios usados',
+            'name' => 'Servicios_usados',
+            'descripcion' => 'Para poder acceder al listado de servicios usados.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'serviciosusadossaldo0',
-            'descripcion' => 'Para poder acceder al listado de los servicios usados con saldo pendiente de 0',
+            'name' => 'servicios_usados_saldo_0',
+            'descripcion' => 'Para poder acceder al listado de los servicios usados con saldo pendiente de 0.',
             'guard_name' => 'web'
         ]);
         //detalle servicio
         Permission::create([
-            'name' => 'listadoventatiposervicio',
+            'name' => 'Servicio_contado_venta',
             'descripcion' => 'Para poder acceder al listado al contado de cada servicio',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'serviciocreditoventa',
-            'descripcion' => 'para poder acceder al listado al crédito de cada servicio',
+            'name' => 'Servicio_crédito_venta',
+            'descripcion' => 'Para poder acceder al listado al crédito de cada servicio.',
             'guard_name' => 'web'
         ]);
         //empleados
         Permission::create([
-            'name' => 'listadoempleados',
-            'descripcion' => 'Para poder acceder al listado de empleados',
+            'name' => 'Listado_Empleados',
+            'descripcion' => 'Para poder acceder al listado de empleados.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'nuevoempleados',
-            'descripcion' => 'Para poder crear un empleado',
+            'name' => 'Nuevo_empleado',
+            'descripcion' => 'Para poder crear un empleado.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'editarempleados',
-            'descripcion' => 'Para poder editar un empleado',
+            'name' => 'Editar_empleado',
+            'descripcion' => 'Para poder editar un empleado.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'detallesempleados',
-            'descripcion' => 'Para poder ver los detalles del empleado',
+            'name' => 'Detalles_empleados',
+            'descripcion' => 'Para poder ver los detalles del empleado.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'desactivarempleados',
-            'descripcion' => 'Para poder desactivar un empleado',
+            'name' => 'Desactivar_empleados',
+            'descripcion' => 'Para poder desactivar un empleado.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'empleadosdesactivados',
-            'descripcion' => 'Para poder acceder al listado de empleados desactivados ',
+            'name' => 'Empleados_desactivados',
+            'descripcion' => 'Para poder acceder al listado de empleados desactivados. ',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'detallesempleadosdesactivados',
-            'descripcion' => 'Para poder ver los detalles del empleado desactivado',
+            'name' => 'Detalles_empleados_desactivados',
+            'descripcion' => 'Para poder ver los detalles del empleado desactivado.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'habilitarempleados',
-            'descripcion' => 'Para poder habilitar un empleado',
+            'name' => 'Habilitar_empleados',
+            'descripcion' => 'Para poder habilitar un empleado.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'empleadoconstancia',
-            'descripcion' => 'Para poder previsualizar e imprimir la constancia de trabajo de un empleado',
+            'name' => 'Pdf_constancia_trabajo',
+            'descripcion' => 'Para poder previsualizar e imprimir la constancia de trabajo de un empleado.',
             'guard_name' => 'web'
         ]);
          //gasto
         Permission::create([
-            'name' => 'listadogasto',
-            'descripcion' => 'Para poder acceder al listado de los gastos',
+            'name' => 'Listado_gasto',
+            'descripcion' => 'Para poder acceder al listado de los gastos.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'nuevogastos',
-            'descripcion' => 'Para poder crear un gasto',
+            'name' => 'Nuevo_gasto',
+            'descripcion' => 'Para poder crear un gasto.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'pdfgasto',
-            'descripcion' => 'Para poder previsualizar e imprimir un gasto',
+            'name' => 'Pdf_gasto',
+            'descripcion' => 'Para poder previsualizar e imprimir los gasto.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'detallesgasto',
-            'descripcion' => 'Para poder ver los detalles del gasto',
+            'name' => 'Detalles_gasto',
+            'descripcion' => 'Para poder ver los detalles del gasto.',
             'guard_name' => 'web'
         ]);
          //inventario
         Permission::create([
-            'name' => 'listadoinventario',
-            'descripcion' => 'Para poder acceder al listado de inventarios',
+            'name' => 'Listado_inventario',
+            'descripcion' => 'Para poder acceder al historial de inventarios.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'nuevoinventario',
-            'descripcion' => 'Para poder crear inventario',
+            'name' => 'Nuevo_inventario',
+            'descripcion' => 'Para poder crear un inventario.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'detallesinventario',
-            'descripcion' => 'Para poder ver el inventario',
+            'name' => 'Cantidad_inventario',
+            'descripcion' => 'Para poder ver las cantidades en inventario.',
             'guard_name' => 'web'
         ]);
          //pagos
         Permission::create([
-            'name' => 'nuevopagos',
-            'descripcion' => 'Para poder acceder al listado de los pagos',
+            'name' => 'Nuevo_pago',
+            'descripcion' => 'Para poder crear un pago.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'pdfpago',
-            'descripcion' => 'Para poder crear un pago',
+            'name' => 'Pdf_recibo_pago',
+            'descripcion' => 'Para poder previsualizar e imprimir el recibo de pago.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'historialpagos',
-            'descripcion' => 'Para poder ver el hisorial de pagos',
+            'name' => 'Historial_pagos',
+            'descripcion' => 'Para poder ver el hisorial de pagos.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'detallepagos',
-            'descripcion' => 'Para poder ver los pagos',
+            'name' => 'Detalles_pagos',
+            'descripcion' => 'Para poder ver los pagos.',
             'guard_name' => 'web'
         ]);
          //permisos
         Permission::create([
-            'name' => 'listadopermisos',
-            'descripcion' => 'Para poder acceder al listado de los permisos',
+            'name' => 'Listado_permisos',
+            'descripcion' => 'Para poder acceder al listado de los permisos.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'nuevopermisos',
-            'descripcion' => 'Para poder crear un permisos',
+            'name' => 'Nuevo_permiso',
+            'descripcion' => 'Para poder crear un permiso.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'editarpermisos',
-            'descripcion' => 'Para poder editar un permiso',
+            'name' => 'Editar_permisos',
+            'descripcion' => 'Para poder editar un permiso.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'eliminarpermisos',
-            'descripcion' => 'Para poder eliminar un permiso',
+            'name' => 'Eliminar_permisos',
+            'descripcion' => 'Para poder eliminar un permiso.',
             'guard_name' => 'web'
         ]);
          //servicios
         Permission::create([
-            'name' => 'listadoservicios',
-            'descripcion' => 'Para poder acceder al listado de los servicios',
+            'name' => 'Listado_servicios',
+            'descripcion' => 'Para poder acceder al listado de los servicios.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'nuevoservicio',
-            'descripcion' => 'Para poder crear un servicios',
+            'name' => 'Nuevo_servicio',
+            'descripcion' => 'Para poder crear un servicio.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'editarservicios',
-            'descripcion' => 'Para poder editar un servicio',
+            'name' => 'Editar_servicio',
+            'descripcion' => 'Para poder editar un servicio.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'detalleservicios',
-            'descripcion' => 'Para poder ver un servicio',
+            'name' => 'Detalles_servicios',
+            'descripcion' => 'Para poder ver un servicio.',
             'guard_name' => 'web'
         ]);
          //usuarios
         Permission::create([
-            'name' => 'listadousuario',
-            'descripcion' => 'Para poder acceder al listado de usuarios',
+            'name' => 'Listado_usuario',
+            'descripcion' => 'Para poder acceder al listado de usuarios.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'nuevousuario',
-            'descripcion' => 'Para poder crear un usuario',
+            'name' => 'Nuevo_usuario',
+            'descripcion' => 'Para poder crear un usuario.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'editarusuario',
-            'descripcion' => 'Para poder editar un usuario',
+            'name' => 'Editar_usuario',
+            'descripcion' => 'Para poder editar un usuario.',
             'guard_name' => 'web'
         ]);
         Permission::create([
-            'name' => 'eliminarusuario',
-            'descripcion' => 'Para poder eliminar un usuario',
+            'name' => 'Eliminar_usuario',
+            'descripcion' => 'Para poder eliminar un usuario.',
             'guard_name' => 'web'
         ]);
     }

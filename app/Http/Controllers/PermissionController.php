@@ -31,16 +31,17 @@ class PermissionController extends Controller
     {
 
         $rules=[
-            'name' => 'required|max:100|unique:permissions,name',
-            'descripcion'=> 'required|max:191',
+            'name' => 'required|max:31|min:5|unique:permissions,name',
+            'descripcion'=> 'required|max:83',
         ];
         $mensaje=[
             'name.required' => 'El nombre del permiso no puede estar vacío.',
             'name.max' => 'El nombre del permiso es muy extenso.',
+            'name.min' => 'El nombre del permiso es muy corto, debe escribir como mínimo 5 letras.',
             'name.unique' => 'El nombre del permiso ya existe.',
 
             'descripcion.required' => 'La descripción del permiso no puede estar vacío.',
-            'descripcion.max' => 'La descripcion del permiso es muy extensa.',
+            'descripcion.max' => 'La descripción del permiso es muy extensa.',
         ];
         $this->validate($request,$rules,$mensaje);
 
@@ -72,18 +73,19 @@ class PermissionController extends Controller
       public function update(Request $request, $id){
         //Validar campos del formulario editar
         $rules= [
-            'name' => 'required|max:100|unique:permissions,name,'.$id,
-            'descripcion'=> 'required|max:191',
+            'name' => 'required|max:31|min:5|unique:permissions,name,'.$id,
+            'descripcion'=> 'required|max:83',
             
         ] ;
 
         $mensaje=[
             'name.required' => 'El nombre del permiso no puede estar vacío.',
             'name.max' => 'El nombre del permiso es muy extenso.',
+            'name.min' => 'El nombre del permiso es muy corto, debe escribir como mínimo 5 letras.',
             'name.unique' => 'El nombre del permiso ya existe.',
 
             'descripcion.required' => 'La descripción del permiso no puede estar vacío.',
-            'descripcion.max' => 'La descripcion del permiso es muy extensa.',
+            'descripcion.max' => 'La descripción del permiso es muy extensa.',
         ];
 
         $this->validate($request,$rules, $mensaje);
