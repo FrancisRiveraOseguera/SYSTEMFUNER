@@ -43,10 +43,10 @@
             <tr class="table-primary">
                 <td>{{$rol->name}}</td>
                 <td>{{$rol->descripcion}}</td>
-                
+
                 <td>
                     <a class="btn btn-success"
-                        href=""><i class="bi bi-pencil-square"></i>Editar
+                        href="{{route('rol.editar', ['id'=> $rol->id])}}"><i class="bi bi-pencil-square"></i>Editar
                     </a>
                 </td>
 

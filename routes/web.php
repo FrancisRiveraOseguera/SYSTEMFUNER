@@ -303,7 +303,7 @@ Route::middleware("auth")->group(function () {
     Route::post('permisos/crear',[PermissionController::class, 'store'])
     ->name('permisos.store');
 
-    //RUTAS EDITAR PERMISO 
+    //RUTAS EDITAR PERMISO
 
     Route::get('/permiso/{id}/editar', 'App\Http\Controllers\PermissionController@editar')
         ->name('permiso.editar')->where('id', '[0-9]+');
@@ -311,18 +311,24 @@ Route::middleware("auth")->group(function () {
     Route::put('/permiso/{id}/editar', 'App\Http\Controllers\PermissionController@update')
         ->name('permiso.update')->where('id', '[0-9]+');
 
-    
+
     //RUTA ROLES
     Route::get('roles', 'App\Http\Controllers\RoleController@index')
     ->name('roles.index');
 
     Route::get('roles/crear', 'App\Http\Controllers\RoleController@create')
         ->name('roles.create');
-    
+
     Route::post('roles/crear', 'App\Http\Controllers\RoleController@store')
     ->name('roles.store');
 
-    
+    Route::get('roles/{id}/editar', 'App\Http\Controllers\RoleController@editar')
+        ->name('rol.editar')
+        ->where('id', '[0-9]+');
+
+    Route::put('roles/{id}/editar', 'App\Http\Controllers\RoleController@update')
+        ->name('rol.update')
+        ->where('id', '[0-9]+');
 
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas
