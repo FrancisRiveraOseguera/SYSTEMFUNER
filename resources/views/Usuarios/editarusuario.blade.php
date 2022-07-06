@@ -26,7 +26,7 @@
                 @csrf
                 @method('put')
                 <div class="form-group row">
-            <label for="correo" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="correo" class="col-lg-3 control-label offset-md-1 requerido">
                 <i id="IcNewEmp" class="fa fa-envelope-o"></i>Correo electrónico</label>
             <div class="col-sm-8">
                 <input type="text"
@@ -39,7 +39,7 @@
 
 
         <div class="form-group row">
-                <label for="empleado_id" class="col-lg-2 control-label offset-md-1 requerido">
+                <label for="empleado_id" class="col-lg-3 control-label offset-md-1 requerido">
                     <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombre del empleado</label>
             <div class="col-sm-8">
                 <input type = "text" readonly
@@ -52,7 +52,7 @@
 
 
         <div class="form-group row">
-            <label for="nameUser" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="nameUser" class="col-lg-3 control-label offset-md-1 requerido">
                 <i  id="IcNewEmp" class="fa fa-user-circle-o"></i>Nombre del usuario</label>
             <div class="col-sm-8">
                 <textarea name="nameUser" id="nameUser" maxlength="20" style="resize: none;"
@@ -63,27 +63,48 @@
         </div>
 
         <div class="form-group row">
-            <label for="ocupacion" class="col-lg-2 control-label offset-md-1 requerido">
-                <i id="IcNewEmp" class="fas fa-user-tie"></i>Cargo</label>
-            <div class="col-sm-8">
-                <select name="cargo" id="cargo"style=background:white>
-                    <option value="{{$usuario->cargo}}">{{$usuario->cargo}}</option>
-                    <option value="Gerente">Gerente</option> 
-                    <option value="Subgerente">Subgerente</option> 
-                </select>
+            <label for="roles" class="col-lg-3 control-label offset-md-1 requerido">
+                <i class="pl-2 bi bi-person-rolodex "></i>Rol del usuario:
+            </label>
+            <div class="col-sm-7">
+                <div class="form-group">
+                    <div class="tab-content">
+                        <div class="tab-pane active">
+                            <table class="table w-50">
+                                <tbody>
+                                @foreach ($roles as $id => $role)
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="roles[]"
+                                                       value="{{$id}}" {{$usuario->roles->contains($id) ? 'checked' : ''}}>
+                                                <span class="form-check-sign">
+                                            <span class="check"></span>
+                                        </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {{$role}}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        
         <br>
                 <!--Botones-->
                 <div>
                     <a class="btn btn-primary" href="{{route('listado.usuario')}}" > <i class="bi bi-box-arrow-left"></i>Regresar</a>
                     <button type="submit" class="btn btn-success"><i class="bi bi-save"></i>Guardar Cambios</button>
                 </div><br>
-                    
+
           </form>
-        </div> 
+        </div>
             <script src="/../js/showPass.js"></script>
             <style>
                 .emple {

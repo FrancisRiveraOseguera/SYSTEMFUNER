@@ -47,16 +47,16 @@
                     @else
                         <option selected disabled value="0">Seleccione el nombre del empleado que será dueño de este usuario.</option>
                     @endif
-                    <?php 
+                    <?php
                     while($datos = mysqli_fetch_array($query))
-                    {?>     
+                    {?>
                     <option value="<?php echo $datos['id']?>"> <?php echo $datos['nombres' ].' '.$datos['apellidos' ]?> </option>
                     <?php
                     }?>
                 </select>
             </div>
         </div>
-        
+
 
         <div>
         <script src='../../js/select2.min.js'></script>
@@ -109,12 +109,46 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i  id="IcNewEmp" class="bi bi-key"></i>Confirme contraseña:</label>
             <div class="col-sm-7">
-                <input type="password" style="width: 94%; height: 100%;" placeholder="  Confirme la contraseña." id="pass2" class="masked" name="password_confirmation" maxlength="20" style="resize: none;"
-                placeholder="Contraseña para el usuario." rows="1" cols="52" class="form-control masked"></input>
-            </div><div id="error2"></div> <i id="G"></i>
+                <input type="password" style="width: 94%; height: 100%;" placeholder="  Confirme la contraseña." id="pass2"
+                       class="masked" name="password_confirmation" maxlength="20" style="resize: none;"
+                       placeholder="Contraseña para el usuario." rows="1" cols="52" class="form-control masked">
+            </div>
+            <div id="error2"></div> <i id="G"></i>
         </div>
-        <br>
 
+
+        <div class="form-group row ml-4">
+            <label for="roles" class="col-lg-3 control-label offset-md-1 requerido">
+                <i class="pl-2 bi bi-person-rolodex "></i>Rol del usuario:
+            </label>
+            <div class="col-sm-7">
+                <div class="form-group">
+                    <div class="tab-content">
+                        <div class="tab-pane active">
+                            <table class="table w-50">
+                                <tbody>
+                                @foreach ($roles as $id => $role)
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="roles[]" value="{{$id}}">
+                                                <span class="form-check-sign">
+                                                    <span class="check"></span>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {{$role}}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!--botones-->
         <a class="btn btn-primary" href="{{route('listado.usuario')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>

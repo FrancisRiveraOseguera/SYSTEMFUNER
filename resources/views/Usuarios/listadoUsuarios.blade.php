@@ -5,13 +5,13 @@
 @section('content')
 
 <div class="vent">
-    
-        <h3> Listado de usuarios</h3> 
-    
+
+        <h3> Listado de usuarios</h3>
+
     <div>
     <br>
     <a class="btn btn-info btn block"  href="{{route('usuarios.create')}}"><i class="bi bi-plus-circle"></i>Nuevo usuario</a>
-    
+
 </div>
 <hr><br>
     <!--Mensaje de alerta para validacón-->
@@ -32,9 +32,10 @@
             <tr class="table-info">
             <th scope="col">Nombre de usuario</th>
             <th scope="col">Correo electrónico</th>
+            <th scope="col">Rol</th>
             <th scope="col" class="text-center" >Editar</th>
             <th scope="col" class="text-center" >Eliminar</th>
-            
+
         </tr>
         </thead>
         <tbody>
@@ -42,11 +43,21 @@
             <tr class="table-primary">
             <td>{{$usuario->nameUser}}</td>
             <td>{{$usuario->correo}}</td>
-            
-                
+            <td>
+                @forelse($usuario->roles as $rol)
+                    <span class="">{{$rol->name}}</span>
+                @empty
+                    @if ($usuario->id ==1 )
+                        <span class="">Admin</span>
+                    @else
+                        <span class="">Sin rol asignado</span>
+                    @endif
+                @endforelse
+            </td>
+
             <td class="text-center">
                 @if ($usuario->id ==1 )
-                        
+
                 @else
                 <a class="btn btn-success"
                     href="{{route('usuario.edit', ['id'=> $usuario->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
@@ -55,14 +66,14 @@
 
             <td class="text-center">
                 @if ($usuario->id ==1 )
-                        
+
                 @else
                 <form method="post" action="{{route('usuario.borrar',['id'=> $usuario->id])}}">
 
                     <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush{{$usuario->id}}">
                         <i class="fas fa-minus-circle"></i>Eliminar
                     </a>
-                    
+
                     <!--Modal: modalPush-->
                     <div class="modal fade" tabindex="1" id="modalPush{{$usuario->id}}"role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-notify modal-info" role="document">
@@ -72,16 +83,16 @@
                                 <div class="modal-header d-flex justify-content-center">
                                     <p class="heading">Eliminar usuario</p>
                                 </div>
-    
+
                                 <!--Body-->
                                 <div class="modal-body">
                                     <p>¿Seguro que deseas eliminar el usuario?</p>
                                 </div>
-    
+
                                 <!--Footer-->
                                 @csrf
                                 @method('delete')
-    
+
                                 <div class="modal-footer flex-center">
                                     <button type="submit" class="modal-footer btn btn-info">Aceptar</button>
                                     <a class="modal-footer btn btn-danger" href="{{route('listado.usuario')}}">Cancelar</a>
@@ -93,20 +104,20 @@
                 @endif
             </td>
         </tr>
-                   
+
             @empty
-            
+
             <tr>
             <th scope="row" colspan="5"> No hay resultados</th>
             </tr>
             @endforelse
-            
+
         </tbody>
     </table>
-    
+
 </div>
 
-  
+
 </div>
 
 <style>

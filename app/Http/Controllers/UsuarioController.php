@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Gate;
 use App\Mail\EmergencyCallReceived;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class UsuarioController extends Controller
 {
 
     public function index(Request $request)
-    { 
+    {
         $busqueda = trim($request->get('busqueda'));
         $usuarios = usuario::orderby('usuarios.id','DESC')
 
@@ -34,8 +36,11 @@ class UsuarioController extends Controller
 
 
     public function create($ident = null){
+        $roles = Role::all()->pluck('name', 'id');
         $empleados = Empleado::where('id',$ident)->first();
-        return view ('Usuarios.CrearUsuario')->with('ident', $empleados);
+        return view ('Usuarios.CrearUsuario')
+            ->with('ident', $empleados)
+            ->with('roles', $roles);
     }
 
     public function store(Request $request)
@@ -56,7 +61,7 @@ class UsuarioController extends Controller
             ],
             'password_confirmation' => 'min:8|same:password',
         ];
-    
+
         $mensaje=[
             'correo.required' => 'El  :attribute no puede estar vacío.',
             'correo.regex' => 'El :attribute no cumple el formato correcto.',
@@ -73,7 +78,7 @@ class UsuarioController extends Controller
             'nameUser.unique' => 'El nombre de usuario ya está en uso, este campo debe ser único.',
             'nameUser.min' => 'El nombre de usuario debe tener como mínimo 5 caracteres.',
 
-           
+
 
             'password.required'  => 'La contraseña no puede estar vacía.',
             'password.min'  => 'La contraseña es insegura, para mayor seguridad debe poseer 8 caracteres como mínimo.',
@@ -94,6 +99,8 @@ class UsuarioController extends Controller
         $nuevoUser->password = $request->input('password');
         $nuevoUser->password = bcrypt($request->password);
 
+        $nuevoUser->syncRoles($request->input('roles', []));
+
         $creado = $nuevoUser->save();
 
         if ($creado) {
@@ -103,7 +110,7 @@ class UsuarioController extends Controller
                     'correo' => $nuevoUser->correo,
                     'empleado_id' => $nuevoUser->empleados->nombres." ".$nuevoUser->empleados->apellidos,
                     'nombreUsuario' =>  $nuevoUser->nameUser,
-                    
+
                 ];
 
                 Mail::to($nuevoUser->correo)->send(new EmergencyCallReceived($call));
@@ -116,9 +123,11 @@ class UsuarioController extends Controller
 
     public function edit($id)
     {
+        $roles = Role::all()->pluck('name', 'id');
         $usuario = Usuario::findOrFail($id);
         return view('Usuarios/editarusuario')
-            ->with('usuario', $usuario);
+            ->with('usuario', $usuario)
+            ->with('roles', $roles);
     }
 
     //ACTUALIZAR/VALIDAR DATOS DEL USUARIO
@@ -131,7 +140,7 @@ class UsuarioController extends Controller
 
 
             // validación antigua de cargo, por si se ocupa |regex:/^[\pL\s\-]+$/u|min:5|max:50|unique:usuarios,cargo,'.$id
-        
+
         ];
 
         $mensaje=[
@@ -140,15 +149,15 @@ class UsuarioController extends Controller
             'correo.unique' => 'El :attribute debe de ser único.',
             'correo.max' => 'El  :attribute debe contener 35 letras como máximo.',
             'correo.min' => 'El :attribute debe contener 8 letras como mínimo.',
-            
+
             'nameUser.required' => 'El nombre de usuario no puede estar vacío.',
             'nameUser.max' => 'El nombre debe tener como máximo 20 caracteres.',
             'nameUser.unique' => 'El nombre de usuario ya está en uso, este campo debe ser único.',
             'nameUser.min' => 'El nombre de usuario debe tener como mínimo 5 caracteres.',
 
-      
 
-        
+
+
 
         ];
 
@@ -156,11 +165,11 @@ class UsuarioController extends Controller
 
         $actualizarUsuario = Usuario::findOrFail($id);
 
-        
+
         $actualizarUsuario->correo = $request->input('correo');
         $actualizarUsuario->nameUser = $request->input('nameUser');
-        
 
+        $actualizarUsuario->syncRoles($request->input('roles', []));
 
         $actualizado = $actualizarUsuario->save();
 
