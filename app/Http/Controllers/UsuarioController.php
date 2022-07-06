@@ -60,6 +60,7 @@ class UsuarioController extends Controller
                     ->uncompromised(),
             ],
             'password_confirmation' => 'min:8|same:password',
+            'roles' => 'required',
         ];
 
         $mensaje=[
@@ -78,14 +79,14 @@ class UsuarioController extends Controller
             'nameUser.unique' => 'El nombre de usuario ya está en uso, este campo debe ser único.',
             'nameUser.min' => 'El nombre de usuario debe tener como mínimo 5 caracteres.',
 
-
-
             'password.required'  => 'La contraseña no puede estar vacía.',
             'password.min'  => 'La contraseña es insegura, para mayor seguridad debe poseer 8 caracteres como mínimo.',
 
             'password_confirmation.required' => 'Por favor confirme su contraseña.',
             'password_confirmation.min' => 'La contraseña  debe poseer 8 caracteres como mínimo para confirmarla.',
             'password_confirmation.same' => 'Las contraseñas no coinciden.',
+
+            'roles.required' => 'Debe seleccionar al menos uno de los roles.',
         ];
 
         $this->validate($request,$rules,$mensaje);
@@ -137,7 +138,7 @@ class UsuarioController extends Controller
         $rules=[
             'correo' => 'required|max:35|min:8|email:filter|unique:usuarios,correo,'.$id,
             'nameUser' => 'required|max:20|min:5|unique:usuarios,nameUser,'.$id,
-
+            'roles' => 'required',
 
             // validación antigua de cargo, por si se ocupa |regex:/^[\pL\s\-]+$/u|min:5|max:50|unique:usuarios,cargo,'.$id
 
@@ -155,7 +156,7 @@ class UsuarioController extends Controller
             'nameUser.unique' => 'El nombre de usuario ya está en uso, este campo debe ser único.',
             'nameUser.min' => 'El nombre de usuario debe tener como mínimo 5 caracteres.',
 
-
+            'roles.required' => 'Debe seleccionar al menos uno de los roles.',
 
 
 
