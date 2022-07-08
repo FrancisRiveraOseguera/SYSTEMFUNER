@@ -68,9 +68,42 @@
                 </td>
 
                 <td>
-                    <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush">
-                        <i class="fas fa-minus-circle"></i>Eliminar
-                    </a>
+                    <form method="post" action="{{route('permiso.eliminar',['id'=> $perm->id])}}">
+
+                        <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush{{$perm->id}}">
+                            <i class="fas fa-minus-circle"></i>Eliminar
+                        </a>
+
+                        <!--Modal: modalPush-->
+                        <div class="modal fade" tabindex="1" id="modalPush{{$perm->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-notify modal-info" role="document">
+                                <!--Content-->
+                                <div class="modal-content text-center">
+                                    <!--Header-->
+                                    <div class="modal-header d-flex justify-content-center">
+                                        <p class="heading"><i class="bi bi-person-rolodex"></i>Eliminar permiso</p>
+                                    </div>
+
+                                    <!--Body-->
+                                    <div class="modal-body">
+                                        
+                                        <p>Si eliminas este permiso se borrará del listado de permisos de cada rol en caso de que lo estén
+                                            utilizando.</p>
+                                        <p> <b>Esta acción es irreversible, ¿Deseas continuar?</b> </p>
+                                    </div>
+
+                                    <!--Footer-->
+                                    @csrf
+                                    @method('delete')
+
+                                    <div class="modal-footer flex-center">
+                                        <button type="submit" class="modal-footer btn btn-info">Aceptar</button>
+                                        <a class="modal-footer btn btn-danger" href="{{route('permisos.lista')}}">Cancelar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </td>
 
             @empty

@@ -12,7 +12,7 @@
             @error('correo')
                 <span class="invalid-feedback" role="alert" style="  font-size: 15px;color:rgb(0, 238, 255)">
                     @if ($message == 'El campo correo es obligatorio.')
-                    El campo correo electrónico es obligatorio.
+                    El correo electrónico es obligatorio.
                     @else
                     {{$message}} 
                     @endif
@@ -28,7 +28,7 @@
             @error('password')
                 <span class="invalid-feedback" role="alert" style= " font-size: 15px;color:rgb(0, 238, 255)">
                     @if ($message == 'El campo password es obligatorio.')
-                        El campo contraseña es obligatorio.
+                        La contraseña es obligatoria.
                     @endif
                     
                 </span>

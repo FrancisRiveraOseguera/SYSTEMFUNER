@@ -66,7 +66,7 @@ class EmpleadoController extends Controller
         ];
 
     $mensaje=[
-        'identidad.required' => 'La :attribute no puede estar vacío.',
+        'identidad.required' => 'La :attribute no puede estar vacía.',
         'identidad.regex' => 'La :attribute no cumple el formato correcto, debe de iniciar con 0 o 1 y contener 13 números.',
         'identidad.numeric' => 'La :attribute solo acepta números.',
         'identidad.unique' => 'La :attribute debe de ser único.',
@@ -123,7 +123,7 @@ class EmpleadoController extends Controller
 
     if ($creado) {
         return redirect()->route('empleado.index')
-            ->with('mensaje', 'El empleado fue agregado exitosamente!');
+            ->with('mensaje', 'El empleado fue agregado exitosamente.');
     } else {
 
     }
@@ -184,10 +184,10 @@ class EmpleadoController extends Controller
         ];
 
         $mensaje=[
-            'identidad.required' => 'La :attribute no puede estar vacío.',
+            'identidad.required' => 'La :attribute no puede estar vacía.',
             'identidad.regex' => 'La :attribute no cumple el formato correcto, debe de iniciar con 0 o 1 y contener 13 números.',
             'identidad.numeric' => 'La :attribute solo acepta números.',
-            'identidad.unique' => 'La :attribute debe de ser único.',
+            'identidad.unique' => 'La :attribute debe de ser única.',
 
             'nombres.required' => 'Los nombres no pueden estar vacíos.',
             'nombres.regex' => 'Los nombres solo deben contener letras.',
@@ -239,7 +239,7 @@ class EmpleadoController extends Controller
 
         if ($actualizado){
             return redirect()->route('empleado.index')
-                ->with('mensaje', 'Los datos del empleado han sido actualizados exitosamente');
+                ->with('mensaje', 'Los datos del empleado han sido actualizados exitosamente.');
         }else{
 
         }

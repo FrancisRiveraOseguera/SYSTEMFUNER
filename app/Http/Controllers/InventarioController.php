@@ -79,7 +79,7 @@ class InventarioController extends Controller
         $creado = $nuevoInventario-> save();
        
         if ($creado){
-          return redirect()->route('historialinventario.index')->with('mensaje', 'El producto fue agregado al inventario con éxito.');
+          return redirect()->route('historialinventario.index')->with('mensaje', 'El producto fue agregado al inventario exitosamente.');
         }else{
 
        }

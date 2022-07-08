@@ -47,10 +47,10 @@ class ClienteController extends Controller
         ];
 
         $mensaje=[
-            'identidad.required' => 'La :attribute no puede estar vacío.',
+            'identidad.required' => 'La :attribute no puede estar vacía.',
             'identidad.regex' => 'La :attribute no cumple el formato correcto, debe de iniciar con 0 o 1 y contener 13 números.',
             'identidad.numeric' => 'La :attribute solo acepta números.',
-            'identidad.unique' => 'La :attribute debe de ser único.',
+            'identidad.unique' => 'La :attribute debe de ser única.',
 
             'nombres.required' => 'Los :attribute no pueden estar vacíos.',
             'nombres.regex' => 'Los :attribute solo deben contener letras. ',
@@ -73,7 +73,7 @@ class ClienteController extends Controller
             'ocupacion.required'  => 'La ocupación no puede estar vacía.',
             'ocupacion.regex'  =>'La ocupación no puede contener números.',
             'ocupacion.min'  =>'La ocupación debe tener al menos de 5 letras.',
-            'ocupacion.max'  =>'La campo ocupación no debe tener mas de 50 letras.',
+            'ocupacion.max'  =>'La ocupación no debe tener mas de 50 letras.',
         ];
 
         $this->validate($request,$rules,$mensaje);
@@ -173,10 +173,10 @@ class ClienteController extends Controller
         ];
 
         $mensaje=[
-            'identidad.required' => 'La :attribute no puede estar vacío.',
+            'identidad.required' => 'La :attribute no puede estar vacía.',
             'identidad.regex' => 'La :attribute no cumple el formato correcto, debe de iniciar con 0 o 1 y contener 13 números.',
             'identidad.numeric' => 'La :attribute solo acepta números.',
-            'identidad.unique' => 'La :attribute debe de ser único.',
+            'identidad.unique' => 'La :attribute debe de ser única.',
 
 
             'nombres.required' => 'Los :attribute no pueden estar vacíos.',
@@ -197,7 +197,7 @@ class ClienteController extends Controller
             'direccion.required' => 'La dirección  no puede estar vacía.',
             'direccion.max' => 'La dirección debe contener 100 letras como máximo.',
 
-            'ocupacion.required'  => 'La ocupación no puede estar vacío.',
+            'ocupacion.required'  => 'La ocupación no puede estar vacía.',
             'ocupacion.regex'  =>'La ocupación no puede contener números.',
             'ocupacion.min'  =>'La ocupación debe tener al menos de 5 letras.',
             'ocupacion.max'  =>'La ocupación no debe tener mas de 50 letras.',

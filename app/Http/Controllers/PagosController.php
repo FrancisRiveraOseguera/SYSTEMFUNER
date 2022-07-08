@@ -74,10 +74,10 @@ class PagosController extends Controller
             ];
     
             $mensaje=[
-                'pago.required'=>'La cantidad a pagar no puede estar vacío.',
+                'pago.required'=>'La cantidad a pagar no puede estar vacía.',
                 'pago.min'=>'La cantidad a pagar debe ser mayor a 0.',
                 'pago.max'=>'La cantidad a pagar debe ser inferior a '.number_format($valor,2).'.',
-                'pago.numeric'=>'La cantidad a pagar debe de ser numérico.',
+                'pago.numeric'=>'La cantidad a pagar debe de ser un número.',
             ];
         }else{
             $rules= [
@@ -85,10 +85,10 @@ class PagosController extends Controller
             ];
     
             $mensaje=[
-                'pago.required'=>'La cantidad a pagar no puede estar vacío.',
+                'pago.required'=>'La cantidad a pagar no puede estar vacía.',
                 'pago.min'=>'La cantidad a pagar debe ser mayor o igual a '.number_format($venta->servicios->cuota,2).'.',
                 'pago.max'=>'La cantidad a pagar debe ser inferior a '.number_format($valor,2).'.',
-                'pago.numeric'=>'La cantidad a pagar debe de ser numérico.',
+                'pago.numeric'=>'La cantidad a pagar debe de ser un número.',
             ];
         }
 

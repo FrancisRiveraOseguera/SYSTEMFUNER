@@ -87,7 +87,7 @@ class ServicioController extends Controller
         $creado = $nuevoServicio-> save();
        //comprobar si fue creado
        if ($creado){
-         return redirect()->route('Servicio.lista')->with('mensaje', 'El servicio fue agregado con éxito.');
+         return redirect()->route('Servicio.lista')->with('mensaje', 'El servicio fue agregado exitosamente.');
        }else{
 
        }

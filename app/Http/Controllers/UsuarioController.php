@@ -76,7 +76,7 @@ class UsuarioController extends Controller
 
             'nameUser.required' => 'El nombre de usuario no puede estar vacío.',
             'nameUser.max' => 'El nombre debe tener como máximo 20 caracteres.',
-            'nameUser.unique' => 'El nombre de usuario ya está en uso, este campo debe ser único.',
+            'nameUser.unique' => 'El nombre de usuario ya está en uso, el nombre de usuario debe ser único.',
             'nameUser.min' => 'El nombre de usuario debe tener como mínimo 5 caracteres.',
 
             'password.required'  => 'La contraseña no puede estar vacía.',
@@ -153,7 +153,7 @@ class UsuarioController extends Controller
 
             'nameUser.required' => 'El nombre de usuario no puede estar vacío.',
             'nameUser.max' => 'El nombre debe tener como máximo 20 caracteres.',
-            'nameUser.unique' => 'El nombre de usuario ya está en uso, este campo debe ser único.',
+            'nameUser.unique' => 'El nombre de usuario ya está en uso, el nombre de usuario debe ser único.',
             'nameUser.min' => 'El nombre de usuario debe tener como mínimo 5 caracteres.',
 
             'roles.required' => 'Debe seleccionar al menos uno de los roles.',

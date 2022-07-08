@@ -40,7 +40,7 @@ class PermissionController extends Controller
             'name.min' => 'El nombre del permiso es muy corto, debe escribir como mínimo 5 letras.',
             'name.unique' => 'El nombre del permiso ya existe.',
 
-            'descripcion.required' => 'La descripción del permiso no puede estar vacío.',
+            'descripcion.required' => 'La descripción del permiso no puede estar vacía.',
             'descripcion.max' => 'La descripción del permiso es muy extensa.',
         ];
         $this->validate($request,$rules,$mensaje);
@@ -54,7 +54,7 @@ class PermissionController extends Controller
 
         if ($permi) {
                 return redirect()->route('permisos.lista')
-                ->with('mensaje', 'El permiso fue agregado exitosamente!');
+                ->with('mensaje', 'El permiso fue agregado exitosamente.');
         } else {
 
         }
@@ -84,7 +84,7 @@ class PermissionController extends Controller
             'name.min' => 'El nombre del permiso es muy corto, debe escribir como mínimo 5 letras.',
             'name.unique' => 'El nombre del permiso ya existe.',
 
-            'descripcion.required' => 'La descripción del permiso no puede estar vacío.',
+            'descripcion.required' => 'La descripción del permiso no puede estar vacía.',
             'descripcion.max' => 'La descripción del permiso es muy extensa.',
         ];
 
@@ -102,7 +102,14 @@ class PermissionController extends Controller
         //Comprobar si fue actualizado
         if ($actualizado){
             return redirect()->route('permisos.lista')->with('mensaje',
-                'Los datos del permiso han sido actualizados exitosamente!');
+                'Los datos del permiso han sido actualizados exitosamente.');
         }
+    }
+
+    public function destroy($id){
+        Permission::destroy($id);
+
+        return redirect()->route('permisos.lista')
+            ->with('mensaje', 'El permiso fue eliminado exitosamente.');
     }
 }

@@ -310,6 +310,10 @@ Route::middleware("auth")->group(function () {
 
     Route::put('/permiso/{id}/editar', 'App\Http\Controllers\PermissionController@update')
         ->name('permiso.update')->where('id', '[0-9]+');
+    //RUTA DE ELIMINAR PERMISO
+    Route::delete('permisos/{id}/eliminar', 'App\Http\Controllers\PermissionController@destroy')
+        ->name('permiso.eliminar')
+        ->where('id', '[0-9]+');
 
 
     //RUTA ROLES

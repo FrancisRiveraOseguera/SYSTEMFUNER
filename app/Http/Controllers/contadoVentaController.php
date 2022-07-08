@@ -103,7 +103,7 @@ class contadoVentaController extends Controller
 
             'fecha.required' => 'La fecha no puede estar vacía.',
 
-            'cantidad_v.required'=> 'La cantidad no puede estar vacío.',
+            'cantidad_v.required'=> 'La cantidad no puede estar vacía.',
             'cantidad_v.numeric'=> 'La cantidad  debe ser un número.',
             'cantidad_v.max'=>'La cantidad a comprar excede la cantidad disponible en inventario.',
             'cantidad_v.min'=> 'La cantidad a comprar debe ser 1 como mínimo.'

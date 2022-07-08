@@ -120,7 +120,7 @@ class GastoController extends Controller
 
     if ($creado) {
         return redirect()->route('listadoGastos.index')
-            ->with('mensaje', 'El gasto fue agregado exitosamente!');
+            ->with('mensaje', 'El gasto fue agregado exitosamente.');
     } else {
 
     }
