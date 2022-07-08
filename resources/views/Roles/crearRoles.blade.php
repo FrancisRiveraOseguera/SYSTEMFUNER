@@ -39,7 +39,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i  id="IcNewEmp" class="bi bi-info-square"></i>Descripción:</label>
             <div class="col-sm-7">
-                <textarea name="descripcion" id="descripcion" maxlength="100" minlenght="10"
+                <textarea name="descripcion" id="descripcion" maxlength="70" minlenght="10"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 placeholder="Ingrese la descripción del rol, sea breve y específico."  rows="4" 
                 class="form-control">{{old('descripcion')}}</textarea>
@@ -99,31 +99,4 @@
         <button type="submit" class="btn btn-success" ><i class="bi bi-save"></i>Guardar</button>
     </form>
 </div>
-
-<style>
-        .emple {
-            border-top: 1px solid #E6E6E6 ;
-            border-left: 1px solid #E6E6E6 ;
-            border-right: 1px solid #E6E6E6;
-            border-bottom: 1px solid #E6E6E6 ;
-            padding: 20px;
-            background-color: #E0F8F7;
-            position:relative;
-        }
-
-        .emple{
-            font-style: bold;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-
-        #IcNewEmp{
-        font-size:25px;
-        width: 1em;
-        height: 1em;
-    }
-
-    </style>
-
-
 @endsection

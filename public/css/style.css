@@ -252,6 +252,21 @@ a[data-toggle="collapse"] {
      font-family: 'Times New Roman', Times, serif;
  }
 
+.emple {
+  border-top: 1px solid #E6E6E6 ;
+  border-left: 1px solid #E6E6E6 ;
+  border-right: 1px solid #E6E6E6;
+  border-bottom: 1px solid #E6E6E6 ;
+  padding: 20px;
+  background-color: #E0F8F7;
+  position:relative;
+}
+
+.emple{
+  font-style: bold;
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .requerido{
     margin-top:-6px;
 }

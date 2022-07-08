@@ -24,8 +24,8 @@ class RoleController extends Controller
     {
 
         $rules=[
-            'name' => 'required|max:50|min:5|unique:roles,name|regex:/^[\pL\s\-]+$/u',
-            'descripcion'=> 'required|max:100|min:10|regex:/^[\pL\s\-]+$/u',
+            'name' => 'required|max:15|min:5|unique:roles,name|regex:/^[\pL\s\-]+$/u',
+            'descripcion'=> 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
             'permissions' => 'required'
         ];
         $mensaje=[
@@ -33,12 +33,11 @@ class RoleController extends Controller
             'name.required' => 'El nombre del rol no puede estar vacío.',
             'name.min' => 'El nombre del rol es muy corto, debe escribir como mínimo 5 letras.',
             'name.unique' => 'El nombre del rol ya existe.',
-            'name.regex' => 'El nombre del rol solo puede contener letras',
+            'name.regex' => 'El nombre del rol solo puede contener letras.',
 
-            'descripcion.regex' => 'La descripción del rol solo puede contener letras',
+            'descripcion.regex' => 'La descripción del rol solo puede contener letras.',
             'descripcion.required' => 'La descripción del rol no puede estar vacío.',
-            'descripcion.min' => 'La descripcion del rol es muy corta, debe escribir como mínimo 5 letras.',
-
+            'descripcion.min' => 'La descripción del rol es muy corta, debe escribir como mínimo 10 letras.',
             'permissions.required' => 'Debe seleccionar al menos uno de los permisos.'
         ];
 
@@ -73,7 +72,7 @@ class RoleController extends Controller
     public function update(Request $request, $id){
         $rules=[
             'name' => 'required|max:15|min:5|regex:/^[\pL\s\-]+$/u|unique:roles,name,'.$id,
-            'descripcion'=> 'required|max:100|min:10|regex:/^[\pL\s\-]+$/u',
+            'descripcion'=> 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
             'permissions' => 'required'
         ];
         $mensaje=[
