@@ -38,3 +38,17 @@ $('#pass2').keyup(function() {
 	});
 
 });
+
+//ModalR
+document.addEventListener("keyup", e=>{
+
+  if (e.target.matches("#buscador")){
+
+    document.querySelectorAll(".permisos").forEach(permiso =>{
+
+    permiso.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+      ?permiso.classList.remove("filtro")
+      :permiso.classList.add("filtro")
+    })
+  }
+})

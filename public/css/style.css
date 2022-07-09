@@ -252,6 +252,10 @@ a[data-toggle="collapse"] {
      font-family: 'Times New Roman', Times, serif;
  }
 
+.filtro{
+  display:none;
+}
+
 .emple {
   border-top: 1px solid #E6E6E6 ;
   border-left: 1px solid #E6E6E6 ;
