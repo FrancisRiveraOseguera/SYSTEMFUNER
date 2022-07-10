@@ -86,7 +86,7 @@ class UsuarioController extends Controller
             'password_confirmation.min' => 'La contraseña  debe poseer 8 caracteres como mínimo para confirmarla.',
             'password_confirmation.same' => 'Las contraseñas no coinciden.',
 
-            'roles.required' => 'Debe seleccionar al menos uno de los roles.',
+            'roles.required' => 'Debe seleccionar uno de los roles.',
         ];
 
         $this->validate($request,$rules,$mensaje);
@@ -156,7 +156,7 @@ class UsuarioController extends Controller
             'nameUser.unique' => 'El nombre de usuario ya está en uso, el nombre de usuario debe ser único.',
             'nameUser.min' => 'El nombre de usuario debe tener como mínimo 5 caracteres.',
 
-            'roles.required' => 'Debe seleccionar al menos uno de los roles.',
+            'roles.required' => 'Debe seleccionar uno de los roles.',
 
 
 

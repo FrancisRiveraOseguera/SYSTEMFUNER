@@ -2,37 +2,36 @@
 @section ('title' , 'Crear usuarios')
 @section('content')
 
-<?php
-    include 'conexion.php';
-    $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM empleados");
+    <?php
+        include 'conexion.php';
+        $query=mysqli_query($mysqli,"SELECT id, nombres, apellidos FROM empleados");
 
-    if(isset($_POST['empleado_id']))
-    {
-        $empleado_id=$_POST['empleado_id'];
-        echo $empleado_id;
-    }
+        if(isset($_POST['empleado_id']))
+        {
+            $empleado_id=$_POST['empleado_id'];
+            echo $empleado_id;
+        }
 
-?>
+    ?>
 
-<div class="emple">
-    <h3> Nuevo Usuario</h3>
-    <hr>
-    @if ($errors->any())
-    <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <h5><i class="icon fas fa-ban"></i>El formulario contiene errores</h5>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{$error}}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-</div> <br>
+    <div class="formato">
+        <h3> Nuevo Usuario</h3>
+        <hr>
+        @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-ban"></i>El formulario contiene errores</h5>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+    </div><br>
 
     <!--Formulario para ingresar los datos del usuario-->
-    <div class="emple">
+    <div class="formato">
     <form method="post" action="" autocomplete="off">
         @csrf
 
@@ -59,15 +58,15 @@
 
 
         <div>
-        <script src='../../js/select2.min.js'></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-            $('empleado_id').select2();
-            });
-        </script>
-    </div>
+            <script src='../../js/select2.min.js'></script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                $('empleado_id').select2();
+                });
+            </script>
+        </div>
 
-    <div class="form-group row">
+        <div class="form-group row">
             <label for="correo" class="col-lg-3 control-label offset-md-1 requerido">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i id="IcNewEmp" class="fa fa-envelope-o"></i>Correo electrónico:</label>
@@ -125,7 +124,7 @@
                 <div class="form-group">
                     <div class="tab-content">
                         <div class="tab-pane active">
-                            <table class="table w-50">
+                            <table class="table table-sm w-25">
                                 <tbody>
                                 @foreach ($roles as $id => $role)
                                     <tr>
@@ -159,26 +158,10 @@
 <script src="/../js/showPass.js"></script>
 
 <style>
-        .emple {
-            border-top: 1px solid #E6E6E6 ;
-            border-left: 1px solid #E6E6E6 ;
-            border-right: 1px solid #E6E6E6;
-            border-bottom: 1px solid #E6E6E6 ;
-            padding: 20px;
-            background-color: #E0F8F7;
-            position:relative;
-        }
-
-        .emple{
-            font-style: bold;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-
-        #IcNewEmp{
-        font-size:25px;
-        width: 1em;
-        height: 1em;
+    #IcNewEmp{
+    font-size:25px;
+    width: 1em;
+    height: 1em;
     }
 
     #G{
@@ -189,8 +172,5 @@
         margin-left: 45px;
         margin-top: -8px;
     }
-
-    </style>
-
-
+</style>
 @endsection
