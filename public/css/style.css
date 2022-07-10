@@ -256,6 +256,11 @@ a[data-toggle="collapse"] {
   display:none;
 }
 
+.cbdd{
+  background: white; 
+  border: none;
+  margin-left: 2px;
+}
 .emple {
   border-top: 1px solid #E6E6E6 ;
   border-left: 1px solid #E6E6E6 ;

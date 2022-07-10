@@ -79,22 +79,36 @@
                         <!--Modal body-->
                         <div class="modal-body" style="padding: 2em;">
                             <div>
-                                    <input type="text"  name="buscador" id="buscador" placeholder="Buscar permiso" style="width: 37%; height: 35px; margin-bottom: 20px;"></input>
-                                    <input type="button" class="btn btn-primary" style="margin-left: 15px; margin-right: 5px;" onclick='selectAll()' value="Seleccionar todos los permisos"/>
-                                    <input type="button" class="btn btn-info" style="" onclick='UnSelectAll()' value="Quitar todos los permisos"/>
-                                    @foreach ($permissions as $id => $permission)
-                                        <tr>
-                                            <td>
-                                                <div class="form-check row">
-                                                    <input class="form-check-input" type="checkbox" name="permissions[]" style="margin-left: 2px;" value="{{ $id }}">
-                                                </div>
+                                <input type="text"  name="buscador" id="buscador" placeholder="Buscar permiso" style="width: 37%; height: 35px; margin-bottom: 20px;"></input>
+                                <input type="button" class="btn btn-primary" title="Utilice este botón solo si necesita asignar TODOS los permisos a un rol." style="margin-left: 15px; margin-right: 5px;" onclick='selectAll()' value="Seleccionar todos los permisos"/>
+                                <input type="button" class="btn btn-info" title="Utilice este botón si quiere quitar todos los permisos que a seleccionado." onclick='UnSelectAll()' value="Quitar todos los permisos"/>
+                                
+                                @foreach ($permissions as $id => $permission)
+                                    <tr>
+                                        <td>
+                                            <div class="form-check row">
+                                                <input class="form-check-input" type="checkbox" name="permissions[]" style="margin-left: 2px;" value="{{ $id }}">
+                                            </div>
+
                                             <ul style="width: 100%; text-align: left;" class="permisos" id="Permisos">
                                                 {{$permission}}<hr>
                                             </ul>@endforeach
-                                            </td>
-                                        </tr>
-                                </div>
-                            </div>
+
+                                @if($permissions->last())
+                                <tr>
+                                    <td>
+                                        <div class="form-check row">
+                                            <input class="form-check-input" type="text" disabled style="background: white; border: none;" name="permissions[]" style="margin-left: 2px;" value="">
+                                        </div>
+
+                                        <ul type="text" style="font-size: 18px; text-align: center; margin-bottom: -10px; color: black;">
+                                            No existen más permisos que coincidan con su búsqueda.
+                                    </ul>
+                                </td>
+                            </tr>
+                                @endif
+                        </div>
+                    </div>
                                 <!--Modal footer-->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
