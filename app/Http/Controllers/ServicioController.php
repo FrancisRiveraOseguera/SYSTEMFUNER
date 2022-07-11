@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Servicio;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 class ServicioController extends Controller
 {
 
     //función para mostrar la lista de servicios y hacer las búsquedas
     public function ListaServicios(Request $request){
+        abort_if(Gate::denies('Listado_servicios'),redirect()->route('madre')->with('error','No tiene acceso'));
         $busqueda = trim($request->get('busqueda'));
 
         $servicio = DB::table('servicios')
@@ -26,12 +28,14 @@ class ServicioController extends Controller
 
     //función para crear un nuevo servicio
     public function create(){
+        abort_if(Gate::denies('Nuevo_servicio'),redirect()->route('madre')->with('error','No tiene acceso'));
         return view('nuevoservicio');
     }//fin de la función
 
 
     //función para guardar los datos del formulario
     public function store(Request $request){
+        abort_if(Gate::denies('Nuevo_servicio'),redirect()->route('madre')->with('error','No tiene acceso'));
         //VALIDACION de campos del formulario
         $rules= [
             'tipo' => 'required |regex:/^[\pL\s\-]+$/u|unique:servicios,tipo|min:5|max:25',
@@ -97,6 +101,7 @@ class ServicioController extends Controller
 
     //Función para encontrar los datos del cliente a editar
     public function editar($id){
+        abort_if(Gate::denies('Editar_servicio'),redirect()->route('madre')->with('error','No tiene acceso'));
         $Servicio = Servicio::findOrFail($id);
         return view('editarServicio')
             ->with('Servicio', $Servicio);
@@ -104,6 +109,7 @@ class ServicioController extends Controller
 
     //Función para guardar los datos actualizados
     public function update(Request $request, $id){
+        abort_if(Gate::denies('Editar_servicio'),redirect()->route('madre')->with('error','No tiene acceso'));
         //Validar campos del formulario editar
         //Validar campos del formulario editar
         $rules= [
@@ -166,6 +172,7 @@ class ServicioController extends Controller
 
     //Función para ver los datos de un servicio
     public function show($id){
+        abort_if(Gate::denies('Detalles_servicios'),redirect()->route('madre')->with('error','No tiene acceso'));
         $Servicio = Servicio::findOrFail($id);
         return view('detallesServicio')->with('Servicio', $Servicio);
     }

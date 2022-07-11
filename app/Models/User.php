@@ -14,14 +14,17 @@ class User extends Authenticatable
 
     protected $table = "usuarios";
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'nombres', 'correo', 'password',
-    ];
+    use HasFactory, HasRoles;
+    
+    public $guard_name = 'web';
+
+    public function empleados(){
+        return $this->BelongsTo(Empleado::class, 'empleado_id','id');}
+
+
+    public function cargos(){
+            return $this->BelongsTo(Cargo::class, 'cargo_id', 'id');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

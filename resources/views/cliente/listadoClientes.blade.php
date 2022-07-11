@@ -12,9 +12,11 @@
 
         <div>
             <br>
+            @can('Nuevo_cliente')
             <a class="btn btn-info btn block" href="{{route('cliente.nuevo',['cliente'=>-2])}}">
                 <i class="bi bi-plus-circle"></i>Nuevo cliente
             </a>
+            @endcan
         </div>
     </div>
     <hr>
@@ -69,13 +71,17 @@
                 <td>{{$client->telefono}}</td>
 
                 <td class="text-center">
+                    @can('Detalles_clientes')
                     <a class="btn btn-info"
                     href="{{route('cliente.ver', ['id'=>$client->id])}}"><i class="bi bi-eye"></i>Detalles</a>
+                    @endcan
                 </td>
 
                 <td class="text-center">
+                    @can('Editar_clientes')
                     <a class="btn btn-success"
                         href="{{route('cliente.edit', ['id'=> $client->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
+                    @endcan
                 </td>
 
             </tr>

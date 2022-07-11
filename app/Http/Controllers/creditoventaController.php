@@ -7,12 +7,15 @@ use App\Models\Cliente;
 use App\Models\empleado;
 use App\Models\creditoventa;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class creditoventaController extends Controller
 {
 
     //FUNCIÓN PARA VER EL LISTADO DE LAS VENTAS AL CRÉDITO
     public function index(Request $request){
+        abort_if(Gate::denies('Listado_ventas_crédito'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         $busqueda = trim($request->get('busqueda'));
 
         $ventas = creditoventa::orderby('creditoventas.id','DESC')
@@ -35,18 +38,21 @@ class creditoventaController extends Controller
     //FUNCIÓN PARA VER LOS DETALLES DE LA VENTA AL CRÉDITO
     public function show($id)
     {
+        abort_if(Gate::denies('Detalles_ventas_crédito'),redirect()->route('madre')->with('error','No tiene acceso'));
         $venta = creditoventa::findOrFail($id);
         return view('VentasCredito.detallesVentaCredito')->with('venta', $venta);
     }//FIN DE LA FUNCIÓN
 
 
     public function pdf($id){
+        abort_if(Gate::denies('Pdf_ventas_crédito'),redirect()->route('madre')->with('error','No tiene acceso'));
         $venta = creditoventa::findOrFail($id);
         return view('VentasCredito.crearPDFventaCredito')->with('creditoventa', $venta);
      }
 
      //FUNCIÓN CREACIÓN DE VENTA AL CRÉDITO
      public function create($ident = null){
+        abort_if(Gate::denies('Nueva_venta_crédito'),redirect()->route('madre')->with('error','No tiene acceso'));
         $clientes = Cliente::where('id',$ident)->first();
         return view('VentasCredito.crearVentaCredito')->with('ident',$clientes);;
 
@@ -54,7 +60,7 @@ class creditoventaController extends Controller
 
     //FUNCIÓN DE GUARDADO Y VALIDACIÓN DE DATOS DE CREACIÓN NUEVA VENTA AL CRÉDITO
     public function store(Request $request){
-
+        abort_if(Gate::denies('Nueva_venta_crédito'),redirect()->route('madre')->with('error','No tiene acceso'));
 
         $rules=[
             'cliente_id' =>'required|exists:App\Models\Cliente,id',
@@ -159,6 +165,7 @@ class creditoventaController extends Controller
 
     //Función para ver las ventas que han sido marcadas como servicio usado
     public function serviciosUsados(Request $request){
+        abort_if(Gate::denies('Servicios_usados'),redirect()->route('madre')->with('error','No tiene acceso'));
         $ventas = creditoventa::orderby('creditoventas.id','DESC')
             ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id", 'estado',
                 DB::raw('SUM(cuota) AS cuota'))
@@ -175,6 +182,7 @@ class creditoventaController extends Controller
 
     //Función para ver las ventas que han sido marcadas como servicio usado con saldo de cero
     public function serviciosUsadosSaldo0(Request $request){
+        abort_if(Gate::denies('servicios_usados_saldo_0'),redirect()->route('madre')->with('error','No tiene acceso'));
         $ventas = creditoventa::orderby('creditoventas.id','DESC')
             ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id", 'estado',
                 DB::raw('SUM(cuota) AS cuota'))

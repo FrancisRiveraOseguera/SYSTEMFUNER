@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
     public function index(){
+        abort_if(Gate::denies('Listado_roles'),redirect()->route('madre')->with('error','No tiene acceso'));
         $Roles = Role::paginate(15)->withQueryString();
         return view('Roles/listadoRoles')->with('Roles', $Roles);
     }
 
     public function create()
     {
+        abort_if(Gate::denies('Nuevo_roles'),redirect()->route('madre')->with('error','No tiene acceso'));
         //Usamos el pluck para optimizar la busqueda de estos datos
         $permissions = Permission::all()->pluck('name', 'id');
         return view('Roles/crearRoles', compact('permissions'));
@@ -22,7 +24,7 @@ class RoleController extends Controller
 
     public function store(Request $request, $rol=-1)
     {
-
+        abort_if(Gate::denies('Nuevo_roles'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'name' => 'required|max:15|min:5|unique:roles,name|regex:/^[\pL\s\-]+$/u',
             'descripcion'=> 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
@@ -61,6 +63,7 @@ class RoleController extends Controller
 
     //Función para editar el rol
     public function editar($id){
+        abort_if(Gate::denies('Editar_roles'),redirect()->route('madre')->with('error','No tiene acceso'));
         $role1 = Role::findOrFail($id);
         $permissions = Permission::all()->pluck('name', 'id');
         $role = $role1->load('permissions');
@@ -70,6 +73,7 @@ class RoleController extends Controller
     }
 
     public function update(Request $request, $id){
+        abort_if(Gate::denies('Editar_roles'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'name' => 'required|max:15|min:5|regex:/^[\pL\s\-]+$/u|unique:roles,name,'.$id,
             'descripcion'=> 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
@@ -106,6 +110,7 @@ class RoleController extends Controller
     }
 
     public function destroy($id){
+        abort_if(Gate::denies('Eliminar_rol'),redirect()->route('madre')->with('error','No tiene acceso'));
         Role::destroy($id);
 
         return redirect()->route('roles.index')

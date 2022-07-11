@@ -9,7 +9,9 @@
         <h3 class="col-lg-7">Listado de ventas al crédito</h3>
 
         <div class="col-lg-5 row">
+            @can('Nueva_venta_crédito')
             <a class="btn btn-info btn block" target="_blank" href="{{route('ventaCredito.nueva')}}"><i class="bi bi-plus-circle"></i>Nueva venta al crédito</a>
+            @endcan
             <div class="dropdown show ml-2">
                 <a class="btn btn-secondary dropdown-toggle pt-2 pb-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Más opciones <i class="bi bi-caret-down"></i>
@@ -87,9 +89,11 @@
                     <td>L.{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}</td>
 
                     <td class="text-center">
+                        @can('Detalles_ventas_crédito')
                         <a class="btn btn-info" href="{{route('ventaCredito.ver', ['id'=>$venta->id])}}">
                             <i class="bi bi-eye"></i>Detalles
                         </a>
+                        @endcan
                     </td>
 
                     <!-- Botón de nuevo pago, con función de desaparecer cuando el saldo pendiente este en cero -->

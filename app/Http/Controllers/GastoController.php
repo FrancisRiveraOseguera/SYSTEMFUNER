@@ -6,6 +6,7 @@ use App\Models\Gasto;
 use App\Models\empleado;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class GastoController extends Controller
 {
@@ -16,6 +17,7 @@ class GastoController extends Controller
      */
     public function index(Request $request)
     {
+        abort_if(Gate::denies('Listado_gasto'),redirect()->route('madre')->with('error','No tiene acceso'));
         $fecha = Gasto::select(DB::raw('min(fecha) as inicio,max(fecha) as final'))->first();
 
         $busqueda = trim($request->get('busqueda'));
@@ -69,6 +71,7 @@ class GastoController extends Controller
      */
     public function create()
     {
+        abort_if(Gate::denies('Nuevo_gasto'),redirect()->route('madre')->with('error','No tiene acceso'));
         return view('gastos/nuevoGasto');
     }
 
@@ -80,6 +83,7 @@ class GastoController extends Controller
      */
     public function store(Request $request)
     {
+        abort_if(Gate::denies('Nuevo_gasto'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'tipo_gasto' => 'required|regex:/^[\pL\s\-]+$/u|max:70',
             'detalles_gasto' => 'required|max:1000',
@@ -134,12 +138,14 @@ class GastoController extends Controller
      */
     public function show($id)
     {
+        abort_if(Gate::denies('Detalles_gasto'),redirect()->route('madre')->with('error','No tiene acceso'));
         $gasto = Gasto::findOrFail($id);
         return view('gastos/detallesGasto')->with('gasto', $gasto);
     }
 
     public function gastosPDF()
     {
+        abort_if(Gate::denies('Pdf_gasto'),redirect()->route('madre')->with('error','No tiene acceso'));
         $gasto = Gasto::select("gastos.id", "gastos.fecha","tipo_gasto","detalles_gasto","cantidad","empleado_id")
         ->join("empleados","empleado_id","=","empleados.id")
         ->orderBy('fecha', 'asc')

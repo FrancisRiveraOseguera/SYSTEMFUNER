@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Inventario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 
 class InventarioController extends Controller
 {
     public function home(Request $request){
+        abort_if(Gate::denies('Listado_inventario'),redirect()->route('madre')->with('error','No tiene acceso'));
         return view('inventario/inventarioIndex');
     }
 
     public function index(Request $request){
-
+        abort_if(Gate::denies('Listado_inventario'),redirect()->route('madre')->with('error','No tiene acceso'));
         $busqueda = trim($request->get('busqueda'));
 
         $producto = DB::table('inventario')->orderby('id','DESC' )
@@ -29,6 +31,7 @@ class InventarioController extends Controller
     }
     public function create()
     {
+        abort_if(Gate::denies('Nuevo_inventario'),redirect()->route('madre')->with('error','No tiene acceso'));
         return view('/inventario/inventarioAgregar');
     }
 
@@ -36,6 +39,7 @@ class InventarioController extends Controller
 
  
     {
+        abort_if(Gate::denies('Nuevo_inventario'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'servicio_id' => 'required|numeric|exists:App\Models\Servicio,id',
             'responsable' => 'required|regex:/^[\pL\s\-]+$/u|max:35|min:5',
@@ -90,6 +94,7 @@ class InventarioController extends Controller
    
     public function  verProductosEnInventario() {
         //mandarlo  a buscar 
+        abort_if(Gate::denies('Cantidad_inventario'),redirect()->route('madre')->with('error','No tiene acceso'));
         $inventario  = DB::table('cantidad_inventario')->get();
         return view ('inventario/listadoProductos')->with('inventario', $inventario );
 

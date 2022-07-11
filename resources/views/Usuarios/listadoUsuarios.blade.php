@@ -10,8 +10,9 @@
 
     <div>
     <br>
+    @can('Nuevo_usuario')
     <a class="btn btn-info btn block"  href="{{route('usuarios.create')}}"><i class="bi bi-plus-circle"></i>Nuevo usuario</a>
-
+    @endcan
 </div>
 <hr><br>
     <!--Mensaje de alerta para validacón-->
@@ -56,13 +57,15 @@
             </td>
 
             <td class="text-center">
+                @can('Editar_usuario')
                 @if ($usuario->id ==1 )
 
                 @else
                 <a class="btn btn-success"
                     href="{{route('usuario.edit', ['id'=> $usuario->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
                 @endif
-                </td>
+                @endcan
+            </td>
 
             <td class="text-center">
                 @if ($usuario->id ==1 )
@@ -70,9 +73,11 @@
                 @else
                 <form method="post" action="{{route('usuario.borrar',['id'=> $usuario->id])}}">
 
+                    @can('Eliminar_usuario')
                     <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush{{$usuario->id}}">
                         <i class="fas fa-minus-circle"></i>Eliminar
                     </a>
+                    @endcan
 
                     <!--Modal: modalPush-->
                     <div class="modal fade" tabindex="1" id="modalPush{{$usuario->id}}"role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -66,6 +66,11 @@
 
 <div class="container masthead col-sm-12">
     <br><br>
+    @if(session('error'))
+    <div class="alert alert-danger">
+        {{session('error')}}
+    </div>
+    @endif
     <div class="masthead-subheading">¡Bienvenido a Funerales La Bendición!</div><br>
     <a class="btn btn-light ml-5" href="#categorias">Categorías principales</a>
     <div id="carouselExampleIndicators" class="carousel slide mt-2" data-ride="carousel" style="width: 500px; margin-left: 400px">
@@ -103,27 +108,37 @@
             <h1 class="section-heading text-uppercase catP">Categorías principales</h1><br>
         </div>
         <div class="row text-center">
+            @can('Listado_Empleados')
             <div class="col-md-4 cat">
                 <a href="{{route('empleado.index')}}"><img src="/assets/empleados.png" alt="Empleados" width="200px"><br>
                 <a class="btn btn-success" href="{{route('empleado.index')}}">Empleados</a>
             </div>
+            @endcan
+            @can('Listado_clientes')
             <div class="col-md-4 cat">
                 <a href="{{route('listado.clientes')}}"><img src="/assets/clientes.png" alt="Clientes" width="200px" class="mb-1"><br>
                 <a class="btn btn-success" href="{{route('listado.clientes')}}">Clientes</a>
             </div>
+            @endcan
+            @can('Listado_servicios')
             <div class="col-md-4 cat">
                 <a href="{{route('Servicio.lista')}}"><img src="/assets/ataud.png" alt="Servicios" width="200px"><br>
                 <a class="btn btn-success" href="{{route('Servicio.lista')}}">Servicios</a>
             </div>
+            @endcan
             <div class="col-md-2"></div>
+            @can('Listado_inventario')
             <div class="col-md-4 cat">
                 <a href="{{route('inventario.home')}}"><img src="/assets/inventario1.png" alt="Inventario" style="margin-top: 65px;" width="200px"><br>
                 <a class="btn btn-success">Inventario</a>
             </div>
+            @endcan
+            @can('Listado_ventas')
             <div class="col-md-4 cat">
                 <a href="{{route('ventas.index')}}"><img src="/assets/ventas1.png" alt="Ventas" style="margin-top: 65px;" width="200px" class="mb-1"><br>
                 <a class="btn btn-success" href="{{route('ventas.index')}}">Ventas</a>
             </div>
+            @endcan
         </div>
     </div><br>
 </section>

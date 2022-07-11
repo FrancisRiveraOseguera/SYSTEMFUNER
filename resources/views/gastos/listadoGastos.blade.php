@@ -11,9 +11,11 @@
         </div>
 
         <div class="col-lg-2.5">
+            @can('Nuevo_gasto')
             <a class="btn btn-info btn block" href="nuevoGasto">
                 <i class="bi bi-plus-circle"></i>Nuevo gasto
             </a>
+            @endcan
         </div>
         <div class="col-lg-4">
             <td>

@@ -10,9 +10,11 @@
     <div>
         <h3>Listado de roles</h3>
         <br>
+        @can('Nuevo_roles')
         <a class="btn btn-info btn block" href="{{route('roles.create')}}">
             <i class="bi bi-plus-circle"></i>Nuevo rol
         </a>
+        @endcan
     </div>
 
 <hr>
@@ -47,17 +49,21 @@
                 <td>{{$rol->descripcion}}</td>
 
                 <td>
+                    @can('Editar_roles')
                     <a class="btn btn-success"
                         href="{{route('rol.editar', ['id'=> $rol->id])}}"><i class="bi bi-pencil-square"></i>Editar
                     </a>
+                    @endcan
                 </td>
 
                 <td>
                     <form method="post" action="{{route('rol.eliminar',['id'=> $rol->id])}}">
 
+                        @can('Eliminar_rol')
                         <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush{{$rol->id}}">
                             <i class="fas fa-minus-circle"></i>Eliminar
                         </a>
+                        @endcan
 
                         <!--Modal: modalPush-->
                         <div class="modal fade" tabindex="1" id="modalPush{{$rol->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

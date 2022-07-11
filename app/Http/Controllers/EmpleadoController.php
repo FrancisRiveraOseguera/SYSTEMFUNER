@@ -9,6 +9,7 @@ use App\Models\contadoventa;
 use App\Models\creditoventa;
 use App\Models\Cargo;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class EmpleadoController extends Controller
 {
@@ -19,6 +20,7 @@ class EmpleadoController extends Controller
      */
     public function index(Request $request)
     {
+        abort_if(Gate::denies('Listado_Empleados'),redirect()->route('madre')->with('error','No tiene acceso'));
         $busqueda = trim($request->get('busqueda'));
 
         $empleado = DB::table('empleados')
@@ -41,6 +43,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
+        abort_if(Gate::denies('Nuevo_empleado'),redirect()->route('madre')->with('error','No tiene acceso'));
         return view('/empleado/crear');
     }
 
@@ -52,6 +55,7 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
+        abort_if(Gate::denies('Nuevo_empleado'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'identidad' => 'required|regex:([0,1]{1}[0-9]{12})|numeric|unique:empleados,identidad',
             'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
@@ -140,6 +144,7 @@ class EmpleadoController extends Controller
      //FUNCIÓN PARA VER INFORMACIÓN DEL EMPLEADO
     public function show($id)
     {
+        abort_if(Gate::denies('Detalles_empleados'),redirect()->route('madre')->with('error','No tiene acceso'));
         $empleado = Empleado::findOrFail($id);
         return view('empleado/empleadoVer')->with('empleado', $empleado);
     }
@@ -154,6 +159,7 @@ class EmpleadoController extends Controller
     //FUNCIÓN EDITAR INFORMACIÓN DEL EMPLEADO
     public function edit($id)
     {
+        abort_if(Gate::denies('Editar_empleado'),redirect()->route('madre')->with('error','No tiene acceso'));
         $empleado = Empleado::findOrFail($id);
         return view('empleado/empleadoEditar')
             ->with('empleado', $empleado);
@@ -170,6 +176,7 @@ class EmpleadoController extends Controller
     //ACTUALIZAR/VALIDAR DATOS DEL EMPLEADO
     public function update(Request $request, $id)
     {
+        abort_if(Gate::denies('Editar_empleado'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'identidad' => 'required|regex:([0,1]{1}[0-9]{12})|numeric|unique:empleados,identidad,'.$id,
             'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
@@ -249,6 +256,7 @@ class EmpleadoController extends Controller
     //FUNCIÓN PARA DESACTIVAR A UN EMPLEADO
     public function desactivar ($id)
     {
+        abort_if(Gate::denies('Desactivar_empleados'),redirect()->route('madre')->with('error','No tiene acceso'));
         $empleado = Empleado::findOrFail($id);
 
         $empleado->estado = 0;
@@ -264,6 +272,7 @@ class EmpleadoController extends Controller
     //FUNCION PARA VER EL LISTADO DE LOS CLIENTES DESACTIVADOS
     public function listadoEmpleadosDesactivados(Request $request)
     {
+        abort_if(Gate::denies('Empleados_desactivados'),redirect()->route('madre')->with('error','No tiene acceso'));
         $busqueda = trim($request->get('busqueda'));
 
         $empleados1 = DB::table('empleados')
@@ -286,6 +295,7 @@ class EmpleadoController extends Controller
 
     //FUNCIÓN PARA VER LA INFORMACIÓN DEL EMPLEADO DESACTIVADO
     public function verEmpleadoDesactivado($id){
+        abort_if(Gate::denies('Detalles_empleados_desactivados'),redirect()->route('madre')->with('error','No tiene acceso'));
         $empleado = Empleado::findOrFail($id);
         return view('empleado.verEmpleadoDesactivado')->with('empleado', $empleado);
     }
@@ -293,6 +303,7 @@ class EmpleadoController extends Controller
     //FUNCIÓN PARA HABILITAR UN EMPLEADO DESACTIVADO
     public function habilitarEmpleadoDesactivado($id)
     {
+        abort_if(Gate::denies('Habilitar_empleados'),redirect()->route('madre')->with('error','No tiene acceso'));
         $empleado = Empleado::findOrFail($id);
 
         $empleado->estado = 1;
@@ -307,6 +318,7 @@ class EmpleadoController extends Controller
 
     //funcion para crear constancia de trabajo
     public function pdfConstancia($id){
+        abort_if(Gate::denies('Pdf_constancia_trabajo'),redirect()->route('madre')->with('error','No tiene acceso'));
         $empleado = Empleado::findOrFail($id);
         return view('empleado.PDFconstanciaTrabajo')->with('empleado', $empleado);
      }

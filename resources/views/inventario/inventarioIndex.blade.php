@@ -21,8 +21,12 @@
 </div><br>
 
 <div class="invent !important">
+    @can('Listado_servicios')
     <a href="{{route('Servicio.lista')}}"><img src="/assets/producto.png" class="rounded-circle bs servicios" width="120" height="120"></a>
+    @endcan
+    @can('Listado_inventario')
     <a href="{{route('historialinventario.index')}}"><img src="/assets/inventario.png" class="rounded-circle bs inventario" width="120" height="120"></a><br><br>
+    @endcan
 
     <a style="margin-left:12%; font-size: 15px;">INGRESAR A SERVICIOS</a>
     <a style="margin-left:40%; font-size: 15px;">INGRESAR A INVENTARIO</a><br>

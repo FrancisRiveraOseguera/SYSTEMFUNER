@@ -9,8 +9,9 @@
         <div class="col-lg-7">
             <h3>Listado de cantidades en inventario</h3>
             <br>
-             <a class="btn btn-primary btn block" href="{{route('historialinventario.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
-            
+            @can('Listado_inventario')
+            <a class="btn btn-primary btn block" href="{{route('historialinventario.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
+            @endcan            
         </div>
 <hr>
 </div>

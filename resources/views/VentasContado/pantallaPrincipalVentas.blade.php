@@ -9,48 +9,55 @@
            <div class="col-lg-6">
                <h3 class="ml-3">Ventas</h3>
            </div>
+           @can('Nueva_ventas_contado')
            <div class="col-lg-3">
-               <a class="btn btn-info btn block" target="_blank" href="{{route('VentaContado.nueva')}}">
-                   <i class="fas fa-donate"></i>Nueva venta al contado
-               </a>
-           </div>
+                <a class="btn btn-info btn block" target="_blank" href="{{route('VentaContado.nueva')}}">
+                    <i class="fas fa-donate"></i>Nueva venta al contado
+                </a>
+            </div>
+           @endcan
+           @can('Nueva_venta_crédito')
            <div class="col-lg-3">
-               <a class="btn btn-info btn block"  target="_blank" href="{{route('ventaCredito.nueva')}}">
-                   <i class="fas fa-file-invoice-dollar"></i>Nueva venta al crédito
-               </a>
-           </div>
+            <a class="btn btn-info btn block"  target="_blank" href="{{route('ventaCredito.nueva')}}">
+                <i class="fas fa-file-invoice-dollar"></i>Nueva venta al crédito
+            </a>
+        </div>
+           @endcan
        </div>
 
        <div class="container">
            <div class="card-deck mt-4">
-
-               <div class="card text-center border-info">
-                   <div class="card-body">
-                       <img src="/assets/ventas.png" alt="Ventas totales" width="100%">
-                       <h4 class="card-title">Todas las ventas</h4>
-                       <p class="card-text">En esta sección puede ver las ventas al contado
-                           y al crédito que se han realizado.</p>
-                       <a href="{{route('listadotodaslas.ventas')}}" class="btn btn-primary">Ver</a>
-                   </div>
-               </div>
-
-               <div class="card text-center border-info">
-                   <div class="card-body">
-                       <img src="/assets/ventasContado.png" alt="Ventas al contado" width="100%">
-                       <h4 class="card-title">Ventas al contado</h4>
-                       <p class="card-text">En esta sección puede ver el listado de las ventas al contado.</p>
-                       <a href="{{route('listadoVentas.index')}}" class="btn btn-primary">Ver</a>
-                   </div>
-               </div>
-
-               <div class="card text-center border-info">
-                   <div class="card-body">
-                       <img src="/assets/ventasCredito.png" alt="Ventas al crédito" width="100%">
-                       <h4 class="card-title">Ventas al crédito</h4>
-                       <p class="card-text">En esta sección puede ver el listado de las ventas al crédito.</p>
-                       <a href="{{route('ventasCredito.index')}}" class="btn btn-primary">Ver</a>
-                   </div>
-               </div>
+            @can('Listado_ventas')
+            <div class="card text-center border-info">
+                <div class="card-body">
+                    <img src="/assets/ventas.png" alt="Ventas totales" width="100%">
+                    <h4 class="card-title">Todas las ventas</h4>
+                    <p class="card-text">En esta sección puede ver las ventas al contado
+                        y al crédito que se han realizado.</p>
+                    <a href="{{route('listadotodaslas.ventas')}}" class="btn btn-primary">Ver</a>
+                </div>
+            </div>
+            @endcan
+            @can('Listado_ventas_contado')
+            <div class="card text-center border-info">
+                <div class="card-body">
+                    <img src="/assets/ventasContado.png" alt="Ventas al contado" width="100%">
+                    <h4 class="card-title">Ventas al contado</h4>
+                    <p class="card-text">En esta sección puede ver el listado de las ventas al contado.</p>
+                    <a href="{{route('listadoVentas.index')}}" class="btn btn-primary">Ver</a>
+                </div>
+            </div>
+            @endcan
+            @can('Listado_ventas_crédito')
+            <div class="card text-center border-info">
+                <div class="card-body">
+                    <img src="/assets/ventasCredito.png" alt="Ventas al crédito" width="100%">
+                    <h4 class="card-title">Ventas al crédito</h4>
+                    <p class="card-text">En esta sección puede ver el listado de las ventas al crédito.</p>
+                    <a href="{{route('ventasCredito.index')}}" class="btn btn-primary">Ver</a>
+                </div>
+            </div>
+            @endcan
            </div>
        </div>
    </div>

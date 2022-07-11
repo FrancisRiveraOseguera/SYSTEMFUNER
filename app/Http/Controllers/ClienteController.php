@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\ContadoVenta;
 use App\Models\Cliente;
+use Illuminate\Support\Facades\Gate;
 
 class ClienteController extends Controller
 {
     //Función para ver el listado de clientes
     public function index(Request $request)
     {
+        abort_if(Gate::denies('Listado_clientes'),redirect()->route('madre')->with('error','No tiene acceso'));
         $busqueda = trim($request->get('busqueda'));
 
         $cliente = DB::table('clientes')
@@ -29,12 +31,15 @@ class ClienteController extends Controller
     //Función para abrir el formulario de nuevo cliente
     public function create($cliente=null)
     {
+        abort_if(Gate::denies('Nuevo_cliente'),redirect()->route('madre')->with('error','No tiene acceso'));
         return view('cliente.nuevoCliente')->with('cliente',$cliente);
     }
 
     //Función para guardar los datos de un nuevo cliente
     public function store(Request $request,$cliente=null)
     {
+        abort_if(Gate::denies('Nuevo_cliente'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         //Validación de los datos
         $rules=[
             'identidad' => 'required|regex:([0,1]{1}[0-9]{12})|numeric|unique:clientes,identidad',
@@ -131,6 +136,8 @@ class ClienteController extends Controller
      //FUNCIÓN PARA VER INFORMACIÓN DEL Cliente
      public function show($id)
      {
+        abort_if(Gate::denies('Detalles_clientes'),redirect()->route('madre')->with('error','No tiene acceso'));
+
          $cliente = Cliente::findOrFail($id);
          return view('cliente.detallesCliente')->with('cliente', $cliente);
      }
@@ -145,6 +152,8 @@ class ClienteController extends Controller
      //FUNCIÓN EDITAR INFORMACIÓN DEL CLIENTE
      public function edit($id)
      {
+        abort_if(Gate::denies('Editar_clientes'),redirect()->route('madre')->with('error','No tiene acceso'));
+
          $cliente = Cliente::findOrFail($id);
          return view('cliente.editarClientes')
              ->with('cliente', $cliente);
@@ -161,6 +170,8 @@ class ClienteController extends Controller
      //ACTUALIZAR/VALIDAR DATOS DEL CLIENTE
     public function update(Request $request, $id)
     {
+        abort_if(Gate::denies('Editar_clientes'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         $rules=[
             'identidad' => 'required|regex:([0,1]{1}[0-9]{12})|numeric|unique:clientes,identidad,'.$id,
             'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',

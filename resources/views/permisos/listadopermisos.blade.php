@@ -10,9 +10,11 @@
     <div>
         <h3>Listado de permisos</h3>
         <br>
+        @can('Nuevo_permiso')
         <a class="btn btn-info btn block" href="{{route('permisos.create')}}">
             <i class="bi bi-plus-circle"></i>Nuevo permiso
         </a>
+        @endcan
     </div>
 
     <!--Barra de búsqueda-->
@@ -62,17 +64,21 @@
                 <td>{{$perm->descripcion}}</td>
                 
                 <td>
+                    @can('Editar_permisos')
                     <a class="btn btn-success"
                         href="{{route('permiso.editar', ['id'=> $perm->id])}}"><i class="bi bi-pencil-square"></i>Editar
                     </a>
+                    @endcan
                 </td>
 
                 <td>
                     <form method="post" action="{{route('permiso.eliminar',['id'=> $perm->id])}}">
 
+                        @can('Eliminar_permisos')
                         <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush{{$perm->id}}">
                             <i class="fas fa-minus-circle"></i>Eliminar
                         </a>
+                        @endcan
 
                         <!--Modal: modalPush-->
                         <div class="modal fade" tabindex="1" id="modalPush{{$perm->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

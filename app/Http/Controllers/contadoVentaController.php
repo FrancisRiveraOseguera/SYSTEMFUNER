@@ -8,10 +8,13 @@ use App\Models\creditoventa;
 use App\Models\cantidad_inventario;
 use App\Models\Cliente;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class contadoVentaController extends Controller
 {
     public function  ventas() {
+        abort_if(Gate::denies('Listado_ventas'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         //mandarlo  a buscar 
         $ventas  = DB::table('todaslasventas')->paginate(15)-> withQueryString();
         return view ('VentasContado/listadoVentas')->with('ContadoVenta',  $ventas);
@@ -28,6 +31,8 @@ class contadoVentaController extends Controller
 
     //función para mostrar  listado de ventas al contado y hacer las búsquedas
     public function index(Request $request){
+        abort_if(Gate::denies('Listado_ventas_contado'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         $busqueda = trim($request->get('busqueda'));
 
         $venta = contadoventa::orderby('contado_ventas.id','DESC')
@@ -50,22 +55,30 @@ class contadoVentaController extends Controller
 
     public function show($id)
     {
+        abort_if(Gate::denies('Detalles_ventas_contado'),redirect()->route('madre')->with('error','No tiene acceso'));
+
        $venta = contadoventa::findOrFail($id);
        return view('VentasContado.detallesVentaContado')->with('contadoventa', $venta);
     }
 
     public function pdf($id){
+        abort_if(Gate::denies('Pdf_ventas_contado'),redirect()->route('madre')->with('error','No tiene acceso'));
+
        $venta = contadoventa::findOrFail($id);
        return view('VentasContado.crearPDF')->with('contadoventa', $venta);
     }
 
     public function pdftodaslasventas(){
+        abort_if(Gate::denies('Pdf_ventas_contado'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         $ventas  = DB::table('todaslasventas')->get() ;
         return view ('VentasContado/pdflistadoVentas')->with('ContadoVenta', $ventas );
      }
 
     //FUNCIÓN CREACIÓN DE VENTA AL CONTADO
     public function create($ident = null){
+        abort_if(Gate::denies('Nueva_ventas_contado'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         $clientes = Cliente::where('id',$ident)->first();
         return view('VentasContado.crearVentaContado')->with('ident',$clientes);
 
@@ -73,6 +86,8 @@ class contadoVentaController extends Controller
 
     //FUNCIÓN DE GUARDADO Y VALIDACIÓN DE DATOS DE CREACIÓN NUEVA VENTA AL CONTADO
     public function store(Request $request){
+        abort_if(Gate::denies('Nueva_ventas_contado'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         $cantidad_inventario = DB::table('cantidad_inventario')
         ->where('servicio_id', $request->input('servicio_id'))->select('cantidad')->first();
 
@@ -128,6 +143,8 @@ class contadoVentaController extends Controller
 
     //función home para ver la pantalla principal de ventas
     public function home(Request $request){
+        abort_if(Gate::denies('Principal_ventas'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         return view('VentasContado.pantallaPrincipalVentas');
     }//fin función home
 }

@@ -251,7 +251,29 @@ class PermisosSeeder extends Seeder
         ]);
         Permission::create([
             'name' => 'Eliminar_permisos',
-            'descripcion' => 'Para poder eliminar un permiso.',
+            'descripcion' => 'Para poder editar un permiso.',
+            'guard_name' => 'web'
+        ]);
+        
+         //roles
+         Permission::create([
+            'name' => 'Listado_roles',
+            'descripcion' => 'Para poder acceder al listado de los roles.',
+            'guard_name' => 'web'
+        ]);
+        Permission::create([
+            'name' => 'Nuevo_roles',
+            'descripcion' => 'Para poder crear un rol.',
+            'guard_name' => 'web'
+        ]);
+        Permission::create([
+            'name' => 'Editar_roles',
+            'descripcion' => 'Para poder editar un rol.',
+            'guard_name' => 'web'
+        ]);
+        Permission::create([
+            'name' => 'Eliminar_rol',
+            'descripcion' => 'Para poder eliminar un rol.',
             'guard_name' => 'web'
         ]);
          //servicios

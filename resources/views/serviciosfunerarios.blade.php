@@ -10,7 +10,9 @@
 
     <div>
       <br>
+    @can('Nuevo_servicio')
     <a class="btn btn-info btn block  "  href="{{route('Servicio.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo servicio</a>
+    @endcan
     </div>
   </div>
     <hr>
@@ -64,9 +66,13 @@
         <td>{{number_format($Servicio->cuota,2)}}</td>
         <td>{{number_format($Servicio->precio,2)}}</td>
         <td style="text-align: center;">
+         @can('Detalles_servicios')
          <a class="btn btn-info" href="{{route('Servicio.ver', ['id'=>$Servicio->id])}}"><i class="bi bi-eye"></i>Detalles</a>
+         @endcan
         <td style="text-align: center;">
+          @can('Editar_servicio')
           <a class="btn btn-success" href="{{route('Servicio.editar', ['id'=>$Servicio->id])}}"> <i class="bi bi-pencil-square"></i>Editar </a>
+          @endcan
         </td>
         <td style="text-align: center;">
             <!-- Button trigger modal-->

@@ -7,7 +7,9 @@
         <div class="col-lg-7">
             <h3>Historial de pago de cuotas de ventas al crédito</h3>
             <br>
-                <a class="btn btn-primary btn block" href="{{route('ventasCredito.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
+            @can('Listado_ventas_crédito')
+            <a class="btn btn-primary btn block" href="{{route('ventasCredito.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar </a>
+            @endcan
         </div><hr>
 </div>
 </div><br>

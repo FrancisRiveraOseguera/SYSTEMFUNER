@@ -7,12 +7,15 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Cargo;
 use App\Models\Empleado;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\Gate;
 
 class cargoController extends Controller
 {
 
     public function index(Request $request)
     {
+        abort_if(Gate::denies('Listado_cargos'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         $busqueda = trim($request->get('busqueda'));
 
         $cargo = DB::table('cargos')->orderby('id','DESC' )
@@ -27,11 +30,15 @@ class cargoController extends Controller
     }
 
     public function create(){
+        abort_if(Gate::denies('Nuevo_cargo'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         return view('Cargos/nuevoCargo');
     }
 
     public function store(Request $request)
     {
+        abort_if(Gate::denies('Nuevo_cargo'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         $rules=[
             'cargo' => 'required | regex:/^[\pL\s\-]+$/u | max:70 | min:5 | unique:cargos,cargo',
             'sueldo' => 'required | numeric | min:7000|max:25000',
@@ -75,6 +82,8 @@ class cargoController extends Controller
 
   //Función para editar los datos
   public function editar($id){
+    abort_if(Gate::denies('Editar_cargo'),redirect()->route('madre')->with('error','No tiene acceso'));
+
     $cargo = Cargo::findOrFail($id);
     return view('Cargos.editarCargo')
         ->with('cargo', $cargo);
@@ -82,6 +91,8 @@ class cargoController extends Controller
 
     //Función para guardar los datos actualizados
     public function update(Request $request, $id){
+        abort_if(Gate::denies('Editar_cargo'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         //Validar campos del formulario editar
         $rules= [
             'cargo' => 'required |regex:/^[\pL\s\-]+$/u|max:50|min:5|unique:cargos,cargo,'.$id,
@@ -126,6 +137,8 @@ class cargoController extends Controller
     //función para ver los detalles del cargo
     public function show($id)
     {
+        abort_if(Gate::denies('Detalles_cargos'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         $cargo = Cargo::findOrFail($id);
         return view('Cargos.detallesCargo')->with('cargo', $cargo);
     }
@@ -133,6 +146,8 @@ class cargoController extends Controller
     //Eliminar cargo
     public function destroy($id)
     {
+        abort_if(Gate::denies('Eliminar_cargos'),redirect()->route('madre')->with('error','No tiene acceso'));
+
         Cargo::destroy($id);
 
         return redirect()->route('listadoCargos.index')->with('mensaje', 'El cargo fue eliminado exitosamente.');

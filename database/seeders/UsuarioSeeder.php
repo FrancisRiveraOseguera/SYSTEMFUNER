@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Usuario;
+use App\Models\User;
 
 class UsuarioSeeder extends Seeder
 {
@@ -14,12 +14,14 @@ class UsuarioSeeder extends Seeder
      */
     public function run()
     {
-        Usuario::create([
+        User::create([
             'empleado_id'=> 'Admin',
             'correo' => 'funeraria@gmail.com',
             'nameUser' => 'Admin',
             'cargo_id' => 'Admin',
             'password' => bcrypt('12345678')
-        ]);
+        ])->assignRole('Gerente');;
     }
 }
+
+

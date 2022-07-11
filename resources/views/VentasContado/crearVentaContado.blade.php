@@ -34,11 +34,15 @@
         <h3 class="servfu" >Nueva Venta al Contado</h3>
 
             <hr>
+        @can('Nuevo_cliente')
         <a class="btn btn-info btn block" style="position:relative; float:right; margin: top 20em; " href="{{route('cliente.nuevo',['cliente'=>0])}}">
             <i class="bi bi-plus-circle"></i>Nuevo cliente</a>
+        @endcan
 
+        @can('Listado_ventas')
         <a class="btn btn-link " href="{{route('ventas.index')}}" >
-                <i class="bi bi-box-arrow-left"></i>Ir al inicio de Ventas </a>
+            <i class="bi bi-box-arrow-left"></i>Ir al inicio de Ventas </a>
+        @endcan
 
                 <div>
                  </div>
@@ -247,3 +251,4 @@
     }
    </style>
 @endsection
+

@@ -69,34 +69,46 @@
             <li><br>
                 <a href="{{url('/inicio')}}"><i class="fas fa-home" style="font-size: 14px"></i>Inicio</a>
             </li>
-
+            @can('Listado_Empleados')
             <li>
                 <a href="{{route('empleado.index')}}"><i class="fas fa-user-tie" style="font-size: 14px"></i>Empleados</a>
             </li>
+            @endcan
+            @can('Listado_clientes')
             <li>
                 <a href="{{route('listado.clientes')}}"><i class="fas fa-user-circle" style="font-size: 14px"></i>Clientes</a>
             </li>
-
+            @endcan
+            @can( 'Listado_inventario')
             <li>
                 <a href="{{route('inventario.home')}}"><i class="fas fa-boxes" style="font-size: 14px"></i>Inventario</a>
             </li>
+            @endcan
+            @can('Listado_ventas')
             <li>
                 <a href="{{route('ventas.index')}}"><i class="fas fa-cash-register" style="font-size: 14px"></i>Ventas</a>
             </li>
-
+            @endcan
+            @can('Listado_gasto')
             <li>
                 <a href="{{route('listadoGastos.index')}}"><i class="fa fa-chart-pie" style="font-size: 14px"></i>Gastos</a>
             </li>
-
+            @endcan
+            @can('Listado_usuario')
             <li>
                 <a href="{{route('listado.usuario')}}"><i class="fas fa-users-cog" style="font-size: 14px"></i>Usuarios</a>
             </li>
+            @endcan
+            @can('Listado_roles')
             <li>
                 <a href="{{route('roles.index')}}"><i class="fa fa-address-card" style="font-size: 14px"></i>Roles</a>
             </li>
+            @endcan
+            @can( 'Listado_permisos')
             <li>
                 <a href="{{route('permisos.lista')}}"><i class="fa fa-user-shield" style="font-size: 14px"></i>Permisos</a>
             </li>
+            @endcan
         </ul>
     </nav>
 

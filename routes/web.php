@@ -28,7 +28,7 @@ Route::middleware("auth")->group(function () {
 
     Route::get('/', function () {
         return redirect()->route('madre');
-    });
+    })->name('welcome');
 
     //RUTAS DEL CONTROLADOR DE SERVICIOS
 

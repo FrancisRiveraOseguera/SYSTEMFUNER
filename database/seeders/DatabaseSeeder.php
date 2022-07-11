@@ -20,10 +20,11 @@ class DatabaseSeeder extends Seeder
             ClienteSeeder::class,
             EmpleadoSeeder::class,
             ServicioSeeder::class,
-            UsuarioSeeder::class,
             CargoSeeder::class,
             PermisosSeeder::class,
             RoleSeeder::class,
+            UsuarioSeeder::class,
+            RoleHasPermissionSeeder::class,
         ]);
     }
 }

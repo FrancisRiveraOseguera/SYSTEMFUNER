@@ -10,10 +10,14 @@
             </div>
 
             <div class="col-lg-2.5">
+                @can('Nuevo_empleado')
                 <a class="btn btn-info btn block" href="{{route('empleado.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo empleado</a>
+                @endcan
             </div>
             <div class="col-lg-3">
+                @can('Empleados_desactivados')
                 <a class="btn btn-secondary btn block" href="{{route('listado.empleados.desactivados')}}"><i class="bi bi-dash-circle"></i>Empleados desactivados</a>
+                @endcan
             </div>
         </div>
 
@@ -71,19 +75,25 @@
                     <td>{{$emple->telefono}}</td>
 
                     <td class="text-center">
+                        @can('Detalles_empleados')
                         <a class="btn btn-info"
                         href="{{route('empleado.ver', ['id'=>$emple->id])}}"><i class="bi bi-eye"></i>Detalles</a>
+                        @endcan
                     </td>
 
                     <td class="text-center">
+                        @can('Editar_empleado')
                         <a class="btn btn-success"
-                            href="{{route('empleado.edit', ['id'=> $emple->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
+                        href="{{route('empleado.edit', ['id'=> $emple->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
+                        @endcan
                     </td>
                     <td class="text-center">
                         <form method="post" action="{{route('empleado.desactivar', ['id'=>$emple->id])}}">
+                            @can('Desactivar_empleados')
                             <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush{{$emple->id}}">
                                 <i class="fas fa-minus-circle"></i>Desactivar
                             </a>
+                            @endcan
 
                             <!--Modal: modalPush-->
                             <div class="modal fade" tabindex="1" id="modalPush{{$emple->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

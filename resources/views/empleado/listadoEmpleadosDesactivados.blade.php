@@ -67,14 +67,18 @@
                         <td>{{$empleado->apellidos}}</td>
                         <td>{{$empleado->telefono}}</td>
                         <td class="text-center">
+                            @can('Detalles_empleados_desactivados')
                             <a class="btn btn-info"
                             href="{{route('empleado.desactivado', ['id'=>$empleado->id])}}"><i class="bi bi-eye"></i>Detalles</a>
+                            @endcan
                         </td>
                         <td class="text-center">
                             <form method="post" action="{{route('empleado.habilitar', ['id'=>$empleado->id])}}">
+                                @can('Habilitar_empleados')
                                 <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush{{$empleado->id}}">
                                     <i class="fas fa-plus-circle"></i> Habilitar
                                 </a>
+                                @endcan
 
                                 <!--Modal: modalPush-->
                                 <div class="modal fade" tabindex="1" id="modalPush{{$empleado->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

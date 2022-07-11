@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Usuario;
+use App\Models\User;
 use App\Models\Empleado;
 use App\Models\Cargo;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Gate;
 use App\Mail\EmergencyCallReceived;
-use App\Models\User;
 use Spatie\Permission\Models\Role;
 
 class UsuarioController extends Controller
@@ -21,8 +20,9 @@ class UsuarioController extends Controller
 
     public function index(Request $request)
     {
+        abort_if(Gate::denies('Listado_usuario'),redirect()->route('madre')->with('error','No tiene acceso'));
         $busqueda = trim($request->get('busqueda'));
-        $usuarios = usuario::orderby('usuarios.id','DESC')
+        $usuarios = User::orderby('usuarios.id','DESC')
 
         ->where('nameUser', 'LIKE', '%'.$busqueda.'%')
         ->orwhere('correo', 'LIKE', '%'.$busqueda.'%')
@@ -36,6 +36,7 @@ class UsuarioController extends Controller
 
 
     public function create($ident = null){
+        abort_if(Gate::denies('Nuevo_usuario'),redirect()->route('madre')->with('error','No tiene acceso'));
         $roles = Role::all()->pluck('name', 'id');
         $empleados = Empleado::where('id',$ident)->first();
         return view ('Usuarios.CrearUsuario')
@@ -45,6 +46,7 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
+        abort_if(Gate::denies('Nuevo_usuario'),redirect()->route('madre')->with('error','No tiene acceso'));
         //Validación de los datos
         $rules=[
             'correo' => 'required|max:35|min:8|unique:usuarios,correo|email:filter',
@@ -91,7 +93,7 @@ class UsuarioController extends Controller
 
         $this->validate($request,$rules,$mensaje);
 
-        $nuevoUser= new Usuario();
+        $nuevoUser= new User();
 
 
         $nuevoUser->correo = $request->input('correo');
@@ -124,8 +126,9 @@ class UsuarioController extends Controller
 
     public function edit($id)
     {
+        abort_if(Gate::denies('Editar_usuario'),redirect()->route('madre')->with('error','No tiene acceso'));
         $roles = Role::all()->pluck('name', 'id');
-        $usuario = Usuario::findOrFail($id);
+        $usuario = User::findOrFail($id);
         return view('Usuarios/editarusuario')
             ->with('usuario', $usuario)
             ->with('roles', $roles);
@@ -134,7 +137,7 @@ class UsuarioController extends Controller
     //ACTUALIZAR/VALIDAR DATOS DEL USUARIO
     public function update(Request $request, $id)
     {
-
+        abort_if(Gate::denies('Editar_usuario'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'correo' => 'required|max:35|min:8|email:filter|unique:usuarios,correo,'.$id,
             'nameUser' => 'required|max:20|min:5|unique:usuarios,nameUser,'.$id,
@@ -164,7 +167,7 @@ class UsuarioController extends Controller
 
     $this->validate($request,$rules,$mensaje);
 
-        $actualizarUsuario = Usuario::findOrFail($id);
+        $actualizarUsuario = User::findOrFail($id);
 
 
         $actualizarUsuario->correo = $request->input('correo');
@@ -184,7 +187,8 @@ class UsuarioController extends Controller
     //Eliminar usuario
     public function destroy($id)
     {
-        Usuario::destroy($id);
+        abort_if(Gate::denies('Eliminar_usuario'),redirect()->route('madre')->with('error','No tiene acceso'));
+        User::destroy($id);
 
         return redirect()->route('listado.usuario')->with('mensaje', 'El usuario fue eliminado exitosamente');
     }

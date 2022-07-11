@@ -11,9 +11,11 @@
  
 <div>
     <br>
+    @can('Nueva_ventas_contado')
     <a target="_blank" class="btn btn-info btn block" href="{{route('VentaContado.nueva')}}">
         <i class="bi bi-plus-circle"></i>Nueva venta al contado
     </a>
+    @endcan
 </div>
 </div>
 
@@ -64,8 +66,10 @@
                 <td>{{$vent->servicios->tipo}}</td>
         
                 <td class="text-center">
+                    @can('Detalles_ventas_contado')
                     <a class="btn btn-info"
                     href="{{route('contadoVenta.ver', ['id'=>$vent->id])}}"><i class="bi bi-eye"></i>Detalles</a>
+                    @endcan
                 </td>
 
                 <td>

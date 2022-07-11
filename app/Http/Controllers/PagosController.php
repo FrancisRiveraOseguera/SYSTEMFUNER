@@ -6,6 +6,7 @@ use App\Models\Pagos;
 use App\Models\creditoventa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class PagosController extends Controller
 {
@@ -27,6 +28,7 @@ class PagosController extends Controller
     // función para crear un nuevo pago 
     public function create($id)
     {
+        abort_if(Gate::denies('Nuevo_pago'),redirect()->route('madre')->with('error','No tiene acceso'));
         $venta = creditoventa::select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id",
         DB::raw('SUM(cuota) AS cuota'))
         ->leftjoin("pagos","pagos.venta_id","=","creditoventas.id")
@@ -45,6 +47,7 @@ class PagosController extends Controller
 
     
     public function pdf($id){
+        abort_if(Gate::denies('Pdf_recibo_pago'),redirect()->route('madre')->with('error','No tiene acceso'));
         $pago = Pagos::findOrFail($id);
 
         $total = Pagos::select(DB::raw('servicios.precio -  SUM(pagos.cuota) - servicios.prima as total'))
@@ -60,6 +63,7 @@ class PagosController extends Controller
      //función de las validaciones de nuevo pago 
     public function store(Request $request, $id)
     {
+        abort_if(Gate::denies('Nuevo_pago'),redirect()->route('madre')->with('error','No tiene acceso'));
         $venta = creditoventa::select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id",
         DB::raw('SUM(cuota) AS cuota'))
         ->leftjoin("pagos","pagos.venta_id","=","creditoventas.id")
@@ -109,6 +113,7 @@ class PagosController extends Controller
 
     public function historialPagos(){
 
+        abort_if(Gate::denies('Historial_pagos'),redirect()->route('madre')->with('error','No tiene acceso'));
         $cuotas = Pagos::orderby('id','DESC' )
             ->paginate(15)-> withQueryString();
 
@@ -124,7 +129,7 @@ class PagosController extends Controller
      */
 
     public function pagoDetalles($id){
-
+        abort_if(Gate::denies('Detalles_pagos'),redirect()->route('madre')->with('error','No tiene acceso'));
         $pagos = creditoventa::findOrFail($id);
         $cuotas = Pagos::where('venta_id', $id)->get();
         return view('pagos.detallesCuotas')

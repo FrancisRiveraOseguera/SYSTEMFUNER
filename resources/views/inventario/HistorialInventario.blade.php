@@ -12,10 +12,14 @@
         </div>
 
         <div class="col-lg-2.5 hijo">
+            @can('Nuevo_inventario')
             <a class="btn btn-info btn block" href="{{route('inventario.create')}}"><i class="bi bi-plus-circle"></i>Agregar a inventario</a>
+            @endcan
         </div>
         <div class="col-lg-2.5 hijo">
+            @can('Cantidad_inventario')
             <a class="btn btn-success btn block" href="{{route('inventario.verProductos')}}"><i class="bi bi-clipboard-check"></i>Cantidades en inventario</a>
+            @endcan
         </div>
     </div>
 

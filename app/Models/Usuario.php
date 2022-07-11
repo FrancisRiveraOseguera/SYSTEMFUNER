@@ -8,6 +8,8 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Usuario extends Model
 {
+    use HasFactory, HasRoles;
+    
     public $guard_name = 'web';
 
     public function empleados(){
@@ -15,7 +17,7 @@ class Usuario extends Model
 
 
     public function cargos(){
-            return $this->BelongsTo(Cargo::class, 'cargo_id', 'id');}
-    use HasFactory, HasRoles;
+            return $this->BelongsTo(Cargo::class, 'cargo_id', 'id');
+    }
 
 }
