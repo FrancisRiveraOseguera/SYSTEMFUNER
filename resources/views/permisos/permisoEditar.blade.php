@@ -31,7 +31,7 @@
                     <div class="col-sm-7">
                 <input type = "text"  
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    maxlength = "32" name="name" id="name"  minlenght="5"
+                    maxlength = "32" name="name" id="name"  minlenght="5" readonly
                     placeholder="Ingrese el nombre del permiso" class="form-control"
                     value="{{$permisos->name}}"/>
         </div>
