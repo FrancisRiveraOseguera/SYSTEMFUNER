@@ -7,6 +7,7 @@ use App\Models\empleado;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\App;
 
 class GastoController extends Controller
 {
@@ -146,6 +147,7 @@ class GastoController extends Controller
     public function gastosPDF()
     {
         abort_if(Gate::denies('Pdf_gasto'),redirect()->route('madre')->with('error','No tiene acceso'));
+        
         $gasto = Gasto::select("gastos.id", "gastos.fecha","tipo_gasto","detalles_gasto","cantidad","empleado_id")
         ->join("empleados","empleado_id","=","empleados.id")
         ->orderBy('fecha', 'asc')

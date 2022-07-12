@@ -101,7 +101,7 @@
                                             <input class="form-check-input" type="text" disabled style="background: white; border: none;" name="permissions[]" style="margin-left: 2px;" value="">
                                         </div>
 
-                                        <ul type="text" style="font-size: 18px; text-align: center; margin-bottom: -10px; color: black;">
+                                        <ul type="text" style="font-size: 16px; text-align: center; margin-bottom: -10px; color: black;">
                                             No existen más permisos que coincidan con su búsqueda.
                                     </ul>
                                 </td>
