@@ -69,6 +69,11 @@
             <li><br>
                 <a href="{{url('/inicio')}}"><i class="fas fa-home" style="font-size: 14px"></i>Inicio</a>
             </li>
+            @can('Listado_cargos')
+            <li>
+                <a href="{{route('listadoCargos.index')}}"><i class="bi bi-person-workspace" style="font-size: 14px"></i>Cargos</a>  
+            </li>
+            @endcan
             @can('Listado_Empleados')
             <li>
                 <a href="{{route('empleado.index')}}"><i class="fas fa-user-tie" style="font-size: 14px"></i>Empleados</a>
@@ -109,6 +114,7 @@
                 <a href="{{route('permisos.lista')}}"><i class="fa fa-user-shield" style="font-size: 14px"></i>Permisos</a>
             </li>
             @endcan
+
         </ul>
     </nav>
 

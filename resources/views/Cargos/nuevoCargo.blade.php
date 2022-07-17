@@ -54,8 +54,7 @@
             <div class="col-sm-8">
                 <textarea rows="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     name="detalles_cargo" id="detalles_cargo"  maxlength = "1000" minlenght = "25"
-                    placeholder="Descripción de tareas a realizar en este cargo." class="form-control"
-                    value="{{old('detalles_cargo', $cargos->detalles_cargo ?? '')}}"></textarea>
+                    placeholder="Descripción de tareas a realizar en este cargo." class="form-control">{{old('detalles_cargo', $cargos->detalles_cargo ?? '')}}</textarea>
             </div>
         </div>
         <br>

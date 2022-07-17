@@ -28,7 +28,7 @@
             <label for="servicio_id" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i id="IcNewEmp" class="fas fa-tasks"></i>Tareas del cargo:</label>
             <div class="col-sm-8 mt-2 ">
-            <textarea disabled rows="8" cols="80" style="border: none; resize: none; user-select: none;">{{$cargo->detalles_cargo}}</textarea>
+            <textarea disabled rows="6" cols="60" style="border: none; background: none; resize: none; user-select: none;">{{$cargo->detalles_cargo}}</textarea>
             </div>
         </div>
         <br>

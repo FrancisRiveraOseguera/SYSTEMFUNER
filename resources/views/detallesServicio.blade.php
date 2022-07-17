@@ -59,7 +59,7 @@
             </label>
             <div class="col-sm-8 mt-2 detalle">
                 <textarea  name="detalles"  id="detalles" disabled
-                           cols="52" rows="2" style="border: none;">{{$Servicio->detalles}}
+                        cols="52" rows="3" style="border: none; resize: none; background: none; color: rgb(48, 48, 48);user-select: none;">{{$Servicio->detalles}}
                 </textarea>
             </div>
         </div>

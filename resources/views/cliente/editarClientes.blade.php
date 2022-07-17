@@ -26,9 +26,10 @@
         @csrf
         @method('put')
         <div class="form-group row">
-            <label for="identidad" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="identidad" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i id="IcNewEmp" class="bi bi-credit-card-2-front"></i>Identidad</label>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <input type="text"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     maxlength = "13" name="identidad" id="identidad"
@@ -39,9 +40,10 @@
 
 
         <div class="form-group row">
-                <label for="nombres" class="col-lg-2 control-label offset-md-1 requerido">
+                <label for="nombres" class="col-lg-3 control-label offset-md-1 requerido">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <input type = "text"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     maxlength = "35" name="nombres" id="nombres"
@@ -52,9 +54,10 @@
 
 
         <div class="form-group row">
-            <label for="apellidos" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="apellidos" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <input type = "text"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     maxlength = "35" name="apellidos" id="apellidos"
@@ -66,9 +69,10 @@
 
         <?php $fecha_actual = date("d-m-Y");?>
         <div class="form-group row">
-            <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="fecha_de_nacimiento" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i  id="IcNewEmp" class="bi bi-calendar-month"></i>Fecha Nacimiento</label>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <input type="date" name="fecha_de_nacimiento" id="fecha_de_nacimiento" class="form-control"
                 value="{{old('fecha_de_nacimiento', $cliente->fecha_de_nacimiento ?? '')}}"
                 min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 100 year"));?>"
@@ -78,9 +82,10 @@
 
 
         <div class="form-group row">
-            <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="telefono" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i id="IcNewEmp" class="bi bi-telephone-forward"></i>Teléfono del Cliente</label>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
             <input type="text" placeholder="Número de teléfono del cliente."
                 id="telefono" name="telefono" maxlength="8" class="form-control"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
@@ -90,9 +95,10 @@
 
 
         <div class="form-group row">
-            <label for="direccion" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="direccion" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i  id="IcNewEmp" class="bi bi-signpost"></i>Dirección</label>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <textarea name="direccion" id="direccion" maxlength="100"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 placeholder="Dirección de domicilio del cliente."  rows="1" cols="52"
@@ -102,9 +108,10 @@
 
 
         <div class="form-group row">
-            <label for="ocupacion" class="col-lg-2 control-label offset-md-1 requerido">
+            <label for="ocupacion" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i id="IcNewEmp" class="fas fa-user-tie"></i>Ocupación</label>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <input type = "text"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     maxlength = "50" name="ocupacion" id="ocupacion"

@@ -13,7 +13,7 @@
                 <label for="DNI_empleado" class="col-lg-3 control-label offset-md-1 requerido hijo">
                     <i id="IcNewEmp" class="bi bi-credit-card-2-front"></i>Identidad:</label>
                 <div class="col-sm-8 mt-2">
-                  {{$empleado->identidad}}
+                {{$empleado->identidad}}
                 </div>
             </div>
 
@@ -21,7 +21,7 @@
                 <label for="nombres" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres:</label>
                 <div class="col-sm-8 mt-2">
-                 {{$empleado->nombres }}
+                {{$empleado->nombres }}
                 </div>
             </div>
 
@@ -87,8 +87,10 @@
             <div class="form-group row">
                 <label for="apellidos" class="col-lg-3 control-label offset-md-1 requerido hijo">
                 <i id="IcNewEmp" class="bi bi-signpost"></i>Dirección:</label>
-                <textarea disabled cols="52" rows="2" style="border: none; resize: none; user-select: none;">{{$empleado->direccion}}
+                <div class="col-sm-8 mt-1 detalle">
+                <textarea disabled cols="52" rows="2" style="border: none; resize: none; background: none; color: rgb(48, 48, 48);user-select: none;">{{$empleado->direccion}}
                 </textarea>
+            </div>
             </div>
             <br> 
 

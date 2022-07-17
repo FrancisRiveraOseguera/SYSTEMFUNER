@@ -41,28 +41,32 @@
         @csrf
 
         <div class="form-group row">
-                <label for="servicio_id" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-card-list"></i>Nombre del producto</label>
-            <div class="col-sm-8">
-            <select name="servicio_id" style="width: 635px;" class=" form-control">
-                      <option value="0">Selecciona el nombre del producto a agregar a inventario. </option>
+                <label for="servicio_id" class="col-lg-3 control-label offset-md-1 requerido">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i id="IcNewEmp" class="bi bi-card-list"></i>Nombre del producto</label>
+            <div class="col-sm-7">
+            <select name="servicio_id"  class=" form-control">
+                    <option value="0">Selecciona el nombre del producto a agregar a inventario. </option>
                         <?php 
-                          while($datos = mysqli_fetch_array($query))
+                        while($datos = mysqli_fetch_array($query))
                         {?>     
-                      <option value="<?php echo $datos['id']?>"> <?php echo $datos['tipo' ] ?> </option>
+                    <option value="<?php echo $datos['id']?>"> <?php echo $datos['tipo' ] ?> </option>
                         <?php
                         }?> 
-           </select>
+        </select>
             </div>
             <script type="text/javascript">
-             $(document).ready(function(){
-             $('servicio_id').select2();
-               });
-           </script>
+            $(document).ready(function(){
+            $('servicio_id').select2();
+            });
+        </script>
         </div>
         
         <div class="form-group row">
-            <label for="responsable" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-person-lines-fill"></i>Responsable</label>
-            <div class="col-sm-8"> 
+            <label for="responsable" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i id="IcNewEmp" class="bi bi-person-lines-fill"></i>Responsable</label>
+            <div class="col-sm-7"> 
             <select name="responsable" id="responsable"  class="form-control" value="{{old('responsable', $inventario->responsable ?? '')}}">
                     <option selected disabled value="none">Elige el responsable</option>
                     <option value="Carlos Rodriguez">Carlos Rodriguez</option> 
@@ -76,16 +80,20 @@
         <?php $fecha_actual = date("d-m-Y");?>
         
         <div class="form-group row">
-            <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso</label>
-            <div class="col-sm-8">
+            <label for="fecha_ingreso" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha de Ingreso</label>
+            <div class="col-sm-7">
                     <input type="text" readonly name="fecha_ingreso" id="fecha_ingreso" class="form-control hijo" 
                     value="<?php echo date($fecha_actual)?>{{($inventario->fecha_ingreso ?? '')}}"/>
             </div>
         </div>
             
         <div class="form-group row">
-            <label for="cantidad_aIngresar" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp" class="bi bi-clipboard-check"></i>Cantidad </label>
-            <div class="col-sm-8">
+            <label for="cantidad_aIngresar" class="col-lg-3 control-label offset-md-1 requerido">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i id="IcNewEmp" class="bi bi-clipboard-check"></i>Cantidad </label>
+            <div class="col-sm-7">
             <input type="text" placeholder="Ingresa la cantidad a agregar al inventario." maxlength="3"
                 id="cantidad_aIngresar" name="cantidad_aIngresar" class="form-control" 
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
