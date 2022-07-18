@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             PermisosSeeder::class,
             RoleSeeder::class,
             UsuarioSeeder::class,
+            TurnoSeeder::class,
             RoleHasPermissionSeeder::class,
 
         ]);

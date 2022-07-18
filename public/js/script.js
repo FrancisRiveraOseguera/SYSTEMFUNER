@@ -39,7 +39,7 @@ $('#pass2').keyup(function() {
 
 });
 
-//ModalR
+//ModalRoles
 document.addEventListener("keyup", e=>{
 
   if (e.target.matches("#buscador")){

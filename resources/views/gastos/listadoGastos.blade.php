@@ -4,27 +4,6 @@
 
 @section('content')
 
-<!-- Button trigger modal -->
-<button type="button" class="btn" data-toggle="modal" data-target="#ModalConTiempo">
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="ModalConTiempo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Consejo</h5>
-      </div>
-      <div class="modal-body">
-        Para ver los detalles de cada gasto, haz clic en el nombre del responsable.
-      </div>
-      <div class="modal-footer">
-        <p style="font-weight: bold">¡Ten un buen día!</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="formato">
     <div class="row">
         <div class="col-lg-6">
@@ -145,21 +124,6 @@
         window.location.reload(true)
         document.body.innerHTML = originalContents;
     }
-    
-</script>
-
-<script>
-    $(document).ready(function(){
-    setTimeout(function(){
-        $('#ModalConTiempo').modal('show');
-    }, 2500);
-    });
-
-    $(document).ready(function(){
-    setTimeout(function(){
-        $('#ModalConTiempo').modal('hide');
-    }, 6000);
-    });
 </script>
 
 <!--Mensajes de alerta -->
@@ -173,20 +137,20 @@
 
 <!--Creación de tabla-->
 <div class="formato !important" id="printableArea">
-    <img src="/assets/logo.png" class="rounded-circle" style="width: 50px; height: 50px; margin-left: 31%; position: absolute"><div style="text-align: center; font-weight: bold;">REPORTE DE GASTOS<br>
-    FUNERALES LA BENDICIÓN</div></br>
-    <table class="table">
-        <thead>
-            <tr>
-                <tr class="table-info">
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Tipo de gasto</th>
-                    <th scope="col">Total gastado</th>
-                    <th scope="col">Responsable</th>
-                </tr>
-            </tr>
-        </thead>
-        <tbody>
+	<img src="/assets/logo.png" class="rounded-circle" style="width: 50px; height: 50px; margin-left: 31%; position: absolute"><div style="text-align: center; font-weight: bold;">REPORTE DE GASTOS<br>
+	FUNERALES LA BENDICIÓN</div></br>
+	<table class="table">
+		<thead>
+			<tr>
+				<tr class="table-info">
+					<th scope="col">Fecha</th>
+					<th scope="col">Tipo de gasto</th>
+					<th scope="col">Total gastado</th>
+					<th scope="col">Responsable</th>
+				</tr>
+			</tr>
+		</thead>
+		<tbody>
             @forelse($gasto as $gast)
             <tr class="table-primary">
                 <td>{{date('d-m-Y',strtotime($gast->fecha))}}</td>

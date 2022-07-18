@@ -339,6 +339,15 @@ Route::middleware("auth")->group(function () {
         ->name('rol.eliminar')
         ->where('id', '[0-9]+');
 
+    //RUTA TURNOS 
+    Route::get('turnos', 'App\Http\Controllers\TurnoController@index')
+        ->name('turnos.index');
+    
+    Route::get('turnos/crear', 'App\Http\Controllers\TurnoController@create')
+        ->name('turnos.create');
+
+    Route::post('turnos/crear', 'App\Http\Controllers\TurnoController@store')
+    ->name('turnos.store');
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas
 });//después de esta linea todas las rutas que se agreguen no pediran estar logueado para acceder.
