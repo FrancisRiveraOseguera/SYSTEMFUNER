@@ -42,7 +42,11 @@ class creditoventaController extends Controller
         abort_if(Gate::denies('Detalles_ventas_crédito'),redirect()->route('madre')->with('error','No tiene acceso'));
         $venta = creditoventa::findOrFail($id);
 
-        $servicio = Inventario::where('inventario.servicio_id', '=', $venta->servicio_id)->firstOrFail();
+        if (! is_null(Inventario::where('inventario.servicio_id', '=', $venta->servicio_id)->first())){
+            $servicio = Inventario::where('inventario.servicio_id', '=', $venta->servicio_id)->first();
+        }else{
+            $servicio = 0;
+        }
 
         $serviciosEnInventario = Inventario::select('inventario.servicio_id', 'inventario.cantidad_aIngresar', 'servicios.tipo')
             ->join('servicios', 'inventario.servicio_id', '=', 'servicios.id')
@@ -172,18 +176,21 @@ class creditoventaController extends Controller
 
         $marcar = creditoventa::findOrFail($id);
 
-        $restarInventario = Inventario::where('inventario.servicio_id', '=', $idServicio)->firstOrFail();
+        if (! is_null($restarInventario = Inventario::where('inventario.servicio_id', '=', $idServicio)->firstOrFail())){
+            if ($restarInventario -> cantidad_aIngresar > 0){
+                $restarInventario -> cantidad_aIngresar -= 1;
+                $restarInventario -> save();
 
-        if ($restarInventario -> cantidad_aIngresar > 0){
-            $restarInventario -> cantidad_aIngresar -= 1;
-            $restarInventario -> save();
+                $marcar -> estado = 0;
+                $marcar -> save();
 
-            $marcar -> estado = 0;
-            $marcar -> save();
+                return redirect()->route('ventasCredito.index')
+                    ->with('mensaje', 'El servicio se ha sido marcado como usado.');
 
-            return redirect()->route('ventasCredito.index')
-                ->with('mensaje', 'El servicio se ha sido marcado como usado.');
-
+            }
+            else{
+                $restarInventario -> cantidad_aIngresar = 0;
+            }
         }
     }
 

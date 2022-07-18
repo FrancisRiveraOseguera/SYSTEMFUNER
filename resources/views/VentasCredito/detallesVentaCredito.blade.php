@@ -198,16 +198,17 @@
 
                         <!--Body-->
                         <div class="modal-body">
-
+                        @if( $servicio != null)
                             @if($servicio->cantidad_aIngresar > 0)
-                                <p>¿Seguro que deseas marcar como servicio usado?</p>
+                                <p>Seleccione el servicio para marcar como servicio usado</p>
 
                                 <a class="btn btn-info" href="{{route('creditoVenta.marcarServicio', ['id'=>$venta->id, 'idServicio'=>$venta->servicio_id])}}">
                                     {{$servicioTipo->tipo}}
                                 </a>
 
                             @elseif ($servicio->cantidad_aIngresar == 0)
-                                <p>Actualmente no hay existencias de este servicio. ¿Desea usar otro tipo de servicio para marcar esta venta?</p>
+                                <p>Actualmente no hay existencias en inventario de este servicio.
+                                    ¿Desea seleccionar otro tipo de servicio para marcar esta venta?</p>
 
                                 @foreach($serviciosEnInventario as $servi)
                                     <tr class="table">
@@ -221,6 +222,21 @@
                                     </tr>
                                 @endforeach
                             @endif
+                        @else
+                            <p>Actualmente no hay existencias en inventario de este servicio.
+                                ¿Desea seleccionar otro tipo de servicio para marcar esta venta?</p>
+                            @foreach($serviciosEnInventario as $servi)
+                                <tr class="table">
+                                    <td>
+                                        @if($servi->cantidad_aIngresar > 0)
+                                            <a class="btn btn-info"  href="{{route('creditoVenta.marcarServicio', ['id'=>$venta->id, 'idServicio'=>$servi->servicio_id])}}">
+                                                {{$servi->tipo}}
+                                            </a>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                         </div>
 
                         <!--Footer-->
