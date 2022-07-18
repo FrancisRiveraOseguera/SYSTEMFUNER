@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Cliente;
 use App\Models\empleado;
 use App\Models\creditoventa;
+use App\Models\Inventario;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
@@ -40,7 +41,23 @@ class creditoventaController extends Controller
     {
         abort_if(Gate::denies('Detalles_ventas_crédito'),redirect()->route('madre')->with('error','No tiene acceso'));
         $venta = creditoventa::findOrFail($id);
-        return view('VentasCredito.detallesVentaCredito')->with('venta', $venta);
+
+        $servicio = Inventario::where('inventario.servicio_id', '=', $venta->servicio_id)->firstOrFail();
+
+        $serviciosEnInventario = Inventario::select('inventario.servicio_id', 'inventario.cantidad_aIngresar', 'servicios.tipo')
+            ->join('servicios', 'inventario.servicio_id', '=', 'servicios.id')
+            ->get();
+
+        $servicioTipo = Inventario::select('inventario.servicio_id', 'servicios.tipo')
+            ->join('servicios', 'inventario.servicio_id', '=', 'servicios.id')
+            ->where('inventario.servicio_id', '=', $venta->servicio_id)
+            ->first();
+
+        return view('VentasCredito.detallesVentaCredito')
+            ->with('venta', $venta)
+            ->with('servicio', $servicio)
+            ->with('serviciosEnInventario', $serviciosEnInventario)
+            ->with('servicioTipo', $servicioTipo);
     }//FIN DE LA FUNCIÓN
 
 
@@ -151,15 +168,22 @@ class creditoventaController extends Controller
     }//fin función store
 
     //Función para marcar servicio usado
-    public function marcarServicio($id){
+    public function marcarServicio($id, $idServicio){
 
         $marcar = creditoventa::findOrFail($id);
-        $marcar -> estado = 0;
-        $marcar ->save();
 
-        if ($marcar) {
+        $restarInventario = Inventario::where('inventario.servicio_id', '=', $idServicio)->firstOrFail();
+
+        if ($restarInventario -> cantidad_aIngresar > 0){
+            $restarInventario -> cantidad_aIngresar -= 1;
+            $restarInventario -> save();
+
+            $marcar -> estado = 0;
+            $marcar -> save();
+
             return redirect()->route('ventasCredito.index')
                 ->with('mensaje', 'El servicio se ha sido marcado como usado.');
+
         }
     }
 

@@ -199,9 +199,10 @@ Route::middleware("auth")->group(function () {
         ->where('id', '[0-9]+');
 
     //Ruta para marcar como servicio usado en las ventas al crédito
-    Route::get('/ventaCredito/marcarServicio/{id}', 'App\Http\Controllers\creditoventaController@marcarServicio')
+    Route::get('/ventaCredito/marcarServicio/{id}/{idServicio}', 'App\Http\Controllers\creditoventaController@marcarServicio')
         ->name('creditoVenta.marcarServicio')
-        ->where('id', '[0-9]+');
+        ->where('id', '[0-9]+')
+        ->where('idServicio', '[0-9]+');
 
     Route::get('/ventaCredito/serviciosUsados', 'App\Http\Controllers\creditoventaController@serviciosUsados')
         ->name('creditoVenta.serviciosUsados');

@@ -18,7 +18,7 @@
                 {{$contadoventa->clientes->nombres}} {{$contadoventa->clientes->apellidos}}
             </div>
         </div>
-        
+
 
         <div class="form-group row">
                 <label for="nombres" class="col-lg-3 control-label offset-md-1 requerido hijo">
@@ -27,7 +27,7 @@
                 {{$contadoventa->empleados->nombres}} {{$contadoventa->empleados->apellidos}}
             </div>
         </div>
-        
+
 
         <div class="form-group row">
             <label for="servicio_id" class="col-lg-3 control-label offset-md-1 requerido hijo">
@@ -66,7 +66,7 @@
         </div><br>
         <!--botones-->
         <a class="btn btn-primary" href="{{route('listadoVentas.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
-        
+
     </form>
     </div>
 
@@ -91,7 +91,7 @@
         .hijo{
             font-weight: bold;
         }
-        
+
 
         #IcNewEmp{
         font-size:25px;

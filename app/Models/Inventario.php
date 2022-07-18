@@ -13,4 +13,7 @@ class Inventario extends Model
     public function servicios(){
         return $this->hasMany(Servicio::class);
     }
+
+    public function empleados(){
+        return $this->BelongsTo(Empleado::class,'empleado_id','id');}
 }

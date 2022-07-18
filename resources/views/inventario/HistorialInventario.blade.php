@@ -42,7 +42,7 @@
         </div>
     </form>
 </div>
-<hr>    
+<hr>
 
 <!--Mensajes de alerta -->
 @if(session('mensaje'))
@@ -67,13 +67,13 @@
     </thead>
     <tbody>
     @forelse($producto as $prod)
-    <tr class="table-primary">    
+    <tr class="table-primary">
         <td >{{$prod->servicio_id}}</td>
-        <td>{{$prod->responsable}}</td>
+        <td>{{$prod->nombres}} {{$prod->apellidos}}</td>
         <td >{{$prod->fecha_ingreso}}</td>
         <td style="text-align:right">{{$prod->cantidad_aIngresar}}</td>
         <td></td>
-        
+
      @empty
     <tr>
     <th scope="row" colspan="5"> No hay productos</th>
@@ -96,7 +96,7 @@
     background-color: #E0F8F7;
     position:relative;
     }
-    
+
     .invent{
         font-style: bold;
         font-family: 'Times New Roman', Times, serif;
@@ -111,5 +111,5 @@
     }
 
     </style>
-    
+
 @endsection

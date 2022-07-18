@@ -7,6 +7,14 @@
     <h3>Detalles de la venta al crédito</h3>
     <hr>
 
+    <!--Mensajes de alerta -->
+    @if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
+
+
 <!--Datos de la venta al crédito-->
 <div class="formato">
     <div class="form-group row">
@@ -190,12 +198,33 @@
 
                         <!--Body-->
                         <div class="modal-body">
-                            <p>¿Seguro que deseas marcar como servicio usado?</p>
+
+                            @if($servicio->cantidad_aIngresar > 0)
+                                <p>¿Seguro que deseas marcar como servicio usado?</p>
+
+                                <a class="btn btn-info" href="{{route('creditoVenta.marcarServicio', ['id'=>$venta->id, 'idServicio'=>$venta->servicio_id])}}">
+                                    {{$servicioTipo->tipo}}
+                                </a>
+
+                            @elseif ($servicio->cantidad_aIngresar == 0)
+                                <p>Actualmente no hay existencias de este servicio. ¿Desea usar otro tipo de servicio para marcar esta venta?</p>
+
+                                @foreach($serviciosEnInventario as $servi)
+                                    <tr class="table">
+                                        <td>
+                                            @if($servi->cantidad_aIngresar > 0)
+                                            <a class="btn btn-info"  href="{{route('creditoVenta.marcarServicio', ['id'=>$venta->id, 'idServicio'=>$servi->servicio_id])}}">
+                                                {{$servi->tipo}}
+                                            </a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </div>
 
                         <!--Footer-->
                         <div class="modal-footer flex-center">
-                            <a class="modal-footer btn btn-info" href="{{route('creditoVenta.marcarServicio', ['id'=>$venta->id])}}">Aceptar</a>
                             <a class="modal-footer btn btn-danger" href="{{route('ventaCredito.ver', ['id'=>$venta->id])}}">Cancelar</a>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 use App\Models\Servicio;
 use App\Models\Cargo;
 use App\Models\Empleado;
+use App\Models\Inventario;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UsuarioSeeder::class,
             RoleHasPermissionSeeder::class,
+            InventarioSeeder::class,
         ]);
     }
 }
