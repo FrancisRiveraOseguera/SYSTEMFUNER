@@ -36,7 +36,7 @@
             <tr class="table-info ">
             <th scope="col">id</th>
             <th scope="col">Nombre del rol</th>
-            <th scope="col">Descripcion</th>
+            <th scope="col">Descripción</th>
             <th scope="col">Editar</th>
             <th scope="col">Eliminar</th>
         </tr>

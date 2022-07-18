@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Turno;
+
+class TurnoController extends Controller
+{
+    public function index(Request $request){
+
+        $busqueda = trim($request->get('busqueda'));
+        
+        $turnos = DB::table('turnos')->orderBy('id', 'DESC')
+            ->where('name', 'LIKE', '%'.$busqueda.'%')
+            ->paginate(15)
+            ->withQueryString();
+
+        return view('turnos/listadoTurnos')
+            ->with('turnos', $turnos)
+            ->with('busqueda', $busqueda);
+    }
+
+    public function create()
+    {
+        //abort_if(Gate::denies('Nuevo_permiso'),redirect()->route('madre')->with('error','No tiene acceso'));
+        return view('turnos/crearTurno');
+    }
+
+    public function store(Request $request)
+    {
+        //abort_if(Gate::denies('Nuevo_permiso'),redirect()->route('madre')->with('error','No tiene acceso'));
+
+        $rules=[
+            'name' => 'required|max:25|min:5|unique:turnos,name|regex:/^[\pL\s\-]+$/u',
+            'horario_entrada'=> 'required|max:5|unique:turnos,horario_entrada,horario_salida',
+            'horario_salida'=> 'required|max:5|unique:turnos,horario_salida,horario_entrada',
+        ];
+
+        $mensaje=[
+            'name.required' => 'El nombre del turno no puede estar vacío.',
+            'name.min' => 'El nombre del turno es muy corto, debe escribir como mínimo 5 letras.',
+            'name.unique' => 'El nombre del turno ya existe.',
+            'name.regex' => 'El tipo de turno solo debe contener letras.',
+
+            'horario_entrada.required' => 'El horario de entrada no puede estar vacío.',
+            'horario_entrada.unique' => 'Otro turno ya tiene ese horario de entrada',
+            'horario_entrada.regex' => 'El tipo de turno solo debe contener letras.',
+            
+            'horario_salida.required' => 'El horario de salida no puede estar vacío.',
+            'horario_salida.unique' => 'Otro turno ya tiene ese horario de salida.',
+            'horario_salida.regex' => 'El tipo de turno solo debe contener letras.',
+        ];
+
+        $this->validate($request,$rules,$mensaje);
+
+        $turnos = new Turno();
+
+        $turnos->name = $request->input('name');
+        $turnos->horario_entrada = $request->input('horario_entrada');
+        $turnos->horario_salida = $request->input('horario_salida');
+
+        $turno = $turnos->save();
+
+        if ($turno) {
+                return redirect()->route('turnos.index')
+                ->with('mensaje', 'El turno fue agregado exitosamente.');
+        } else {
+
+        }
+    }
+}
