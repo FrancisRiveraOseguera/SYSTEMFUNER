@@ -323,6 +323,7 @@ class PermisosSeeder extends Seeder
         Permission::create([
             'name' => 'Editar_turno',
             'descripcion' => 'Para poder editar un turno.',
+            'guard_name' => 'web'
         ]);
         
         Permission::create([
