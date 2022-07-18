@@ -45,9 +45,9 @@
                         <td>{{date('h:i A',strtotime($turno->horario_entrada))}}</td>
                         <td>{{date('h:i A',strtotime($turno->horario_salida))}}</td>
                         <td class="text-center">
-                        @can('Editar_empleado')
+                        @can('Editar_turno')
                             <a class="btn btn-success"
-                            href=""><i class="bi bi-pencil-square"></i>Editar</a>
+                            href="{{route('turno.editar', ['id'=> $turno->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
                         @endcan
                     </td>
                 </form>

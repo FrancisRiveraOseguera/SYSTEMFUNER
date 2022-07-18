@@ -95,7 +95,7 @@
                                         
                                         <p>Si eliminas este permiso se borrará del listado de permisos de cada rol en caso de que lo estén
                                             utilizando.</p>
-                                        <p> <b>Esta acción es irreversible, ¿Deseas continuar?</b> </p>
+                                        <p> <b>¿Deseas continuar?</b> </p>
                                     </div>
 
                                     <!--Footer-->
