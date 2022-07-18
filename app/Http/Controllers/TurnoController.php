@@ -25,13 +25,13 @@ class TurnoController extends Controller
 
     public function create()
     {
-        //abort_if(Gate::denies('Nuevo_permiso'),redirect()->route('madre')->with('error','No tiene acceso'));
+        abort_if(Gate::denies('Nuevo_turno'),redirect()->route('madre')->with('error','No tiene acceso'));
         return view('turnos/crearTurno');
     }
 
     public function store(Request $request)
     {
-        //abort_if(Gate::denies('Nuevo_permiso'),redirect()->route('madre')->with('error','No tiene acceso'));
+        abort_if(Gate::denies('Nuevo_turno'),redirect()->route('madre')->with('error','No tiene acceso'));
 
         $rules=[
             'name' => 'required|max:25|min:5|unique:turnos,name|regex:/^[\pL\s\-]+$/u',
