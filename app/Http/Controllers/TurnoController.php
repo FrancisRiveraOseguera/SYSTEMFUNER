@@ -35,8 +35,8 @@ class TurnoController extends Controller
 
         $rules=[
             'name' => 'required|max:25|min:5|unique:turnos,name|regex:/^[\pL\s\-]+$/u',
-            'horario_entrada'=> 'required|max:5|unique:turnos,horario_entrada,horario_salida',
-            'horario_salida'=> 'required|max:5|unique:turnos,horario_salida,horario_entrada',
+            'horario_entrada'=> 'required|max:5',
+            'horario_salida'=> 'required|max:5',
         ];
 
         $mensaje=[
@@ -46,11 +46,9 @@ class TurnoController extends Controller
             'name.regex' => 'El tipo de turno solo debe contener letras.',
 
             'horario_entrada.required' => 'El horario de entrada no puede estar vacío.',
-            'horario_entrada.unique' => 'Otro turno ya tiene ese horario de entrada',
             'horario_entrada.regex' => 'El tipo de turno solo debe contener letras.',
             
             'horario_salida.required' => 'El horario de salida no puede estar vacío.',
-            'horario_salida.unique' => 'Otro turno ya tiene ese horario de salida.',
             'horario_salida.regex' => 'El tipo de turno solo debe contener letras.',
         ];
 
