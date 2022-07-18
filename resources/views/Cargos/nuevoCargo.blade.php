@@ -31,7 +31,7 @@
                 <input type = "text"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     maxlength = "50" name="cargo" id="cargo"
-                    placeholder="Nombre del cargo" class="form-control"
+                    placeholder="Tipo de cargo" class="form-control"
                     value="{{old('cargo', $cargos->cargo ?? '')}}"/>
             </div>
         </div>

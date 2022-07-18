@@ -318,5 +318,17 @@ class PermisosSeeder extends Seeder
             'descripcion' => 'Para poder eliminar un usuario.',
             'guard_name' => 'web'
         ]);
+
+        //Turnos
+        Permission::create([
+            'name' => 'Listado_turnos',
+            'descripcion' => 'Para poder acceder al listado de turnos.',
+            'guard_name' => 'web'
+        ]);
+        Permission::create([
+            'name' => 'Nuevo_turno',
+            'descripcion' => 'Para poder crear un turno.',
+            'guard_name' => 'web'
+        ]);
     }
 }
