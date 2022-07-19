@@ -356,6 +356,10 @@ Route::middleware("auth")->group(function () {
         ->name('turno.update')->where('id', '[0-9]+');
 
     //RUTAS DE JORNADA LABORAL
+
+    Route::get('/ListadoJornadaLaboral', 'App\Http\Controllers\jornadalaboralController@index')
+        ->name('ListadoJornadaLaboral.index');
+
     Route::get('jornadalaboral/crear', 'App\Http\Controllers\jornadalaboralController@create')
     ->name('jornadalaboral.create');
 

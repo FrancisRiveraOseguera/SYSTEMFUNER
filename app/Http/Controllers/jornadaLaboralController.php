@@ -9,6 +9,26 @@ use App\Models\jornadaLaboral;
 
 class jornadaLaboralController extends Controller
 {
+
+    public function index(Request $request){
+
+        $busqueda = trim($request->get('busqueda'));
+        
+        $jornada = jornadaLaboral::orderby('jornada_laborals.id','DESC')
+        ->select("jornada_laborals.id","turno_id","cargo_id","duracion","descripcion")
+        ->join("turnos","turno_id","=","turnos.id")
+        ->where('name', 'LIKE', '%'.$busqueda.'%')
+        ->join("cargos","cargo_id","=","cargos.id")
+        ->where('cargos.cargo', 'LIKE', '%'.$busqueda.'%')
+        ->paginate(15)
+        ->withQueryString();
+
+        return view('jornadalaboral/listadoJornadaLaboral')
+            ->with('jornada', $jornada)
+            ->with('busqueda', $busqueda);
+    }
+
+
     public function create()
     {
         //abort_if(Gate::denies('Nueva_jornadalaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
@@ -63,7 +83,7 @@ class jornadaLaboralController extends Controller
         $creado = $nuevaJornadaLaboral-> save();
 
         if ($creado){
-          return redirect()->route('')->with('mensaje', 'La jornada laboral fue agregada exitosamente.');
+          return redirect()->route('ListadoJornadaLaboral.index')->with('mensaje', 'La jornada laboral fue agregada exitosamente.');
         }else{
 
        }
