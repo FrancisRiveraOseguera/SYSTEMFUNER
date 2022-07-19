@@ -46,7 +46,7 @@
                         <td class="text-center">
                        
                             <a class="btn btn-success"
-                            href=""><i class="bi bi-pencil-square"></i>Editar</a>
+                            href="{{route('jornada.editar', ['id'=> $jorna->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
                        
                     </td>
                 </form>

@@ -366,6 +366,12 @@ Route::middleware("auth")->group(function () {
     Route::post('jornadalaboral/crear', 'App\Http\Controllers\jornadalaboralController@store')
     ->name('jornadalaboral.store');
 
+    Route::get('/jornadalaboral/{id}/editar', 'App\Http\Controllers\jornadalaboralController@editar')
+        ->name('jornada.editar')->where('id', '[0-9]+');
+
+    Route::put('/jornadalaboral/{id}/editar', 'App\Http\Controllers\jornadalaboralController@update')
+        ->name('jornada.update')->where('id', '[0-9]+');
+
 
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas

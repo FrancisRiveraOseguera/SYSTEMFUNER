@@ -17,11 +17,11 @@
 
 ?>
 @extends('madre')
-@section ('title' , 'Nueva Jornada Laboral')
+@section ('title' , 'Editar jornada laboral')
 @section('content')
 
 <div class="emple">
-    <h3> Nueva jornada laboral</h3>
+    <h3> Editar jornada laboral</h3>
     <hr>
 @if ($errors->any())
 <div class="alert alert-danger alert-dismissible" data-auto-dismiss="3000">
@@ -38,14 +38,14 @@
 <div class="emple">
     <form method="post" action="" autocomplete="off">
         @csrf
+		@method('put')
 		<div class="form-group row">
             <label for="turno_id" class="col-lg-2 control-label offset-md-1 requerido">
                 <i id="IcNewEmp"  class="bi bi-journal-check"></i>Turno</label>
         <div class="col-sm-8" >
-            <select name="turno_id"  class=" form-control">
+            <select name="turno_id"  class=" form-control" charset="utf8_decode">
                 
-                <option selected disabled value="0">Para seleccionar escribe las primeras letras del nombre del turno.</option>
-        
+                <option value="{{$jornadas->turno_id}}">{{$jornadas->turnos->name}}</option>
                 <?php 
                 while($datos = mysqli_fetch_array($query))
                 {?>     
@@ -65,13 +65,15 @@
     </script>
 </div>
 
+
+
 <div class="form-group row">
             <label for="cargo_id" class="col-lg-2 control-label offset-md-1 requerido">
                 <i id="IcNewEmp"  class="bi bi-person-lines-fill"></i>Cargo</label>
         <div class="col-sm-8" >
-            <select name="cargo_id"  class=" form-control">
+            <select name="cargo_id"  class=" form-control" charset="utf8_decode">
                 
-                <option selected disabled value="0">Para seleccionar escribe las primeras letras del cargo.</option>
+                <option value="{{$jornadas->cargo_id}}">{{$jornadas->cargos->cargo}}</option>
         
                 <?php 
                 while($datos = mysqli_fetch_array($query2))
@@ -99,7 +101,7 @@
             <input type = "text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     maxlength = "15" name="duracion" id="duracion"
                     placeholder="Duración en días o meses de la jornada laboral" class="form-control"
-                    value="{{old('duracion', $jornadalaboral->duracion ?? '')}}"/>
+                    value="{{$jornadas->duracion}}"/>
             </div>
         </div>
 
@@ -110,17 +112,12 @@
                 <textarea rows="2" cols="52" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     name="descripcion" id="descripcion"  maxlength = "70" minlenght = "10"
                     placeholder="Descripción de la jornada laboral." 
-                    class="form-control">{{old('descripcion', $jornadalaboral->descripcion ?? '')}}</textarea>
+                    class="form-control">{{$jornadas->descripcion}}</textarea>
             </div>
         </div>
 
 
-        
-
-
-		
-
-		<a class="btn btn-primary" href="/ListadoJornadaLaboral"><i class="bi bi-box-arrow-left"></i>Regresar</a>
+		<a class="btn btn-primary" href="/ListadoJornadaLaboral"><i class="bi bi-box-arrow-left"></i>Regresar</a> 
 		<button type="submit" class="btn btn-success" ><i class="bi bi-save"></i>Guardar</button>
 
     </form>
