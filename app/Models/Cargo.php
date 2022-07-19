@@ -9,5 +9,9 @@ class Cargo extends Model
 {
     public function empleados(){
         return $this->hasMany(empleados::class,  'empleado_id', id);}
+
+    public function jornadalaborals(){
+            return $this->BelongsTo(jornadalaboral::class, 'id');
+        }
     use HasFactory;
 }

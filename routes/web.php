@@ -355,6 +355,15 @@ Route::middleware("auth")->group(function () {
     Route::put('/turno/{id}/editar', 'App\Http\Controllers\TurnoController@update')
         ->name('turno.update')->where('id', '[0-9]+');
 
+    //RUTAS DE JORNADA LABORAL
+    Route::get('jornadalaboral/crear', 'App\Http\Controllers\jornadalaboralController@create')
+    ->name('jornadalaboral.create');
+
+    Route::post('jornadalaboral/crear', 'App\Http\Controllers\jornadalaboralController@store')
+    ->name('jornadalaboral.store');
+
+
+
 //todas las rutas anteriores pide estar logueado para acceder a ellas
 });//después de esta linea todas las rutas que se agreguen no pediran estar logueado para acceder.
 
