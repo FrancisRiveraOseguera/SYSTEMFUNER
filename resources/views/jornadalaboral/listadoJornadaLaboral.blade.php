@@ -15,6 +15,22 @@
         </div>
     </div><hr>
 
+    <!--Barra de búsqueda-->
+    <form  action="{{route('ListadoJornadaLaboral.index')}}" method="GET" autocomplete="off" class="x">
+        <div  class="input-group input-group-sm">
+            <a type="button" href="{{route('ListadoJornadaLaboral.index')}}" class="btn btn-secondary btn-sm">Limpiar</a>
+
+            <input type="search" class="col-sm-8" name="busqueda"
+                placeholder="Ingrese el turno o cargo para realizar la búsqueda." value="{{$busqueda}}">
+
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </form>
+
 
 <!--Mensajes de alerta -->
 @if(session('mensaje'))
@@ -34,6 +50,7 @@
                 <th scope="col">Cargo</th>
                 <th scope="col">Duración</th>
                 <th scope="col" class="text-center">Editar</th>
+                <th scope="col" class="text-center">Eliminar</th>
                 
             </tr>
             </thead>
@@ -49,6 +66,13 @@
                             href="{{route('jornada.editar', ['id'=> $jorna->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
                        
                     </td>
+
+                    <td class="text-center">
+                    <a class="redondo btn btn-danger" href="" data-toggle="modal" data-target="#modalPush">
+                        <i class="fas fa-minus-circle"></i>Eliminar
+                    </a>
+                </td>
+
                 </form>
             </td>
         </tr>

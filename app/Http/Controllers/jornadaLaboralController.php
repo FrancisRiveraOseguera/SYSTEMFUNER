@@ -17,9 +17,9 @@ class jornadaLaboralController extends Controller
         $jornada = jornadaLaboral::orderby('jornada_laborals.id','DESC')
         ->select("jornada_laborals.id","turno_id","cargo_id","duracion","descripcion")
         ->join("turnos","turno_id","=","turnos.id")
-        ->where('name', 'LIKE', '%'.$busqueda.'%')
+        ->orWhere('turnos.name', 'LIKE', '%'.$busqueda.'%')
         ->join("cargos","cargo_id","=","cargos.id")
-        ->where('cargos.cargo', 'LIKE', '%'.$busqueda.'%')
+        ->orWhere('cargos.cargo', 'LIKE', '%'.$busqueda.'%')
         ->paginate(15)
         ->withQueryString();
 
