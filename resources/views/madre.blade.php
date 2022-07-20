@@ -99,7 +99,11 @@
                 <a href="{{route('inventario.home')}}"><i class="fas fa-boxes" style="font-size: 14px"></i>Inventario</a>
             </li>
             @endcan
-             
+
+            <li>
+                <a href="{{route('ListadoJornadaLaboral.index')}}"><i class="bi bi-calendar-week-fill" style="font-size: 14px"></i>Jornada laboral</a>
+            </li>
+            
             @can( 'Listado_permisos')
             <li>
                 <a href="{{route('permisos.lista')}}"><i class="fa fa-user-shield" style="font-size: 14px"></i>Permisos</a>

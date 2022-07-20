@@ -6,6 +6,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\contadoVentaController;
 use App\Http\Controllers\creditoventaController;
 use App\Http\Controllers\DetalleServicioController;
+use App\Http\Controllers\jornadaLaboralController;
 use App\Http\Controllers\PagosController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PermissionController;
@@ -357,19 +358,20 @@ Route::middleware("auth")->group(function () {
 
     //RUTAS DE JORNADA LABORAL
 
-    Route::get('/ListadoJornadaLaboral', 'App\Http\Controllers\jornadalaboralController@index')
-        ->name('ListadoJornadaLaboral.index');
 
-    Route::get('jornadalaboral/crear', 'App\Http\Controllers\jornadalaboralController@create')
+    Route::get('/ListadoJornadaLaboral', [jornadaLaboralController::class,'index'])
+    ->name('ListadoJornadaLaboral.index');
+
+    Route::get('jornadalaboral/crear', [jornadaLaboralController::class,'create'])
     ->name('jornadalaboral.create');
 
-    Route::post('jornadalaboral/crear', 'App\Http\Controllers\jornadalaboralController@store')
+    Route::post('jornadalaboral/crear', [jornadaLaboralController::class,'store'])
     ->name('jornadalaboral.store');
 
-    Route::get('/jornadalaboral/{id}/editar', 'App\Http\Controllers\jornadalaboralController@editar')
+    Route::get('/jornadalaboral/{id}/editar', [jornadaLaboralController::class,'editar'])
         ->name('jornada.editar')->where('id', '[0-9]+');
 
-    Route::put('/jornadalaboral/{id}/editar', 'App\Http\Controllers\jornadalaboralController@update')
+    Route::put('/jornadalaboral/{id}/editar', [jornadaLaboralController::class,'update'])
         ->name('jornada.update')->where('id', '[0-9]+');
 
 
