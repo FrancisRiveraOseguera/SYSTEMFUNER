@@ -13,7 +13,7 @@ class jornadaLaboralController extends Controller
     public function index(Request $request){
 
         $busqueda = trim($request->get('busqueda'));
-        
+
         $jornada = jornadaLaboral::orderby('jornada_laborals.id','DESC')
         ->select("jornada_laborals.id","turno_id","cargo_id","duracion","descripcion")
         ->join("turnos","turno_id","=","turnos.id")
@@ -45,7 +45,7 @@ class jornadaLaboralController extends Controller
             'turno_id' => 'required|exists:App\Models\Turno,id',
             'duracion' => 'required|max:15|min:5|string',
             'descripcion' => 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
-            
+
 
         ];
 
@@ -64,9 +64,9 @@ class jornadaLaboralController extends Controller
             'descripcion.required' => 'La descripción  no puede estar vacía.',
             'descripcion.min' => 'La descripción es muy corta, debe escribir como mínimo 10 letras.',
 
-            
-           
-            
+
+
+
 
 
         ];
@@ -122,7 +122,7 @@ class jornadaLaboralController extends Controller
             'descripcion.regex' => 'La descripción solo puede contener letras',
             'descripcion.required' => 'La descripción  no puede estar vacía.',
             'descripcion.min' => 'La descripción es muy corta, debe escribir como mínimo 10 letras.',
-        
+
 
         ];
 
@@ -145,5 +145,14 @@ class jornadaLaboralController extends Controller
                 'Los datos de la jornada laboral han sido actualizados exitosamente.');
         }
     }
-    
+
+
+    //función para eliminar la jornada laboral
+    public function destroy($id){
+        abort_if(Gate::denies('Eliminar_jornadaLaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
+        jornadaLaboral::destroy($id);
+
+        return redirect()->route('ListadoJornadaLaboral.index')
+            ->with('mensaje', 'La jornada laboral fue eliminada exitosamente.');
+    }
 }

@@ -254,7 +254,7 @@ class PermisosSeeder extends Seeder
             'descripcion' => 'Para poder editar un permiso.',
             'guard_name' => 'web'
         ]);
-        
+
          //roles
          Permission::create([
             'name' => 'Listado_roles',
@@ -325,7 +325,7 @@ class PermisosSeeder extends Seeder
             'descripcion' => 'Para poder editar un turno.',
             'guard_name' => 'web'
         ]);
-        
+
         Permission::create([
             'name' => 'Listado_turnos',
             'descripcion' => 'Para poder acceder al listado de turnos.',
@@ -336,5 +336,12 @@ class PermisosSeeder extends Seeder
             'descripcion' => 'Para poder crear un turno.',
             'guard_name' => 'web'
         ]);
+        Permission::create([
+            'name' => 'Eliminar_jornadaLaboral',
+            'descripcion' => 'Para poder eliminar una jornada laboral',
+            'guard_name' => 'web'
+        ]);
+
+
     }
 }

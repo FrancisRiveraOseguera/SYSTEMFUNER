@@ -340,10 +340,10 @@ Route::middleware("auth")->group(function () {
         ->name('rol.eliminar')
         ->where('id', '[0-9]+');
 
-    //RUTA TURNOS 
+    //RUTA TURNOS
     Route::get('turnos', 'App\Http\Controllers\TurnoController@index')
         ->name('turnos.index');
-    
+
     Route::get('turnos/crear', 'App\Http\Controllers\TurnoController@create')
         ->name('turnos.create');
 
@@ -374,7 +374,8 @@ Route::middleware("auth")->group(function () {
     Route::put('/jornadalaboral/{id}/editar', [jornadaLaboralController::class,'update'])
         ->name('jornada.update')->where('id', '[0-9]+');
 
-
+    Route::delete('/jornadaLaboral/{id}/eliminar', [jornadaLaboralController::class,'destroy'])
+        ->name('jornadaLaboral.eliminar')->where('id', '[0-9]+');
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas
 });//después de esta linea todas las rutas que se agreguen no pediran estar logueado para acceder.
