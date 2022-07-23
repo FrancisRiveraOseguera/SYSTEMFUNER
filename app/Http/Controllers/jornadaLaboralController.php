@@ -114,16 +114,16 @@ class jornadaLaboralController extends Controller
         //Validar campos del formulario editar
 
         $rules= [
-            'cargo_id' => 'required|numeric|exists:App\Models\Cargo,id',
             'turno_id' => 'required|exists:App\Models\Turno,id',
+            'fecha_inicio' => 'required',
+            'fecha_fin' => 'required',
             'duracion' => 'required|max:15|min:1|string',
             'descripcion' => 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
         ] ;
 
         $mensaje=[
-            'cargo_id.exists' => 'El cargo no ha sido seleccionado.',
-            'cargo_id.required' => 'El cargo no puede estar vacío.',
 
+            
             'turno_id.exists' => 'El turno no ha sido seleccionado.',
             'turno_id.required' => 'El turno no puede estar vacío.',
 
@@ -135,6 +135,9 @@ class jornadaLaboralController extends Controller
             'descripcion.required' => 'La descripción  no puede estar vacía.',
             'descripcion.min' => 'La descripción es muy corta, debe escribir como mínimo 10 letras.',
 
+            'fecha_inicio.required' => 'La fecha de inicio no puede estar vacía.',
+            'fecha_fin.required' => 'La fecha de finalización no puede estar vacía.',
+
 
         ];
 
@@ -144,7 +147,8 @@ class jornadaLaboralController extends Controller
 
         //Recuperación de los datos guardados
         $actualizarJornada -> turno_id = $request->input('turno_id');
-        $actualizarJornada -> cargo_id = $request->input('cargo_id');
+        $actualizarJornada -> fecha_inicio = $request->input('fecha_inicio');
+        $actualizarJornada -> fecha_fin = $request->input('fecha_fin');
         $actualizarJornada -> descripcion = $request->input('descripcion');
         $actualizarJornada -> duracion = $request->input('duracion');
 
