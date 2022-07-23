@@ -237,6 +237,7 @@ class creditoventaController extends Controller
         $ventas = DB::table("clientes_deudores")
             ->orwhere("nombres","like","%".$busqueda."%")
             ->orwhere("apellidos","like","%".$busqueda."%")
+            ->orderby('id','DESC')
             ->paginate(15)-> withQueryString();
 
         return view('clientesDeudores.listadoClientesDeudores')
