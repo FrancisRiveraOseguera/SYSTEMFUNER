@@ -349,6 +349,13 @@ class PermisosSeeder extends Seeder
             'guard_name' => 'web'
         ]);
 
+         //clientes deudores
+        Permission::create([
+            'name' => 'Listado_deudores',
+            'descripcion' => 'Para poder acceder al listado de clientes deudores.',
+            'guard_name' => 'web'
+        ]); 
+
 
     }
 }

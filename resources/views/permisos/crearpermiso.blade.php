@@ -89,6 +89,7 @@
                 <option value="Nuevo_usuario">Nuevo_usuario</option> 
                 <option value="Editar_usuario">Editar_usuario</option> 
                 <option value="Eliminar_usuario">Eliminar_usuario</option>
+                <option value="Listado_deudores">Listado_deudores</option>
                 <option value="Editar_turno">Editar_turno</option>
             </select>     
         </div>

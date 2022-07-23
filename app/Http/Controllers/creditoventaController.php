@@ -229,8 +229,8 @@ class creditoventaController extends Controller
     }
 
      //FUNCIÓN PARA VER EL LISTADO DE Los clientes deudores
-     //FUNCIÓN PARA VER EL LISTADO DE Los clientes deudores
     public function deudor(Request $request){
+        abort_if(Gate::denies('Listado_deudores'),redirect()->route('madre')->with('error','No tiene acceso'));
 
         $busqueda = trim($request->get('busqueda'));
 
