@@ -45,7 +45,7 @@ class jornadaLaboralController extends Controller
             'turno_id' => 'required|exists:App\Models\Turno,id',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required',
-            'duracion' => 'required|max:15|min:5|string',
+            'duracion' => 'required|max:15|min:1|string',
             'descripcion' => 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
 
 
@@ -60,7 +60,7 @@ class jornadaLaboralController extends Controller
 
              'duracion.string' => 'La duración de la jornada laboral puede contener letras y números',
             'duracion.required' => 'La duración de la jornada laboral no puede estar vacía.',
-            'duracion.min' => 'La duración de la jornada laboral es muy corta, debe escribir como mínimo 5 letras.',
+            'duracion.min' => 'La duración de la jornada laboral es muy corta',
 
             'descripcion.regex' => 'La descripción solo puede contener letras',
             'descripcion.required' => 'La descripción  no puede estar vacía.',
