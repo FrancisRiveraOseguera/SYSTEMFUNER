@@ -109,7 +109,7 @@ class jornadaLaboralController extends Controller
         $rules= [
             'cargo_id' => 'required|numeric|exists:App\Models\Cargo,id',
             'turno_id' => 'required|exists:App\Models\Turno,id',
-            'duracion' => 'required|max:15|min:5|string',
+            'duracion' => 'required|max:15|min:1|string',
             'descripcion' => 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
         ] ;
 

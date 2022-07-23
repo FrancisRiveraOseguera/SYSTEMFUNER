@@ -113,7 +113,7 @@
             <label for="fecha_fin" class="col-lg-2 control-label offset-md-1 requerido"><i id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha finalización</label>
             <div class="col-sm-8">
                     
-                    <input type="date" name="fechafin" id="fechafin" class="form-control hijo" 
+                    <input type="date" name="fecha_fin" id="fechafin" class="form-control hijo" 
                     value="<?php echo date('Y-m-d',strtotime($fecha_actual))?>{{($jornadalaboral->fecha_fin ?? '')}}"
                     max="<?php echo date('Y-m-d',strtotime($fecha_actual." 90 day"));?>"
                     min="<?php echo date('Y-m-d',strtotime($fecha_actual." +7 day"));?>"/>
