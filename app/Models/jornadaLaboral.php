@@ -12,8 +12,8 @@ class jornadaLaboral extends Model
     }
     
 
-    public function cargos(){
-        return $this->BelongsTo(Cargo::class, 'cargo_id','id');
+    public function empleados(){
+    return $this->BelongsTo(Empleado::class,'empleado_id','id');
     }
 
     

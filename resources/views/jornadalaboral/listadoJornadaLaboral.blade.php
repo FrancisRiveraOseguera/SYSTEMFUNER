@@ -21,7 +21,7 @@
             <a type="button" href="{{route('ListadoJornadaLaboral.index')}}" class="btn btn-secondary btn-sm">Limpiar</a>
 
             <input type="search" class="col-sm-8" name="busqueda"
-                placeholder="Ingrese el turno o cargo para realizar la búsqueda." value="{{$busqueda}}">
+                placeholder="Ingrese el turno o empleado  para realizar la búsqueda." value="{{$busqueda}}">
 
             <div class="input-group-append">
                 <button type="submit" class="btn btn-primary">
@@ -47,8 +47,9 @@
             <tr>
                 <tr class="table-info ">
                 <th scope="col">Turno</th>
-                <th scope="col">Cargo</th>
-                <th scope="col">Duración</th>
+                <th scope="col">Empleado</th>
+                <th scope="col">Fecha inico</th>
+                <th scope="col">Fecha finalización</th>
                 <th scope="col" class="text-center">Editar</th>
                 <th scope="col" class="text-center">Eliminar</th>
 
@@ -58,8 +59,9 @@
                 @forelse($jornada as $jorna)
                     <tr class="table-primary">
                         <td>{{$jorna->turnos->name}}</td>
-                        <td>{{$jorna->cargos->cargo}}</td>
-                        <td>{{$jorna->duracion}}</td>
+                        <td>{{$jorna->empleados->nombres}} {{$jorna->empleados->apellidos}}</td>
+                        <td>{{date('d-m-Y',strtotime($jorna->fecha_inicio))}}
+                        <td>{{date('d-m-Y',strtotime($jorna->fecha_fin))}}
                         <td class="text-center">
 
                             <a class="btn btn-success"

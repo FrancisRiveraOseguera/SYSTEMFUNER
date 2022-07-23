@@ -15,11 +15,18 @@ class jornadaLaboralController extends Controller
         $busqueda = trim($request->get('busqueda'));
 
         $jornada = jornadaLaboral::orderby('jornada_laborals.id','DESC')
-        ->select("jornada_laborals.id","turno_id","cargo_id","duracion","descripcion")
+
+        ->select("jornada_laborals.id","jornada_laborals.turno_id",'jornada_laborals.empleado_id',"jornada_laborals.fecha_inicio",
+        "jornada_laborals.fecha_fin","jornada_laborals.duracion","jornada_laborals.descripcion", 'empleados.nombres', 'empleados.apellidos')
+        ->join("empleados","empleado_id","=","empleados.id")
+        ->where('fecha_inicio', 'LIKE', '%'.$busqueda.'%')
+        ->orwhere('fecha_fin', 'LIKE', '%'.$busqueda.'%')
         ->join("turnos","turno_id","=","turnos.id")
         ->orWhere('turnos.name', 'LIKE', '%'.$busqueda.'%')
-        ->join("cargos","cargo_id","=","cargos.id")
-        ->orWhere('cargos.cargo', 'LIKE', '%'.$busqueda.'%')
+        ->orWhere('empleados.nombres', 'LIKE', '%'.$busqueda.'%')
+        ->orWhere('empleados.apellidos', 'LIKE', '%'.$busqueda.'%')
+        
+        
         ->paginate(15)
         ->withQueryString();
 
@@ -79,7 +86,7 @@ class jornadaLaboralController extends Controller
         $nuevaJornadaLaboral = new jornadaLaboral();
 
         $nuevaJornadaLaboral -> turno_id = $request->input('turno_id');
-        $nuevaJornadaLaboral -> cargo_id = $request->input('empleado_id');
+        $nuevaJornadaLaboral -> empleado_id = $request->input('empleado_id');
         $nuevaJornadaLaboral -> duracion = $request->input('duracion');
         $nuevaJornadaLaboral -> fecha_inicio = $request->input('fecha_inicio');
         $nuevaJornadaLaboral -> fecha_fin = $request->input('fecha_fin');
