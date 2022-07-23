@@ -227,4 +227,21 @@ class creditoventaController extends Controller
         return view('VentasCredito.listadoServiciosUsadosSaldo0')
             ->with('ventas', $ventas);
     }
+
+     //FUNCIÓN PARA VER EL LISTADO DE Los clientes deudores
+     //FUNCIÓN PARA VER EL LISTADO DE Los clientes deudores
+    public function deudor(Request $request){
+
+        $busqueda = trim($request->get('busqueda'));
+
+        $ventas = DB::table("clientes_deudores")
+            ->orwhere("nombres","like","%".$busqueda."%")
+            ->orwhere("apellidos","like","%".$busqueda."%")
+            ->paginate(15)-> withQueryString();
+
+        return view('clientesDeudores.listadoClientesDeudores')
+            ->with('ventas', $ventas)
+            ->with('busqueda', $busqueda);
+
+    }//FIN DE LA FUNCIÓN
 }

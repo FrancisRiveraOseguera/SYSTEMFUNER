@@ -20,6 +20,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="{{route('pagos.historialPagos')}}"><i class="fas fa-clipboard-list"></i>Historial de pagos</a>
                     <a class="dropdown-item" href="{{route('creditoVenta.serviciosUsados')}}"><i class="bi bi-clipboard2-check-fill"></i>Listado de servicios usados</a>
+                    <a class="dropdown-item" href="{{route('cliente.deudor')}}"><i class="bi bi-clipboard2-check-fill"></i> listado de clientes deudores</a>
                 </div>
             </div>
         </div>

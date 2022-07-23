@@ -382,6 +382,10 @@ Route::middleware("auth")->group(function () {
     Route::delete('/jornadaLaboral/{id}/eliminar', [jornadaLaboralController::class,'destroy'])
         ->name('jornadaLaboral.eliminar')->where('id', '[0-9]+');
 
+    //cliente deudores
+    Route::get('clientes/deudores', [creditoventaController::class,'deudor'])
+    ->name('cliente.deudor');
+
 //todas las rutas anteriores pide estar logueado para acceder a ellas
 });//después de esta linea todas las rutas que se agreguen no pediran estar logueado para acceder.
 
