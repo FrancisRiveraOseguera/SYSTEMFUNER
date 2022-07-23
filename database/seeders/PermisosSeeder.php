@@ -336,6 +336,13 @@ class PermisosSeeder extends Seeder
             'descripcion' => 'Para poder crear un turno.',
             'guard_name' => 'web'
         ]);
+
+        Permission::create([
+            'name' => 'Eliminar_turno',
+            'descripcion' => 'Para poder eliminar un turno.',
+            'guard_name' => 'web'
+        ]);
+
         Permission::create([
             'name' => 'Eliminar_jornadaLaboral',
             'descripcion' => 'Para poder eliminar una jornada laboral',

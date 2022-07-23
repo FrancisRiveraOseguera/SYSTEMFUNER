@@ -119,4 +119,12 @@ class TurnoController extends Controller
                 'Los datos del turno han sido actualizados exitosamente.');
         }
     }
+
+    public function destroy($id){
+        abort_if(Gate::denies('Eliminar_turno'),redirect()->route('madre')->with('error','No tiene acceso'));
+        Turno::destroy($id);
+
+        return redirect()->route('turnos.index')
+            ->with('mensaje', 'El turno fue eliminado exitosamente.');
+    }
 }

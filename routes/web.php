@@ -355,6 +355,11 @@ Route::middleware("auth")->group(function () {
 
     Route::put('/turno/{id}/editar', 'App\Http\Controllers\TurnoController@update')
         ->name('turno.update')->where('id', '[0-9]+');
+    
+    Route::delete('turno/{id}/eliminar', 'App\Http\Controllers\TurnoController@destroy')
+        ->name('turno.eliminar')
+        ->where('id', '[0-9]+');
+
 
     //RUTAS DE JORNADA LABORAL
 
