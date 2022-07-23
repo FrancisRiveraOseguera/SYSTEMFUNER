@@ -63,10 +63,10 @@
                         <td>{{date('d-m-Y',strtotime($jorna->fecha_inicio))}}
                         <td>{{date('d-m-Y',strtotime($jorna->fecha_fin))}}
                         <td class="text-center">
-
+                            @can('Editar_jornadaLaboral')
                             <a class="btn btn-success"
                             href="{{route('jornada.editar', ['id'=> $jorna->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
-
+                            @endcan
                         </td>
 
                         <td class="text-center">

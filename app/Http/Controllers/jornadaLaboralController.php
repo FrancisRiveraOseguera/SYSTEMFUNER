@@ -12,6 +12,7 @@ class jornadaLaboralController extends Controller
 
     public function index(Request $request){
 
+    abort_if(Gate::denies('Listado_jornadaLaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
         $busqueda = trim($request->get('busqueda'));
 
         $jornada = jornadaLaboral::orderby('jornada_laborals.id','DESC')
@@ -103,14 +104,14 @@ class jornadaLaboralController extends Controller
     }
 
     public function editar($id){
-        //abort_if(Gate::denies('Editar_jornada'),redirect()->route('madre')->with('error','No tiene acceso'));
+        abort_if(Gate::denies('Editar_jornadaLaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
         $jornadas = jornadaLaboral::findOrFail($id);
         return view('jornadalaboral/editarJornadaLaboral')
             ->with('jornadas', $jornadas);
     }
 
     public function update(Request $request, $id){
-       // abort_if(Gate::denies('Editar_jornadaLaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
+    abort_if(Gate::denies('Editar_jornadaLaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
         //Validar campos del formulario editar
 
         $rules= [

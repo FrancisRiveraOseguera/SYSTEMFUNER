@@ -343,6 +343,19 @@ class PermisosSeeder extends Seeder
             'guard_name' => 'web'
         ]);
 
+         //Jornada Laboral
+        Permission::create([
+            'name' => 'Listado_jornadaLaboral',
+            'descripcion' => 'Para poder acceder al listado de la jornada laboral.',
+            'guard_name' => 'web'
+        ]); 
+
+        Permission::create([
+            'name' => 'Editar_jornadaLaboral',
+            'descripcion' => 'Para poder editar una jornada laboral.',
+            'guard_name' => 'web'
+        ]);
+
         Permission::create([
             'name' => 'Eliminar_jornadaLaboral',
             'descripcion' => 'Para poder eliminar una jornada laboral',
