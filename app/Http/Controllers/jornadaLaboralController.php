@@ -41,8 +41,10 @@ class jornadaLaboralController extends Controller
     {
        // abort_if(Gate::denies('Nueva_jornadalaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
-            'cargo_id' => 'required|numeric|exists:App\Models\Cargo,id',
+            'empleado_id' => 'required|numeric|exists:App\Models\Empleado,id',
             'turno_id' => 'required|exists:App\Models\Turno,id',
+            'fecha_inicio' => 'required',
+            'fecha_fin' => 'required',
             'duracion' => 'required|max:15|min:5|string',
             'descripcion' => 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
 
@@ -50,8 +52,8 @@ class jornadaLaboralController extends Controller
         ];
 
     $mensaje=[
-           'cargo_id.exists' => 'El cargo no ha sido seleccionado.',
-            'cargo_id.required' => 'El cargo no puede estar vacío.',
+           'empleado_id.exists' => 'El cargo no ha sido seleccionado.',
+            'empleado_id.required' => 'El cargo no puede estar vacío.',
 
             'turno_id.exists' => 'El turno no ha sido seleccionado.',
             'turno_id.required' => 'El turno no puede estar vacío.',
@@ -64,7 +66,8 @@ class jornadaLaboralController extends Controller
             'descripcion.required' => 'La descripción  no puede estar vacía.',
             'descripcion.min' => 'La descripción es muy corta, debe escribir como mínimo 10 letras.',
 
-
+            'fecha_inicio.required' => 'La fecha de inicio no puede estar vacía.',
+            'fecha_fin.required' => 'La fecha de finalización no puede estar vacía.',
 
 
 
@@ -76,10 +79,12 @@ class jornadaLaboralController extends Controller
         $nuevaJornadaLaboral = new jornadaLaboral();
 
         $nuevaJornadaLaboral -> turno_id = $request->input('turno_id');
-        $nuevaJornadaLaboral -> cargo_id = $request->input('cargo_id');
-        $nuevaJornadaLaboral -> descripcion = $request->input('descripcion');
+        $nuevaJornadaLaboral -> cargo_id = $request->input('empleado_id');
         $nuevaJornadaLaboral -> duracion = $request->input('duracion');
-
+        $nuevaJornadaLaboral -> fecha_inicio = $request->input('fecha_inicio');
+        $nuevaJornadaLaboral -> fecha_fin = $request->input('fecha_fin');
+        $nuevaJornadaLaboral -> descripcion = $request->input('descripcion');
+        
         $creado = $nuevaJornadaLaboral-> save();
 
         if ($creado){

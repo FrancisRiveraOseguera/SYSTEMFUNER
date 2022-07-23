@@ -15,9 +15,11 @@ class CreateJornadaLaboralsTable extends Migration
     {
         Schema::create('jornada_laborals', function (Blueprint $table) {
             $table->id();
-            $table->integer('cargo_id');
+            $table->integer('empleado_id');
             $table->integer('turno_id');
             $table->string('descripcion');
+            $table->date('fecha_inicio')->notnull();
+            $table->date('fecha_fin')->notnull();
             $table->string('duracion');
             $table->timestamps();
         });
