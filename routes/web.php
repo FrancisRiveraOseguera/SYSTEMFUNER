@@ -376,6 +376,10 @@ Route::middleware("auth")->group(function () {
     Route::get('/jornadalaboral/{id}/editar', [jornadaLaboralController::class,'editar'])
         ->name('jornada.editar')->where('id', '[0-9]+');
 
+    Route::get('/jornadalaboral/{id}', 'App\Http\Controllers\jornadaLaboralController@show')
+        ->name('jornada.ver')
+        ->where('id', '[0-9]+');
+
     Route::put('/jornadalaboral/{id}/editar', [jornadaLaboralController::class,'update'])
         ->name('jornada.update')->where('id', '[0-9]+');
 

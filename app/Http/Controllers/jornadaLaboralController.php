@@ -39,7 +39,7 @@ class jornadaLaboralController extends Controller
 
     public function create()
     {
-        //abort_if(Gate::denies('Nueva_jornadalaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
+        abort_if(Gate::denies('Nueva_jornadalaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
         return view('/jornadalaboral/nuevajornadalaboral');
     }
 
@@ -47,28 +47,27 @@ class jornadaLaboralController extends Controller
 
 
     {
-       // abort_if(Gate::denies('Nueva_jornadalaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
+       abort_if(Gate::denies('Nueva_jornadalaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'empleado_id' => 'required|numeric|exists:App\Models\Empleado,id',
             'turno_id' => 'required|exists:App\Models\Turno,id',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required',
-            'duracion' => 'required|max:15|min:1|string',
+            'duracion' => 'numeric',
             'descripcion' => 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
 
 
         ];
 
     $mensaje=[
-           'empleado_id.exists' => 'El cargo no ha sido seleccionado.',
-            'empleado_id.required' => 'El cargo no puede estar vacío.',
+           'empleado_id.exists' => 'El empleado no ha sido seleccionado.',
+            'empleado_id.required' => 'El empleado no ha sido seleccionado',
 
             'turno_id.exists' => 'El turno no ha sido seleccionado.',
-            'turno_id.required' => 'El turno no puede estar vacío.',
+            'turno_id.required' => 'El turno no ha sido seleccionado.',
 
-             'duracion.string' => 'La duración de la jornada laboral puede contener letras y números',
-            'duracion.required' => 'La duración de la jornada laboral no puede estar vacía.',
-            'duracion.min' => 'La duración de la jornada laboral es muy corta',
+             'duracion.numeric' => 'La duración de la jornada laboral no puede estar vacía',
+            
 
             'descripcion.regex' => 'La descripción solo puede contener letras',
             'descripcion.required' => 'La descripción  no puede estar vacía.',
@@ -101,6 +100,15 @@ class jornadaLaboralController extends Controller
 
        }
 
+    }
+
+    //FUNCIÓN PARA VER INFORMACIÓN DE LA JORNADA LABORAL
+    public function show($id)
+    {
+       abort_if(Gate::denies('Detalles_jornadaLaboral'),redirect()->route('madre')->with('error','No tiene acceso'));
+
+        $jornadalaboral = jornadalaboral::findOrFail($id);
+        return view('jornadalaboral.detallesJornadaLaboral')->with('jornadalaboral', $jornadalaboral);
     }
 
     public function editar($id){

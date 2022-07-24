@@ -7,10 +7,11 @@
         <h3>Listado jornada laboral</h3>
         <div>
             <br>
-
+            @can('Nueva_jornadalaboral')
             <a class="btn btn-info btn block" href="{{route('jornadalaboral.create')}}">
                 <i class="bi bi-plus-circle"></i>Nueva jornada laboral
             </a>
+            @endcan
 
         </div>
     </div><hr>
@@ -50,6 +51,7 @@
                 <th scope="col">Empleado</th>
                 <th scope="col">Fecha inico</th>
                 <th scope="col">Fecha finalización</th>
+                <th scope="col" class="text-center">Detalles</th>
                 <th scope="col" class="text-center">Editar</th>
                 <th scope="col" class="text-center">Eliminar</th>
 
@@ -62,6 +64,12 @@
                         <td>{{$jorna->empleados->nombres}} {{$jorna->empleados->apellidos}}</td>
                         <td>{{date('d-m-Y',strtotime($jorna->fecha_inicio))}}
                         <td>{{date('d-m-Y',strtotime($jorna->fecha_fin))}}
+                        <td class="text-center">
+                            @can('Detalles_jornadaLaboral')
+                            <a class="btn btn-info"
+                            href="{{route('jornada.ver', ['id'=> $jorna->id])}}"><i class="bi bi-eye"></i>Detalles</a>
+                            @endcan
+                        </td>
                         <td class="text-center">
                             @can('Editar_jornadaLaboral')
                             <a class="btn btn-success"

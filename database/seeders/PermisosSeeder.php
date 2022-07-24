@@ -350,6 +350,13 @@ class PermisosSeeder extends Seeder
             'guard_name' => 'web'
         ]); 
 
+        
+        Permission::create([
+            'name' => 'Nueva_jornadalaboral',
+            'descripcion' => 'Para poder crear una jornada laboral.',
+            'guard_name' => 'web'
+        ]);
+
         Permission::create([
             'name' => 'Editar_jornadaLaboral',
             'descripcion' => 'Para poder editar una jornada laboral.',
@@ -362,6 +369,12 @@ class PermisosSeeder extends Seeder
             'guard_name' => 'web'
         ]);
 
+        Permission::create([
+            'name' => 'Detalles_jornadaLaboral',
+            'descripcion' => 'Para poder ver una jornada laboral.',
+            'guard_name' => 'web'
+        ]);
+
          //clientes deudores
         Permission::create([
             'name' => 'Listado_deudores',
@@ -369,6 +382,9 @@ class PermisosSeeder extends Seeder
             'guard_name' => 'web'
         ]); 
 
+
+
+        
 
     }
 }
