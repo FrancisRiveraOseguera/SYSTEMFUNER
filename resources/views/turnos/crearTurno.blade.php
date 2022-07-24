@@ -23,7 +23,7 @@
 		<p style="background: rgba(227,223,168,0.4); padding: 5px; font-size: 13px; font-weight: bold; color: green; border-radius: 10px">Nota: Para evitar confusiones al ingresar los horarios, se trabaja con el sistema militar de 24 horas (Ejemplo: 1:00pm es igual a 13:00).</p>
 		<div class="form-group row">
 				<label for="name" class="col-lg-3 control-label offset-md-1 requerido">
-					<i id="IcNewEmp" class="bi bi-card-heading"></i>Nombre del turno</label>
+				<i  id="IcNewEmp" class="bi bi-person-badge"></i>Nombre del turno</label>
 			<div class="col-sm-8" name="name">
 				<input type = "text" style="margin-left: -13%"
 					oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
@@ -36,10 +36,10 @@
 		<div class="form-group row">
 			<label for="horario_entrada" class="col-lg-3 control-label offset-md-1 requerido">
 			<i id="IcNewEmp" class="bi bi-clock"></i>Hora de entrada</label>
-			<div class="col-sm-8" name="horario">
-				<input type = "time" style="margin-left: -13%"
+			<div class="col-sm-8">
+				<input type="time" style="margin-left: -13%; width: 100%"
 					oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-					name="horario_entrada" id="horario_entrada"  maxlength = "5"
+					name="horario_entrada" id="horario_entrada"  maxlength = "8"
 					placeholder="Horario de entrada que tendrá el empleado con este horario" class="form-control"
 					value="{{old('horario_entrada', $turnos->horario_entrada ?? '')}}"
 				/>
@@ -50,11 +50,12 @@
 			<label for="horario_salida" class="col-lg-2 control-label offset-md-1 requerido">
 			<i id="IcNewEmp" class="bi bi-clock-fill"></i>Hora de salida</label>
 			<div class="col-sm-8">
-				<input type = "time"
+				<input type="time" style="width: 100%"
 					oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-					name="horario_salida" id="horario_salida"  maxlength = "5"
+					name="horario_salida" id="horario_salida"  maxlength = "8"
 					placeholder="Horario de salida que tendrá el empleado con este horario" class="form-control"
-					value="{{old('horario_salida', $turnos->horario_salida ?? '')}}"/>
+					value="{{old('horario_salida', $turnos->horario_salida ?? '')}}"
+					/>
 			</div>
 		</div><br>
 
