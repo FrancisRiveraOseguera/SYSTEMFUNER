@@ -97,17 +97,15 @@
             
             <label for="fecha_fin" class="col-lg-3 control-label offset-md-1 requerido">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <i id="IcNewEmp"class="bi bi-calendar-date"></i>Fecha finalización</label>
+                <i id="IcNewEmp"class="bi bi-calendar-date-fill"></i>Fecha finalización</label>
             <div class="col-sm-7">
                     
-                    <input type="date" name="fecha_fin" id="fechafin" class="form-control hijo"  readonly 
+                    <input type="date" name="fecha_fin" id="fechafin" class="form-control hijo"  
                     value= "{{old('fecha_fin', $jornadas->fecha_fin ?? '')}}"
                     max="<?php echo date('Y-m-d',strtotime($fecha_actual." 90 day"));?>"
                     min="<?php echo date('Y-m-d',strtotime($fecha_actual." +7 day"));?>"/>
             </div>
         </div>
-
-
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!--Campo que mostrará automáticamente los dias que durará la jornada laboral  -->

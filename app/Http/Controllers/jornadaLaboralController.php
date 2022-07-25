@@ -126,19 +126,17 @@ class jornadaLaboralController extends Controller
             'turno_id' => 'required|exists:App\Models\Turno,id',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required',
-            'duracion' => 'required|max:15|min:1|string',
+            'duracion' => 'required',
             'descripcion' => 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
         ] ;
 
         $mensaje=[
 
-            
             'turno_id.exists' => 'El turno no ha sido seleccionado.',
-            'turno_id.required' => 'El turno no puede estar vacío.',
+            'turno_id.required' => 'El turno no ha sido seleccionado.',
 
-            'duracion.string' => 'La duración de la jornada laboral puede contener letras y números',
-            'duracion.required' => 'La duración de la jornada laboral no puede estar vacía.',
-            'duracion.min' => 'La duración de la jornada laboral es muy corta, debe escribir como mínimo 5 letras.',
+            'duracion.numeric' => 'La duración de la jornada laboral no puede estar vacía',
+            
 
             'descripcion.regex' => 'La descripción solo puede contener letras',
             'descripcion.required' => 'La descripción  no puede estar vacía.',
