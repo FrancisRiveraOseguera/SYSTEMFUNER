@@ -21,6 +21,12 @@
         {{session('mensaje')}}
     </div>
 @endif
+
+@if(session('errors'))
+    <div class="alert alert-danger alert-dismissible">
+        {{session('errors')}}
+    </div>
+@endif
 </div><br>
 
     <!--Creación de tabla-->

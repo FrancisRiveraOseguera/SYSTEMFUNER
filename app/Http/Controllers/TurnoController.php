@@ -6,21 +6,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use App\Models\Turno;
+use App\Models\jornadaLaboral;
 
 class TurnoController extends Controller
 {
     public function index(Request $request){
 
-        $busqueda = trim($request->get('busqueda'));
-        
         $turnos = DB::table('turnos')->orderBy('id', 'DESC')
-            ->where('name', 'LIKE', '%'.$busqueda.'%')
             ->paginate(15)
             ->withQueryString();
 
         return view('turnos/listadoTurnos')
-            ->with('turnos', $turnos)
-            ->with('busqueda', $busqueda);
+            ->with('turnos', $turnos);
     }
 
     public function create()
@@ -122,9 +119,18 @@ class TurnoController extends Controller
 
     public function destroy($id){
         abort_if(Gate::denies('Eliminar_turno'),redirect()->route('madre')->with('error','No tiene acceso'));
+
+        if (is_null($jornada = jornadaLaboral::select("jornada_laborals.id","jornada_laborals.turno_id")
+        ->join("turnos","turno_id","=","turnos.id")
+        ->where('jornada_laborals.turno_id','=',$id)->first())){
         Turno::destroy($id);
 
         return redirect()->route('turnos.index')
             ->with('mensaje', 'El turno fue eliminado exitosamente.');
+        }else{
+            return redirect()->route('turnos.index')
+                ->with('errors', 'El turno no puede eliminarse porque se encuentra asignado en una jornada laboral.');
+        }
+
     }
 }

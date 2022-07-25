@@ -60,7 +60,7 @@
 			<div class="col-sm-8" name="name">
 				<input type = "text" style="margin-left: -13%"
 					oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-					maxlength="25" min="5" name="name" id="name" placeholder="Nombre de turno" class="form-control"
+					maxlength="25" min="5" name="name" id="name" placeholder="Nombre del turno" class="form-control"
 					value="{{old('name', $turnos->name ?? '')}}"
 				/>
 			</div>
