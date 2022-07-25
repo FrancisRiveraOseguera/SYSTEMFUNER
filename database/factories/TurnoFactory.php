@@ -14,9 +14,9 @@ class TurnoFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>$this->faker->randomElement(array('Matutino', 'Vespertino', 'Nocturno')),
-            'horario_entrada'=>$this->faker->randomElement(array('07:00', '15:00', '21:00', '12:00', '00:00')),
-            'horario_salida'=>$this->faker->randomElement(array('15:00', '21:00', '07:00', '08:00', '23:55'))
+            'name'=>$this->faker->randomElement(array('Matutino')),
+            'horario_entrada'=>$this->faker->randomElement(array('07:00', '15:00')),
+            'horario_salida'=>$this->faker->randomElement(array('21:00', '07:00', '23:55'))
         ];
     }
 }

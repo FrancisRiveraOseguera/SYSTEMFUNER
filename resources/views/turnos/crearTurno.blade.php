@@ -21,10 +21,10 @@
     <form method="post" action="" autocomplete="off">
         @csrf
 		<p style="background: rgba(227,223,168,0.4); padding: 5px; font-size: 13px; font-weight: bold; color: green; border-radius: 10px">
-			Nota: Para evitar confusiones al ingresar los horarios, se trabaja con el sistema militar de 24 horas (Ejemplo: 1:00pm es igual a 13:00).
-		<a class="btn" style="color: white; background: rgba(0, 180, 226, 0.8); margin-left: 3%" data-toggle="modal" data-target="#modalPushG">
-			<i class="bi bi-info-circle"> Ayuda</i>
-		</a>
+			Nota: Para evitar confusiones al ingresar los horarios, se trabaja con el sistema militar de 24 horas (Ejemplo: 12:00am es igual a 00:00).
+			<a class="btn" style="color: white; background: rgba(0, 180, 226, 0.8); margin-left: 3%" data-toggle="modal" data-target="#modalPushG">
+				<i class="bi bi-info-circle"> Ayuda</i>
+			</a>
 		</p>
 
             <!--Modal: modalPush-->
@@ -35,13 +35,21 @@
                     <div class="modal-content text-center">
                     <!--Header-->
                     <div class="modal-header d-flex justify-content-center">
-                        <p class="heading">Tabla guía para asignar horas</p>
+                        <p class="heading"><i class="bi bi-info-circle"></i>Tabla de horas en sistema militar</p>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
                     </div>
 
-                    <!--Body-->
+					<!--Body-->
                     <div class="modal-body">
+						<p>Si tiene dudas en cómo colocar alguna hora, puede revisar la próxima tabla en donde se le muestra la manera en que debe escribir cada hora en sistema militar.</p>
                         <img src="../../assets/horario-militar.jpg" width="450" height="500">
                     </div>
+					
+					<!--Footer-->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					</div>
                 </div>
             </div>
     </div>

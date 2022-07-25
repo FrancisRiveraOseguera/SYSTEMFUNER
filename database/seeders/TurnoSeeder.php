@@ -14,6 +14,6 @@ class TurnoSeeder extends Seeder
      */
     public function run()
     {
-        Turno::factory(2)->create();
+        Turno::factory(1)->create();
     }
 }
