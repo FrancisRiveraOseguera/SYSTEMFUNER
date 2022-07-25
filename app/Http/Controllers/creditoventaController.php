@@ -21,7 +21,7 @@ class creditoventaController extends Controller
 
         $ventas = creditoventa::orderby('creditoventas.id','DESC')
 
-            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id", 'estado',
+            ->select("creditoventas.id", "creditoventas.created_at","cliente_id","servicio_id","empleado_id", 'estado', 'creditoventas.fecha',
                 DB::raw('SUM(cuota) AS cuota'))
             ->join("clientes","cliente_id","=","clientes.id")
             ->leftjoin("pagos","pagos.venta_id","=","creditoventas.id")
@@ -245,4 +245,16 @@ class creditoventaController extends Controller
             ->with('busqueda', $busqueda);
 
     }//FIN DE LA FUNCIÓN
+
+    //Función para ver el reporte en PDF de los clientes deudores
+    public function deudoresPDF(){
+        abort_if(Gate::denies('PDF_deudores'),redirect()->route('madre')->with('error','No tiene acceso'));
+
+        $deudores = DB::table("clientes_deudores")
+            ->select('*')
+            ->orderby('id','DESC')
+            ->get();
+
+        return view('clientesDeudores.deudoresPDF')->with('deudores', $deudores);
+    }
 }

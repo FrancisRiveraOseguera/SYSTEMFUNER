@@ -348,9 +348,9 @@ class PermisosSeeder extends Seeder
             'name' => 'Listado_jornadaLaboral',
             'descripcion' => 'Para poder acceder al listado de la jornada laboral.',
             'guard_name' => 'web'
-        ]); 
+        ]);
 
-        
+
         Permission::create([
             'name' => 'Nueva_jornadalaboral',
             'descripcion' => 'Para poder crear una jornada laboral.',
@@ -380,11 +380,12 @@ class PermisosSeeder extends Seeder
             'name' => 'Listado_deudores',
             'descripcion' => 'Para poder acceder al listado de clientes deudores.',
             'guard_name' => 'web'
-        ]); 
+        ]);
 
-
-
-        
-
+        Permission::create([
+            'name' => 'PDF_deudores',
+            'descripcion' => 'Para poder imprimir el reporte de clientes deudores.',
+            'guard_name' => 'web'
+        ]);
     }
 }

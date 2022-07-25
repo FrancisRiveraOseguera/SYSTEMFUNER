@@ -10,9 +10,9 @@
 
         <div class="col-lg-5 row">
             @can('Nueva_venta_crédito')
-            <a class="btn btn-info btn block" target="_blank" href="{{route('ventaCredito.nueva')}}"><i class="bi bi-plus-circle"></i>Nueva venta al crédito</a>
+            <a class="btn btn-info btn block ml-5" target="_blank" href="{{route('ventaCredito.nueva')}}"><i class="bi bi-plus-circle"></i>Nueva venta al crédito</a>
             @endcan
-            <div class="dropdown show ml-2">
+            <div class="dropdown show ml-3">
                 <a class="btn btn-secondary dropdown-toggle pt-2 pb-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Más opciones <i class="bi bi-caret-down"></i>
                 </a>
@@ -20,7 +20,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="{{route('pagos.historialPagos')}}"><i class="fas fa-clipboard-list"></i>Historial de pagos</a>
                     <a class="dropdown-item" href="{{route('creditoVenta.serviciosUsados')}}"><i class="bi bi-clipboard2-check-fill"></i>Listado de servicios usados</a>
-                    <a class="dropdown-item" href="{{route('cliente.deudor')}}"><i class="bi bi-clipboard2-check-fill"></i> listado de clientes deudores</a>
+                    <a class="dropdown-item" href="{{route('cliente.deudor')}}"><i class="bi bi-person-lines-fill"></i> listado de clientes deudores</a>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
     <hr>
 
     <div class="row ml-2">
-        <div class="cuadro mr-2">1</div>
+        <div class="cuadro mr-2"> </div>
         <p class="fuente">Ventas cuyo servicio ha sido marcado como usado</p>
     </div>
 
@@ -84,7 +84,7 @@
                 @elseif($venta->estado==0)
                     <tr class="table-danger">
                 @endif
-                    <td>{{date_format($venta->created_at,"d/m/Y")}}</td>
+                    <td>{{date('d-m-Y',strtotime($venta->created_at))}}</td>
                     <td>{{$venta->clientes->nombres}} {{$venta->clientes->apellidos}}</td>
                     <td>{{$venta->servicios->tipo}}</td>
                     <td>L.{{number_format($venta->servicios->precio - $venta->servicios->prima - $venta->cuota,2)}}</td>

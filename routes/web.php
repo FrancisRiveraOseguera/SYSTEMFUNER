@@ -355,7 +355,7 @@ Route::middleware("auth")->group(function () {
 
     Route::put('/turno/{id}/editar', 'App\Http\Controllers\TurnoController@update')
         ->name('turno.update')->where('id', '[0-9]+');
-    
+
     Route::delete('turno/{id}/eliminar', 'App\Http\Controllers\TurnoController@destroy')
         ->name('turno.eliminar')
         ->where('id', '[0-9]+');
@@ -389,6 +389,9 @@ Route::middleware("auth")->group(function () {
     //cliente deudores
     Route::get('clientes/deudores', [creditoventaController::class,'deudor'])
     ->name('cliente.deudor');
+
+    Route::get('clientes/deudores/PDF', [creditoventaController::class,'deudoresPDF'])
+        ->name('clientesDeudores.PDF');
 
 //todas las rutas anteriores pide estar logueado para acceder a ellas
 });//después de esta linea todas las rutas que se agreguen no pediran estar logueado para acceder.
