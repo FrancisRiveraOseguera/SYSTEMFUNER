@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class cantidad_inventario extends Model
 {
+    protected $table = 'cantidad_inventario';
+
     use HasFactory;
 }

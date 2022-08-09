@@ -7,6 +7,7 @@ use App\Models\Cliente;
 use App\Models\empleado;
 use App\Models\creditoventa;
 use App\Models\Inventario;
+use App\Models\cantidad_inventario;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
@@ -42,19 +43,20 @@ class creditoventaController extends Controller
         abort_if(Gate::denies('Detalles_ventas_crédito'),redirect()->route('madre')->with('error','No tiene acceso'));
         $venta = creditoventa::findOrFail($id);
 
-        if (! is_null(Inventario::where('inventario.servicio_id', '=', $venta->servicio_id)->first())){
-            $servicio = Inventario::where('inventario.servicio_id', '=', $venta->servicio_id)->first();
+        if (! is_null(DB::table('cantidad_inventario')->where('cantidad_inventario.servicio_id', '=', $venta->servicio_id)->first())){
+            $servicio = DB::table('cantidad_inventario')->where('cantidad_inventario.servicio_id', '=', $venta->servicio_id)->first();
         }else{
             $servicio = 0;
         }
 
-        $serviciosEnInventario = Inventario::select('inventario.servicio_id', 'inventario.cantidad_aIngresar', 'servicios.tipo')
-            ->join('servicios', 'inventario.servicio_id', '=', 'servicios.id')
+        $serviciosEnInventario = DB::table('cantidad_inventario')
+            ->select('cantidad_inventario.servicio_id', 'cantidad_inventario.cantidad', 'servicios.tipo')
+            ->join('servicios', 'cantidad_inventario.servicio_id', '=', 'servicios.id')
             ->get();
 
-        $servicioTipo = Inventario::select('inventario.servicio_id', 'servicios.tipo')
-            ->join('servicios', 'inventario.servicio_id', '=', 'servicios.id')
-            ->where('inventario.servicio_id', '=', $venta->servicio_id)
+        $servicioTipo = DB::table('cantidad_inventario')->select('cantidad_inventario.servicio_id', 'servicios.tipo')
+            ->join('servicios', 'cantidad_inventario.servicio_id', '=', 'servicios.id')
+            ->where('cantidad_inventario.servicio_id', '=', $venta->servicio_id)
             ->first();
 
         return view('VentasCredito.detallesVentaCredito')
@@ -176,7 +178,7 @@ class creditoventaController extends Controller
 
         $marcar = creditoventa::findOrFail($id);
 
-        if (! is_null($restarInventario = Inventario::where('inventario.servicio_id', '=', $idServicio)->firstOrFail())){
+        if (! is_null($restarInventario = Inventario::where('inventario.servicio_id', '=', $idServicio)->first())){
             if ($restarInventario -> cantidad_aIngresar > 0){
                 $restarInventario -> cantidad_aIngresar -= 1;
                 $restarInventario -> save();
@@ -189,7 +191,7 @@ class creditoventaController extends Controller
 
             }
             else{
-                $restarInventario -> cantidad_aIngresar = 0;
+                $restarInventario -> cantidad = 0;
             }
         }
     }
