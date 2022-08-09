@@ -178,7 +178,8 @@ class creditoventaController extends Controller
 
         $marcar = creditoventa::findOrFail($id);
 
-        if (! is_null($restarInventario = Inventario::where('inventario.servicio_id', '=', $idServicio)->first())){
+        if (! is_null($restarInventario = Inventario::where('inventario.servicio_id', '=', $idServicio)
+            ->where('cantidad_aIngresar', '>', 0)->first())){
             if ($restarInventario -> cantidad_aIngresar > 0){
                 $restarInventario -> cantidad_aIngresar -= 1;
                 $restarInventario -> save();
