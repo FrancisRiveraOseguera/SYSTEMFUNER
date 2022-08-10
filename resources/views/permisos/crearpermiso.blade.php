@@ -90,11 +90,14 @@
                 <option value="Editar_usuario">Editar_usuario</option> 
                 <option value="Eliminar_usuario">Eliminar_usuario</option>
                 <option value="Listado_deudores">Listado_deudores</option>
+                <option value="PDF_deudores">PDF_deudores</option>
                 <option value="Listado_turnos">Listado_turnos</option>
                 <option value="Nuevo_turno">Nuevo_turno</option>
                 <option value="Editar_turno">Editar_turno</option>
                 <option value="Eliminar_turno">Eliminar_turno</option>
                 <option value="Listado_jornadaLaboral">Listado_jornadaLaboral</option>
+                <option value="Nueva_jornadalaboral">Nueva_jornadalaboral</option>
+                <option value="Detalles_jornadaLaboral">Detalles_jornadaLaboral</option>
                 <option value="Editar_jornadaLaboral">Editar_jornadaLaboral</option>
                 <option value="Eliminar_jornadaLaboral">Eliminar_jornadaLaboral</option>
             </select>     

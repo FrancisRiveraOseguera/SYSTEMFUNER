@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\contadoVenta;
+use App\Models\contadoventa;
 use App\Models\Servicio;
 use App\Models\creditoventa;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class DetalleServicioController extends Controller
     public function index($id){
         abort_if(Gate::denies('Servicio_contado_venta'),redirect()->route('madre')->with('error','No tiene acceso'));
         $servicio = Servicio::findOrFail($id);
-        $ventas = contadoVenta::orderby('contado_ventas.id','DESC')
+        $ventas = contadoventa::orderby('contado_ventas.id','DESC')
         ->select("contado_ventas.id", "contado_ventas.created_at","cliente_id","servicio_id","empleado_id","cantidad_v")
         ->join("clientes","cliente_id","=","clientes.id")
         ->join("empleados","empleado_id","=","empleados.id")
