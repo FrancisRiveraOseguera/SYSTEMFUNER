@@ -20,9 +20,9 @@ class InventarioController extends Controller
         abort_if(Gate::denies('Listado_inventario'),redirect()->route('madre')->with('error','No tiene acceso'));
         $busqueda = trim($request->get('busqueda'));
 
-        $producto = DB::table('inventario')->orderby('id','DESC' )
-            ->select('inventario.id','inventario.servicio_id', 'inventario.empleado_id',
-                'inventario.cantidad_aIngresar', 'inventario.fecha_ingreso', 'empleados.nombres', 'empleados.apellidos')
+        $producto = DB::table('historial_inventarios')->orderby('id','DESC' )
+            ->select('historial_inventarios.id','historial_inventarios.servicio_id', 'historial_inventarios.empleado_id',
+                'historial_inventarios.cantidad_aIngresar', 'historial_inventarios.fecha_ingreso', 'empleados.nombres', 'empleados.apellidos')
             ->join("empleados","empleado_id","=","empleados.id")
             ->where('servicio_id', 'LIKE', '%'.$busqueda.'%')
             ->orwhere('empleados.nombres', 'LIKE', '%'.$busqueda.'%')

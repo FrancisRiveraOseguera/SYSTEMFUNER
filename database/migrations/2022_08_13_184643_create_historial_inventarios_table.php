@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableInventariodeproductos extends Migration
+class CreateHistorialInventariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateTableInventariodeproductos extends Migration
      */
     public function up()
     {
-        Schema::create('inventariodeproductos', function (Blueprint $table) {
+        Schema::create('historial_inventarios', function (Blueprint $table) {
             $table->id();
             $table->integer('servicio_id');
-            $table->integer('inventario_id');
-            $table->integer('cantidadExistente');
+            $table->string('empleado_id', 35);
+            $table->integer('cantidad_aIngresar');
+            $table->text('fecha_ingreso');
             $table->timestamps();
         });
+
+
     }
 
     /**
@@ -29,6 +32,6 @@ class CreateTableInventariodeproductos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventariodeproductos');
+        Schema::dropIfExists('historial_inventarios');
     }
 }
