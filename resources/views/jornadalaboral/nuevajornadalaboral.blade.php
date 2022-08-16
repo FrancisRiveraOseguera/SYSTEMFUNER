@@ -130,6 +130,7 @@
         </div>
 <!-- Código para el calculo de días que durará la jornada laboral -->
         <script src="http://momentjs.com/downloads/moment.min.js"></script>
+        <script src='../../js/moment.min.js'></script>
         <script>$(function(){
             $('#fechafin').on('change', calculardias);
              });
