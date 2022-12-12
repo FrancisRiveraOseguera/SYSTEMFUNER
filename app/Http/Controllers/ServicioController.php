@@ -41,7 +41,7 @@ class ServicioController extends Controller
             'tipo' => 'required |regex:/^[\pL\s\-]+$/u|unique:servicios,tipo|min:5|max:25',
             'categoria' => 'required | alpha',
             'precio' => 'required | numeric| max:200000| min:13000',
-            'detalles' => 'required | string | max:300 ',
+            'detalles' => 'required | string | max:300 |min:5',
             'cuota' => 'required | numeric |min:200|max:1500',
             'prima' => 'required | numeric| max:10000| min:500'
         ] ;
@@ -50,7 +50,7 @@ class ServicioController extends Controller
             'tipo.required'  => 'El tipo de servicio no puede estar vacío.',
             'tipo.regex'  =>'El tipo de servicio no puede contener números.',
             'tipo.unique'  =>'El tipo de servicio debe ser único.',
-            'tipo.min'  =>'El tipo de servicio debe tener al menos de 5 letras.',
+            'tipo.min'  =>'El tipo de servicio debe tener al menos 5 letras.',
             'tipo.max'  =>'El tipo de servicio no debe tener mas de 25 letras.',
 
             'categoria.required' =>'La categoría no puede estar vacía.',
@@ -64,6 +64,7 @@ class ServicioController extends Controller
 
             'detalles.required'  =>'Los detalles del servicio no pueden estar vacíos.',
             'detalles.max'  =>'Los detalles del servicio no puede contener mas de 300 letras.',
+            'detalles.min'  =>'Los detalles del servicio debe tener al menos 5 letras.',
 
             'cuota.required'  =>'La cuota no puede estar vacía.',
             'cuota.numeric'  =>'La cuota no puede contener letras.',
@@ -90,11 +91,11 @@ class ServicioController extends Controller
 
         $creado = $nuevoServicio-> save();
        //comprobar si fue creado
-       if ($creado){
-         return redirect()->route('Servicio.lista')->with('mensaje', 'El servicio fue agregado exitosamente.');
-       }else{
+    if ($creado){
+        return redirect()->route('Servicio.lista')->with('mensaje', 'El servicio fue agregado exitosamente.');
+    }else{
 
-       }
+    }
 
     }//fin funcion store
 
@@ -113,10 +114,10 @@ class ServicioController extends Controller
         //Validar campos del formulario editar
         //Validar campos del formulario editar
         $rules= [
-            'tipo' => 'required |regex:/^[\pL\s\-]+$/u|min:5',
+            'tipo' => 'required |regex:/^[\pL\s\-]+$/u|min:5|unique:servicios,tipo,'.$id,
             'categoria' => 'required | alpha',
             'precio' => 'required | numeric| max:200000| min:13000',
-            'detalles' => 'required | string | max:300 ',
+            'detalles' => 'required | string | max:300|min:5 ',
             'cuota' => 'required | numeric |min:200|max:1500',
             'prima' => 'required | numeric| max:10000| min:500'
         ] ;
@@ -124,7 +125,8 @@ class ServicioController extends Controller
         $mensaje=[
             'tipo.required'  => 'El tipo de servicio no puede estar vacío.',
             'tipo.regex'  =>'El tipo de servicio no puede contener números.',
-            'tipo.min'  =>'El tipo de servicio debe tener al menos de 5 letras.',
+            'tipo.min'  =>'El tipo de servicio debe tener al menos 5 letras.',
+            'tipo.unique'  =>'El tipo de servicio debe ser único.',
 
             'categoria.required' =>'La categoría no puede estar vacía.',
             'categoria.alpha'  =>'La categoría debe ser: Adultos, Juvenil o Infantil.',
@@ -136,6 +138,7 @@ class ServicioController extends Controller
 
             'detalles.required'  =>'Los :attribute del servicio no pueden estar vacíos.',
             'detalles.max'  =>'Los :attribute no pueden contener mas de 300 letras.',
+            'detalles.min'  =>'Los detalles del servicio debe tener al menos 5 letras.',
 
             'cuota.required'  =>'La :attribute no puede estar vacía.',
             'cuota.numeric'  =>'La :attribute no puede contener letras.',

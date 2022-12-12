@@ -14,7 +14,7 @@
                 <ul>
                     @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
-                     @endforeach
+                    @endforeach
                 </ul>
             </div> 
         @endif
@@ -49,7 +49,7 @@
       <div class="form-outline">
         <label class="form-label" for="cuota"><i id="IcNewServ" class="bi bi-currency-dollar"></i>Cuota</label>
         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-        type="float" maxlength = "4" id="cuota" class="form-control"  name="cuota" 
+        type="float" maxlength = "4" id="cuota" class="form-control"  name="cuota" onkeydown="return /[a-z, ]/i.test(event.key)"
         placeholder= "Ingresa la cuota"  value="{{old('cuota', $servicio->cuota?? '')}}"/>
       </div>
     </div>
@@ -58,7 +58,7 @@
       <div class="form-outline">
           <label class=" form-label" for="prima"><i id="IcNewServ" class="bi bi-coin"></i>Prima del servicio</label>
         <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-        type="float" maxlength = "5" id="prima" class="form-control"  name="prima" 
+        type="float" maxlength = "5" id="prima" class="form-control"  name="prima" onkeydown="return /[a-z, ]/i.test(event.key)"
         placeholder= "Ingresa la prima del servicio" value="{{old('prima', $servicio->prima ?? '')}}"/>
       </div>
     </div>
@@ -71,21 +71,22 @@
         <br>
         <textarea  name="detalles"  id="detalles" maxlength="300" 
         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-        placeholder="Ingresa los detalles del servicio" cols="52" rows="1" ></textarea>
+        placeholder="Ingresa los detalles del servicio" cols="52" rows="1" class="form-control">{{old('detalles', $servicio->detalles ?? '')}}</textarea>
 
       </div>
     </div>
+
   
   <div class="col">
       <div class="form-outline">
         <label class="form-label" for="categoria"><i  id="IcNewServ" class="bi bi-list-stars"></i>Categoría</label>  
         <br>
         <select name="categoria" id="categoria"style=background:white  >
-       <option selected value="0" > Elige la categoría del nuevo servicio </option>
-       <option value="Adultos">Adultos</option> 
-       <option value="Juvenil">Juvenil</option> 
-       <option value="Infantil">Infantil</option> 
-       </select> 
+      <option selected value="0" > Elige la categoría del nuevo servicio </option>
+      <option value="Adultos">Adultos</option> 
+      <option value="Juvenil">Juvenil</option> 
+      <option value="Infantil">Infantil</option> 
+      </select> 
       </div>
       </div>
   </div>
@@ -93,9 +94,9 @@
     <!--Contenedor para los botones de la vista agregar servicio-->
       <div  >
       <a class="btn btn-primary " href="{{route('Servicio.lista')}}" > <i class="bi bi-box-arrow-left"></i> Regresar</a>
-     
-       <button type="submit" class="btn btn-success"  href="{{route('Servicio.lista')}}" ><i class="bi bi-save"></i>Guardar</button>
-       </div>
+    
+      <button type="submit" class="btn btn-success"  href="{{route('Servicio.lista')}}" ><i class="bi bi-save"></i>Guardar</button>
+      </div>
   
     <br>
   </div>
@@ -115,13 +116,13 @@
   padding: 20px;
   background-color: #E0F8F7;
   position:relative;
-   }
+  }
 
-   .servfu{
-       font-style: bold;
-       font-family: 'Times New Roman', Times, serif;
-   }
+  .servfu{
+      font-style: bold;
+      font-family: 'Times New Roman', Times, serif;
+  }
 
-   </style>
+  </style>
 
 @endsection

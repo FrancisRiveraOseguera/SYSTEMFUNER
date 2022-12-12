@@ -3,7 +3,7 @@
     include 'conexion.php';
     $query=mysqli_query($mysqli,"SELECT id, cargo  FROM cargos");
     
-   
+
     if(isset($_POST['cargo_id']))
     {
         $cliente_id=$_POST['cargo_id'];
@@ -16,7 +16,7 @@
 
 @section('content')
 
-    <div class="emple">
+<div class="formato">
     <h3> Nuevo empleado</h3>
     <hr>
     @if ($errors->any())
@@ -57,7 +57,7 @@
                     <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
             <div class="col-sm-7">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type = "text"
+                type = "text" onkeydown="return /[a-z, ]/i.test(event.key)"
                 maxlength = "35" name="nombres" id="nombres"  maxlength = "35" placeholder="Nombres del empleado." class="form-control" 
                 value="{{old('nombres', $empleado->nombres ?? '')}}"/>  
             </div>
@@ -71,8 +71,8 @@
                 <i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
             <div class="col-sm-7">
                 <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type = "text"
-                maxlength = "35" name="apellidos" id="apellidos" maxlength = "35"  placeholder="Apellidos del empleado." class="form-control" 
+                type = "text" onkeydown="return /[a-z, ]/i.test(event.key)"
+                maxlength = "35" name="apellidos" id="apellidos"  maxlength = "35"  placeholder="Apellidos del empleado." class="form-control" 
                 value="{{old('apellidos', $empleado->apellidos ?? '')}}"/>  
             </div>
         </div>
@@ -100,7 +100,8 @@
             <div class="col-sm-7">
                 <input type="date" name="fecha_ingreso" id="fecha_ingreso" class="form-control" 
                 value="{{old('fecha_ingreso', $empleado->fecha_ingreso ?? '')}}"
-                max="<?php echo date('Y-m-d',strtotime($fecha_actual));?>"/>
+                max="<?php echo date('Y-m-d',strtotime($fecha_actual));?>"
+                min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 30 year"));?>"/>
             </div>
         </div>
 
@@ -179,7 +180,7 @@
             <div class="col-sm-7">
                 <textarea   maxlength = "100" name="direccion" id="direccion" maxlength="100" 
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                placeholder="Dirección de domicilio."  rows="1" cols="52"
+                placeholder="Dirección de domicilio."  rows="1" cols="52" 
                 class="form-control">{{old('direccion', $empleado->direccion ?? '')}}</textarea>
             </div>
         </div>
@@ -194,33 +195,5 @@
                 
 
     </form>
-
-    
-    <style>
-        .emple {
-            border-top: 1px solid #E6E6E6 ;
-            border-left: 1px solid #E6E6E6 ;
-            border-right: 1px solid #E6E6E6;
-            border-bottom: 1px solid #E6E6E6 ;
-            padding: 20px;
-            background-color: #E0F8F7;
-            position:relative;
-        }
-        
-        .emple{
-            font-style: bold;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-
-        #IcNewEmp{
-        font-size:25px;
-        width: 1em;
-        height: 1em;
-    }
-
-       
-    </style>    
-
 
 @endsection   

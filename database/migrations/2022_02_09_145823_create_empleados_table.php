@@ -17,10 +17,10 @@ class CreateEmpleadosTable extends Migration
 
             $table->increments('id');
             $table->char('identidad', 13);
-            $table->string('nombres', 35);
-            $table->string('apellidos', 35);
+            $table->string('nombres', 3,35);
+            $table->string('apellidos',3, 35);
             $table->string('genero');
-            $table->string('direccion', 100);
+            $table->string('direccion',5, 100);
             $table->date('fecha_ingreso');
             $table->string('cargo_id');
             $table->date('fecha_de_nacimiento');

@@ -58,15 +58,15 @@ class EmpleadoController extends Controller
         abort_if(Gate::denies('Nuevo_empleado'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'identidad' => 'required|regex:([0,1]{1}[0-9]{12})|numeric|unique:empleados,identidad',
-            'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
-            'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
+            'nombres' => 'required|regex:/^[\pL\s\-]+$/u|min:3|max:35',
+            'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|min:3|max:35',
             'genero' => 'required',
             'fecha_ingreso' => 'required',
             'cargo_id' => 'required',
             'fecha_de_nacimiento' => 'required',
             'telefono' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric||unique:empleados,telefono',
             'contacto_de_emergencia' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:empleados,contacto_de_emergencia',
-            'direccion' => 'required|max:100',
+            'direccion' => 'required|min:5|max:100',
         ];
 
     $mensaje=[
@@ -78,10 +78,13 @@ class EmpleadoController extends Controller
         'nombres.required' => 'Los nombres no pueden estar vacíos.',
         'nombres.regex' => 'Los nombres solo deben contener letras. ',
         'nombres.max' => 'Los nombres deben contener 35 letras como máximo.',
+        'nombres.min' => 'El nombre es muy corto, debe contener 3 letras como mínimo.',
 
         'apellidos.required' => 'Los :attribute no pueden estar vacíos.',
         'apellidos.regex' => 'Los :attribute solo deben contener letras. ',
         'apellidos.max' => 'Los :attribute deben contener 35 letras como máximo.',
+        'apellidos.min' => 'El apellido es muy corto, debe contener 3 letras como mínimo.',
+
 
         'genero.required' => 'El género no puede estar vacío.',
 
@@ -103,6 +106,7 @@ class EmpleadoController extends Controller
 
         'direccion.required' => 'La dirección  no puede estar vacía.',
         'direccion.max' => 'La dirección debe contener 100 letras como máximo.',
+        'direccion.min' => 'La dirección es muy corta, debe contener 5 letras como mínimo.',
 
 
     ];
@@ -179,8 +183,8 @@ class EmpleadoController extends Controller
         abort_if(Gate::denies('Editar_empleado'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'identidad' => 'required|regex:([0,1]{1}[0-9]{12})|numeric|unique:empleados,identidad,'.$id,
-            'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
-            'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
+            'nombres' => 'required|regex:/^[\pL\s\-]+$/u|min:3|max:35',
+            'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|min:3|max:35',
             'genero' => 'required',
             'fecha_ingreso' => 'required',
             'cargo_id' => 'required',
@@ -199,10 +203,12 @@ class EmpleadoController extends Controller
             'nombres.required' => 'Los nombres no pueden estar vacíos.',
             'nombres.regex' => 'Los nombres solo deben contener letras.',
             'nombres.max' => 'Los nombres deben contener 35 letras como máximo.',
+            'nombres.min' => 'El nombre es muy corto, debe contener 3 letras como mínimo.',
 
             'apellidos.required' => 'Los :attribute no pueden estar vacíos.',
             'apellidos.regex' => 'Los :attribute solo deben contener letras.',
             'apellidos.max' => 'Los :attribute deben contener 35 letras como máximo.',
+            'apellidos.min' => 'El apellido es muy corto, debe contener 3 letras como mínimo.',
 
             'genero.required' => 'El género no puede estar vacío.',
 
@@ -321,6 +327,6 @@ class EmpleadoController extends Controller
         abort_if(Gate::denies('Pdf_constancia_trabajo'),redirect()->route('madre')->with('error','No tiene acceso'));
         $empleado = Empleado::findOrFail($id);
         return view('empleado.PDFconstanciaTrabajo')->with('empleado', $empleado);
-     }
+    }
 
 }

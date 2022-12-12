@@ -17,12 +17,12 @@
   padding: 20px;
   background-color: #E0F8F7;
   position:relative;
-   }
+  }
 
-   .servfu{
-       font-style: bold;
-       font-family: 'Times New Roman', Times, serif;
-   }
+  .servfu{
+      font-style: bold;
+      font-family: 'Times New Roman', Times, serif;
+  }
 </style>
 
 <!--Contenedor para el título de la vista y los mensajes de error-->
@@ -37,7 +37,7 @@
                 <ul>
                     @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
-                     @endforeach
+                    @endforeach
                 </ul>
             </div>
         @endif
@@ -74,7 +74,7 @@
           <div class="form-outline">
             <label class="form-label" for="cuota"><i id="IcNewServ" class="bi bi-currency-dollar"></i>Cuota</label>
             <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            type="float" maxlength = "4" id="cuota" class="form-control"  name="cuota"
+            type="float" maxlength = "4" id="cuota" class="form-control"  name="cuota" onkeydown="return /[a-z, ]/i.test(event.key)"
             placeholder= "Ingresa la cuota"  value="{{$Servicio->cuota}}"/>
           </div>
         </div>
@@ -83,35 +83,35 @@
           <div class="form-outline">
               <label class=" form-label" for="prima"><i id="IcNewServ" class="bi bi-coin"></i>Prima del servicio</label>
             <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            type="float" maxlength = "5" id="prima" class="form-control"  name="prima"
+            type="float" maxlength = "5" id="prima" class="form-control"  name="prima" onkeydown="return /[a-z, ]/i.test(event.key)"
             placeholder= "Ingresa la prima del servicio" value="{{$Servicio->prima}}"/>
           </div>
         </div>
         </div>
 
       <div class="row mb-4">
-     <div class="col">
+    <div class="col">
           <div class="form-outline">
-            <label class="form-label" for="detalles"><i id="IcNewServ" class="bi bi-pencil-square"></i>Descripción</label>
+            <label class="form-label" for="detalles"><i id="IcNewServ" class="bi bi-pencil-square"></i>Detalles del servicio</label>
             <br>
             <textarea  name="detalles"  id="detalles" maxlength="300"
-                       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                       cols="52" rows="1" >{{$Servicio->detalles}}
+                      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      cols="52" rows="1" >{{$Servicio->detalles}}
             </textarea>
 
           </div>
-     </div>
+    </div>
 
       <div class="col">
           <div class="form-outline">
             <label class="form-label" for="categoria"><i  id="IcNewServ" class="bi bi-list-stars"></i>Categoría</label>
             <br>
             <select name="categoria" id="categoria" style=background:white  >
-           <option selected value="{{$Servicio->categoria}}">{{$Servicio->categoria}}</option>
-           <option value="Adultos">Adultos</option>
-           <option value="Juvenil">Juvenil</option>
-           <option value="Infantil">Infantil</option>
-           </select>
+          <option selected value="{{$Servicio->categoria}}">{{$Servicio->categoria}}</option>
+          <option value="Adultos">Adultos</option>
+          <option value="Juvenil">Juvenil</option>
+          <option value="Infantil">Infantil</option>
+          </select>
           </div>
           </div>
       </div>

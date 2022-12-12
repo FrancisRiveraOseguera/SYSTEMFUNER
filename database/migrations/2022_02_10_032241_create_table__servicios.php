@@ -20,7 +20,7 @@ class CreateTableServicios extends Migration
             $table->float('precio', 8,2);
             $table->float('cuota', 8,2);
             $table->float('prima', 8,2);
-            $table->string('detalles', 300);
+            $table->string('detalles',5, 300);
             $table->timestamps();
         });
     }
