@@ -43,7 +43,7 @@ class ServicioController extends Controller
             'precio' => 'required | numeric| max:200000| min:13000',
             'detalles' => 'required | string | max:300 |min:5',
             'cuota' => 'required | numeric |min:200|max:1500',
-            'prima' => 'required | numeric| max:10000| min:500'
+            'prima' => 'required | numeric| max:10000|min:500'
         ] ;
 
         $mensaje=[

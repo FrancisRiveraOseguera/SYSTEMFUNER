@@ -86,8 +86,8 @@ class GastoController extends Controller
     {
         abort_if(Gate::denies('Nuevo_gasto'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
-            'tipo_gasto' => 'required|regex:/^[\pL\s\-]+$/u|max:70',
-            'detalles_gasto' => 'required|max:1000',
+            'tipo_gasto' => 'required|regex:/^[\pL\s\-]+$/u|max:70|min:5',
+            'detalles_gasto' => 'required|max:1000|min:5',
             'cantidad' => 'required|numeric|min:1|max:15000',
             'empleado_id' => 'required|exists:App\Models\Empleado,id',
             
@@ -97,14 +97,16 @@ class GastoController extends Controller
 
             'tipo_gasto.required' => 'El  tipo de gasto no puede estar vacío.',
             'tipo_gasto.regex' => 'El tipo de gasto solo debe contener letras.',
+            'tipo_gasto.min' => 'El tipo de gasto debe contener al menos 5 letras.',
 
 
             'detalles_gasto.required' => 'La descripción no puede estar vacía.',
+            'detalles_gasto.min' => 'La descripción debe contener al menos 5 letras.',
 
-            'cantidad.required' => 'La cantidad no puede estar vacía.',
-            'cantidad.numeric' => 'La cantidad solo acepta números.',
-            'cantidad.min'  => 'La cantidad no puede ser menor a 1 lempira.',
-            'cantidad.max'  => 'La cantidad no puede ser mayor a 15,000 lempiras.',
+            'cantidad.required' => 'La cantidad total gastada no puede estar vacía.',
+            'cantidad.numeric' => 'La cantidad total gastada solo acepta números.',
+            'cantidad.min'  => 'La cantidad total gastada no puede ser menor a 1 lempira.',
+            'cantidad.max'  => 'La cantidad total gastada no puede ser mayor a 15,000 lempiras.',
 
             'empleado_id.exists' => 'El responsable no ha sido seleccionado',
             'empleado_id.required' => 'El responsable no ha sido seleccionado.',

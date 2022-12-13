@@ -27,7 +27,7 @@ class RoleController extends Controller
         abort_if(Gate::denies('Nuevo_roles'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'name' => 'required|max:15|min:5|unique:roles,name|regex:/^[\pL\s\-]+$/u',
-            'descripcion'=> 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
+            'descripcion'=> 'required|max:100|min:10|regex:/^[\pL\s\-]+$/u',
             'permissions' => 'required'
         ];
         $mensaje=[
@@ -55,7 +55,7 @@ class RoleController extends Controller
 
         if ($rol) {
            return redirect()->route('roles.index')
-            ->with('mensaje', 'El rol fue agregado exitosamente.');
+            ->with('mensaje', 'El rol ha sido agregado exitosamente.');
         }else{
 
         }
@@ -76,7 +76,7 @@ class RoleController extends Controller
         abort_if(Gate::denies('Editar_roles'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'name' => 'required|max:15|min:5|regex:/^[\pL\s\-]+$/u|unique:roles,name,'.$id,
-            'descripcion'=> 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
+            'descripcion'=> 'required|max:100|min:10|regex:/^[\pL\s\-]+$/u',
             'permissions' => 'required'
         ];
         $mensaje=[

@@ -57,9 +57,9 @@ class cargoController extends Controller
             'sueldo.max'  => 'El sueldo mensual no puede ser mayor a 25000 lempiras.',
             'sueldo.min'  => 'El sueldo mensual no puede ser menor a 7000 lempiras.',
 
-            'detalles_cargo.required' => 'Las tareas del cargo no puede estar vacías.',
+            'detalles_cargo.required' => 'Las tareas del cargo no pueden estar vacías.',
             'detalles_cargo.unique' => 'Las tareas del cargo ya existen.',
-            'detalles_cargo.min' => 'Las tareas del cargo debe contener como mínimo 25 letras.',
+            'detalles_cargo.min' => 'Las tareas del cargo deben contener como mínimo 25 letras.',
         ];
 
     $this->validate($request,$rules,$mensaje);

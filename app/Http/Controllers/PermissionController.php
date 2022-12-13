@@ -34,16 +34,17 @@ class PermissionController extends Controller
         abort_if(Gate::denies('Nuevo_permiso'),redirect()->route('madre')->with('error','No tiene acceso'));
         $rules=[
             'name' => 'required|max:31|min:5|unique:permissions,name',
-            'descripcion'=> 'required|max:83',
+            'descripcion'=> 'required|max:83|min:5',
         ];
         $mensaje=[
             'name.required' => 'El nombre del permiso no puede estar vacío.',
             'name.max' => 'El nombre del permiso es muy extenso.',
-            'name.min' => 'El nombre del permiso es muy corto, debe escribir como mínimo 5 letras.',
+            'name.min' => 'El nombre del permiso es muy corto, debe ingresar como mínimo 5 letras.',
             'name.unique' => 'El nombre del permiso ya existe.',
 
             'descripcion.required' => 'La descripción del permiso no puede estar vacía.',
             'descripcion.max' => 'La descripción del permiso es muy extensa.',
+            'descripcion.min' => 'La descripción del permiso es muy corta, debe ingresar como mínimo 5 letras.',
         ];
         $this->validate($request,$rules,$mensaje);
 
@@ -78,7 +79,7 @@ class PermissionController extends Controller
         //Validar campos del formulario editar
         $rules= [
             'name' => 'required|max:31|min:5|unique:permissions,name,'.$id,
-            'descripcion'=> 'required|max:83',
+            'descripcion'=> 'required|max:83|min:5',
             
         ] ;
 
@@ -90,6 +91,7 @@ class PermissionController extends Controller
 
             'descripcion.required' => 'La descripción del permiso no puede estar vacía.',
             'descripcion.max' => 'La descripción del permiso es muy extensa.',
+            'descripcion.min' => 'La descripción del permiso es muy corta, debe ingresar como mínimo 5 letras.',
         ];
 
         $this->validate($request,$rules, $mensaje);
@@ -106,7 +108,7 @@ class PermissionController extends Controller
         //Comprobar si fue actualizado
         if ($actualizado){
             return redirect()->route('permisos.lista')->with('mensaje',
-                'Los datos del permiso han sido actualizados exitosamente.');
+                'El permiso ha sido actualizado exitosamente.');
         }
     }
 
