@@ -43,11 +43,11 @@ class ClienteController extends Controller
         //Validación de los datos
         $rules=[
             'identidad' => 'required|regex:([0,1]{1}[0-9]{12})|numeric|unique:clientes,identidad',
-            'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
-            'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
+            'nombres' => 'required|regex:/^[\pL\s\-]+$/u||min:3|max:35',
+            'apellidos' => 'required|regex:/^[\pL\s\-]+$/u||min:3|max:35',
             'fecha_de_nacimiento' => 'required',
             'telefono' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:clientes,telefono',
-            'direccion' => 'required|max:100',
+            'direccion' => 'required|min:5|max:100',
             'ocupacion' => 'required|regex:/^[\pL\s\-]+$/u|min:5|max:50',
         ];
 
@@ -60,10 +60,12 @@ class ClienteController extends Controller
             'nombres.required' => 'Los :attribute no pueden estar vacíos.',
             'nombres.regex' => 'Los :attribute solo deben contener letras. ',
             'nombres.max' => 'Los :attribute deben contener 35 letras como máximo.',
+            'nombres.min' => 'El nombre es muy corto, debe contener 3 letras como mínimo.',
 
             'apellidos.required' => 'Los :attribute no pueden estar vacío.',
             'apellidos.regex' => 'Los :attribute solo deben contener letras. ',
             'apellidos.max' => 'Los :attribute deben contener 35 letras como máximo.',
+            'apellidos.min' => 'El apellido es muy corto, debe contener 3 letras como mínimo.',
 
             'fecha_de_nacimiento.required' => 'La fecha de nacimiento no puede estar vacía.',
 
@@ -74,6 +76,7 @@ class ClienteController extends Controller
 
             'direccion.required' => 'La dirección  no puede estar vacía.',
             'direccion.max' => 'La dirección debe contener 100 letras como máximo.',
+            'direccion.min' => 'La dirección es muy corta, debe contener 5 letras como mínimo.',
 
             'ocupacion.required'  => 'La ocupación no puede estar vacía.',
             'ocupacion.regex'  =>'La ocupación no puede contener números.',
@@ -102,28 +105,28 @@ class ClienteController extends Controller
                 return redirect()->route('ventaCredito.nueva',['ident'=>$nuevoCliente->id])
                 ->with('mensaje', 'El cliente fue registrado exitosamente.');}//fin if
 
-                
+
                     if($cliente == 0){
                          return redirect()->route('VentaContado.nueva',['ident'=>$nuevoCliente->id])
                          ->with('mensaje', 'El cliente fue registrado exitosamente.');
 
                         }//fin if
 
-                        if($cliente == -2){  
+                        if($cliente == -2){
                              return redirect()->route('listado.clientes')
                           ->with('mensaje', 'El cliente fue registrado exitosamente.');
 
                         }//fin else
 
 
-                
-                        
-                
-    
-                   
-                   
+
+
+
+
+
+
          }
-       
+
     }
 
     /**
@@ -174,11 +177,11 @@ class ClienteController extends Controller
 
         $rules=[
             'identidad' => 'required|regex:([0,1]{1}[0-9]{12})|numeric|unique:clientes,identidad,'.$id,
-            'nombres' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
-            'apellidos' => 'required|regex:/^[\pL\s\-]+$/u|max:35',
+            'nombres' => 'required|regex:/^[\pL\s\-]+$/u||min:3|max:35',
+            'apellidos' => 'required|regex:/^[\pL\s\-]+$/u||min:3|max:35',
             'fecha_de_nacimiento' => 'required',
             'telefono' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:clientes,telefono,'.$id,
-            'direccion' => 'required|max:100',
+            'direccion' => 'required|min:5|max:100',
             'ocupacion' => 'required|regex:/^[\pL\s\-]+$/u|min:5|max:50',
 
         ];
@@ -193,10 +196,12 @@ class ClienteController extends Controller
             'nombres.required' => 'Los :attribute no pueden estar vacíos.',
             'nombres.regex' => 'Los :attribute solo deben contener letras. ',
             'nombres.max' => 'Los :attribute deben contener 35 letras como máximo.',
+            'nombres.min' => 'El nombre es muy corto, debe contener 3 letras como mínimo.',
 
             'apellidos.required' => 'Los :attribute no pueden estar vacíos.',
             'apellidos.regex' => 'Los :attribute solo deben contener letras. ',
             'apellidos.max' => 'Los :attribute deben contener 35 letras como máximo.',
+            'apellidos.min' => 'El apellido es muy corto, debe contener 3 letras como mínimo.',
 
             'fecha_de_nacimiento.required' => 'La fecha de nacimiento no puede estar vacía.',
 
@@ -207,6 +212,7 @@ class ClienteController extends Controller
 
             'direccion.required' => 'La dirección  no puede estar vacía.',
             'direccion.max' => 'La dirección debe contener 100 letras como máximo.',
+            'direccion.min' => 'La dirección es muy corta, debe contener 5 letras como mínimo.',
 
             'ocupacion.required'  => 'La ocupación no puede estar vacía.',
             'ocupacion.regex'  =>'La ocupación no puede contener números.',
@@ -229,7 +235,7 @@ class ClienteController extends Controller
         $actualizar->telefono= $request->input('telefono');
         $actualizar->direccion= $request->input('direccion');
         $actualizar->ocupacion= $request->input('ocupacion');
-        
+
         $actualizado = $actualizar->save();
 
         if ($actualizado){

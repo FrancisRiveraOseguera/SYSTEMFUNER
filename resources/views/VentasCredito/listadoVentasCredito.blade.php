@@ -1,19 +1,22 @@
 @extends('madre')
-
 @section ('title' , 'Listado de ventas al crédito')
 
 @section('content')
-
 <div class="formato">
-    <div class="row">
-        <h3 class="col-lg-7">Listado de ventas al crédito</h3>
+    <div>
+        <h3>Listado de ventas al crédito</h3>
+    </div>
+    <br>
 
-        <div class="col-lg-5 row">
+    <div class="col-12 d-inline-flex">
+        <div class="col-sm-5 d-inline-flex">
             @can('Nueva_venta_crédito')
-            <a class="btn btn-info btn block ml-5" target="_blank" href="{{route('ventaCredito.nueva')}}"><i class="bi bi-plus-circle"></i>Nueva venta al crédito</a>
+                <a class="btn btn-info btn block" target="_blank" href="{{route('ventaCredito.nueva')}}">
+                    <i class="bi bi-plus-circle"></i>Nueva venta al crédito</a>
             @endcan
-            <div class="dropdown show ml-3">
-                <a class="btn btn-secondary dropdown-toggle pt-2 pb-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            <div class="dropdown show ml-1">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Más opciones <i class="bi bi-caret-down"></i>
                 </a>
 
@@ -24,29 +27,28 @@
                 </div>
             </div>
         </div>
-    </div>
-    <br>
 
-    <!--Barra de búsqueda-->
-    <div>
-        <form  action="{{route('ventasCredito.index')}}" method="GET" autocomplete="off" class="">
-            <div  class="input-group input-group-sm">
-                <a type="button" href="{{route('ventasCredito.index')}}" class="btn btn-secondary btn-sm">
-                    Limpiar
-                </a>
+        <!--Barra de búsqueda-->
+        <div class="col-sm-8">
+            <form  action="{{route('ventasCredito.index')}}" method="GET" autocomplete="off" class="">
+                <div  class="input-group input-group-sm-8">
+                    <a type="button" href="{{route('ventasCredito.index')}}" class="btn btn-secondary btn-sm">
+                        Limpiar
+                    </a>
 
-                <input type="search" class="col-sm-5" name="busqueda"
-                       placeholder="Ingrese el nombre del cliente para realizar la búsqueda." value="{{$busqueda}}">
+                    <input type="search" class="col-sm-8" name="busqueda"
+                           placeholder="Ingrese el nombre del cliente para buscar." value="{{$busqueda}}">
 
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
     <hr>
 
-    <div class="row ml-2">
+    <div class="ml-4 d-inline-flex">
         <div class="cuadro mr-2"> </div>
         <p class="fuente">Ventas cuyo servicio ha sido marcado como usado</p>
     </div>

@@ -191,7 +191,7 @@ class EmpleadoController extends Controller
             'fecha_de_nacimiento' => 'required',
             'telefono' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:empleados,telefono,'.$id,
             'contacto_de_emergencia' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric|unique:empleados,contacto_de_emergencia,'.$id,
-            'direccion' => 'required|max:100'
+            'direccion' => 'required|min:5|max:100',
         ];
 
         $mensaje=[
@@ -230,7 +230,7 @@ class EmpleadoController extends Controller
 
             'direccion.required' => 'La dirección  no puede estar vacía.',
             'direccion.max' => 'La dirección debe contener 100 letras como máximo.',
-
+            'direccion.min' => 'La dirección es muy corta, debe contener 5 letras como mínimo.',
         ];
 
     $this->validate($request,$rules,$mensaje);

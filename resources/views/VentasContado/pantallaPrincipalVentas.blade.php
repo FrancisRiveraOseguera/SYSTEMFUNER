@@ -18,7 +18,7 @@
            @endcan
            @can('Nueva_venta_crédito')
            <div class="col-lg-3">
-            <a class="btn btn-info btn block"  target="_blank" href="{{route('ventaCredito.nueva')}}">
+            <a class="btn btn-info btn block" target="_blank" href="{{route('ventaCredito.nueva')}}">
                 <i class="fas fa-file-invoice-dollar"></i>Nueva venta al crédito
             </a>
         </div>

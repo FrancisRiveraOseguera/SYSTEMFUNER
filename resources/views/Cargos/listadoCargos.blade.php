@@ -1,23 +1,22 @@
 @extends('madre')
-
 @section ('title' , 'Listado de Cargos')
 
 @section('content')
-
-
 <div class="formato">
 
     <div>
         <h3>Listado de Cargos</h3>
-        <br>
+    </div>
+    <br>
+
+    <div class="col-12 d-inline-flex">
         @can('Nuevo_cargo')
         <a class="btn btn-info btn block" href="nuevoCargo">
             <i class="bi bi-plus-circle"></i>Nuevo cargo
         </a>
         @endcan
     </div>
-
-<hr>
+    <hr>
 
     <!--Mensajes de alerta -->
     @if(session('mensaje'))
@@ -27,7 +26,6 @@
     @endif
 </div>
 <br>
-
 
 <!--Creación de tabla-->
 <div class="formato !important">

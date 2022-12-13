@@ -53,18 +53,19 @@ class InventarioController extends Controller
         ];
 
     $mensaje=[
-           'servicio_id.exists' => 'El producto no ha sido seleccionado.',
+            'servicio_id.exists' => 'El producto no ha sido seleccionado.',
             'servicio_id.required' => 'El número de producto no puede estar vacío.',
             'servicio_id.numeric' => 'El número de producto solo debe contener números. ',
 
-            'empleado_id.required' => 'El empleado responsable de la venta no ha sido seleccionado.',
+            'empleado_id.required' => 'El empleado responsable no puede estar vacío.',
+            'empleado_id.exists' => 'El empleado responsable no ha sido seleccionado.',
 
             'fecha_ingreso.required' => 'La fecha de ingreso no puede estar vacía.',
 
             'cantidad_aIngresar.required'  =>'La cantidad a ingresar no puede estar vacía.',
-            'cantidad_aIngresar.numeric'  =>'La cantidad a ingresar no puede contener letras.',
-            'cantidad_aIngresar.min'  =>'La cantidad a ingresar no puede ser menor a 1 unidad',
-            'cantidad_aIngresar.max'  =>'La cantidad a ingresar no puede ser mayor a 25 unidades',
+            'cantidad_aIngresar.numeric'  =>'La cantidad a ingresar debe ser un número.',
+            'cantidad_aIngresar.min'  =>'La cantidad a ingresar no puede ser menor a 1 unidad.',
+            'cantidad_aIngresar.max'  =>'La cantidad a ingresar no puede ser mayor a 25 unidades.',
 
 
 

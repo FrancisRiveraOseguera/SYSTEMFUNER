@@ -4,36 +4,39 @@
 
 @section('content')
 
-<div class="vent">
-
-    <div class="xd">
+<div class="formato">
+    <div>
         <h3>Listado de ventas al contado</h3>
- 
-<div>
-    <br>
-    @can('Nueva_ventas_contado')
-    <a target="_blank" class="btn btn-info btn block" href="{{route('VentaContado.nueva')}}">
-        <i class="bi bi-plus-circle"></i>Nueva venta al contado
-    </a>
-    @endcan
-</div>
-</div>
-
-
-<!--Barra de búsqueda-->
-<form  action="{{route('listadoVentas.index')}}" method="GET" autocomplete="off" class="x">
-<div  class="input-group input-group-sm">
-    <a type="button" href="{{route('listadoVentas.index')}}" class="btn btn-secondary btn-sm">Limpiar</a>
-
-    <input type="search" class="col-sm-9" name="busqueda"
-           placeholder="Ingrese el nombre del cliente o empleado para realizar la búsqueda." value="{{$busqueda}}">
-
-    <div class="input-group-append">
-        <button type="submit" class="btn btn-primary"> Buscar</button>
     </div>
-</div>
-</form>
-<hr>
+    <br>
+
+    <div class="col-12 d-inline-flex">
+        <div class="col-sm-4">
+            @can('Nueva_ventas_contado')
+                <a target="_blank" class="btn btn-info btn block" href="{{route('VentaContado.nueva')}}">
+                    <i class="bi bi-plus-circle"></i>Nueva venta al contado
+                </a>
+            @endcan
+        </div>
+
+        <!--Barra de búsqueda-->
+        <div class="col-sm-8">
+            <form  action="{{route('listadoVentas.index')}}" method="GET" autocomplete="off">
+                <div  class="input-group input-group-sm-8">
+                    <a type="button" href="{{route('listadoVentas.index')}}" class="btn btn-secondary btn-sm">Limpiar</a>
+
+                    <input type="search" class="col-sm-9" name="busqueda"
+                           placeholder="Ingrese el nombre o apellido del cliente o empleado para buscar." value="{{$busqueda}}">
+
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary"> Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
     <!--Mensajes de alerta -->
     @if(session('mensaje'))
     <div class="alert alert-success">
@@ -42,8 +45,9 @@
     @endif
 </div>
 <br>
+
 <!--Creación de tabla-->
-<div class="vent !important">
+<div class="formato">
     <table class="table" >
         <thead>
         <tr>
@@ -54,7 +58,7 @@
             <th scope="col">Tipo de servicio</th>
             <th scope="col" class="text-center">Detalles</th>
             <th scope="col" class="text-center">Contratos</th>
-            
+
         </tr>
         </thead>
         <tbody>
@@ -64,7 +68,7 @@
                 <td>{{$vent->clientes->nombres}} {{$vent->clientes->apellidos}}</td>
                 <td>{{$vent->empleados->nombres}} {{$vent->empleados->apellidos}}</td>
                 <td>{{$vent->servicios->tipo}}</td>
-        
+
                 <td class="text-center">
                     @can('Detalles_ventas_contado')
                     <a class="btn btn-info"
@@ -75,7 +79,7 @@
                 <td>
                     <!-- Button trigger modal-->
                     <a class="btn btn-danger" href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}" data-toggle="modal" data-target="#modalPush{{$vent->id}}"><i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
-               
+
                     <!--Modal: modalPush-->
                     <div class="modal fade" tabindex="1" id="modalPush{{$vent->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
@@ -100,14 +104,14 @@
                         </div>
                         </div>
                     </div>
-                
+
                 </td>
-                
+
                 <!--<td class="text-center">
                     <a class="btn btn-danger" href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}">
                         <i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
                 </td>-->
-            
+
                 </td>
 
             </tr>
@@ -138,32 +142,7 @@
 
         }
 
-        .vent {
-            border-top: 1px solid #E6E6E6 ;
-            border-left: 1px solid #E6E6E6 ;
-            border-right: 1px solid #E6E6E6;
-            border-bottom: 1px solid #E6E6E6 ;
-            padding: 20px;
-            background-color: #E0F8F7;
-            position:relative;
-        }
 
-        .vent{
-            font-style: bold;
-            font-family: 'Times New Roman', Times, serif;
-        }
-        .modal-header{
-            font-size: 20px;
-            background-color: #1CB6E9;
-            color: #FFFFFF;
-        }
-        .modal-body{
-            font-size: 15px;
-        }
-        .modal-footer{
-            font-size: 15px;
-        }
-        
     </style>
 
 @endsection

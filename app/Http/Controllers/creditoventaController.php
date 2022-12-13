@@ -105,7 +105,7 @@ class creditoventaController extends Controller
             'cliente_id.exists' => 'El nombre del cliente no ha sido seleccionado.',
             'cliente_id.required' => 'El nombre del cliente no ha sido seleccionado.',
 
-            'empleado_id.required' => 'El empleado responsable de la venta no ha sido seleccionado.',
+            'empleado_id.exists' => 'El empleado responsable de la venta no ha sido seleccionado.',
 
 
             'servicio_id.required' => 'El tipo de póliza de servicio funerario no ha sido seleccionado.',

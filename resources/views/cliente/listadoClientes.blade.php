@@ -1,42 +1,42 @@
 @extends('madre')
-
 @section ('title' , 'Listado de Clientes')
 
 @section('content')
-
-
-<div class="emple">
-
-    <div class="xd">
+<div class="formato">
+    <div>
         <h3>Listado de clientes</h3>
+    <div>
+    <br>
 
-        <div>
-            <br>
+    <div class="col-12 d-inline-flex">
+        <div class="col-sm-5">
             @can('Nuevo_cliente')
             <a class="btn btn-info btn block" href="{{route('cliente.nuevo',['cliente'=>-2])}}">
                 <i class="bi bi-plus-circle"></i>Nuevo cliente
             </a>
             @endcan
         </div>
+
+        <!--Barra de búsqueda-->
+        <div class="col-sm-8">
+            <form  action="{{route('listado.clientes')}}" method="GET" autocomplete="off">
+                <div  class="input-group input-group-sm-8">
+                    <a type="button" href="{{route('listado.clientes')}}" class="btn btn-secondary btn-sm">Limpiar</a>
+
+                    <input type="search" class="col-sm-8" name="busqueda"
+                           placeholder="Ingrese el nombre o la identidad del cliente para buscar." value="{{$busqueda}}">
+
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div></div>
     </div>
     <hr>
-
-    <!--Barra de búsqueda-->
-    <form  action="{{route('listado.clientes')}}" method="GET" autocomplete="off" class="x">
-        <div  class="input-group input-group-sm">
-            <a type="button" href="{{route('listado.clientes')}}" class="btn btn-secondary btn-sm">Limpiar</a>
-
-            <input type="search" class="col-sm-9" name="busqueda"
-                   placeholder="Ingrese el nombre o la identidad del cliente para realizar la búsqueda." value="{{$busqueda}}">
-
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-primary">
-                    Buscar
-                </button>
-            </div>
-        </div>
-    </form>
-
 
     <!--Mensajes de alerta -->
     @if(session('mensaje'))
@@ -47,9 +47,8 @@
 </div>
 <br>
 
-
 <!--Creación de tabla-->
-<div class="emple !important">
+<div class="formato !important">
     <table class="table">
         <thead>
         <tr>
@@ -83,7 +82,6 @@
                         href="{{route('cliente.edit', ['id'=> $client->id])}}"><i class="bi bi-pencil-square"></i>Editar</a>
                     @endcan
                 </td>
-
             </tr>
             @empty
             <tr>
@@ -93,37 +91,5 @@
         </tbody>
     </table>
     {{ $cliente->links()}}
-
-
-    <style>
-        .xd{
-            width:40%;
-        }
-
-        .x{
-            width:65%;
-            float:right;
-            padding: 20px;
-            position: absolute;
-            top: 20%;
-            right: 20px;
-
-        }
-
-        .emple {
-            border-top: 1px solid #E6E6E6 ;
-            border-left: 1px solid #E6E6E6 ;
-            border-right: 1px solid #E6E6E6;
-            border-bottom: 1px solid #E6E6E6 ;
-            padding: 20px;
-            background-color: #E0F8F7;
-            position:relative;
-        }
-
-        .emple{
-        font-style: bold;
-        font-family: 'Times New Roman', Times, serif;
-        }
-    </style>
-
+</div>
 @endsection

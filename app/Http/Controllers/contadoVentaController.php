@@ -15,19 +15,11 @@ class contadoVentaController extends Controller
     public function  ventas() {
         abort_if(Gate::denies('Listado_ventas'),redirect()->route('madre')->with('error','No tiene acceso'));
 
-        //mandarlo  a buscar 
+        //mandarlo  a buscar
         $ventas  = DB::table('todaslasventas')->paginate(15)-> withQueryString();
         return view ('VentasContado/listadoVentas')->with('ContadoVenta',  $ventas);
 
     }
-
-    //public function sumitas(){
-    //   $ventascredito  = DB::select(' SELECT  SUM((select precio from servicios where id = servicio_id)) as Totalventascredito FROM creditoventas
-    //WHERE MONTH(created_at)=MONTH(NOW())');
-    //return view('VentasContado/listadoVentas')->with('venti',$ventascredito);
-
-    //}
-
 
     //función para mostrar  listado de ventas al contado y hacer las búsquedas
     public function index(Request $request){
@@ -111,7 +103,8 @@ class contadoVentaController extends Controller
             'cliente_id.required' => 'El nombre del cliente no ha sido seleccionado.',
 
             'empleado_id.required' => 'El empleado responsable de la venta no ha sido seleccionado',
-           
+            'empleado_id.exists' => 'El empleado responsable de la venta no ha sido seleccionado.',
+
 
             'servicio_id.exists' => 'La póliza de servicio funerario sellecionada no existe en inventario.',
             'servicio_id.required' => 'El tipo de póliza de servicio funerario no ha sido seleccionado.',

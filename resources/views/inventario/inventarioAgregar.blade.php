@@ -23,7 +23,7 @@
 
 @section('content')
 
-    <div class="emple">
+<div class="formato">
     <h3>Agregar a inventario</h3>
     <hr>
     @if ($errors->any())
@@ -36,12 +36,11 @@
             @endforeach
         </ul>
     </div>
-@endif
-
+  @endif
 </div> <br>
 
-    <!--Formulario-->
-    <div class="emple">
+<!--Formulario-->
+<div class="formato">
     <form method="post" action="" autocomplete="off">
         @csrf
 
@@ -120,42 +119,6 @@
         <!--botones-->
         <a class="btn btn-primary" href="{{route('historialinventario.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
         <button type="submit" class="btn btn-success" ><i class="bi bi-save"></i>Guardar</button>
-
-
-
     </form>
-
-
-    <style>
-        .emple {
-            border-top: 1px solid #E6E6E6 ;
-            border-left: 1px solid #E6E6E6 ;
-            border-right: 1px solid #E6E6E6;
-            border-bottom: 1px solid #E6E6E6 ;
-            padding: 20px;
-            background-color: #E0F8F7;
-            position:relative;
-        }
-
-        .emple{
-            font-style: bold;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .hijo{
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-
-        #IcNewEmp{
-        font-size:25px;
-        width: 1em;
-        height: 1em;
-    }
-
-
-    </style>
-
-
+</div>
 @endsection

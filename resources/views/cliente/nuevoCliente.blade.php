@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="emple">
+<div class="formato">
     <h3> Nuevo cliente</h3>
     <hr>
     @if ($errors->any())
@@ -17,12 +17,11 @@
             @endforeach
         </ul>
     </div>
-@endif
-
+   @endif
 </div> <br>
 
-    <!--Formulario para ingresar los datos del cliente-->
-    <div class="emple">
+<!--Formulario para ingresar los datos del cliente-->
+<div class="formato">
     <form method="post" action="" autocomplete="off">
         @csrf
         <div class="form-group row">
@@ -44,7 +43,8 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <i id="IcNewEmp" class="bi bi-person-fill"></i>Nombres</label>
             <div class="col-sm-7">
-                <input type = "text"
+                <input
+                    type = "text" onkeydown="return /[a-z, ]/i.test(event.key)"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     maxlength = "35" name="nombres" id="nombres"
                     placeholder="Nombres del cliente." class="form-control"
@@ -58,7 +58,8 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i id="IcNewEmp" class="bi bi-person-fill"></i>Apellidos</label>
             <div class="col-sm-7">
-                <input type = "text"
+                <input
+                    type = "text" onkeydown="return /[a-z, ]/i.test(event.key)"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     maxlength = "35" name="apellidos" id="apellidos"
                     placeholder="Apellidos del cliente." class="form-control"
@@ -112,7 +113,8 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i id="IcNewEmp" class="fas fa-user-tie"></i>Ocupación</label>
             <div class="col-sm-7">
-                <input type = "text"
+                <input
+                    type = "text" onkeydown="return /[a-z, ]/i.test(event.key)"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     maxlength = "50" name="ocupacion" id="ocupacion"
                     placeholder="Profesión u oficio del cliente." class="form-control"
@@ -130,38 +132,9 @@
             @else
             <a class="btn btn-primary" href="{{route('listado.clientes')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
             @endif
-            @endif   
-        
-        
+            @endif
+
         <button type="submit" class="btn btn-success"  ><i class="bi bi-save"></i>Guardar</button>
     </form>
 </div>
-
-    <style>
-        .emple {
-            border-top: 1px solid #E6E6E6 ;
-            border-left: 1px solid #E6E6E6 ;
-            border-right: 1px solid #E6E6E6;
-            border-bottom: 1px solid #E6E6E6 ;
-            padding: 20px;
-            background-color: #E0F8F7;
-            position:relative;
-        }
-
-        .emple{
-            font-style: bold;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-
-        #IcNewEmp{
-        font-size:25px;
-        width: 1em;
-        height: 1em;
-    }
-
-
-    </style>
-
-
 @endsection
