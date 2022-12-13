@@ -40,13 +40,13 @@ class TurnoController extends Controller
             'name.required' => 'El nombre del turno no puede estar vacío.',
             'name.min' => 'El nombre del turno es muy corto, debe escribir como mínimo 5 letras.',
             'name.unique' => 'El nombre del turno ya existe.',
-            'name.regex' => 'El tipo de turno solo debe contener letras.',
+            'name.regex' => 'El nombre del turno solo debe contener letras.',
 
             'horario_entrada.required' => 'El horario de entrada no puede estar vacío.',
-            'horario_entrada.regex' => 'El tipo de turno solo debe contener letras.',
+            'horario_entrada.regex' => 'El nombre del  turno solo debe contener letras.',
             
             'horario_salida.required' => 'El horario de salida no puede estar vacío.',
-            'horario_salida.regex' => 'El tipo de turno solo debe contener letras.',
+            'horario_salida.regex' => 'El nombre del turno solo debe contener letras.',
         ];
 
         $this->validate($request,$rules,$mensaje);
@@ -88,13 +88,13 @@ class TurnoController extends Controller
             'name.required' => 'El nombre del turno no puede estar vacío.',
             'name.min' => 'El nombre del turno es muy corto, debe escribir como mínimo 5 letras.',
             'name.unique' => 'El nombre del turno ya existe.',
-            'name.regex' => 'El tipo de turno solo debe contener letras.',
+            'name.regex' => 'El nombre del turno solo debe contener letras.',
 
             'horario_entrada.required' => 'El horario de entrada no puede estar vacío.',
-            'horario_entrada.regex' => 'El tipo de turno solo debe contener letras.',
+            'horario_entrada.regex' => 'El nombre del turno solo debe contener letras.',
             
             'horario_salida.required' => 'El horario de salida no puede estar vacío.',
-            'horario_salida.regex' => 'El tipo de turno solo debe contener letras.',
+            'horario_salida.regex' => 'El nombre del turno solo debe contener letras.',
         
 
         ];

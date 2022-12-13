@@ -22,7 +22,7 @@
             <a type="button" href="{{route('ListadoJornadaLaboral.index')}}" class="btn btn-secondary btn-sm">Limpiar</a>
 
             <input type="search" class="col-sm-8" name="busqueda"
-                placeholder="Ingrese el turno o empleado  para realizar la búsqueda." value="{{$busqueda}}">
+                placeholder="Ingrese el turno, nombre o apellido del empleado  para realizar la búsqueda." value="{{$busqueda}}">
 
             <div class="input-group-append">
                 <button type="submit" class="btn btn-primary">

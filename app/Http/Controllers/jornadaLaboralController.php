@@ -127,7 +127,7 @@ class jornadaLaboralController extends Controller
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required',
             'duracion' => 'required',
-            'descripcion' => 'required|max:70|min:10|regex:/^[\pL\s\-]+$/u',
+            'descripcion' => 'required|max:70|min:10|regex:/^[\pL\s\,\.-]+$/u',
         ] ;
 
         $mensaje=[
@@ -138,7 +138,7 @@ class jornadaLaboralController extends Controller
             'duracion.numeric' => 'La duración de la jornada laboral no puede estar vacía',
             
 
-            'descripcion.regex' => 'La descripción solo puede contener letras',
+            'descripcion.regex' => 'La descripción solo puede contener letras y signos de puntuación',
             'descripcion.required' => 'La descripción  no puede estar vacía.',
             'descripcion.min' => 'La descripción es muy corta, debe escribir como mínimo 10 letras.',
 
