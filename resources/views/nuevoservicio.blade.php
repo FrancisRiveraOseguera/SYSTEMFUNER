@@ -16,20 +16,20 @@
                     <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-            </div> 
+            </div>
         @endif
 </div><br>
 
 <!--Formulario-->
-<div class="servfun"> 
+<div class="servfun">
 <form method="post"  autocomplete="off">
-  @csrf 
+  @csrf
   <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
         <label class="form-label" for="tipo"><i id="IcNewServ" class="bi bi-archive"></i>Tipo de servicio</label>
-        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-        type="text" maxlength = "25" id="tipo" class="form-control"  name="tipo" 
+        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        type="text" maxlength = "25" id="tipo" class="form-control"  name="tipo"
         placeholder= "Ingresa el tipo de servicio"  value="{{old('tipo', $servicio->tipo ?? '')}}"/>
       </div>
     </div>
@@ -37,8 +37,8 @@
     <div class="col">
       <div class="form-outline">
           <label class=" form-label" for="precio"><i id="IcNewServ" class="bi bi-cash-coin"></i>Precio del servicio</label>
-        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-        type="float" maxlength = "8" id="precio" class="form-control"  name="precio" 
+        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        type="float" maxlength = "8" id="precio" class="form-control"  name="precio"
         placeholder= "Ingresa el precio del servicio" value="{{old('precio', $servicio->precio?? '')}}" />
       </div>
     </div>
@@ -48,8 +48,8 @@
     <div class="col">
       <div class="form-outline">
         <label class="form-label" for="cuota"><i id="IcNewServ" class="bi bi-currency-dollar"></i>Cuota</label>
-        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-        type="float" maxlength = "4" id="cuota" class="form-control"  name="cuota" onkeydown="return /[a-z, ]/i.test(event.key)"
+        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        type="float" maxlength = "4" id="cuota" class="form-control"  name="cuota"
         placeholder= "Ingresa la cuota"  value="{{old('cuota', $servicio->cuota?? '')}}"/>
       </div>
     </div>
@@ -57,8 +57,8 @@
     <div class="col">
       <div class="form-outline">
           <label class=" form-label" for="prima"><i id="IcNewServ" class="bi bi-coin"></i>Prima del servicio</label>
-        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-        type="float" maxlength = "5" id="prima" class="form-control"  name="prima" onkeydown="return /[a-z, ]/i.test(event.key)"
+        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        type="float" maxlength = "5" id="prima" class="form-control"  name="prima"
         placeholder= "Ingresa la prima del servicio" value="{{old('prima', $servicio->prima ?? '')}}"/>
       </div>
     </div>
@@ -69,35 +69,35 @@
       <div class="form-outline">
         <label class="form-label" for="detalles"><i id="IcNewServ" class="bi bi-pencil-square"></i>Detalles del servicio</label>
         <br>
-        <textarea  name="detalles"  id="detalles" maxlength="300" 
+        <textarea  name="detalles"  id="detalles" maxlength="300"
         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
         placeholder="Ingresa los detalles del servicio" cols="52" rows="1" class="form-control">{{old('detalles', $servicio->detalles ?? '')}}</textarea>
 
       </div>
     </div>
 
-  
+
   <div class="col">
       <div class="form-outline">
-        <label class="form-label" for="categoria"><i  id="IcNewServ" class="bi bi-list-stars"></i>Categoría</label>  
+        <label class="form-label" for="categoria"><i  id="IcNewServ" class="bi bi-list-stars"></i>Categoría</label>
         <br>
         <select name="categoria" id="categoria"style=background:white  >
       <option selected value="0" > Elige la categoría del nuevo servicio </option>
-      <option value="Adultos">Adultos</option> 
-      <option value="Juvenil">Juvenil</option> 
-      <option value="Infantil">Infantil</option> 
-      </select> 
+      <option value="Adultos">Adultos</option>
+      <option value="Juvenil">Juvenil</option>
+      <option value="Infantil">Infantil</option>
+      </select>
       </div>
       </div>
   </div>
-  
+
     <!--Contenedor para los botones de la vista agregar servicio-->
       <div  >
       <a class="btn btn-primary " href="{{route('Servicio.lista')}}" > <i class="bi bi-box-arrow-left"></i> Regresar</a>
-    
+
       <button type="submit" class="btn btn-success"  href="{{route('Servicio.lista')}}" ><i class="bi bi-save"></i>Guardar</button>
       </div>
-  
+
     <br>
   </div>
 

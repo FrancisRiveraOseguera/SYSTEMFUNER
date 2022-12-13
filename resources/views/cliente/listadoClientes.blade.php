@@ -8,7 +8,7 @@
     <div>
     <br>
 
-    <div class="col-12 d-inline-flex">
+    <div class="w-100 d-inline-flex">
         <div class="col-sm-5">
             @can('Nuevo_cliente')
             <a class="btn btn-info btn block" href="{{route('cliente.nuevo',['cliente'=>-2])}}">
@@ -85,7 +85,7 @@
             </tr>
             @empty
             <tr>
-                <th scope="row" colspan="5"> No hay clientes</th>
+                <th scope="row" colspan="5"> No hay clientes.</th>
             </tr>
             @endforelse
         </tbody>

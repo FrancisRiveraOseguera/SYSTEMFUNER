@@ -4,32 +4,34 @@
 @section('content')
 
 <div class="formato">
-
-  <div class="xd">
-    <h3> Listado de servicios funerarios</h3>
-
     <div>
-      <br>
-    @can('Nuevo_servicio')
-    <a class="btn btn-info btn block  "  href="{{route('Servicio.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo servicio</a>
-    @endcan
+        <h3> Listado de servicios funerarios</h3>
+    <div>
+    <br>
+
+    <div class="w-100 d-inline-flex">
+        <div class="col-sm-5">
+            @can('Nuevo_servicio')
+                <a class="btn btn-info btn block  "  href="{{route('Servicio.nuevo')}}"><i class="bi bi-plus-circle"></i>Nuevo servicio</a>
+            @endcan
+        </div>
+
+        <div class="col-sm-7">
+            <!--Barra de búsqueda-->
+            <form action="{{route('Servicio.lista')}}" method="GET"  autocomplete="off" >
+                <div class="input-group input-group-sm-7">
+                    <a type="button" href="{{route('Servicio.lista')}}" class="btn btn-secondary btn-sm">Limpiar</a>
+                    <input type="search" class="col-sm-9" name="busqueda"
+                           placeholder="Ingrese la categoría o el tipo  para buscar." value="{{$busqueda}}">
+
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
     <hr>
-
-    <!--Barra de búsqueda-->
-    <form action="{{route('Servicio.lista')}}" method="GET" class="x"  autocomplete="off" >
-     <div class="input-group input-group-sm">
-          <a type="button" href="{{route('Servicio.lista')}}" class="btn btn-secondary btn-sm">Limpiar</a>
-          <input type="search" class="col-sm-9" name="busqueda"
-           placeholder="Ingrese la categoría o el tipo  para realizar la búsqueda." value="{{$busqueda}}">
-
-              <div class="input-group-append">
-                 <button type="submit" class="btn btn-primary">Buscar</button>
-              </div>
-
-       </div>
-    </form>
 
      <!--Mensaje de alerta para validacón-->
     @if(session('mensaje'))
@@ -40,10 +42,10 @@
 </div>
 <br>
 
-    <!--Creación de tabla de servicios funerarios-->
+<!--Creación de tabla de servicios funerarios-->
 <div class="formato !important">
-  <table class="table ">
-  <thead>
+    <table class="table ">
+    <thead>
      <tr class="table-info ">
       <th scope="col">N° Servicio</th>
       <th scope="col">Tipo de servicio</th>
@@ -54,10 +56,10 @@
       <th scope="col" style="text-align: center;">Editar</th>
       <th scope="col" style="text-align: center;">Ventas</th>
     </tr>
-  </thead>
+    </thead>
 
 
-  <tbody>
+    <tbody>
     @forelse($servicio as $Servicio)
     <tr class="table-primary">
         <th scope="row">{{$Servicio-> id}}</th>
@@ -111,15 +113,15 @@
     @empty
     <tr>
       <td colspan="3">
-          No hay servicios agregados
+          No hay servicios agregados.
       </td>
     </tr>
 
     @endforelse
-   </tbody>
-  </table>
+    </tbody>
+    </table>
 
-   <!--paginación de la tabla-->
-   {{  $servicio->links() }}
+    <!--paginación de la tabla-->
+    {{  $servicio->links() }}
 </div>
 @endsection

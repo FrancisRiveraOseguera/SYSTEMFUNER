@@ -1,16 +1,14 @@
 @extends('madre')
-
 @section ('title' , 'Listado de ventas')
 
 @section('content')
-
 <div class="formato">
     <div>
         <h3>Listado de ventas al contado</h3>
     </div>
     <br>
 
-    <div class="col-12 d-inline-flex">
+    <div class="w-100 d-inline-flex">
         <div class="col-sm-4">
             @can('Nueva_ventas_contado')
                 <a target="_blank" class="btn btn-info btn block" href="{{route('VentaContado.nueva')}}">
@@ -104,45 +102,15 @@
                         </div>
                         </div>
                     </div>
-
                 </td>
-
-                <!--<td class="text-center">
-                    <a class="btn btn-danger" href="{{route('contadoVenta.pdf', ['id'=>$vent->id])}}">
-                        <i class="fas fa-file-pdf"></i>Previsualizar e imprimir contrato</a>
-                </td>-->
-
-                </td>
-
             </tr>
             @empty
             <tr>
-                <th scope="row" colspan="5"> No hay resultados</th>
+                <th scope="row" colspan="5"> No hay resultados.</th>
             </tr>
             @endforelse
         </tbody>
     </table>
     {{ $venta->links()}}
-
 </div>
-
-
-    <style>
-        .xd{
-            width:40%;
-        }
-
-        .x{
-            width:65%;
-            float:right;
-            padding: 20px;
-            position: absolute;
-            top: 25%;
-            right: 20px;
-
-        }
-
-
-    </style>
-
 @endsection

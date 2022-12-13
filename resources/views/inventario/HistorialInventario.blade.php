@@ -5,32 +5,30 @@
 @section('content')
 
 <div class="formato">
-    <div class="row">
-        <div class="col-lg-7">
-            <h3>Historial de inventario</h3>
-        </div>
-
-        <div class="col-lg-2.5 hijo">
-            @can('Nuevo_inventario')
-            <a class="btn btn-info btn block" href="{{route('inventario.create')}}"><i class="bi bi-plus-circle"></i>Agregar a inventario</a>
-            @endcan
-        </div>
-        <div class="col-lg-2.5 pl-4">
-            @can('Cantidad_inventario')
-            <a class="btn btn-success btn block" href="{{route('inventario.verProductos')}}"><i class="bi bi-clipboard-check"></i>Cantidades en inventario</a>
-            @endcan
-        </div>
+    <div>
+        <h3>Historial de inventario</h3>
     </div>
 
+    <div class="w-100 d-inline-flex">
+        @can('Nuevo_inventario')
+            <a class="btn btn-info btn block mr-1" href="{{route('inventario.create')}}"><i class="bi bi-plus-circle"></i>Agregar a inventario</a>
+        @endcan
+
+        @can('Cantidad_inventario')
+            <a class="btn btn-success btn block" href="{{route('inventario.verProductos')}}"><i class="bi bi-clipboard-check"></i>Cantidades en inventario</a>
+        @endcan
+    </div>
+
+
     <!--Barra de búsqueda-->
-    <div>
+    <div class="w-100 col-9">
         <br>
         <form  action="{{route('historialinventario.index')}}" method="GET" autocomplete="off">
-            <div   class="input-group input-group-sm">
+            <div   class="input-group input-group-sm-7">
                 <a type="button" href="{{route('historialinventario.index')}}" class="btn btn-secondary btn-sm">Limpiar</a>
 
-                <input type="search" class="col-sm-7" name="busqueda"
-                    placeholder="Ingrese el número de producto o nombre del responsable para realizar la búsqueda." value="{{$busqueda}}">
+                <input type="search" class="col-sm-8" name="busqueda"
+                    placeholder="Ingrese el número de producto o nombre del responsable para buscar." value="{{$busqueda}}">
 
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-primary">
@@ -73,7 +71,7 @@
 
          @empty
         <tr>
-        <th scope="row" colspan="5"> No hay productos</th>
+        <th scope="row" colspan="5"> No hay productos.</th>
         </tr>
         @endforelse
         </tbody>

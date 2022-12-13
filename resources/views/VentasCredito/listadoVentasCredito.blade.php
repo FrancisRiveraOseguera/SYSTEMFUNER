@@ -8,7 +8,7 @@
     </div>
     <br>
 
-    <div class="col-12 d-inline-flex">
+    <div class="w-100 d-inline-flex">
         <div class="col-sm-5 d-inline-flex">
             @can('Nueva_venta_crédito')
                 <a class="btn btn-info btn block" target="_blank" href="{{route('ventaCredito.nueva')}}">
@@ -48,7 +48,7 @@
     </div>
     <hr>
 
-    <div class="ml-4 d-inline-flex">
+    <div class="ml-3 d-inline-flex">
         <div class="cuadro mr-2"> </div>
         <p class="fuente">Ventas cuyo servicio ha sido marcado como usado</p>
     </div>
@@ -144,7 +144,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <th scope="row" colspan="5">No hay resultados</th>
+                    <th scope="row" colspan="5">No hay resultados.</th>
                 </tr>
             @endforelse
         </tbody>

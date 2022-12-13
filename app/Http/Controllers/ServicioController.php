@@ -133,8 +133,8 @@ class ServicioController extends Controller
 
             'precio.required'  =>'El precio no puede estar vacío.',
             'precio.numeric'  =>'El precio debe contener únicamente números.',
-            'precio.max'  =>'El precio no debe exceder los L.200000.',
-            'precio.min'  =>'El precio debe ser mayor a  L.13000.',
+            'precio.max'  =>'El precio no debe exceder los L.200,000.00.',
+            'precio.min'  =>'El precio debe ser mayor a  L.13,000.00.',
 
             'detalles.required'  =>'Los :attribute del servicio no pueden estar vacíos.',
             'detalles.max'  =>'Los :attribute no pueden contener mas de 300 letras.',
@@ -147,8 +147,8 @@ class ServicioController extends Controller
 
             'prima.required'  =>'La :attribute no puede estar vacío.',
             'prima.numeric'  =>'La :attribute no puede contener letras.',
-            'prima.min'  =>'La :attribute no puede ser menor a L.500.',
-            'prima.max'  =>'La :attribute no puede ser mayor a L.10000.',
+            'prima.min'  =>'La :attribute no puede ser menor a L.500.00.',
+            'prima.max'  =>'La :attribute no puede ser mayor a L.10,000.00.',
 
         ];
 

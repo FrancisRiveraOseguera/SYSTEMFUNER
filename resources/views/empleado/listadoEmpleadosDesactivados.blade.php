@@ -8,7 +8,7 @@
     </div>
     <br>
 
-    <div class="col-12 d-inline-flex">
+    <div class="w-100 d-inline-flex">
         <div class="col-sm-5">
             <a class="btn btn-primary" href="{{route('empleado.index')}}"><i class="bi bi-box-arrow-left"></i>Regresar</a>
         </div>
@@ -110,7 +110,7 @@
                 @endif
                 @empty
                 <tr>
-                    <th scope="row" colspan="5"> No hay empleados desactivados</th>
+                    <th scope="row" colspan="5"> No hay empleados desactivados.</th>
                 </tr>
             @endforelse
         </tbody>

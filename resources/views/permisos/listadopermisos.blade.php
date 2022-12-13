@@ -6,34 +6,39 @@
 
 
 <div class="formato">
-
     <div>
         <h3>Listado de permisos</h3>
-        <br>
-        @can('Nuevo_permiso')
-        <a class="btn btn-info btn block" href="{{route('permisos.create')}}">
-            <i class="bi bi-plus-circle"></i>Nuevo permiso
-        </a>
-        @endcan
     </div>
+    <br>
 
-    <!--Barra de búsqueda-->
-    <form  action="{{route('permisos.lista')}}" method="GET" autocomplete="off" class="x">
-        <div  class="input-group input-group-sm">
-            <a type="button" href="{{route('permisos.lista')}}" class="btn btn-secondary btn-sm"></i>Limpiar</a>
-
-            <input type="search" class="col-sm-9" name="busqueda"
-                placeholder="Ingrese el nombre del permiso para realizar la búsqueda." value="{{$busqueda}}">
-
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-primary">
-                    Buscar
-                </button>
-            </div>
+    <div class="w-100 d-inline-flex">
+        <div class="col-sm-5">
+            @can('Nuevo_permiso')
+                <a class="btn btn-info btn block" href="{{route('permisos.create')}}">
+                    <i class="bi bi-plus-circle"></i>Nuevo permiso
+                </a>
+            @endcan
         </div>
-    </form>
 
-<hr>
+        <div class="col-sm-7">
+            <!--Barra de búsqueda-->
+            <form  action="{{route('permisos.lista')}}" method="GET" autocomplete="off">
+                <div  class="input-group input-group-sm-7">
+                    <a type="button" href="{{route('permisos.lista')}}" class="btn btn-secondary btn-sm"></i>Limpiar</a>
+
+                    <input type="search" class="col-sm-9" name="busqueda"
+                           placeholder="Ingrese el nombre del permiso para buscar." value="{{$busqueda}}">
+
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
 
     <!--Mensajes de alerta -->
     @if(session('mensaje'))
@@ -62,7 +67,7 @@
             <tr class="table-primary">
                 <td>{{$perm->name}}</td>
                 <td>{{$perm->descripcion}}</td>
-                
+
                 <td>
                     @can('Editar_permisos')
                     <a class="btn btn-success"
@@ -92,7 +97,7 @@
 
                                     <!--Body-->
                                     <div class="modal-body">
-                                        
+
                                         <p>Si eliminas este permiso se borrará del listado de permisos de cada rol en caso de que lo estén
                                             utilizando.</p>
                                         <p> <b>¿Deseas continuar?</b> </p>
