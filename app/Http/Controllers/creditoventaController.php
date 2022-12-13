@@ -91,11 +91,11 @@ class creditoventaController extends Controller
             'servicio_id' => 'required',
             'beneficiario1' =>'required|regex:/^[\pL\s\-]+$/u|max:50',
             'telefono1' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
-            'beneficiario2' =>'required|regex:/^[\pL\s\-]+$/u|max:50',
+            'beneficiario2' =>'required|regex:/^[\pL\s\-]+$/u|max:50|min:5',
             'telefono2' => 'required|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
-            'beneficiario3' =>'nullable|regex:/^[\pL\s\-]+$/u|max:50',
+            'beneficiario3' =>'nullable|regex:/^[\pL\s\-]+$/u|max:50|min:5',
             'telefono3' => 'nullable|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
-            'beneficiario4' =>'nullable|regex:/^[\pL\s\-]+$/u|max:50',
+            'beneficiario4' =>'nullable|regex:/^[\pL\s\-]+$/u|max:50|min:5',
             'telefono4' => 'nullable|regex:([2,3,8,9]{1}[0-9]{7})|numeric',
             'fecha' => 'required',
 
@@ -113,6 +113,8 @@ class creditoventaController extends Controller
             'beneficiario1.required' => 'El beneficiario N° 1 no puede estar vacío.',
             'beneficiario1.regex' => 'El beneficiario N° 1 solo debe contener letras. ',
             'befeficiario1.max' => 'El beneficiario N° 1 debe contener 50 letras como máximo.',
+            'befeficiario1.min' => 'El beneficiario N° 1 debe contener 5 letras como mínimo.',
+
 
             'telefono1.required' => 'El teléfono  del beneficiario N° 1 no puede estar vacío.',
             'telefono1.regex' => 'El teléfono del beneficiario  N° 1 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
@@ -121,6 +123,8 @@ class creditoventaController extends Controller
             'beneficiario2.required' => 'El beneficiario N° 2 no puede estar vacío.',
             'beneficiario2.regex' => 'El beneficiario N° 2 solo debe contener letras. ',
             'befeficiario2.max' => 'El beneficiario N° 2 debe contener 50 letras como máximo.',
+            'befeficiario2.min' => 'El beneficiario N° 2 debe contener 5 letras como mínimo.',
+
 
             'telefono2.required' => 'El teléfono del beneficiario N° 2 no puede estar vacío.',
             'telefono2.regex' => 'El teléfono del beneficiario N° 2 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
@@ -128,12 +132,16 @@ class creditoventaController extends Controller
 
             'beneficiario3.regex' => 'El beneficiario N° 3 solo debe contener letras. ',
             'befeficiario3.max' => 'El beneficiario N° 3 debe contener 50 letras como máximo.',
+            'befeficiario3.min' => 'El beneficiario N° 3 debe contener 5 letras como mínimo.',
+
 
             'telefono3.regex' => 'El teléfono del beneficiario N° 3 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
             'telefono3.numeric' => 'El teléfono del beneficiario N° 3 solo acepta números.',
 
             'beneficiario4.regex' => 'El beneficiario N° 4 solo debe contener letras. ',
             'befeficiario4.max' => 'El beneficiario N° 4 debe contener 50 letras como máximo.',
+            'befeficiario4.min' => 'El beneficiario N° 4 debe contener 5 letras como mínimo.',
+
 
             'telefono4.regex' => 'El teléfono del beneficiario N° 4 no cumple el formato correcto, debe de iniciar con 2,3,8 o 9 y contener 8 números.',
             'telefono4.numeric' => 'El teléfono del beneficiario N° 4 solo acepta números.',
