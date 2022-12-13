@@ -67,12 +67,12 @@ class ServicioController extends Controller
             'detalles.min'  =>'Los detalles del servicio debe tener al menos 5 letras.',
 
             'cuota.required'  =>'La cuota no puede estar vacía.',
-            'cuota.numeric'  =>'La cuota no puede contener letras.',
+            'cuota.numeric'  =>'La cuota debe contener únicamente números.',
             'cuota.min'  =>'La cuota no puede ser menor a L.200',
             'cuota.max'  =>'La cuota no puede ser mayor a L.1500',
 
             'prima.required'  =>'La prima no puede estar vacía.',
-            'prima.numeric'  =>'La prima  no puede contener letras.',
+            'prima.numeric'  =>'La prima debe contener únicamente números.',
             'prima.min'  =>'La prima  no puede ser menor a L.500',
             'prima.max'  =>'La prima  no puede ser mayor a L.10000',
 
@@ -141,12 +141,12 @@ class ServicioController extends Controller
             'detalles.min'  =>'Los detalles del servicio debe tener al menos 5 letras.',
 
             'cuota.required'  =>'La :attribute no puede estar vacía.',
-            'cuota.numeric'  =>'La :attribute no puede contener letras.',
+            'cuota.numeric'  =>'La :attribute debe contener únicamente números.',
             'cuota.min'  =>'La :attribute no puede ser menor a L.200.',
             'cuota.max'  =>'La :attribute no puede ser mayor a L.1500.',
 
             'prima.required'  =>'La :attribute no puede estar vacío.',
-            'prima.numeric'  =>'La :attribute no puede contener letras.',
+            'prima.numeric'  =>'La :attribute debe contener únicamente números.',
             'prima.min'  =>'La :attribute no puede ser menor a L.500.00.',
             'prima.max'  =>'La :attribute no puede ser mayor a L.10,000.00.',
 
